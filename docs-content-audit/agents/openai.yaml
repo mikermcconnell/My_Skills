@@ -1,0 +1,7 @@
+interface:
+  display_name: "Docs Content Audit"
+  short_description: "Audit agent-facing Markdown context"
+  default_prompt: "Use $docs-content-audit to review repository Markdown for agent context best practices, identify drift or split authority, and clean up the highest-leverage documentation issues."
+
+policy:
+  allow_implicit_invocation: true

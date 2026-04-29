@@ -1,0 +1,4 @@
+interface:
+  display_name: "Site Reliability Engineer"
+  short_description: "SLOs, observability, and reliability"
+  default_prompt: "Use $site-reliability-engineer to define SLOs, improve observability, or reduce operational toil."

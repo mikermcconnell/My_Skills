@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Designer"
+  short_description: "Visual systems and interface polish"
+  default_prompt: "Use $ui-designer to give this interface a stronger visual system, clearer hierarchy, and more intentional component styling."

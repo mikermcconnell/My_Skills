@@ -1,0 +1,8 @@
+interface:
+  display_name: "Friendly Design Theme"
+  short_description: "Warm operational UI theme for apps"
+  brand_color: "#4F46E5"
+  default_prompt: "Use $friendly-design-theme to apply the Transit On-Demand visual language to this app or feature."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Creator"
+  short_description: "Create and refine reusable Codex skills"
+  default_prompt: "Help me create or improve a Codex skill."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Feature Delivery Loop"
+  short_description: "Iterative feature delivery workflow"
+  default_prompt: "Use $feature-delivery-loop to build or continue a feature by auditing the current state, delivering the next milestone, and verifying the result."
+
+policy:
+  allow_implicit_invocation: true

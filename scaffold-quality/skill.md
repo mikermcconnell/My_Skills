@@ -1,3 +1,8 @@
+---
+name: scaffold-quality
+description: One-command setup for TypeScript project quality tooling. Use when starting a new project or adding ESLint, Husky, strict TypeScript, Codex hooks, and related verification.
+---
+
 # Scaffold Quality Tooling
 
 One-command setup for code quality tooling in any TypeScript project.
@@ -24,13 +29,13 @@ Sets up five layers of project-specific tooling infrastructure. Skip any layer t
 - Fix any resulting errors (usually < 20 for new projects)
 - Leave `strict: true` as a future goal documented in a comment
 
-### 4. Claude Hooks (Project-Level)
-- Create `.claude/settings.json` with PostToolUse hooks:
+### 4. Codex Hooks (Project-Level)
+- Create `.Codex/settings.json` with PostToolUse hooks:
   - `tsc --noEmit` after Write/Edit (60s timeout)
   - Related test runner if vitest/jest is present
 
-### 5. CLAUDE.md Danger Zones
-- Add a Danger Zones table to `.claude/CLAUDE.md` listing high-risk files with verification commands
+### 5. AGENTS.md Danger Zones
+- Add a Danger Zones table to `.Codex/AGENTS.md` listing high-risk files with verification commands
 
 ## Instructions
 
@@ -48,4 +53,4 @@ Sets up five layers of project-specific tooling infrastructure. Skip any layer t
 - For React projects, detect whether it's React Native/Expo vs web-only and adjust accordingly
 
 ## Note
-Coding standards (workflow orchestration, task management, core principles, accountability) live in the **global** `~/.claude/CLAUDE.md` and apply automatically to all projects. This skill only handles project-specific tooling setup.
+Coding standards (workflow orchestration, task management, core principles, accountability) live in the **global** `~/.Codex/AGENTS.md` and apply automatically to all projects. This skill only handles project-specific tooling setup.

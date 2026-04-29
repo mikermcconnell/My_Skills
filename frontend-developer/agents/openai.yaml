@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Developer"
+  short_description: "Responsive, accessible UI implementation"
+  default_prompt: "Use $frontend-developer to implement or refine this front-end UI with strong accessibility, responsiveness, and performance."

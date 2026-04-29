@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Engineer"
+  short_description: "Pragmatic application security reviews"
+  default_prompt: "Use $security-engineer to review this system or change for realistic security risks and concrete remediations."

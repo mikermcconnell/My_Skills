@@ -62,7 +62,7 @@ Flesh out the chosen approach into:
 
 Then offer to save as:
 1. **Design doc** — `docs/plans/YYYY-MM-DD-<topic>-design.md`
-2. **Personal strategy skill** — `~/.claude/skills/my-strategy/skill.md` (updateable reference)
+2. **Personal strategy skill** — `~/.Codex/skills/my-strategy/skill.md` (updateable reference)
 
 ## Key Principles
 

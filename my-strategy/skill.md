@@ -14,7 +14,7 @@ Last updated: 2026-02-25
 | **Day job** | Transit Projects Lead, Barrie Transit (stable, staying put) |
 | **Side focus** | AI-powered investing tools + agentic coding |
 | **Investing style** | Active, AI-informed, building custom tooling for personal edge |
-| **AI skill level** | Actively building with Claude Code, MCP, skills, agents |
+| **AI skill level** | Actively building with Codex, MCP, skills, agents |
 | **Constraint** | Time — full-time job + life limits available hours |
 
 ## Strategic Direction: AI Quant Stack + Compounding Flywheel

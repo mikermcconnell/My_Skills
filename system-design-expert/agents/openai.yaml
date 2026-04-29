@@ -1,0 +1,3 @@
+description: Practical feature and app system design review
+display_name: "System Design Expert"
+default_prompt: "Use $system-design-expert to decide where feature logic should live, review boundaries, and recommend the simplest clean structure before implementation."
