@@ -1,0 +1,26 @@
+{
+  "skill_name": "full-underwriting",
+  "evals": [
+    {
+      "id": 1,
+      "name": "radisson-development-underwrite",
+      "prompt": "Run a full underwriting on Radisson Mining (RDS.V) after Agnico Eagle's strategic investment. We already established that Agnico invested above market, received governance and ownership rights, and O'Brien has an expanding resource. Do not restart the research from scratch. I want to know whether RDS is actually investable at today's price after future mine financing, dilution, resource conversion, milling risk and realistic bear/base/bull project values. Also tell me whether this is a 3-month, 1-year or multi-year investment and give me an actual date when the thesis should be re-underwritten.",
+      "expected_output": "Uses mining overlay; anchors current price and fully diluted/post-financing capitalization; distinguishes strategic validation from takeover speculation; performs project NAV plus an independent cross-check; estimates what is priced in; models financing/dilution; produces genuine Bear/Base/Bull cases, downside and expected-return/skew; gives an explicit expected holding period, target realization date and mandatory re-underwrite date tied to drilling/development milestones; identifies kill criteria; ends with exactly one allowed posture rather than a generic company report.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "amazon-compounder-underwrite",
+      "prompt": "Take our existing Amazon research and move it to full underwriting. The question is whether AMZN is investable at the current price based on AWS AI demand, retail margin expansion, capex intensity and free-cash-flow normalization. I don't want a company summary. Tell me what today's price appears to imply, give bear/base/bull values and explain whether the thesis should be thought of as a 6-month trade, a 2-year investment or a 5-year compounder. Give a calendar re-underwrite date even if the thesis is long term.",
+      "expected_output": "Uses operating/hyperscale-cloud economics; preserves existing research; anchors to current price, market cap/EV and dilution where material; identifies measurable variant perception and reverse valuation; connects AI demand/utilization/capex to operating profit and cash returns; separates fundamental upside from multiple expansion; gives scenario values and return timing; provides a multi-year target horizon if supported but still sets a mandatory re-underwrite date no later than roughly 12 months absent a user-specified cadence; states what must be true by that date; ends with one allowed posture.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "biotech-hold-underwrite",
+      "prompt": "Underwrite a clinical-stage biotech after a major FDA clinical hold caused a 25% stock decline. The lead program is important but not the company's only asset. Research says treated patients are currently clinically stable, but causality is unresolved and there is some class safety precedent. Determine whether the selloff creates an investable asymmetric opportunity. I want the market-implied program value/probability, rNPV-style scenarios, cash runway and dilution, strongest safety countercase, and a specific time horizon/end date for the trade or thesis.",
+      "expected_output": "Uses biotech/event overlay; does not equate asymptomatic patients with benign risk; separates clinical evidence, regulatory probability and commercial value; anchors enterprise value and cash runway; includes future financing/dilution; uses rNPV and/or market-implied probability as appropriate; provides success/delay/failure or Bear/Base/Bull cases with timing; identifies the information required to lift uncertainty; assigns an expected holding period, target realization date and re-underwrite date tied to the FDA process rather than extending the thesis indefinitely; may conclude Watch/Pass if the evidence is insufficient.",
+      "files": []
+    }
+  ]
+}
