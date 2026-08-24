@@ -1,0 +1,4 @@
+interface:
+  display_name: "Whimsy Injector"
+  short_description: "Tasteful delight and personality"
+  default_prompt: "Use $whimsy-injector to add personality and delight to this interface without hurting clarity, accessibility, or task flow."

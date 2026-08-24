@@ -1,0 +1,4 @@
+interface:
+  display_name: "DevOps Automator"
+  short_description: "CI/CD, deployments, and ops automation"
+  default_prompt: "Use $devops-automator to improve this deployment, CI/CD workflow, environment setup, or operational automation."

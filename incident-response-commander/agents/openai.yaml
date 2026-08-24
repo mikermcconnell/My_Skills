@@ -1,0 +1,4 @@
+interface:
+  display_name: "Incident Response Commander"
+  short_description: "Incident response and post-mortems"
+  default_prompt: "Use $incident-response-commander to structure an incident, severity assessment, or post-mortem."
