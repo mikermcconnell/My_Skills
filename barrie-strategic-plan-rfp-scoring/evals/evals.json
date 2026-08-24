@@ -1,0 +1,68 @@
+{
+  "skill_name": "barrie-strategic-plan-rfp-scoring",
+  "evals": [
+    {
+      "id": "inventory_proponent_folder",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. Inventory the Arcadis proponent folder before scoring. Tell me which PDFs map to F.1 to F.5 and flag anything missing or unclear.",
+      "expected_output": "Runs or follows the inventory process first. Lists available PDFs by likely Section F area. Flags missing or unclear files. Does not score, calculate totals, compare proponents, review pricing, or edit Excel.",
+      "files": [
+        "FIN2026-064P Barrie Transit Strategic Plan - Final BT.pdf",
+        "FIN2026-064P Addendum 1 Final w Attachment.pdf",
+        "FIN2026-064P Addendum 2 Final.pdf",
+        "FIN2026-064P Addendum 3 Final.pdf",
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<proponent folder with section PDFs>"
+      ]
+    },
+    {
+      "id": "score_full_proponent_section_f",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. Score one full proponent against Section F using the PDFs in their folder. Draft worksheet-ready comments and suggested 1-10 scores. Do not calculate totals and do not edit the workbook.",
+      "expected_output": "Runs the full-vendor scoring loop. Starts with a short score table, then review flags, then paste-ready worksheet comments, then a QC check. Scores F.1, F.2a, F.2b, F.2c, F.2d, F.3a, F.3b, F.4, and F.5. Each row has a suggested 1-10 score and point-form Minimum, Preference, and Improvement comments. Output uses Mike's direct style. No weighted points, totals, pricing review, workbook edits, or proponent comparison are included.",
+      "files": [
+        "FIN2026-064P Barrie Transit Strategic Plan - Final BT.pdf",
+        "FIN2026-064P Addendum 1 Final w Attachment.pdf",
+        "FIN2026-064P Addendum 2 Final.pdf",
+        "FIN2026-064P Addendum 3 Final.pdf",
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<proponent folder with section PDFs>"
+      ]
+    },
+    {
+      "id": "tightened_full_vendor_output",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. We finished Arcadis calibration. Score the next vendor as a full vendor review using the tightened process.",
+      "expected_output": "Uses Arcadis as calibration: strong rows usually score 9, 10 is reserved for clearly exceptional rows, and small gaps are noted without automatically lowering the score. Provides output in this order: score table, review flags, paste-ready worksheet comments, and QC check. Review flags include only material issues such as missing evidence, weak support, PM/Senior Transit Planner not shown on F.3 references, F.5 timing issues, actual pricing/rates, or Mike decision points. QC confirms all 9 rows scored, no totals, no pricing review, no comparison, and concise Excel-ready comments.",
+      "files": [
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<proponent folder with section PDFs>"
+      ]
+    },
+    {
+      "id": "score_f2_only",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. Review only the Project Team Qualifications and Experience PDF. Draft paste-ready comments and suggested 1-10 scores for F.2a, F.2b, F.2c, and F.2d.",
+      "expected_output": "Output is limited to F.2a through F.2d. Comments use Minimum, Preference, and Improvement headings. Scores are 1-10 only. Missing evidence is stated plainly and not inferred. No totals or workbook edits are included.",
+      "files": [
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<Project Team Qualifications and Experience PDF>"
+      ]
+    },
+    {
+      "id": "flag_missing_files_without_scoring",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. This proponent folder seems incomplete. Check what is missing and do not score yet.",
+      "expected_output": "Inventories the folder and identifies missing or unclear Section F PDFs. Explains which worksheet rows are affected. Does not provide suggested scores, totals, pricing review, workbook edits, or comparisons.",
+      "files": [
+        "<incomplete proponent folder>"
+      ]
+    },
+    {
+      "id": "confirm_no_totals_or_excel_edits",
+      "prompt": "Use the Barrie Strategic Plan RFP scoring skill. Draft comments for F.5 and tell me the suggested score only. Do not give me weighted points or fill the Excel file.",
+      "expected_output": "Provides only F.5 Work Plan and Schedule with a suggested 1-10 score and point-form comments. Does not calculate weighted points, section totals, technical totals, or edit the workbook. Flags pricing in the uncosted matrix only if noticed as an obvious issue.",
+      "files": [
+        "FIN2026-064P Barrie Transit Strategic Plan - Final BT.pdf",
+        "FIN2026-064P Addendum 1 Final w Attachment.pdf",
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<F.5 Work Plan and Schedule PDF>"
+      ]
+    }
+  ]
+}

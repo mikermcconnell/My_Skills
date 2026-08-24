@@ -1,6 +1,6 @@
 ---
 name: transit-benchmarking
-description: Systematic peer transit agency analysis with standardized metrics. Use when comparing Barrie Transit to peer agencies, researching best practices, or building comparison matrices for strategic planning. Triggers include "peer comparison", "benchmark", "how do other agencies", "what does Kingston/Guelph/Oakville do", "best practices", "compare to peers", "other transit agencies", "industry standard", "peer agency", "how does Barrie compare", or any request to research what similar transit systems are doing.
+description: Systematic peer transit agency analysis with standardized metrics. Use when comparing Barrie Transit to peer agencies, researching best practices, building comparison matrices, or answering questions about what similar transit systems are doing and what Barrie can learn from them.
 ---
 
 # Transit Agency Benchmarking
@@ -173,7 +173,7 @@ When documenting peer best practices:
 7. **Document best practices** - What can Barrie learn?
 8. **Draft recommendations** - Actionable next steps
 
-## Common Pitfalls
+## Gotchas
 
 - Comparing raw numbers without per-capita normalization
 - Ignoring regional context (GO Transit, university presence)

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Database Optimizer"
+  short_description: "Schema, indexes, and query tuning"
+  default_prompt: "Use $database-optimizer to diagnose slow queries and improve schema or indexing."

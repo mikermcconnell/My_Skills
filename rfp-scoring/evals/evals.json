@@ -1,0 +1,37 @@
+{
+  "skill_name": "rfp-scoring",
+  "evals": [
+    {
+      "id": "score_full_section_f_submission",
+      "prompt": "Using the attached FIN2026-064P RFP, addenda, evaluation workbook, and one proponent submission, draft worksheet-ready Section F comments and suggested 1-10 scores for all scored rows. Do not calculate totals or review pricing.",
+      "expected_output": "Output includes F.1, F.2a, F.2b, F.2c, F.2d, F.3a, F.3b, F.4, and F.5. Each row has a suggested 1-10 score and point-form Minimum, Preference, and Improvement comments. No weighted points, section totals, technical totals, price review, or cross-proponent comparison are included.",
+      "files": [
+        "FIN2026-064P Barrie Transit Strategic Plan - Final BT.pdf",
+        "FIN2026-064P Addendum 1 Final w Attachment.pdf",
+        "FIN2026-064P Addendum 2 Final.pdf",
+        "FIN2026-064P Addendum 3 Final.pdf",
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<one proponent submission>"
+      ]
+    },
+    {
+      "id": "draft_f2_comments_only",
+      "prompt": "Review this proponent's Project Team Qualifications and Experience section only. Draft comments I can paste into the F.2 worksheet rows and suggest 1-10 scores for F.2a to F.2d.",
+      "expected_output": "Output is limited to F.2a, F.2b, F.2c, and F.2d. Comments are point form and use Minimum, Preference, and Improvement headings. Scores are 1-10 only. Missing evidence is flagged plainly and not inferred.",
+      "files": [
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<proponent F.2 submission file>"
+      ]
+    },
+    {
+      "id": "gap_review_no_workbook_edit",
+      "prompt": "Check this submission for gaps against Section F. Do not fill in the workbook. I just want the weak spots and any red flags before I score it.",
+      "expected_output": "Output lists Section F gaps by worksheet row. It does not edit the workbook, does not calculate totals, does not review pricing, and only includes red flags where there are material risks or unclear items.",
+      "files": [
+        "FIN2026-064P Barrie Transit Strategic Plan - Final BT.pdf",
+        "Individual Evaluation Worksheets FIN2026-064P.xlsx",
+        "<one proponent submission>"
+      ]
+    }
+  ]
+}

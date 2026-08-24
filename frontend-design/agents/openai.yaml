@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Design web, map, and newsletter interfaces"
+  default_prompt: "Use $frontend-design to design or refine a web page, map UI, or newsletter front end."

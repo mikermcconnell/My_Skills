@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Sprint Prioritizer"
+  short_description: "Prioritize backlog and sprint scope"
+  default_prompt: "Use $product-sprint-prioritizer to rank this backlog, shape sprint scope, or decide what to build next."

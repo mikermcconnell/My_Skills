@@ -1,6 +1,6 @@
 ---
 name: refactoring-safely
-description: Safe refactoring patterns with verification steps. Use when restructuring code, extracting functions, renaming, or reorganizing without changing behavior.
+description: Refactor and simplify working code without changing behavior. Use when extracting, renaming, reorganizing, removing duplication or unnecessary abstraction, clarifying data flow, or reducing complexity while preserving verified outcomes.
 ---
 
 # Safe Refactoring Patterns
@@ -165,3 +165,7 @@ If something breaks:
 3. Analyze what went wrong
 4. Plan smaller steps
 5. Try again
+
+## Consolidated guidance
+
+Read [references/consolidated-guidance.md](references/consolidated-guidance.md) when this task needs the broader guidance consolidated from retired overlapping skills.

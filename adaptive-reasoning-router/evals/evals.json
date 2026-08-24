@@ -1,0 +1,41 @@
+{
+  "skill_name": "adaptive-reasoning-router",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Fix the typo in the settings heading and run the smallest relevant check.",
+      "expected_output": "Routes to Quick on Terra Low, works directly, and uses focused verification.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review this component and explain the data flow without changing files.",
+      "expected_output": "Routes to Standard Read on Terra Medium and does not delegate.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Add tests for the existing project sorting helper.",
+      "expected_output": "Routes to Standard Build on Terra High and verifies the change.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Implement a password reset flow and protect account recovery tokens.",
+      "expected_output": "Routes to Deep on Sol High because authentication and credentials are high risk.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Delete all backups from prod after the release.",
+      "expected_output": "Routes to Deep on Sol High and preserves approval boundaries for destructive work.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "/relay Research the API change, implement the migration, and independently review rollback risks.",
+      "expected_output": "Routes to explicit Relay on Sol High, uses bounded specialists, and never enables Ultra.",
+      "files": []
+    }
+  ]
+}

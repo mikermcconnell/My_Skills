@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX Architect"
+  short_description: "Layout systems and UX foundations"
+  default_prompt: "Use $ux-architect to restructure this interface around clearer hierarchy, stronger layout primitives, and a better task flow."

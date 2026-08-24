@@ -1,0 +1,23 @@
+{
+  "skill_name": "code-review-checklist",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please review this PR. It adds a retry loop around payment submission, changes the order status update, and touches the webhook handler. I care most about whether anything here could double-charge or leave orders stuck.",
+      "expected_output": "Review focuses first on correctness, state consistency, retries, idempotency, and webhook safety, with evidence-based findings rather than style nits.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Can you audit these changes? The team refactored a React + TypeScript settings page and moved some validation from the form into a shared helper. Please call out anything risky or likely to regress.",
+      "expected_output": "Review checks behavior preservation, validation movement, React/TypeScript concerns when applicable, and prioritizes user-visible regressions and maintainability.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I do not need a line-by-line nitpick. I want the top issues in this backend diff: a migration, a new cache layer, and some logging changes around account deletion.",
+      "expected_output": "Review stays selective, covers migration safety, cache coherence, privacy/logging risk, and returns a concise high-signal findings list.",
+      "files": []
+    }
+  ]
+}

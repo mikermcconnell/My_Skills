@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adaptive Reasoning Router"
+  short_description: "Route work safely between Terra and Sol"
+  default_prompt: "Use adaptive routing for this task. Choose Terra Low, Terra Medium, Terra High, or Sol High; reserve Relay for an explicit multi-agent request."

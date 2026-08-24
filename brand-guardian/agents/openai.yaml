@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Guardian"
+  short_description: "Brand consistency across interfaces"
+  default_prompt: "Use $brand-guardian to make this product's interface more consistent, recognizable, and aligned to a reusable house style."

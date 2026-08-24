@@ -1,0 +1,7 @@
+interface:
+  display_name: "BTTP Test Detours"
+  short_description: "Create realistic BTTP simulated detours"
+  default_prompt: "Use $bttp-test-detours to create a realistic BTTP simulated detour preset that avoids out-and-back paths."
+
+policy:
+  allow_implicit_invocation: true

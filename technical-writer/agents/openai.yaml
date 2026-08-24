@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical Writer"
+  short_description: "Developer docs, READMEs, and tutorials"
+  default_prompt: "Use $technical-writer to draft or improve developer documentation, API docs, or a README."

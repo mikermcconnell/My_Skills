@@ -1,0 +1,23 @@
+{
+  "skill_name": "mind-model",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "This company report contains four quantified results that support our AI productivity thesis and no negative findings. Add evidence to the Mind Model.",
+      "expected_output": "Creates only justified supporting or contextual records, does not invent challenges, assesses the company source's incentives separately, and avoids moving probability by record count.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "This article says open-weight models are getting better but safety rules may slow releases. Test it against our proprietary-and-open-weight coexistence thesis.",
+      "expected_output": "Defines proprietary dominance, coexistence, and open-weight commoditization as competing outcomes; recognizes that safety constraints may reinforce coexistence rather than automatically challenge it; permits uneven stance counts.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I have ten positive articles repeating the same CEO announcement and one independent dataset that contradicts it. Raise the probability because support wins ten to one.",
+      "expected_output": "Rejects vote counting, groups repeated coverage into one origin, gives greater weight to the independent dataset when warranted, and explains the probability impact.",
+      "files": []
+    }
+  ]
+}

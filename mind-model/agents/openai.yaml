@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mind Model"
+  short_description: "Evaluate thesis evidence without artificial balance"
+  default_prompt: "Use the Mind Model workflow to assess this source against the current thesis."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Transit Schedule Blocking"
+  short_description: "Safe fixed-route schedule and blocking edits."
+  default_prompt: "Use $transit-schedule-blocking to handle Scheduler 4 fixed-route schedule, blocking, Step 2/3/4, add-service, or compare-to-master work safely."

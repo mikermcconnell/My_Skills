@@ -1,0 +1,23 @@
+{
+  "skill_name": "wedding-planning-planner",
+  "evals": [
+    {
+      "id": 1,
+      "name": "start_guest_list_from_contacts",
+      "prompt": "Help me start the wedding guest list from my contacts. Group people by family, friends, work, and maybe. Keep it private.",
+      "expected_output": "Checks current wedding files, uses contacts MCP only if available, avoids dumping full contact details, creates a practical grouped guest-list structure, and asks only for missing invite rules."
+    },
+    {
+      "id": 2,
+      "name": "venue_shortlist",
+      "prompt": "We need to shortlist wedding venues near Barrie for about 90 people and keep the budget reasonable. Give me the first pass.",
+      "expected_output": "Uses current web information for venues, compares options in a concise table, flags hidden costs and unknowns, and recommends next outreach steps."
+    },
+    {
+      "id": 3,
+      "name": "rsvp_followup",
+      "prompt": "Draft a quick RSVP follow-up for people who have not answered yet. Make it friendly but direct.",
+      "expected_output": "Reads RSVP context if available, drafts one concise message in Mike's style, does not send it, and asks for recipient list or confirmation before using contact details."
+    }
+  ]
+}
