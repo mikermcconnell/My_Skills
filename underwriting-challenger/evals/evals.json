@@ -1,0 +1,19 @@
+{
+  "skill_name": "underwriting-challenger",
+  "evals": [
+    {
+      "id": 1,
+      "name": "royalty-double-count-challenge",
+      "prompt": "Challenge a biotech underwriting that values a drug's royalties, adds all commercial milestones at face value, includes acquired royalty cash flow before a creditor sweep ends, and concludes INVESTABLE. The source pack and model assumptions are available. Form an independent view before reconciling the verdict.",
+      "expected_output": "Reconstructs price-implied value independently; audits ownership and temporary creditor claims; identifies double-counting between high-sales royalties and milestones; tests cash-flow timing; calculates a conclusion-changing breakpoint; distinguishes factual, probability, valuation and timing disagreements; concludes Survives With Revisions, Not Decision-Ready or Fails as supported; does not silently rewrite the original or size a position.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "cyclical-duration-challenge",
+      "prompt": "Challenge a tanker underwriting that extrapolates one extreme route assessment across the fleet and assumes rates remain elevated through 2028. The stock already doubled. Audit the thesis independently.",
+      "expected_output": "Separates marginal route quotes from fleet-realized TCEs; reconstructs open days and normalized-rate path; tests duration, traffic recovery, insurance, volume destruction and fleet supply; calculates the rate/duration breakpoint embedded in the price; audits annualized return and opportunity cost; reaches one allowed challenge verdict with required revisions.",
+      "files": []
+    }
+  ]
+}

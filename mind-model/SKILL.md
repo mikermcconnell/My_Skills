@@ -1,125 +1,151 @@
 ---
 name: mind-model
-description: Maintain and evaluate TaskTracker Mind Model theses without artificial evidence balance. Always use when researching, discussing, scoring, forecasting, changing probabilities, extracting source evidence, classifying SUPPORT/CHALLENGE/CONTEXT, or developing an investment implication for any strategic or investing thesis.
+description: Maintain and evaluate TaskTracker Mind Model theses using atomic evidence, event novelty, thesis-effect classification, source independence, calibrated probability changes, and explicit competing outcomes. Always use when researching, discussing, scoring, forecasting, changing probabilities, extracting source evidence, classifying SUPPORT, CHALLENGE, or CONTEXT, or developing an investment implication for a strategic or investing thesis.
 ---
 
 # Mind Model
 
-Use this workflow to turn sources into calibrated, falsifiable thesis evidence and actionable investment conclusions. Preserve what the source actually says; do not manufacture symmetry.
+Turn sources and resolved events into calibrated, falsifiable thesis evidence without artificial balance or duplicate counting.
 
-## Non-negotiable rule
+## Non-negotiable rules
 
 There is no target mix of supporting, challenging, or contextual evidence.
 
-- A source may produce three supporting records and no challenges.
-- A source may be entirely challenging.
-- A source may add context without moving probability.
-- A mixed source may produce any uneven combination.
-- Never invent, stretch, or relabel a claim to make the counts look balanced.
+- A source may be entirely supporting, entirely challenging, or contextual only.
+- Never invent, stretch, or relabel a claim to balance counts.
+- Repeated coverage sharing one origin is one evidentiary observation.
+- A new article is not automatically new evidence.
+- Event novelty, thesis effect, evidence stance, and investment action are separate classifications.
+- No Radar, RWC, monitor, or model result automatically changes thesis wording, probability, status, valuation, or holdings.
 
-The goal is accurate classification, not debate-stage balance.
+## Reference
+
+Read `references/evidence-classification.md` when a stance is unclear, the thesis is hybrid/coexistence, or the event may be repeated guidance or confidence-only evidence.
 
 ## Workflow
 
-### 1. Read the current model
+### 1. Read the current thesis and revision
 
-Before evaluating a source, read the current thesis, baseline, probability range, assumptions, measurable forecasts, strongest opposing case, falsifiers, investment hypothesis, and revision.
+Before evaluating evidence, read:
 
-Restate the thesis as a falsifiable claim. If it is a broad hybrid or coexistence thesis, identify the real competing outcomes first. For example:
+- exact thesis wording and scope;
+- baseline and current probability range;
+- named competing outcomes;
+- assumptions and mechanism;
+- measurable forecasts and resolution dates;
+- strongest opposing case and falsifiers;
+- investment hypothesis and current revision.
 
-1. Proprietary models dominate.
-2. Proprietary and open-weight models coexist materially.
-3. Open weights commoditize the model layer.
+Restate the thesis as a falsifiable claim. Define scenario boundaries before classifying evidence for a hybrid or coexistence thesis.
 
-Do not treat evidence for both sides as automatic proof of the middle scenario.
+### 2. Reconcile the Event Ledger record when one exists
 
-### 2. Assess the source separately from its direction
+Record separately:
+
+- `event_id` and original source;
+- prior baseline;
+- `delta_class`: GENUINELY_NEW, REPEATED_GUIDANCE, INDEPENDENT_CONFIRMATION, ACCELERATION, DECELERATION, CONTRADICTION, RISK_DISCLOSURE, or UNKNOWN;
+- `thesis_effect`: INTRINSIC_VALUE_CHANGE, PROBABILITY_CHANGE, TIMING_CHANGE, CONFIDENCE_ONLY, MONITOR_ONLY, or NO_CHANGE;
+- information cutoff and first-seen time.
+
+A genuinely new event may still be `MONITOR_ONLY`. Repeated guidance may be `NO_CHANGE`. Independent confirmation may change confidence without changing the central forecast.
+
+Do not create a new evidence record merely because another article repeats the same event. Link it to the existing event and independence group.
+
+### 3. Assess source quality separately from direction
 
 Record:
 
-- proximity to the underlying fact
-- reliability and limitations
-- author incentives or conflicts
-- independence group
-- publication date and original URL
+- proximity to the underlying fact;
+- source origin and claim status;
+- reliability, methods, and limitations;
+- author or sponsor incentives;
+- independence group;
+- publication date, information cutoff, and original URL.
 
-Reliability affects evidence strength, not stance. A promotional company source can support a thesis; label it support and reduce its strength or add limitations rather than pretending it is context.
+Reliability affects strength, not stance. A promotional company source can support a thesis; label it SUPPORT with appropriate limitations rather than disguising it as context.
 
-### 3. Split the source into atomic claims
+### 4. Split into atomic decision-relevant claims
 
-Create one evidence record per decision-relevant claim. Do not create records merely to summarize every section of a source.
+Create one evidence record per claim that can change the thesis, forecast, or interpretation. Do not summarize every paragraph.
 
-For each claim, ask:
+For each claim ask:
 
-> If this claim is true, does it make the stated thesis or forecast more likely, less likely, or neither?
+> If this claim is true, does it make this exact thesis or measurable forecast more likely, less likely, or neither?
 
-Classify the result:
+Classify:
 
-- `SUPPORT`: raises the probability of the thesis or its measurable forecast.
-- `CHALLENGE`: lowers that probability or raises a genuinely competing outcome.
-- `CONTEXT`: explains mechanism, scope, timing, uncertainty, or a sub-assumption without materially opposing the overall thesis.
+- `SUPPORT` — raises probability of the thesis or forecast.
+- `CHALLENGE` — lowers probability or raises a named competing outcome.
+- `CONTEXT` — changes mechanism, scope, timing, uncertainty, or interpretation without materially moving probability.
 
-If the relationship is ambiguous, explain the ambiguity and use `CONTEXT`; do not force a challenge.
+When ambiguous, explain why and use CONTEXT; do not force a challenge.
 
-### 4. Check the classification for thesis leakage
+### 5. Check for thesis leakage and duplicate evidence
 
-Watch for these common errors:
+Watch for:
 
-- A claim challenges one side of a hybrid thesis but actually reinforces coexistence.
-- A source limitation is mislabeled as challenging evidence.
-- The strongest opposing case is manufactured from a source that does not make it.
-- Repeated reporting from one origin is counted as independent confirmation.
-- Several weak records are treated as stronger than one high-quality primary source.
+- evidence for one side of a hybrid thesis automatically treated as proof of coexistence;
+- a source limitation mislabeled as a challenge;
+- a manufactured strongest opposing case;
+- many articles sharing one original source counted separately;
+- a repeated target treated as a fresh probability update;
+- several weak records outweighing one decisive primary fact;
+- intrinsic-value changes mixed with world-outcome probability changes.
 
-Read `references/evidence-classification.md` when a stance is unclear or the thesis is hybrid or coexistence.
+Rejected or missed Radar events belong in the calibration record. They become Mind Model evidence only when they contain a claim that actually bears on the thesis.
 
-### 5. Update probabilities by impact, not votes
+### 6. Update probability by impact, not votes
 
-Do not count support minus challenge.
+Assess the change using:
 
-Assess how much the new evidence should move probability based on:
+- independence;
+- proximity and reliability;
+- magnitude and relevance;
+- strength of the causal connection;
+- novelty relative to baseline;
+- whether the evidence discriminates among competing outcomes;
+- whether the effect changes probability, timing, confidence, or intrinsic value.
 
-- independence
-- proximity and reliability
-- size and relevance of the observed effect
-- strength of the causal connection
-- whether the evidence was already expected
-- whether it discriminates between competing outcomes
+State `raise`, `lower`, or `no change`. Use ranges only when justified. Leave probability unchanged for repeated guidance, weakly linked context, or non-independent confirmation that does not change the model.
 
-Leave probability unchanged when a source merely restates the existing thesis or lacks independent proof. Explain why.
+### 7. Keep the investment conclusion separate
 
-### 6. Keep the investment conclusion separate
+Evaluate independently:
 
-Evaluate four different questions:
+1. probability of the world outcome;
+2. which company or security captures value;
+3. whether the financial effect is material;
+4. whether intrinsic value or only confidence/timing changed;
+5. whether the current security price is attractive;
+6. whether the idea clears the portfolio hurdle and opportunity cost.
 
-1. How likely is the world outcome?
-2. Which company benefits if it occurs?
-3. Is the earnings impact material?
-4. Is the benefit already reflected in valuation?
+A high-probability thesis can remain `NO_TRADE`, `LOW_CONVICTION`, or `WATCH`.
 
-A high-probability thesis can still be `NO_TRADE` or `LOW_CONVICTION`.
+### 8. Write safely to TaskTracker
 
-### 7. Write safely to TaskTracker
+When a write is explicitly requested:
 
-For TaskTracker Mind Model work:
-
-1. Back up or read the latest overview immediately before writes.
-2. Capture original sources before evidence.
-3. Add only the evidence records justified by the source.
-4. Submit wording, probability, status, or investment changes as a proposal against the latest thesis revision.
-5. Never approve or claim approval as an API-key agent; Mike decides in the authenticated UI.
-6. Reread the overview and verify source IDs, evidence IDs, proposal status, and persistence.
+1. read or back up the latest overview immediately before writing;
+2. capture the original source and Event Ledger link before evidence;
+3. add only justified atomic evidence records;
+4. preserve independence groups and do not duplicate one origin;
+5. submit wording, probability, status, forecast, or investment changes as a proposal against the latest revision;
+6. never approve or claim approval as an API-key agent;
+7. reread and verify source IDs, evidence IDs, proposal status, revision, and persistence.
 
 ## Output standard
 
 Report:
 
-- the source's actual position
-- evidence records with their natural, possibly uneven stance counts
-- genuine competing outcomes affected
-- probability impact, including no change
-- investment impact, including no trade
-- unresolved questions
-- whether any proposal remains pending
+- prior thesis and competing outcomes;
+- event delta class and thesis effect when applicable;
+- source origin, claim status, and independence group;
+- natural SUPPORT / CHALLENGE / CONTEXT records;
+- probability effect and reason, including no change;
+- timing and intrinsic-value effects separately;
+- investment implication, including no trade;
+- unresolved questions and next evidence/date;
+- proposal status when persistence was requested.
 
-Never praise a result for being balanced. Praise it for being accurate, independent, and discriminating.
+Never praise a result for being balanced. Praise it for being accurate, independent, novel, and discriminating.

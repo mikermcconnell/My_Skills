@@ -1,0 +1,19 @@
+{
+  "skill_name": "radar-calibration-audit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "quarterly-funnel-audit",
+      "prompt": "Audit the last quarter of News Radar. We have Event Ledger records for advances, waits, monitors and rejects, plus RWC and underwriting outcomes. I want to know whether the process is catching investable news and what should change.",
+      "expected_output": "Freezes the cohort and defined universe; validates append-only original snapshots; reports capture, latency, novelty precision, duplicate rate, P1 precision, P2 resolution, underwriting yield, source/category performance, confidence calibration, missed events, false positives and research waste; separates decision quality from returns; states data limitations; recommends narrow changes with sample size, forward test and rollback rather than overfitting.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "lucky-winner-postmortem",
+      "prompt": "A Radar idea rose 80% after we advanced it, but the original mechanism was later shown to be wrong. Another well-researched idea fell 20% even though the predicted operating metric materialized. Evaluate the process.",
+      "expected_output": "Classifies the first as a potentially unsound winning decision and the second as a potentially sound losing decision; preserves original information; evaluates mechanism, capture, expectations and horizon; avoids using returns alone as process proof; recommends changes only if a repeatable failure pattern exists.",
+      "files": []
+    }
+  ]
+}
