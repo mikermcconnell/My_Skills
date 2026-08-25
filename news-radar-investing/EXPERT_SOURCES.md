@@ -1,44 +1,53 @@
-# Expert / Industry Source Lane
+# Expert and Industry Source Lane
 
-News Radar Investing should actively monitor high-signal expert and industry sources that can surface investable developments before they are fully reflected in conventional financial news.
+Monitor high-signal experts and industry publications that may surface important claims before they appear in conventional financial news. Expert sources improve discovery and interpretation; they are not automatic proof.
 
 ## SemiAnalysis / Dylan Patel
 
-Treat SemiAnalysis and Dylan Patel as priority sources for AI and semiconductor-related radar discovery, especially for:
+Treat SemiAnalysis and Dylan Patel as priority discovery sources for:
 
 - AI accelerators, GPUs, custom ASICs, and inference/training economics;
 - datacenter architecture, networking, optics, memory, storage, and power;
 - semiconductor manufacturing, packaging, foundry capacity, equipment, and supply chains;
-- hyperscaler and AI-lab capex, deployment cadence, utilization, and unit economics;
-- emerging bottlenecks, vendor share shifts, product roadmaps, and second-order beneficiaries.
+- hyperscaler and AI-lab capex, utilization, deployment cadence, and unit economics;
+- bottlenecks, vendor share shifts, product roadmaps, and second-order beneficiaries.
 
-Actively look for genuinely new material from:
+Look for genuinely new material from articles, notes, posts, podcasts, interviews, conference appearances, and contributor commentary.
 
-- SemiAnalysis articles and research notes;
-- Dylan Patel posts/tweets and threads;
-- podcasts, interviews, conference appearances, and long-form discussions featuring Dylan Patel;
-- new claims or observations from SemiAnalysis contributors that could change an investment thesis.
+## Event Ledger treatment
+
+For every expert-source lead record:
+
+1. what was newly said and when;
+2. the prior baseline;
+3. `delta_class`;
+4. source origin `NAMED_INDUSTRY_EXPERT`;
+5. claim status: fact, channel check, estimate, forecast, derived calculation, or judgment;
+6. the expert item's independence group;
+7. listed companies or value-chain nodes affected;
+8. preliminary financial mechanism;
+9. what requires independent verification;
+10. Radar route and next evidence.
+
+Reject recycled commentary. A new podcast clip that repeats an earlier published estimate is `REPEATED_GUIDANCE`, not a new event.
 
 ## Evidence rules
 
-These sources are high-priority discovery and analytical evidence, but they are not automatic proof.
+- Separate expert analysis, estimates, channel checks, and opinions from confirmed facts.
+- Trace material factual claims to filings, counterparties, suppliers, customers, contracts, official data, or other independent evidence when possible.
+- Do not downgrade a useful lead merely because it first appears in a podcast or post. Route it when the source may have an informational or analytical edge and the mechanism is plausible.
+- Identify whether the edge is new information, expert interpretation, channel knowledge, or a non-obvious cross-company mapping.
+- When the expert claim conflicts with guidance or consensus, route the disagreement to Research With Confidence rather than resolving it superficially in Radar.
+- Group media articles repeating the expert under the same independence origin.
 
-- Separate Dylan Patel/SemiAnalysis analysis, estimates, channel checks, and opinions from confirmed facts.
-- Trace material factual claims to primary sources, company disclosures, filings, suppliers/customers, or independent evidence when possible.
-- Do not downgrade a potentially valuable signal merely because it first appears in a podcast, post, or expert commentary. Advance it when the source has a credible informational edge and the economic mechanism is plausible.
-- Explicitly identify when the investment edge comes from expert interpretation or channel knowledge rather than a newly published company fact.
-- Reject recycled commentary. Require a genuinely new claim, datapoint, forecast revision, channel observation, or analytical conclusion that could materially change expectations.
-- When a new SemiAnalysis/Dylan Patel item conflicts with market consensus or company guidance, flag the disagreement as a candidate for Research With Confidence rather than resolving it superficially in the radar stage.
+## RWC handoff
 
-## Radar output
+A P1 expert-source handoff should distinguish:
 
-When a SemiAnalysis or Dylan Patel item passes the threshold, state:
+- directionally plausible claim versus exact numerical claim;
+- known numerator and missing denominator;
+- source-provided estimate versus independently reproduced calculation;
+- direct beneficiary versus companies that merely share the theme;
+- what observation could falsify the expert's interpretation.
 
-1. what was newly said or published and when;
-2. whether it is a fact, channel check, estimate, forecast, or judgment;
-3. which listed companies or value-chain nodes could be affected;
-4. the plausible financial mechanism;
-5. what would need independent verification;
-6. why it deserves (or does not deserve) immediate high-reasoning follow-up.
-
-SemiAnalysis/Dylan Patel coverage is an additional radar lane, not a replacement for primary-source, medical, macro, regulatory, commodity, social-arbitrage, or company-specific scanning.
+Expert monitoring supplements primary-source, clinical, macro, regulatory, commodity, social-arbitrage, and company-specific scanning. It does not replace them.
