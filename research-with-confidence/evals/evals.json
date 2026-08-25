@@ -1,0 +1,26 @@
+{
+  "skill_name": "research-with-confidence",
+  "evals": [
+    {
+      "id": 1,
+      "name": "sanctions-causal-refinement",
+      "prompt": "Radar says a new sanctions package removed 60 tankers and should immediately increase tanker rates. Research this with confidence and decide whether the lead should advance.",
+      "expected_output": "Reconstructs what the 60 count includes; traces the original sanctions document; separates direct vessel removals from ecosystem effects; tests whether rates were already moving because of conflict, insurance, rerouting, or other confounders; provides a counterfactual; may refine the thesis toward duration rather than immediate magnitude; separates mechanism confidence from security-mispricing confidence; hands off an exact reverse-underwriting question or rejects/waits.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "expert-claim-independent-check",
+      "prompt": "An industry expert says one AI lab earns $50 million of revenue per inference megawatt and will absorb half of incremental global compute next year. Validate the claim and identify investable read-throughs without using my portfolio context.",
+      "expected_output": "Does not load broad personal context; separates the exact numerical claims; identifies missing denominators and attribution rules; triangulates with contracts, capacity, revenue, and supplier evidence; gives different confidence levels for direction versus exact figures; maps direct, second-order, and false-friend beneficiaries; routes valuation questions to Full Underwriting rather than making an unsupported buy call.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "clinical-approval-expectations",
+      "prompt": "A biotech received an expected FDA approval and a $250 million milestone. The stock had risen 30% before the PDUFA. Determine what is actually new and whether the lead deserves underwriting.",
+      "expected_output": "Uses the clinical/biotech overlay; compares the label, efficacy, safety, commercial rights, milestone, royalties, cash runway, and pre-event expectations; does not treat the milestone as a surprise merely because it became cash; checks ownership claims and possible double-counting; separates clinical, commercial, capture, and mispricing confidence; produces a clear advance/wait/monitor/reject decision and exact underwriting question.",
+      "files": []
+    }
+  ]
+}
