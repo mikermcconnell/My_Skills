@@ -1,72 +1,117 @@
-# Evidence classification guide
+# Evidence Classification Guide
 
-## Start with the thesis
+## Four separate questions
 
-Evidence direction is always relative to the exact thesis or forecast being tested. The same claim can support one thesis and challenge another.
+Before assigning SUPPORT, CHALLENGE, or CONTEXT, classify:
 
-Example claim: "Mandatory safety testing raises the cost of releasing frontier open-weight models."
+1. **Event novelty:** what changed relative to the prior baseline?
+2. **Thesis effect:** probability, timing, intrinsic value, confidence, monitoring, or no change?
+3. **Evidence stance:** does this atomic claim support, challenge, or contextualize the exact thesis?
+4. **Investment effect:** does any company capture material value and is it attractively priced?
 
-- For "open weights rapidly replace proprietary models," this is a challenge.
-- For "open weights and proprietary models coexist in different workloads," it may be context or support.
-- It is not automatically a challenge merely because it is negative for open weights.
+Do not use one label to answer all four.
 
-## Classification tests
+## Event novelty
 
-### Support
+Use:
 
-Use support when the claim makes the thesis materially more likely.
+- `GENUINELY_NEW`
+- `REPEATED_GUIDANCE`
+- `INDEPENDENT_CONFIRMATION`
+- `ACCELERATION`
+- `DECELERATION`
+- `CONTRADICTION`
+- `RISK_DISCLOSURE`
+- `UNKNOWN`
 
-Ask: Would I rationally increase the thesis probability if I trusted this claim?
+A new publication date does not establish novelty. Compare the underlying claim with filings, guidance, prior reporting, trial records, forecasts, and the current thesis baseline.
 
-### Challenge
+## Thesis effect
 
-Use challenge when the claim makes the thesis materially less likely or increases a named competing scenario.
+Use:
 
-Ask: Which alternative outcome becomes more likely, and why?
+- `INTRINSIC_VALUE_CHANGE`
+- `PROBABILITY_CHANGE`
+- `TIMING_CHANGE`
+- `CONFIDENCE_ONLY`
+- `MONITOR_ONLY`
+- `NO_CHANGE`
 
-If no alternative becomes more likely, the claim may be context rather than challenge.
+Examples:
 
-### Context
+- A contract that adds expected cash flow may change intrinsic value.
+- A trial result may change approval probability.
+- A construction delay may change timing and annualized return.
+- Independent customer confirmation may strengthen confidence without changing the forecast yet.
+- Repeated guidance normally produces no change.
 
-Use context when the claim changes interpretation, mechanism, scope, timing, or uncertainty without clearly moving the thesis probability.
+## Stance starts with the exact thesis
 
-Context is not a holding category for inconvenient evidence. State why the claim does not discriminate between outcomes.
+The same claim can support one thesis and challenge another.
+
+Example: `Mandatory safety testing raises the cost of releasing frontier open-weight models.`
+
+- It challenges `open weights rapidly replace proprietary models`.
+- It may support or contextualize a defined coexistence thesis.
+- It is not automatically a challenge merely because it is negative for one technology.
+
+### SUPPORT
+
+Use when the claim makes the exact thesis or measurable forecast materially more likely.
+
+Test: Would a rational analyst raise probability if this claim were trusted?
+
+### CHALLENGE
+
+Use when the claim lowers thesis probability or raises a named competing outcome.
+
+Test: Which alternative becomes more likely, and why?
+
+### CONTEXT
+
+Use when the claim changes mechanism, scope, timing, uncertainty, or interpretation without clearly moving probability.
+
+Context is not a holding category for inconvenient evidence. State why the claim does not discriminate among outcomes.
 
 ## Hybrid and coexistence theses
 
-Hybrid theses often absorb every observation: evidence for side A, side B, or both can all be described as coexistence. Prevent that by defining scenario boundaries before evaluating sources.
+Define scenario boundaries before evaluating evidence. For each outcome record:
 
-For each scenario record:
+- what it predicts;
+- distinguishing operational or market measures;
+- falsifiers;
+- current probability range;
+- resolution date.
 
-- what it predicts
-- what market or operational measure distinguishes it
-- what would falsify it
-- the current probability range
-
-Do not call a thesis confirmed merely because both categories still exist. Require material adoption or economics on both sides by the resolution date.
+Do not call coexistence confirmed merely because both categories continue to exist. Require the material adoption or economics specified in the thesis.
 
 ## Counts and independence
 
 - Do not target equal stance counts.
 - Do not infer conviction from raw record totals.
-- Several claims from one source remain one evidence origin.
-- Repeated media coverage of the same primary statement is one independence group.
-- One high-quality disconfirming observation can outweigh many weak supporting opinions.
+- Several claims from one source remain one origin unless they rely on independent underlying evidence.
+- Repeated media coverage of one statement is one independence group.
+- One high-quality disconfirming fact can outweigh many weak opinions.
+- A duplicate event should link to the original evidence rather than create a new probability vote.
 
 ## Examples
 
+### New event, no thesis change
+
+A company repeats a long-standing target in a new press release. Classify `REPEATED_GUIDANCE / NO_CHANGE`. It may be CONTEXT or no new evidence record at all.
+
+### Independent confirmation
+
+A customer independently confirms deployment volume previously claimed by the supplier. Classify `INDEPENDENT_CONFIRMATION`. It may SUPPORT and change `CONFIDENCE_ONLY` until financial materiality is quantified.
+
+### Timing challenge
+
+A regulator delays a decision without changing the apparent ultimate probability. The atomic claim may CHALLENGE a dated forecast and have `TIMING_CHANGE`, while the long-run thesis probability remains unchanged.
+
 ### Entirely supporting source
 
-A regulator publishes verified adoption data matching the forecast. Record the supported claims. Do not invent a challenge from limitations unless the source contains a claim that actually opposes the thesis.
-
-### Entirely challenging source
-
-A controlled study shows the predicted productivity improvement did not occur. Record the challenges. Do not create support because the study confirms that companies attempted deployment.
-
-### Mixed source
-
-A company reports higher output but also higher total unit cost. These may become one support and one challenge if both directly test the thesis. The counts need not match.
+Record the supported claims. Do not invent a challenge from methodological limitations unless the source contains a claim that actually opposes the thesis.
 
 ### Qualification, not opposition
 
-A source says a carrier benefits from satellite coverage but the earnings impact is immaterial. This can support the coverage thesis, challenge a material-profit forecast, and provide context for a no-trade conclusion. Classify each claim against the specific statement it tests.
+A source confirms a carrier benefits operationally but shows the earnings impact is immaterial. It can SUPPORT the operational mechanism, CHALLENGE a material-profit forecast, and CONTEXTUALIZE a no-trade conclusion. Classify each atomic claim against the statement it tests.
