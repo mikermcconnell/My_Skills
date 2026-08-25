@@ -1,0 +1,26 @@
+{
+  "skill_name": "news-radar-investing",
+  "evals": [
+    {
+      "id": 1,
+      "name": "repeated-guidance-dedup",
+      "prompt": "Amazon issued a new press release repeating a previously disclosed Prime Air target, and several outlets rewrote it as a major expansion. Run News Radar and tell me what deserves follow-up.",
+      "expected_output": "Finds the prior baseline; classifies the repeated target as REPEATED_GUIDANCE rather than GENUINELY_NEW; groups derivative articles under one event; separates any genuinely new geography, regulatory, safety, or unit-economics facts; applies the five gates; routes only unresolved material deltas to RWC; does not issue a buy recommendation or investability score.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "holdings-risk-priority",
+      "prompt": "The morning radar finds a modest new AI supplier opportunity and a late-night regulator filing that may invalidate a core assumption in one of my current holdings. Prioritize the queue.",
+      "expected_output": "Routes the potential thesis break as P0 ahead of the new long idea; records source origin and claim status separately; names the affected thesis, decisive evidence, and next action; routes the supplier idea based on novelty, materiality, capture, expectation, and researchability rather than headline excitement.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "oncology-readout-routing",
+      "prompt": "A small biotech says its Phase 2 cancer trial met the primary endpoint, but the release has no subgroup denominator, confidence interval, mature safety table, or protocol link. The stock is up 35%. Run the radar triage.",
+      "expected_output": "Creates a clinical Event Ledger record; does not equate a positive headline with investability; identifies the missing protocol/statistical/safety information; records the market reaction with timestamp; routes to P2 targeted evidence or P1 only if the underlying documents support it; includes direct and second-order security mapping and a non-beneficiary/comparator.",
+      "files": []
+    }
+  ]
+}
