@@ -1,280 +1,251 @@
 ---
 name: full-underwriting
-description: Perform a full buy-side underwriting of a listed company or public security and decide whether it is actually investable at the current price. Use when the user says "full underwriting", "underwrite this", "is this actually cheap", "take this from research to investment", "is this investable", or when a News Radar / Research With Confidence lead needs valuation, what-is-priced-in analysis, financing/dilution, bear-base-bull scenarios, catalysts, falsifiers, time-to-resolution, and a final Investable / Watch / Pass decision. Do not use for first-pass idea generation, simple company summaries, news triage, or portfolio sizing alone.
+description: Perform a full buy-side underwriting of a listed company or public security and decide whether it is actually investable at the current price. Use when the user says full underwriting, underwrite this, is this actually cheap, take this from research to investment, or when a Research With Confidence lead needs reverse valuation, capital structure, financing and dilution, scenarios, catalysts, falsifiers, return hurdles, time-to-resolution, and a final Investable, Watch, Pass, or Reject decision. Do not use for first-pass idea generation, news triage, or account-specific sizing.
 ---
 
 # Full Underwriting
 
 Turn a promising public-equity research lead into a security-level capital decision.
 
-The central question is:
+> At the current price, what must be true for this investment to generate an attractive return, how likely is that outcome, how long should it take, what can permanently impair capital, and is it a better use of capital than the available alternatives?
 
-> At the current security price, what must be true for this investment to generate an attractive return, how likely is that outcome, how long should it take, and what can permanently impair capital?
-
-A good company is not automatically a good investment. A compelling story is not automatically mispriced.
+A good company is not automatically a good investment. A correct world thesis is not automatically mispriced.
 
 ## Place in the workflow
 
-Typical sequence:
+`News Radar -> Research With Confidence -> Full Underwriting -> independent challenger -> portfolio/risk sizing -> Mind Model / monitoring`
 
-`News Radar Investing -> Research With Confidence -> Full Underwriting -> portfolio/risk sizing -> Mind Model / thesis tracking`
+Use an existing RWC handoff as the evidence baseline. Preserve supported findings, challenges, confidence, and unresolved questions, but reverify current price, capital structure, market-sensitive facts, and all load-bearing assumptions. Do not inherit the earlier conclusion uncritically.
 
-If a Research With Confidence handoff already exists, treat it as the baseline. Do not restart from scratch. Preserve supported findings, challenges, confidence levels, and unresolved questions; reverify market-sensitive and load-bearing facts.
-
-Full Underwriting owns the final security-level conclusion. Modeling, valuation, sector, event, or financial skills may support it, but they do not replace the integrated judgment.
-
-## Required references
+## References
 
 Read only what the case needs:
 
-- `references/valuation-methods.md` for valuation, reverse valuation, capitalization, financing, and dilution.
-- `references/scenario-and-probability-rules.md` for bear/base/bull, probability, expected-return, and time-to-resolution rules.
-- `references/sector-overlays.md` for sector-specific underwriting requirements.
+- `references/valuation-methods.md` for primary valuation, reverse valuation, capitalization, financing, and dilution.
+- `references/scenario-and-probability-rules.md` for scenarios, probabilities, expected return, and time-to-resolution.
+- `references/sector-overlays.md` for sector-specific economics.
+- `references/portfolio-handoff-and-hurdle-rules.md` for required-return, opportunity-cost, and portfolio inputs.
 - `references/underwriting-quality-checklist.md` before finalizing.
 
 ## Core rules
 
-1. **Price matters.** Never call a security investable without anchoring to a current price and as-of date.
-2. **Fully diluted economics matter.** Include material options, warrants, convertibles, debt, royalties, streams, and expected financing. For capital-dependent businesses, underwrite post-financing value per share.
+1. **Price and date matter.** Never call a security investable without a current price and as-of timestamp.
+2. **Fully diluted economics matter.** Include options, warrants, convertibles, debt, leases, royalties, streams, preferred claims, and expected financing. Use post-financing value per share when the thesis requires capital.
 3. **Underwrite the future, not the story.** Historical evidence matters only insofar as it changes future cash flows, probabilities, valuation, or timing.
-4. **Separate fact from assumption.** Label reported facts, company claims, independent evidence, consensus, derived calculations, analyst assumptions, judgment/probabilities, and unknowns.
-5. **Variant perception is required.** State what the market appears to believe that the underwriting believes is wrong or incomplete. "Good company" or "large TAM" is not a variant view.
-6. **Downside is part of valuation.** Model how the thesis fails and what equity value remains. Do not append a generic risk section after a bullish model.
-7. **Time is part of return.** Every investable conclusion requires an expected holding period and an explicit end/re-underwrite date.
-8. **Do not force a buy.** PASS and WAIT are successful underwriting outcomes.
+4. **Separate evidence types.** Distinguish reported facts, company claims, independent evidence, consensus, derived calculations, analyst assumptions, judgment/probabilities, and unknowns.
+5. **Variant perception is mandatory.** State what the current price appears to imply and what the underwriting believes is wrong or incomplete.
+6. **Downside belongs inside valuation.** Model the failure mechanism and residual equity value; do not append generic risks to a bullish model.
+7. **Time is part of return.** Every conclusion requires a holding period, target realization date, and mandatory re-underwrite date.
+8. **Opportunity cost matters.** Compare expected annualized return and downside with the applicable hurdle and the closest realistic alternative.
+9. **Independence matters.** A decision-ready INVESTABLE conclusion should receive an independent challenger pass when that workflow is available. If it was not run, say so.
+10. **Do not force a buy.** PRICE-SENSITIVE, WATCH, PASS, and REJECT are successful outcomes.
 
 ## Workflow
 
 ### 1. Define the underwriting question
 
-Start with one sentence that includes:
+State one sentence containing:
 
-- security / ticker
-- current price and date
-- investment horizon under consideration
-- primary investment question
-- current research posture
-
-Example:
-
-> Is Radisson Mining worth materially more than its current fully diluted valuation after accounting for development risk, financing, dilution, and realistic O'Brien resource growth?
+- security, ticker, exchange, and currency;
+- current price and date;
+- proposed investment horizon;
+- primary question;
+- current research posture.
 
 ### 2. Establish the security and capital structure
 
-Before detailed valuation, establish when available:
+Reconcile when material:
 
-- basic shares
-- diluted shares
-- current price
-- basic and fully diluted market capitalization
-- cash
-- debt
-- enterprise value
-- material warrants/options/convertibles
-- royalties, streams, preferred claims, leases, or other material obligations
-- expected future financing
-- estimated post-financing share count when financing is required to reach the base case
+- basic and fully diluted shares;
+- current market capitalization;
+- cash, debt, leases, and enterprise value;
+- options, warrants, convertibles, preferred claims, royalties, and streams;
+- committed or likely financing;
+- post-financing share count and value per share;
+- ownership of the actual asset, territory, indication, subsidiary, or cash flow being valued.
 
-If a material financing need is unresolved, do not declare the security undervalued using today's share count alone.
+If a material financing need is unresolved, do not declare undervaluation using today's share count alone.
 
-### 3. Build a falsifiable thesis map
+### 3. Build the falsifiable thesis map
 
-Express the investment case as 3-5 claims.
+Express the investment case as three to five claims. For every major claim use:
 
-For every major claim use:
+`Mechanism -> Metric -> Benchmark -> Falsifier`
 
-**Mechanism -> Metric -> Benchmark -> Falsifier**
+Record supporting evidence, challenging evidence, remaining uncertainty, evidence confidence, and the next evidence that could change probability.
 
-For each claim identify:
+### 4. Identify the economic engine
 
-- supporting evidence
-- challenging evidence
-- remaining uncertainty
-- evidence confidence
-- next evidence that could materially change the probability
+Find the small number of variables that create equity value. Depending on the security, these may include:
 
-### 4. Understand the economic engine
+- volume, price, mix, share, retention, utilization;
+- margins, unit economics, capital intensity, ROIC, FCF, reinvestment runway;
+- project resources/reserves, capex, recovery, schedule, commodity sensitivity;
+- clinical/regulatory probability, launch, royalties, milestones, runway, dilution;
+- rates, fleet exposure, contract duration, asset values, break-evens;
+- event probability, payoff, timing, and financing.
 
-Identify the small set of variables that actually create equity value.
-
-For operating companies this may include volume, price, market share, retention, margins, unit economics, capital intensity, ROIC, FCF, and reinvestment runway.
-
-For development-stage, clinical, resource, or event-driven companies, use the relevant sector economics instead of forcing conventional operating metrics.
+Use the relevant sector overlay rather than forcing conventional operating metrics.
 
 ### 5. Determine what is priced in
 
-Mandatory.
-
-Do not merely calculate what the company could be worth. Estimate what operating or probabilistic outcome is consistent with the current price using the appropriate reverse-valuation method.
-
-State explicitly:
+Mandatory. Use reverse valuation, market-implied probability, normalized earnings, asset NAV, or another appropriate method to state:
 
 > **At today's price, the market appears to discount approximately ______.**
 
-Then compare that implied outcome with the underwritten view. The gap is the potential mispricing.
+Compare that implied path with the underwritten path. The difference is the potential mispricing.
 
 ### 6. Forecast the key value drivers
 
-Forecast only variables that materially influence value. Avoid fake precision.
+Forecast only variables that materially influence value. Separate:
 
-Use Bear / Base / Bull assumptions and distinguish:
+- evidence-supported forecast changes;
+- extrapolations;
+- consensus;
+- analyst assumptions.
 
-- evidence-supported forecast changes
-- extrapolations
-- analyst assumptions
-
-Use ranges when uncertainty is too high for precise point estimates.
+Use ranges when uncertainty makes point estimates artificial.
 
 ### 7. Value the security
 
-Use the valuation method that best matches the business. Whenever practical use:
+Use the method that fits the business. Whenever practical use:
 
-**Primary valuation method + independent cross-check.**
+`Primary valuation method + independent cross-check`
 
-Do not choose a method simply because it produces the preferred answer. See `references/valuation-methods.md`.
+Do not select a method because it produces the preferred answer. Explain disagreements between methods rather than averaging them away.
 
-### 8. Apply the Time-to-Resolution Gate
+### 8. Build genuine Bear / Base / Bull cases
 
-Every underwriting must answer **how long the capital is expected to be tied to the thesis**.
+Scenarios must differ economically, not only by valuation multiple. Each should include:
 
-Classify the expected holding period using a practical label such as:
+- operating, project, clinical, or event assumptions;
+- financing and dilution;
+- valuation method;
+- equity value and value per fully diluted share;
+- return from current price;
+- expected timing and annualized return where meaningful;
+- evidence required for the scenario.
 
-- Days / event trade
-- 1-4 weeks
-- 1-3 months
-- 3-12 months
-- 1-3 years
-- 3-5+ years / compounder
+The Bear case must contain a realistic failure mechanism and residual value.
 
-Then provide:
+### 9. Assign probabilities carefully
 
-- **Expected holding period** — e.g. 6-12 months.
-- **Target realization date** — calendar date by which the principal valuation gap should begin or largely complete closing.
-- **Mandatory re-underwrite date** — calendar date when the original underwriting expires and must be refreshed even if no thesis-breaking event occurred.
-- **Why that date** — catalyst, earnings path, clinical readout, drill program, construction milestone, normalization cycle, or compounding period.
-- **What must happen by then** — measurable evidence required to justify continuing to hold the thesis.
+Use exact probabilities only when reasonably underwriteable. Analyst probabilities are assumptions, not sourced facts.
 
-The end date is a **decision boundary, not an automatic sell date**. At that date the investment must be re-underwritten and explicitly renewed, downgraded, or exited from the research posture.
+When subjective probabilities are weak, prefer:
 
-For discrete events, use the expected event/decision date plus a reasonable settlement or information window. For long-duration compounders, use a longer target horizon but still set a mandatory periodic re-underwrite date, normally no more than 12 months from the analysis date unless the user specifies otherwise.
+- market-implied probability;
+- break-even success probability;
+- required probability for the current price to meet the return hurdle;
+- probability ranges.
 
-If there is no credible mechanism for the valuation gap to close within the proposed horizon, downgrade the idea to WATCH or PASS.
+Probabilities must total 100% when probability-weighted value is shown.
 
-### 9. Build genuine Bear / Base / Bull cases
+### 10. Calculate return and skew
 
-Scenarios must differ economically, not merely by valuation multiple.
+Show where the inputs permit:
 
-Each scenario should include:
+- probability-weighted value;
+- expected return and expected annualized return;
+- Bear downside, Base return, and Bull upside;
+- upside/downside ratio;
+- expected time to realization;
+- dependence on multiple expansion versus fundamental value creation.
 
-- operating / project / clinical assumptions
-- financing and dilution assumptions
-- valuation method
-- equity value
-- value per fully diluted share
-- upside/downside from current price
-- expected timing
-- annualized return where meaningful
-- evidence necessary for the scenario to occur
+Do not hide unacceptable permanent-loss risk behind positive expected value.
 
-The Bear case must contain a realistic failure mechanism.
+### 11. Apply the return-hurdle and opportunity-cost gate
 
-### 10. Assign probabilities carefully
+Use the user's or strategy's actual required-return rule when available. If none is supplied, state that explicitly and show sensitivity rather than inventing a personal hurdle.
 
-Use precise probabilities only when useful and reasonably underwriteable. Analyst probabilities must never appear as sourced facts.
+Compare the security with the closest realistic alternative: an existing holding, cash, an index, a peer, or another active idea. State:
 
-When probabilities are weakly supported, prefer ranges or calculate:
+- expected annualized return;
+- applicable hurdle or hurdle sensitivity;
+- return premium or shortfall;
+- risk, liquidity, duration, and confidence differences;
+- why incremental capital belongs here rather than in the alternative.
 
-- market-implied probability
-- break-even success probability
-- required probability for the current price to be attractive
+A positive expected return is not sufficient if it does not compensate for risk, duration, or opportunity cost.
 
-Probabilities must total 100% when a probability-weighted value is shown.
+### 12. Apply the Time-to-Resolution Gate
 
-### 11. Calculate return and skew
+Provide:
 
-Where scenarios permit, show:
+- expected holding period;
+- target realization date;
+- mandatory re-underwrite date;
+- why each date is appropriate;
+- measurable evidence required by then;
+- delay risk and the valuation cost of time.
 
-- probability-weighted value
-- expected return
-- expected annualized return where meaningful
-- Bear-case downside
-- Base-case return
-- Bull-case upside
-- upside/downside ratio
-- expected time to realization
+The re-underwrite date is a decision boundary, not an automatic sell date. At that date the thesis must be renewed, downgraded, or exited from the research posture. Long-duration compounders should normally be re-underwritten at least annually unless there is a stated reason otherwise.
 
-Do not hide unacceptable permanent-loss risk behind a positive expected value.
+If no credible realization mechanism exists within the proposed horizon, downgrade to WATCH or PASS.
 
-### 12. Red-team the thesis
+### 13. Red-team the thesis
 
-Mandatory.
+Assume the thesis is wrong. Test:
 
-Assume the thesis is wrong and find the strongest credible reason why. Test management incentives, accounting quality, competitive response, financing, dilution, regulation, technology, execution history, cyclicality, hidden liabilities, customer concentration, time-to-value, and dependence on multiple expansion or takeover.
+- management incentives and capital allocation;
+- accounting and metric quality;
+- competition and substitution;
+- financing, dilution, liquidity, and hidden claims;
+- regulation, technology, safety, execution, cyclicality, and customer concentration;
+- time-to-value and dependence on takeover or multiple expansion.
 
-Identify the **single strongest disconfirming fact** and state whether the thesis survives it.
+Identify the single strongest disconfirming fact and state whether the thesis survives it.
 
-Do not manufacture symmetric bear evidence merely for balance. One high-quality disconfirming observation can outweigh many weak supporting observations.
-
-### 13. Map catalysts and value realization
+### 14. Map catalysts and kill criteria
 
 Separate:
 
 - **Fundamental catalysts** — change intrinsic value.
-- **Recognition catalysts** — cause the market to recognize value already present.
+- **Recognition catalysts** — help the market recognize existing value.
 - **Monitoring events** — informative but do not themselves change value.
 
-Map the path over appropriate windows such as 0-3 months, 3-12 months, and 1-3 years.
+State three to five measurable kill criteria. Price decline alone is not a falsifier.
 
-A discrete catalyst is not mandatory for a compounder, but the realization mechanism must be credible.
+### 15. Determine readiness and run the challenge gate
 
-### 14. Define kill criteria
-
-State 3-5 measurable developments that materially falsify the thesis.
-
-Price decline alone is not a falsifier.
-
-### 15. Separate evidence confidence from underwriting readiness
+Separate:
 
 **Evidence confidence**
-- High: multiple high-quality independent or primary sources align.
-- Medium: good support exists but meaningful gaps remain.
-- Low: important claims depend on weak, contradictory, single-source, or speculative evidence.
+- High — multiple high-quality independent or primary sources align.
+- Medium — good support exists but meaningful gaps remain.
+- Low — load-bearing claims depend on weak, contradictory, or speculative evidence.
 
 **Underwriting readiness**
-- Decision-ready: the important value drivers, capital structure, financing, scenarios, timing, and major risks are sufficiently understood.
-- Preliminary: the thesis is credible but one or more important questions remain unresolved.
-- Screen-grade: enough evidence exists to continue researching, but not to make a capital decision.
+- Decision-ready — economics, capital structure, scenarios, timing, major risks, hurdle, and opportunity cost are sufficiently understood.
+- Preliminary — credible, but one or more important questions remain.
+- Screen-grade — enough to continue research, not enough for capital allocation.
 
-High evidence confidence does not automatically mean decision-ready.
+Before advancing a Decision-ready INVESTABLE idea toward capital allocation, invoke `underwriting-challenger` when available. Give it the evidence ledger and model assumptions before the final verdict when practical. Reconcile any material disagreement. If no independent challenge was run, label the conclusion `UNCHALLENGED` rather than implying independent validation.
+
+### 16. Produce the portfolio handoff
+
+Full Underwriting does not choose the exact account or position size. It must provide the inputs needed by the portfolio/risk workflow, including downside, expected return, duration, liquidity, event/gap risk, factor exposures, correlation concerns, currency/listing issues, and entry/add/trim/exit evidence. Use the portfolio handoff reference.
 
 ## Final posture
 
-End with exactly one primary posture:
+Choose exactly one:
 
-### INVESTABLE
-The security appears materially mispriced and the current evidence, valuation, duration, and risk/reward support advancing toward capital allocation.
+- **INVESTABLE** — materially mispriced; evidence, valuation, hurdle, duration, and downside support capital-allocation review.
+- **INVESTABLE, BUT PRICE-SENSITIVE** — thesis is sound, but current expected return does not clear the hurdle; state the entry condition.
+- **WATCH / WAIT FOR PROOF** — unresolved variables dominate; name the evidence and date.
+- **PASS** — insufficient differentiated return versus risk, duration, or alternatives.
+- **REJECT** — thesis failed or permanent-loss risk is unacceptable.
 
-### INVESTABLE, BUT PRICE-SENSITIVE
-The thesis is sound but expected return is insufficient at the current price. State the price, valuation, or operating conditions that would change the decision.
-
-### WATCH / WAIT FOR PROOF
-The thesis may work, but unresolved variables dominate expected return. State exactly what evidence is required and by what date.
-
-### PASS
-The company may be attractive, but the security does not offer enough differentiated return versus risk and time.
-
-### REJECT
-The underlying thesis failed underwriting or permanent-loss risk is unacceptable.
-
-## Required final output
+## Required output
 
 ### Underwriting Verdict
 
 **Security:**  
 **Price / as-of date:**  
-**Posture:** INVESTABLE / PRICE-SENSITIVE / WATCH / PASS / REJECT  
+**Posture:**  
 **Underwriting readiness:**  
 **Evidence confidence:**  
+**Challenge status:** SURVIVES / REVISED / FAILED / UNCHALLENGED / NOT REQUIRED  
 **Expected holding period:**  
 **Target realization date:**  
 **Mandatory re-underwrite date:**  
@@ -282,24 +253,24 @@ The underlying thesis failed underwriting or permanent-loss risk is unacceptable
 **One-sentence conclusion:** State the actual investment answer.
 
 ### Variant perception
-What does the market appear to be getting wrong?
 
 ### What is priced in?
-State the outcome implied by today's valuation.
 
-### Thesis
-3-5 falsifiable claims using Mechanism -> Metric -> Benchmark -> Falsifier.
+### Thesis map
 
-### Valuation
-Show primary method, independent cross-check, capital-structure treatment, and major assumptions.
+Three to five `Mechanism -> Metric -> Benchmark -> Falsifier` claims.
+
+### Economic engine and valuation
+
+Show the primary method, cross-check, fully diluted treatment, and major assumptions.
 
 ### Scenario skew
 
-| Scenario | Probability | Value/share | Return | Time | Key assumption |
-|---|---:|---:|---:|---|---|
-| Bear | | | | | |
-| Base | | | | | |
-| Bull | | | | | |
+| Scenario | Probability | Value/share | Return | Annualized return | Time | Key assumption |
+|---|---:|---:|---:|---:|---|---|
+| Bear | | | | | | |
+| Base | | | | | | |
+| Bull | | | | | | |
 
 **Probability-weighted value:**  
 **Expected return:**  
@@ -307,26 +278,30 @@ Show primary method, independent cross-check, capital-structure treatment, and m
 **Bear downside:**  
 **Upside/downside ratio:**  
 
+### Hurdle and opportunity cost
+
+**Required-return rule:**  
+**Return premium / shortfall:**  
+**Closest alternative:**  
+**Why this is or is not the better use of capital:**  
+
 ### Time-to-resolution
-Explain why the target realization and re-underwrite dates are appropriate and what evidence must arrive by then.
 
-### Why now?
-Explain the catalyst or compounding/value-realization mechanism.
+### Strongest challenge and challenger reconciliation
 
-### Strongest challenge
-State the best evidence against the investment and whether the thesis survives.
-
-### Kill criteria
-State measurable falsifiers.
+### Catalysts and kill criteria
 
 ### What remains unknown
-Do not hide unresolved questions.
+
+### Portfolio/risk handoff
 
 ### Next action
+
 Choose one:
 
-- Advance toward capital allocation
-- Run additional targeted research
+- Advance to independent challenge
+- Advance toward portfolio/risk review
+- Run targeted research
 - Wait for named evidence/catalyst
 - Add to watchlist
 - Pass
@@ -334,6 +309,6 @@ Choose one:
 
 ## Boundaries
 
-Do not perform account-specific position sizing inside this skill. Once a security is decision-ready and investable, hand sizing, concentration, correlation, hedging, tax, or account-location questions to the appropriate portfolio/risk workflow.
+Do not perform account-specific position sizing, trade execution, hedging implementation, tax advice, or account-location decisions inside this skill. Hand those to the appropriate portfolio/risk workflow.
 
-Do not present takeover optionality, a strategic investment, a large TAM, management enthusiasm, or a recent price decline as sufficient evidence of investability.
+Do not present takeover optionality, a strategic investor, a large TAM, management enthusiasm, a low headline multiple, or a recent price decline as sufficient proof of investability.
