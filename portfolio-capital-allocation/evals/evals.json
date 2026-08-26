@@ -1,0 +1,33 @@
+{
+  "skill_name": "portfolio-capital-allocation",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ai-cluster-concentration",
+      "prompt": "Full Underwriting and the challenger both support buying AVGO, but my portfolio already has large AMZN, AMD, MU and NVDA exposure. Decide whether and how much incremental capital AVGO deserves. Do not assume holdings beyond what I gave you.",
+      "expected_output": "Validates the underwriting inputs; maps common AI-capex, compute and semiconductor exposure rather than treating each ticker as independent; starts from bear-case portfolio loss and a supplied risk budget or shows sensitivity if none is given; compares AVGO with the existing AI positions and cash; identifies the binding cluster constraint; may recommend a small staged position, replacement, wait, or no funding rather than forcing a standalone maximum weight.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "binary-biotech-loss-budget",
+      "prompt": "A decision-ready biotech underwriting has a 70% Bear downside, 55% expected upside and a 15-month horizon. I am considering a new position but have not told you my maximum portfolio loss budget. Size it responsibly.",
+      "expected_output": "Does not invent risk tolerance; shows illustrative 0.25%, 0.50% and 1.00% portfolio-loss budgets and the downside-derived maximum weights; applies binary-event, liquidity, confidence and financing adjustments; compares cash or a lower-risk alternative; recommends sensitivity or a small staged posture rather than presenting one exact personal allocation as fact.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "price-sensitive-compounder-entry",
+      "prompt": "Amazon passed underwriting but was labelled INVESTABLE, BUT PRICE-SENSITIVE. The entry condition is a 15% expected annualized return, and the current estimate is 11%. Build an entry plan without arbitrarily splitting it into thirds.",
+      "expected_output": "Respects the underwriting posture; does not fund merely because the company is high quality; creates price- or evidence-linked tranches tied to the required return and named operating proof; recalculates downside and maximum weight at each trigger; states what cancels later tranches; compares waiting in cash with funding another active idea.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "two-candidate-capital-choice",
+      "prompt": "Two ideas are decision-ready. Idea A has 28% expected annualized return, 45% Bear downside, medium confidence and thin liquidity. Idea B has 18% expected annualized return, 20% Bear downside, high confidence and low correlation with my portfolio. I have capital for only one. Decide how to allocate it.",
+      "expected_output": "Compares expected return with downside, confidence, liquidity, duration and portfolio correlation rather than ranking only by headline expected return; uses the actual or illustrative loss budget transparently; may select B, stage A, split only with a reason, or hold cash; states the funding source, binding constraint, before-and-after exposure, and monitoring contract.",
+      "files": []
+    }
+  ]
+}
