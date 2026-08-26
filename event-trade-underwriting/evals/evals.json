@@ -1,0 +1,33 @@
+{
+  "skill_name": "event-trade-underwriting",
+  "evals": [
+    {
+      "id": 1,
+      "name": "expected-fda-approval-runup",
+      "prompt": "A biotech received an FDA approval that had a known PDUFA date and a $250 million milestone. The stock rose 32% before the decision and is up another 8% after hours. Is this an event trade right now?",
+      "expected_output": "Reconstructs the frozen expectation and distinguishes expected approval from genuinely surprising label, safety, commercial-rights or timing details; uses a current executable after-hours price only with liquidity caveats; builds an event or post-event interpretation tree; includes milestone ownership and possible volatility or spread effects; may conclude NO TRADE or price-sensitive rather than treating the approval as automatically bullish; does not convert the trade into a long-term investment without Full Underwriting.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "earnings-beat-implied-move",
+      "prompt": "A software company beat revenue and EPS, but guidance was only in line. The stock is already up 14% after hours and the pre-event options-implied move was 11%. Decide whether chasing the move is tradeable.",
+      "expected_output": "Separates headline beat from forward-quality and expectations; compares the actual move with the implied move without assuming options data is perfect; uses tradable bid/ask and after-hours liquidity; models continuation, reversal and delayed interpretation states; calculates maximum acceptable entry and net payoff after spread/slippage; can return NO TRADE when the edge has been consumed.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "social-rumour-no-primary-source",
+      "prompt": "Several social accounts claim a major customer selected a small semiconductor company. They all show the same cropped screenshot, the stock is up 22%, and neither company has confirmed it. Underwrite the event trade.",
+      "expected_output": "Traces the accounts to one independence group; labels the claim unverified rather than independent confirmation; checks dissemination and manipulation risk; routes the factual claim to RWC or waits for issuer/customer evidence; treats the 22% move and thin liquidity as adverse execution context; returns WAIT, NO TRADE or REJECT rather than rewarding rumour speed.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "merger-regulatory-binary",
+      "prompt": "A merger trades at a 12% spread ahead of a court decision next week. Approval would likely close the spread; rejection could cause a 35% decline. Borrow and options are available but current data is incomplete. Determine what is needed and whether the trade is attractive.",
+      "expected_output": "Defines event timing, terms, financing and possible delay; builds approval, remedy/delay and rejection states; calculates break-even probability and sensitivity; distinguishes market-implied probability from judgment; requires current borrow, option chain, spread, liquidity and executable prices before recommending a structure; includes gap and halt risk; may return WAIT FOR CONFIRMATION when implementation data is incomplete; hands maximum loss inputs to Portfolio Capital Allocation rather than sizing the account.",
+      "files": []
+    }
+  ]
+}
