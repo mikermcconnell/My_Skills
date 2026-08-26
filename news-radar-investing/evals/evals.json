@@ -19,7 +19,28 @@
       "id": 3,
       "name": "oncology-readout-routing",
       "prompt": "A small biotech says its Phase 2 cancer trial met the primary endpoint, but the release has no subgroup denominator, confidence interval, mature safety table, or protocol link. The stock is up 35%. Run the radar triage.",
-      "expected_output": "Creates a clinical Event Ledger record; does not equate a positive headline with investability; identifies the missing protocol/statistical/safety information; records the market reaction with timestamp; routes to P2 targeted evidence or P1 only if the underlying documents support it; includes direct and second-order security mapping and a non-beneficiary/comparator.",
+      "expected_output": "Creates a clinical Event Ledger record; does not equate a positive headline with investability; identifies the missing protocol, statistical, and safety information; records the market reaction with timestamp; routes to P2 targeted evidence or P1 only if the underlying documents support it; includes direct and second-order security mapping and a non-beneficiary or comparator.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "slow-burn-filing-delta",
+      "prompt": "Nothing dramatic hit the news, but over three quarters a supplier's backlog growth slowed, lead times normalized, share-based compensation rose, and management quietly changed its AI revenue definition. Run the slow-burn Radar lane and decide what deserves research.",
+      "expected_output": "Uses comparable dated baselines; records the observations atomically rather than inventing one headline event; distinguishes independent evidence from definition effects and seasonality; builds the operating-to-financial bridge; identifies when the cumulative pattern crosses materiality; routes a possible thesis risk or RWC question without completing valuation; preserves next evidence and a falsifying alternative explanation.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "pre-event-catalyst-packet",
+      "prompt": "ZYME has a known FDA decision in two weeks. Build the Radar catalyst packet now so we can judge the result correctly when it arrives.",
+      "expected_output": "Freezes the event date, source, price and pre-event run-up, known approval probability or clearly labels it unavailable, expected label and clinical thresholds, milestones and royalty ownership, runway and financing, bear/expected/upside result definitions, what would actually be surprising, first post-event documents to retrieve, and the post-event RWC question. It does not call the stock investable or retroactively rewrite the packet.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "valid-no-lead-run",
+      "prompt": "Run the noon News Radar. The scan finds only recycled articles, small immaterial product announcements, and one filing already captured this morning.",
+      "expected_output": "Allows a valid run with no P0 or P1 ideas; declares the searched source universe and limitations; deduplicates the filing; classifies recycled or immaterial items correctly; does not lower gates to create activity; reports any P2/P3 monitoring item only when named evidence or a real thesis link exists.",
       "files": []
     }
   ]

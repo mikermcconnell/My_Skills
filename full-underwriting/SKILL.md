@@ -1,6 +1,6 @@
 ---
 name: full-underwriting
-description: Perform a full buy-side underwriting of a listed company or public security and decide whether it is actually investable at the current price. Use when the user says full underwriting, underwrite this, is this actually cheap, take this from research to investment, or when a Research With Confidence lead needs reverse valuation, capital structure, financing and dilution, scenarios, catalysts, falsifiers, return hurdles, time-to-resolution, and a final Investable, Watch, Pass, or Reject decision. Do not use for first-pass idea generation, news triage, or account-specific sizing.
+description: Perform a full buy-side underwriting of a listed company or public security and decide whether it is actually investable at the current price. Use when the user says full underwriting, underwrite this, is this actually cheap, take this from research to investment, or when a Research With Confidence lead needs reverse valuation, capital structure, financing and dilution, scenarios, catalysts, falsifiers, return hurdles, time-to-resolution, and a final Investable, Watch, Pass, or Reject decision. Do not use for first-pass idea generation, news triage, short-duration event trades, or account-specific sizing.
 ---
 
 # Full Underwriting
@@ -13,9 +13,11 @@ A good company is not automatically a good investment. A correct world thesis is
 
 ## Place in the workflow
 
-`News Radar -> Research With Confidence -> Full Underwriting -> independent challenger -> portfolio/risk sizing -> Mind Model / monitoring`
+`News Radar -> Research With Confidence -> Full Underwriting -> Underwriting Challenger -> Portfolio Capital Allocation -> Mind Model / monitoring`
 
 Use an existing RWC handoff as the evidence baseline. Preserve supported findings, challenges, confidence, and unresolved questions, but reverify current price, capital structure, market-sensitive facts, and all load-bearing assumptions. Do not inherit the earlier conclusion uncritically.
+
+Use Event-Trade Underwriting instead when the user's intended horizon is hours, days, or a few weeks around one discrete event and the decisive questions are surprise, payoff, implied move, liquidity, halt, borrow, or slippage rather than long-term intrinsic value.
 
 ## References
 
@@ -83,7 +85,7 @@ Find the small number of variables that create equity value. Depending on the se
 - project resources/reserves, capex, recovery, schedule, commodity sensitivity;
 - clinical/regulatory probability, launch, royalties, milestones, runway, dilution;
 - rates, fleet exposure, contract duration, asset values, break-evens;
-- event probability, payoff, timing, and financing.
+- event probability, payoff, timing, and financing when the event changes long-term value rather than only a short-duration trade.
 
 Use the relevant sector overlay rather than forcing conventional operating metrics.
 
@@ -222,9 +224,23 @@ Separate:
 
 Before advancing a Decision-ready INVESTABLE idea toward capital allocation, invoke `underwriting-challenger` when available. Give it the evidence ledger and model assumptions before the final verdict when practical. Reconcile any material disagreement. If no independent challenge was run, label the conclusion `UNCHALLENGED` rather than implying independent validation.
 
-### 16. Produce the portfolio handoff
+### 16. Produce the Portfolio Capital Allocation handoff
 
-Full Underwriting does not choose the exact account or position size. It must provide the inputs needed by the portfolio/risk workflow, including downside, expected return, duration, liquidity, event/gap risk, factor exposures, correlation concerns, currency/listing issues, and entry/add/trim/exit evidence. Use the portfolio handoff reference.
+Full Underwriting does not choose the exact account or position size. Hand the case to `portfolio-capital-allocation` with:
+
+- current security price and timestamp;
+- reconciled posture and challenge result;
+- probability-weighted and scenario values;
+- expected and annualized return;
+- underwritten Bear loss and permanent-loss path;
+- holding period, target realization, and re-underwrite dates;
+- liquidity, event/gap, financing, dilution, ownership, and implementation risks;
+- key factor, thesis, customer, commodity, geography, and currency exposures;
+- closest alternative and applicable hurdle;
+- entry, add, trim, and exit evidence;
+- unresolved constraints that prevent exact sizing.
+
+Portfolio Capital Allocation owns the loss budget, position range, funding source, cluster exposure, and staged entry. It may still choose cash, wait, or reject the allocation even when Full Underwriting says INVESTABLE.
 
 ## Final posture
 
@@ -293,14 +309,14 @@ Show the primary method, cross-check, fully diluted treatment, and major assumpt
 
 ### What remains unknown
 
-### Portfolio/risk handoff
+### Portfolio Capital Allocation handoff
 
 ### Next action
 
 Choose one:
 
-- Advance to independent challenge
-- Advance toward portfolio/risk review
+- Advance to Underwriting Challenger
+- Advance to Portfolio Capital Allocation
 - Run targeted research
 - Wait for named evidence/catalyst
 - Add to watchlist
@@ -309,6 +325,6 @@ Choose one:
 
 ## Boundaries
 
-Do not perform account-specific position sizing, trade execution, hedging implementation, tax advice, or account-location decisions inside this skill. Hand those to the appropriate portfolio/risk workflow.
+Do not perform account-specific position sizing, trade execution, hedging implementation, tax advice, or account-location decisions inside this skill. Hand loss-budget sizing, concentration, funding source, and entry implementation to `portfolio-capital-allocation`.
 
 Do not present takeover optionality, a strategic investor, a large TAM, management enthusiasm, a low headline multiple, or a recent price decline as sufficient proof of investability.

@@ -14,6 +14,13 @@
       "prompt": "A Radar idea rose 80% after we advanced it, but the original mechanism was later shown to be wrong. Another well-researched idea fell 20% even though the predicted operating metric materialized. Evaluate the process.",
       "expected_output": "Classifies the first as a potentially unsound winning decision and the second as a potentially sound losing decision; preserves original information; evaluates mechanism, capture, expectations and horizon; avoids using returns alone as process proof; recommends changes only if a repeatable failure pattern exists.",
       "files": []
+    },
+    {
+      "id": 3,
+      "name": "integrated-lane-allocation-audit",
+      "prompt": "Audit six months of the upgraded workflow. We have event-news scans, slow-burn findings, catalyst packets, a handful of event-trade decisions, Full Underwriting outputs, challenger results and portfolio allocations. One event trade had positive theoretical EV but the stock was halted, and one highly profitable investment was sized above its stated loss budget.",
+      "expected_output": "Freezes the lane-specific cohort; validates source coverage, pre-event packet timestamps, executable-price assumptions, risk budgets and original weights; reports slow-burn detection yield, catalyst expectation accuracy, event-trade routing and modeled-versus-executable results, allocation and cluster-limit adherence, plus the core funnel metrics; treats the halted case as non-executable rather than a realized signal and the profitable oversized investment as an allocation-process failure; separates signal, execution, allocation and return quality; proposes only forward-testable changes with rollback conditions.",
+      "files": []
     }
   ]
 }

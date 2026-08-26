@@ -21,6 +21,13 @@
       "prompt": "A biotech received an expected FDA approval and a $250 million milestone. The stock had risen 30% before the PDUFA. Determine what is actually new and whether the lead deserves underwriting.",
       "expected_output": "Uses the clinical/biotech overlay; compares the label, efficacy, safety, commercial rights, milestone, royalties, cash runway, and pre-event expectations; does not treat the milestone as a surprise merely because it became cash; checks ownership claims and possible double-counting; separates clinical, commercial, capture, and mispricing confidence; produces a clear advance/wait/monitor/reject decision and exact underwriting question.",
       "files": []
+    },
+    {
+      "id": 4,
+      "name": "short-duration-event-routing",
+      "prompt": "A court ruling on a merger is due tomorrow. I only want to hold the trade for a few days. The factual antitrust record is disputed, the spread is 10%, and rejection downside may be 30%. Research the claim and tell me the correct next gate.",
+      "expected_output": "Independently verifies the legal and transaction facts, source origins, timing and competing interpretations; separates factual confidence from tradeability; does not perform an incomplete event-payoff analysis inside RWC; routes to Event-Trade Underwriting only if the discrete-event facts survive and the user explicitly wants the short horizon; otherwise waits for named evidence or rejects; hands off the exact event, information cutoff, disputed facts, possible states, and missing execution or payoff inputs.",
+      "files": []
     }
   ]
 }

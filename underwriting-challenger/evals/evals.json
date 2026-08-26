@@ -14,6 +14,13 @@
       "prompt": "Challenge a tanker underwriting that extrapolates one extreme route assessment across the fleet and assumes rates remain elevated through 2028. The stock already doubled. Audit the thesis independently.",
       "expected_output": "Separates marginal route quotes from fleet-realized TCEs; reconstructs open days and normalized-rate path; tests duration, traffic recovery, insurance, volume destruction and fleet supply; calculates the rate/duration breakpoint embedded in the price; audits annualized return and opportunity cost; reaches one allowed challenge verdict with required revisions.",
       "files": []
+    },
+    {
+      "id": 3,
+      "name": "surviving-case-allocation-handoff",
+      "prompt": "Independently challenge an Amazon underwriting that appears decision-ready and INVESTABLE. The case survives your valuation review, but the portfolio already has substantial AI-capex exposure and the user has not provided a position loss budget. Reconcile the case and state the next gate.",
+      "expected_output": "Keeps the challenge focused on underwriting facts, valuation, timing and opportunity cost; identifies AI-capex cluster exposure as an allocation constraint without inventing the portfolio or risk tolerance; preserves or revises the underwriting posture as supported; hands reconciled Bear loss, return, horizon, liquidity and cluster concerns to Portfolio Capital Allocation; does not choose an exact weight or imply that a surviving underwriting must be funded.",
+      "files": []
     }
   ]
 }
