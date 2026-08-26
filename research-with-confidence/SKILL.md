@@ -1,13 +1,13 @@
 ---
 name: research-with-confidence
-description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, or deciding whether a public-equity lead deserves Full Underwriting. Do not use for a quick factual answer, final security valuation, or account-specific portfolio sizing.
+description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, or deciding whether a public-equity lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, monitoring, or rejection. Do not use for a quick factual answer, final security valuation, short-duration payoff approval, or account-specific portfolio sizing.
 ---
 
 # Research With Confidence
 
 Determine what is actually true, what changed, what caused it, how economically material it could be, and what remains unresolved.
 
-For investment leads, RWC is the truth and causality gate between Radar and Full Underwriting. It may validate, refine, delay, or reject the original hypothesis. Its job is not to prove the Radar thesis.
+For investment leads, RWC is the truth and causality gate between Radar and the appropriate underwriting workflow. It may validate, refine, delay, or reject the original hypothesis. Its job is not to prove the Radar thesis.
 
 ## References
 
@@ -15,7 +15,7 @@ Read only what the task needs:
 
 - `references/research-workflow.md` for the general and investment research sequence.
 - `references/confidence-and-source-rules.md` for claim ledgers, source independence, and confidence calibration.
-- `references/investment-handoff.md` when the output may advance to Full Underwriting.
+- `references/investment-handoff.md` when the output may advance to underwriting.
 - `references/clinical-and-biotech-overlay.md` for medical, oncology, clinical, or regulatory research.
 
 ## Core rules
@@ -27,9 +27,9 @@ Read only what the task needs:
 - Separate `Fact`, `Company claim`, `Independent evidence`, `Derived calculation`, `Assumption`, `Inference`, and `Unknown`.
 - Test a causal thesis against the counterfactual: what likely would have happened without this event?
 - Look for confounders and competing explanations before attributing an observed market or operating change to the event.
-- Separate evidence confidence from security mispricing confidence.
+- Separate evidence confidence, company value-capture confidence, security-mispricing confidence, and short-duration tradeability.
 - Preserve uncertainty. Do not manufacture opposing evidence or false precision.
-- Stop when the remaining question is principally valuation, scenario modeling, financing, dilution, or portfolio construction; hand that work to Full Underwriting.
+- Stop when the remaining question is principally long-term valuation, scenario modeling, financing, dilution, event payoff, market microstructure, or portfolio construction; hand that work to the appropriate workflow.
 - Do not retrieve broad personal, portfolio, or workspace context unless the user requests it, supplies a specific handoff, or that exact context is necessary to answer the stated question.
 
 ## Workflow
@@ -44,7 +44,7 @@ State:
 - what would count as confirmation, refinement, delay, or rejection;
 - the information cutoff and current date.
 
-For a Radar handoff, preserve the `event_id`, original hypothesis, prior baseline, delta class, thesis effect, and decisive questions.
+For a Radar handoff, preserve the `event_id`, lane, original hypothesis, prior baseline, delta class, thesis effect, decisive questions, and any frozen catalyst packet.
 
 ### 2. Build a claim and source ledger
 
@@ -65,10 +65,11 @@ Do not treat repetition as corroboration. One regulator document or customer dat
 
 Determine:
 
-- what was already known, guided, expected, or priced before the new item;
+- what was already known, guided, expected, or plausibly priced before the new item;
 - what is genuinely incremental;
-- whether the item is repeated guidance, independent confirmation, acceleration/deceleration, contradiction, risk disclosure, or an unknown delta;
-- whether the market had a realistic chance to react.
+- whether the item is repeated guidance, independent confirmation, acceleration/deceleration, contradiction, risk disclosure, cumulative slow-burn evidence, or an unknown delta;
+- whether the market had a realistic chance to react;
+- when applicable, how the actual result compares with the frozen pre-event packet.
 
 Correct the initial framing explicitly when necessary. A materially revised thesis is a successful RWC outcome.
 
@@ -76,7 +77,7 @@ Correct the initial framing explicitly when necessary. A materially revised thes
 
 Express the proposed mechanism as:
 
-`Event -> operational or probabilistic variable -> company economics -> observable metric`
+`Event or cumulative delta -> operational or probabilistic variable -> company economics -> observable metric`
 
 Then ask:
 
@@ -110,7 +111,7 @@ High thematic exposure is not the same as material equity sensitivity.
 
 ### 6. Perform the expectations check
 
-RWC should determine whether a plausible expectations gap exists without completing the full valuation.
+RWC should determine whether a plausible expectations gap exists without completing the relevant underwriting.
 
 Check:
 
@@ -118,6 +119,7 @@ Check:
 - pre-event run-up or selloff;
 - contemporaneous price and estimate reaction;
 - consensus or common narrative;
+- frozen expected versus surprise thresholds when available;
 - whether the market appears to have noticed the direct effect but missed duration, second-order consequences, ownership economics, or an attribution error.
 
 State separately:
@@ -125,7 +127,10 @@ State separately:
 - confidence that the event or mechanism is real;
 - confidence that the identified company captures value;
 - confidence that the effect is material;
-- confidence that the security may be mispriced.
+- confidence that the security may be mispriced;
+- for an explicitly short-duration setup, confidence that a still-unconsumed event surprise may exist.
+
+RWC does not calculate the complete long-term valuation or event-trade payoff.
 
 ### 7. Red-team the research conclusion
 
@@ -135,7 +140,7 @@ Identify:
 - the strongest competing explanation;
 - the weakest load-bearing assumption;
 - evidence that would force a materially different conclusion;
-- whether management, sponsor, expert, media, or researcher incentives may be distorting the interpretation.
+- whether management, sponsor, expert, media, market participant, or researcher incentives may be distorting the interpretation.
 
 Do not add weak negative points merely to appear balanced.
 
@@ -143,11 +148,12 @@ Do not add weak negative points merely to appear balanced.
 
 Choose exactly one primary outcome:
 
-- **ADVANCE -> FULL UNDERWRITING:** mechanism and materiality survive; a plausible security-level expectations gap exists; valuation is now the decisive question.
+- **ADVANCE -> FULL UNDERWRITING:** mechanism and materiality survive; a plausible medium- or long-term security-level expectations gap exists; valuation, financing, downside, return, and time are now decisive.
+- **ADVANCE -> EVENT-TRADE UNDERWRITING:** the user explicitly seeks an hours/days/few-weeks trade around a discrete event; factual verification survives; the remaining questions are event probabilities, payoff, implied expectations, executable price, liquidity, gap, halt, borrow, options, or slippage. Do not use this route for a normal investment thesis.
 - **TARGETED RESEARCH:** one or more named evidence items can resolve a load-bearing uncertainty.
 - **WAIT FOR DATED EVIDENCE:** a near catalyst or document will provide substantially more information; state the date and do not underwrite stale inputs.
 - **MONITOR:** the thesis is credible but currently immaterial, weakly captured, or too early.
-- **REJECT:** the premise is false, stale, misattributed, immaterial, uninvestable through public securities, or already contradicted.
+- **REJECT:** the premise is false, stale, misattributed, immaterial, uninvestable through public securities, untradeable on the proposed horizon, or already contradicted.
 
 Stop rather than expanding the report when additional work has low expected decision value.
 
@@ -155,7 +161,7 @@ Stop rather than expanding the report when additional work has low expected deci
 
 ### Executive verdict
 
-State the route, corrected thesis, evidence confidence, security-mispricing confidence, and one-sentence reason.
+State the route, corrected thesis, evidence confidence, security-mispricing or event-surprise confidence, and one-sentence reason.
 
 ### Findings
 
@@ -173,13 +179,14 @@ Use the structure appropriate to the task, but an investment RWC report must inc
 10. confidence by major claim;
 11. unresolved questions and next evidence/date;
 12. stopping decision and next gate;
-13. exact Full Underwriting question when advancing.
+13. exact Full Underwriting question when advancing to investment underwriting;
+14. exact event, intended horizon, and remaining payoff/execution questions when advancing to Event-Trade Underwriting.
 
 Use `references/investment-handoff.md` as the contract for an underwriting handoff.
 
 ## Boundaries
 
-- RWC does not issue a final `INVESTABLE`, `PASS`, or position-size decision for a public security unless the user explicitly asks for a combined workflow and the full underwriting requirements are also completed.
+- RWC does not issue a final `INVESTABLE`, event-trade posture, `PASS`, or position-size decision unless the user explicitly asks for a combined workflow and all requirements of the relevant downstream skill are completed.
 - RWC does not restart an existing handoff from zero, but it may overturn its interpretation.
 - RWC does not automatically update a Mind Model thesis. It may propose atomic evidence and a probability effect for review.
-- RWC does not treat a large TAM, statistically significant result, regulatory approval, strategic investment, partnership, or recent stock move as sufficient proof of security-level mispricing.
+- RWC does not treat a large TAM, statistically significant result, regulatory approval, strategic investment, partnership, recent stock move, or apparent event surprise as sufficient proof of security-level mispricing or tradeability.
