@@ -1,4 +1,4 @@
-# Return Hurdle, Opportunity Cost, and Portfolio Handoff
+# Return Hurdle, Opportunity Cost, and Portfolio Capital Allocation Handoff
 
 ## Required-return rule
 
@@ -8,11 +8,11 @@ Do not invent a personal hurdle. If none is supplied:
 
 1. state `Required-return hurdle: not supplied`;
 2. report expected annualized return and downside;
-3. show sensitivity to reasonable illustrative hurdles such as 10%, 15%, and 20% annualized when useful;
+3. show sensitivity to illustrative hurdles such as 10%, 15%, and 20% annualized when useful;
 4. state the price or operating assumptions required to clear each hurdle;
-5. avoid implying that the illustrative hurdle is Mike's policy.
+5. avoid implying that an illustrative hurdle is Mike's policy.
 
-For event-driven or binary ideas, also show the break-even success probability and the probability required to meet the hurdle.
+For event-driven or binary investments, also show the break-even success probability and the probability required to meet the hurdle. Use Event-Trade Underwriting instead when the intended holding period is only hours, days, or a few weeks and the decisive issue is the discrete event payoff rather than long-term value.
 
 ## Opportunity-cost comparison
 
@@ -29,26 +29,28 @@ Compare:
 
 - expected and annualized return;
 - Bear-case loss and permanent-loss mechanism;
-- evidence confidence;
-- time to resolution;
+- evidence and probability confidence;
+- time to resolution and delay risk;
 - liquidity and gap/event risk;
 - correlation and thematic concentration;
-- currency, listing, and implementation complexity.
+- currency, listing, and implementation complexity;
+- monitoring burden.
 
-A lower-return idea may still be preferable if confidence, liquidity, duration, or downside is materially better. Explain the tradeoff rather than ranking only by point-estimate return.
+A lower-return idea may still be preferable if confidence, liquidity, duration, diversification, or downside is materially better. Explain the tradeoff rather than ranking only by point-estimate return.
 
-## Portfolio handoff fields
+## Portfolio Capital Allocation handoff fields
 
 Provide:
 
 ```text
 security
 posture
+challenge_status
 price_and_date
 entry_condition
 expected_return
 expected_annualized_return
-bear_downside
+bear_value_and_downside
 base_return
 bull_upside
 probability_confidence
@@ -58,18 +60,29 @@ mandatory_reunderwrite_date
 liquidity_and_spread
 event_or_gap_risk
 financing_and_dilution_risk
+ownership_and_cash_flow_claims
 factor_and_thematic_exposures
-customer_supplier_or_macro_dependencies
-correlation_concerns
+customer_supplier_commodity_or_macro_dependencies
+correlation_and_cluster_concerns
 currency_and_listing_issues
 closest_alternative
 hurdle_premium_or_shortfall
 add_evidence
 trim_evidence
 exit_or_kill_evidence
+unresolved_constraints
 ```
 
-The portfolio workflow owns exact size, account, concentration, hedges, tax, entry implementation, and trade execution.
+`portfolio-capital-allocation` owns:
+
+- the maximum portfolio loss budget;
+- exact or ranged position size;
+- cluster and concentration limits;
+- funding source;
+- price-, evidence-, or catalyst-staged entry;
+- allocation monitoring, add, trim, and exit rules.
+
+Full Underwriting must not infer missing holdings, cash, account constraints, or risk tolerance merely to complete the handoff.
 
 ## Price-sensitive conclusions
 
@@ -80,4 +93,4 @@ When the thesis is sound but the hurdle is not met, calculate one or more of:
 - operating milestone required at the current price;
 - lower-risk evidence that would justify accepting a smaller return premium.
 
-State the condition precisely enough to monitor.
+State the condition precisely enough to monitor and for Portfolio Capital Allocation to create a non-arbitrary staged plan.
