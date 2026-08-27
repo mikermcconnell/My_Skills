@@ -1,10 +1,14 @@
 # News Radar Investing V3 — Scheduled Monitor Instructions
 
-Use this as the authoritative prompt for the existing scheduled monitor named **News Radar Investing**.
+**Activation status:** ACTIVE  
+**Effective:** the first scheduled News Radar occurrence after the V3 repository update on 2026-08-27  
+**Authoritative skill:** `news-radar-investing/SKILL.md`, version 3
+
+Use this as the authoritative prompt contract for every active scheduled task instance that together produces the **News Radar Investing** runs. The scheduler may use more than one task to implement the three daily slots; every instance must load and apply the same V3 skill and run contract.
 
 ## Schedule
 
-Run at:
+Do not change the established cadence:
 
 - 08:00 America/Toronto
 - 11:30 America/Toronto
@@ -15,8 +19,9 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
 ## Required workflow
 
 1. Read the latest `news-radar-investing/SKILL.md` from `mikermcconnell/My_Skills` and confirm it is **version 3**.
-2. Apply `references/v3-run-contract.md` as the authoritative run contract.
-3. Load the narrow live context needed for portfolio defense:
+2. Read `news-radar-investing/ACTIVE_VERSION.md` and confirm the active monitor version is **3**.
+3. Apply `references/v3-run-contract.md` as the authoritative run contract.
+4. Load the narrow live context needed for portfolio defense:
    - active holdings;
    - active underwritings and monitors;
    - current kill criteria and review dates;
@@ -25,18 +30,18 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    - P0/P1/P2 items;
    - known catalysts;
    - evidence due now or overdue.
-4. Complete the V3 run coverage manifest. Mark unavailable state or source feeds explicitly.
-5. Scan portfolio and thesis risks before new opportunity discovery.
-6. Search the relevant event, filing, regulator, clinical, catalyst, expert, social, and slow-burn lanes available for the run.
-7. Reconcile every serious item with the canonical Event Ledger and prior baseline.
-8. Apply the V3 late-detection rule. Backfill unrecorded material events that predate the scan window rather than dismissing them.
-9. Check every evidence item whose due date or catalyst window has arrived. Record missing, delayed, removed, or still-unconfirmed evidence without automatically changing the thesis.
-10. Treat unexplained price moves as investigation triggers, not automatic Novelty passes.
-11. Persist research-only state automatically using the supported canonical store, TaskTracker research record, or dated Library fallback. Declare `PERSISTENCE_FAILED` if no write succeeds.
-12. Apply the five gates and assign one primary route: P0, P1, P2, P3, or REJECT / DUPLICATE.
-13. Keep the Radar analytically thin. Stop after the exact delta, baseline, source status, plausible materiality, preliminary mechanism, direct exposure, capture uncertainty, strongest failure reason, and no more than three decisive Research With Confidence questions.
-14. Route causality, counterfactuals, detailed materiality, full value capture, and expectations analysis to Research With Confidence. Route valuation, dilution, scenarios, returns, timing, and security posture to Full Underwriting.
-15. Do not automatically change a Mind Model thesis, probability, underwriting posture, fair value, entry range, kill criterion, review date, or holding.
+5. Complete the V3 run coverage manifest. Mark unavailable state or source feeds explicitly.
+6. Scan portfolio and thesis risks before new opportunity discovery.
+7. Search the relevant event, filing, regulator, clinical, catalyst, expert, social, and slow-burn lanes available for the run.
+8. Reconcile every serious item with the canonical Event Ledger and prior baseline.
+9. Apply the V3 late-detection rule. Backfill unrecorded material events that predate the scan window rather than dismissing them.
+10. Check every evidence item whose due date or catalyst window has arrived. Record missing, delayed, removed, or still-unconfirmed evidence without automatically changing the thesis.
+11. Treat unexplained price moves as investigation triggers, not automatic Novelty passes.
+12. Persist research-only state automatically using the supported canonical store, TaskTracker research record, or dated Library fallback. Declare `PERSISTENCE_FAILED` if no write succeeds.
+13. Apply the five gates and assign one primary route: P0, P1, P2, P3, or REJECT / DUPLICATE.
+14. Keep the Radar analytically thin. Stop after the exact delta, baseline, source status, plausible materiality, preliminary mechanism, direct exposure, capture uncertainty, strongest failure reason, and no more than three decisive Research With Confidence questions.
+15. Route causality, counterfactuals, detailed materiality, full value capture, and expectations analysis to Research With Confidence. Route valuation, dilution, scenarios, returns, timing, and security posture to Full Underwriting.
+16. Do not automatically change a Mind Model thesis, probability, underwriting posture, fair value, entry range, kill criterion, review date, or holding.
 
 ## Scheduled output
 
@@ -58,6 +63,7 @@ End with:
 - unavailable state, feed outages, and blind spots;
 - late detections and scan-gap recovery;
 - persistence status;
+- active Radar version and monitor contract used;
 - next scheduled slot.
 
 A no-lead run is valid. Say that no qualifying event was found in the searched universe rather than claiming that nothing material occurred anywhere.
