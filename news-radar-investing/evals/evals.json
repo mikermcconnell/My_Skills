@@ -1,46 +1,117 @@
 {
   "skill_name": "news-radar-investing",
+  "version": 3,
   "evals": [
     {
       "id": 1,
       "name": "repeated-guidance-dedup",
       "prompt": "Amazon issued a new press release repeating a previously disclosed Prime Air target, and several outlets rewrote it as a major expansion. Run News Radar and tell me what deserves follow-up.",
-      "expected_output": "Finds the prior baseline; classifies the repeated target as REPEATED_GUIDANCE rather than GENUINELY_NEW; groups derivative articles under one event; separates any genuinely new geography, regulatory, safety, or unit-economics facts; applies the five gates; routes only unresolved material deltas to RWC; does not issue a buy recommendation or investability score.",
+      "expected_output": "Finds the prior baseline; classifies the repeated target as REPEATED_GUIDANCE rather than GENUINELY_NEW; groups derivative articles under one event; separates any genuinely new geography, regulatory, safety, or operating facts; applies the five gates; routes only unresolved material deltas to RWC; does not issue a buy recommendation, valuation, or investability score.",
       "files": []
     },
     {
       "id": 2,
       "name": "holdings-risk-priority",
       "prompt": "The morning radar finds a modest new AI supplier opportunity and a late-night regulator filing that may invalidate a core assumption in one of my current holdings. Prioritize the queue.",
-      "expected_output": "Routes the potential thesis break as P0 ahead of the new long idea; records source origin and claim status separately; names the affected thesis, decisive evidence, and next action; routes the supplier idea based on novelty, materiality, capture, expectation, and researchability rather than headline excitement.",
+      "expected_output": "Routes the potential thesis break as P0 ahead of the new long idea; records source origin and claim status separately; names the affected holding, underwriting or thesis, immediate evidence, and RWC question; does not delay the P0 item to complete second-order beneficiary mapping.",
       "files": []
     },
     {
       "id": 3,
       "name": "oncology-readout-routing",
       "prompt": "A small biotech says its Phase 2 cancer trial met the primary endpoint, but the release has no subgroup denominator, confidence interval, mature safety table, or protocol link. The stock is up 35%. Run the radar triage.",
-      "expected_output": "Creates a clinical Event Ledger record; does not equate a positive headline with investability; identifies the missing protocol, statistical, and safety information; records the market reaction with timestamp; routes to P2 targeted evidence or P1 only if the underlying documents support it; includes direct and second-order security mapping and a non-beneficiary or comparator.",
+      "expected_output": "Creates a clinical Event Ledger record; does not equate a positive headline or price move with investability; identifies the missing protocol, statistical, safety, rights, and financing evidence; records market status with timestamp; routes to P2 targeted evidence or P1 only if original documents support it; stops before complete clinical-commercial underwriting.",
       "files": []
     },
     {
       "id": 4,
       "name": "slow-burn-filing-delta",
       "prompt": "Nothing dramatic hit the news, but over three quarters a supplier's backlog growth slowed, lead times normalized, share-based compensation rose, and management quietly changed its AI revenue definition. Run the slow-burn Radar lane and decide what deserves research.",
-      "expected_output": "Uses comparable dated baselines; records the observations atomically rather than inventing one headline event; distinguishes independent evidence from definition effects and seasonality; builds the operating-to-financial bridge; identifies when the cumulative pattern crosses materiality; routes a possible thesis risk or RWC question without completing valuation; preserves next evidence and a falsifying alternative explanation.",
+      "expected_output": "Uses comparable dated baselines; records observations atomically; distinguishes independent evidence from definition effects and seasonality; identifies when the cumulative pattern crosses a threshold; states the preliminary operating-to-thesis bridge and strongest alternative explanation; routes precise RWC questions without completing causality, valuation, or expected-return work.",
       "files": []
     },
     {
       "id": 5,
       "name": "pre-event-catalyst-packet",
       "prompt": "ZYME has a known FDA decision in two weeks. Build the Radar catalyst packet now so we can judge the result correctly when it arrives.",
-      "expected_output": "Freezes the event date, source, price and pre-event run-up, known approval probability or clearly labels it unavailable, expected label and clinical thresholds, milestones and royalty ownership, runway and financing, bear/expected/upside result definitions, what would actually be surprising, first post-event documents to retrieve, and the post-event RWC question. It does not call the stock investable or retroactively rewrite the packet.",
+      "expected_output": "Freezes event date, source, price and run-up, known probability or clearly labels it unavailable, expected label and clinical thresholds, milestones and royalty ownership, runway and financing, bear/expected/upside result definitions, genuine-surprise thresholds, first post-event documents, and the post-event RWC question. It does not call the stock investable or retroactively rewrite the packet.",
       "files": []
     },
     {
       "id": 6,
       "name": "valid-no-lead-run",
-      "prompt": "Run the noon News Radar. The scan finds only recycled articles, small immaterial product announcements, and one filing already captured this morning.",
-      "expected_output": "Allows a valid run with no P0 or P1 ideas; declares the searched source universe and limitations; deduplicates the filing; classifies recycled or immaterial items correctly; does not lower gates to create activity; reports any P2/P3 monitoring item only when named evidence or a real thesis link exists.",
+      "prompt": "Run the 11:30 News Radar. The scan finds only recycled articles, small immaterial product announcements, and one filing already captured at 08:00.",
+      "expected_output": "Allows a valid run with no P0/P1/P2 ideas; completes the coverage manifest; checks evidence due; deduplicates the filing; classifies recycled and immaterial items correctly; reports source and state limitations plus persistence status; does not lower gates to create activity.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "late-detection-backfill",
+      "prompt": "At the 15:00 run you discover a material clinical result published at 07:30. It was missed by the 08:00 and 11:30 runs and is not in the Event Ledger. The article is outside the current scan window. What should Radar do?",
+      "expected_output": "Classifies the item LATE_DETECTION rather than dismissing it or calling it newly published; backfills the original event and publication time; preserves first Radar detection, latency, missed-feed reason, and decision-usefulness effect; applies normal gates and routing; updates calibration and persistence records.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "overdue-expected-evidence",
+      "prompt": "A company promised customer qualification evidence by August 31. The September 1 Radar finds no filing, customer announcement, or revised date. The stock has not moved. Triage it.",
+      "expected_output": "Creates or appends an EXPECTED_EVIDENCE_MISSED or PROMISE_UNCONFIRMED observation; preserves the original due date; states the strongest benign explanation; does not automatically call the thesis broken; routes the meaning of the absence to P2, P1, or monitor based on materiality and researchability; names the next official evidence source and date.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "coverage-manifest-feed-outage",
+      "prompt": "The 08:00 run can search company IR and Reuters, but the portfolio endpoint, SEC feed, and ClinicalTrials.gov history feed are unavailable. Produce the Radar result.",
+      "expected_output": "Marks the run PARTIAL; identifies which holdings, underwritings, theses, filings, and clinical changes could not be confirmed; does not imply complete portfolio or market coverage; records the outages in the manifest and persistence record; reports only what was found in the searched universe.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "name": "mixed-cross-security-readthrough",
+      "prompt": "A hyperscaler announces a much larger merchant-GPU commitment. It may support aggregate AI demand, benefit the GPU vendor and memory suppliers, but also raise a proprietary-chip share question for the hyperscaler. Run Radar.",
+      "expected_output": "Preserves one underlying event; records lightweight exposure links with positive, negative, mixed, or unknown direction; identifies the direct holding or security and main capture uncertainty; asks RWC to determine additive demand versus proprietary-share loss and complete the value-capture map; does not calculate earnings sensitivities or rank final investments.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "name": "governance-and-dilution-detection-boundary",
+      "prompt": "A development-stage company announces strong operating progress, but also files a shelf registration, adds an ATM, discloses a material weakness, and its CFO resigns. Run Radar.",
+      "expected_output": "Prioritizes financing, control, and governance risk; classifies source and claim status precisely; links the event to the holding or underwriting; routes verification and materiality questions to RWC; stops before fully diluted valuation, financing scenarios, or a buy/sell decision, which belong to underwriting.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "name": "clinical-registry-version-diff",
+      "prompt": "No press release was issued, but a trial registry version history shows a later primary-completion date, fewer sites, and a revised secondary endpoint. Triage it for an oncology holding.",
+      "expected_output": "Uses the registry version history as the original changed record; compares it with the archived baseline; records atomic MILESTONE_DELAYED and protocol observations without claiming failure; prioritizes the owned exposure; names the sponsor or regulator evidence needed; routes the interpretation to RWC.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "name": "unexplained-price-dislocation",
+      "prompt": "A holding falls 11% intraday with no indexed company announcement. Social posts offer several conflicting explanations. Run Radar.",
+      "expected_output": "Creates a temporary PRICE_DISLOCATION_UNEXPLAINED investigation item; searches filings, regulators, customers, suppliers, peers, factors, commodities, options, index, and forced-flow explanations where available; does not pass Novelty solely because of the move; routes only a defensible underlying event or attribution question.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "name": "scheduled-research-persistence-boundary",
+      "prompt": "The scheduled Radar finds a P1 event that may improve an active thesis. Persist the result for the next run.",
+      "expected_output": "Automatically persists the run manifest, canonical event, source, timestamps, route, RWC handoff, next evidence, and coverage limitations; does not change thesis wording or probability, fair value, security posture, entry range, kill criteria, review date, or a portfolio position.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "name": "schedule-gap-recovery",
+      "prompt": "The 11:30 scheduled run failed and the 15:00 run starts normally. What scan window and reporting behavior should V3 use?",
+      "expected_output": "Uses the last successful run timestamp rather than 11:30 as the scan-window start; records the failed slot and resulting gap; checks overdue evidence and open events; avoids silent omissions; persists the run status and next scheduled slot.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "name": "radar-depth-stop",
+      "prompt": "A P1 event appears real, but deciding between two beneficiaries now requires customer economics, a counterfactual, detailed share assumptions, valuation, and current-price return modeling. Continue the Radar analysis.",
+      "expected_output": "Stops the Radar work; preserves the preliminary mechanism and capture uncertainty; asks no more than three decisive RWC questions; routes causality, materiality, and value capture to RWC and valuation and expected return to Full Underwriting; does not produce a mini deep dive.",
       "files": []
     }
   ]
