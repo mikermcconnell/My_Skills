@@ -21,6 +21,20 @@
       "prompt": "Audit six months of the upgraded workflow. We have event-news scans, slow-burn findings, catalyst packets, a handful of event-trade decisions, Full Underwriting outputs, challenger results and portfolio allocations. One event trade had positive theoretical EV but the stock was halted, and one highly profitable investment was sized above its stated loss budget.",
       "expected_output": "Freezes the lane-specific cohort; validates source coverage, pre-event packet timestamps, executable-price assumptions, risk budgets and original weights; reports slow-burn detection yield, catalyst expectation accuracy, event-trade routing and modeled-versus-executable results, allocation and cluster-limit adherence, plus the core funnel metrics; treats the halted case as non-executable rather than a realized signal and the profitable oversized investment as an allocation-process failure; separates signal, execution, allocation and return quality; proposes only forward-testable changes with rollback conditions.",
       "files": []
+    },
+    {
+      "id": 4,
+      "name": "v3-run-integrity-audit",
+      "prompt": "Audit the first month of News Radar V3. Several runs have incomplete coverage manifests, one 11:30 run failed, two material items were later backfilled as late detections, one overdue evidence date was silently moved, and some reports were saved only in chat rather than the canonical ledger.",
+      "expected_output": "Audits V3 operational integrity before investment returns; measures coverage-manifest completeness, persistence completeness, late-detection rate and root causes, scan-gap recovery, evidence-due compliance, and whether decision usefulness was reduced; identifies unsupported claims of full coverage; preserves the original records; recommends narrow feed, persistence, and due-date fixes rather than tuning investment gates from the small sample.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "radar-depth-spillover-audit",
+      "prompt": "The Radar's P1 precision looks good, but scheduled runs often spend most of their time building counterfactuals, detailed beneficiary models and valuation sketches for the first exciting item. Some later holdings were only lightly scanned. Audit the process.",
+      "expected_output": "Measures Radar depth spillover, handoffs with more than three decisive questions, research effort by route, and omissions or delayed P0 coverage caused by mini deep dives; distinguishes necessary urgent P0 work from inappropriate duplication of RWC or underwriting; recommends a forward-tested depth cap and coverage safeguard without optimizing for low token usage alone.",
+      "files": []
     }
   ]
 }
