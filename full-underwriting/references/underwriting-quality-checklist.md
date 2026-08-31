@@ -93,7 +93,40 @@ Run this before finalizing.
 - [ ] Add, trim, and exit evidence are included.
 - [ ] Exact size, account, hedge, tax, and execution are left to the portfolio/risk workflow.
 
-## 11. Mandatory monitor propagation
+## 11. Mandatory cross-chat case persistence
+
+Apply `references/case-record-persistence.md` for every new Full Underwriting and every material re-underwrite, event touchpoint, mandatory renewal, or decision-changing update.
+
+The persistent Library case record is the source of truth; conversational memory and prior chat retrieval are discovery aids only.
+
+Required retrieval behavior before interpreting new evidence:
+
+- [ ] Search for `/Investing/Underwriting/<TICKER>/<TICKER>-current-baseline.md`.
+- [ ] If found, read and freeze that baseline before using an older preview, Radar/RWC handoff, monitor, prior chat output, or memory fragment.
+- [ ] Read the newest relevant append-only decision log when the question depends on why the baseline changed.
+- [ ] Reverify market-sensitive and load-bearing facts rather than treating the persisted baseline as current evidence.
+- [ ] If the canonical baseline conflicts with a live monitor, treat the canonical record as authoritative and repair the monitor before finishing when tools permit.
+
+Required write behavior after a material conclusion:
+
+- [ ] Write a new dated append-only decision log at `/Investing/Underwriting/<TICKER>/<TICKER>-decision-log-YYYY-MM-DD[-NN].md`.
+- [ ] Create or replace `/Investing/Underwriting/<TICKER>/<TICKER>-current-baseline.md` with the newly authoritative baseline.
+- [ ] Preserve the prior decision rather than silently overwriting history.
+- [ ] Include enough information in the current baseline for a fresh chat to recover the current thesis status, security posture/readiness, Bear/Base/Bull or selected fair value, probabilities, required-return/hurdle price, thresholds, kill/upgrade criteria, realization date, re-underwrite date, and event-driven accelerators.
+- [ ] Keep user-specified assumptions/corrections distinct from independently verified facts.
+- [ ] Verify that the persisted current baseline and live monitors agree before finalizing.
+
+Material changes requiring a new decision log and baseline rewrite include changes to thesis status, security readiness/posture, scenario economics/probabilities, fair value, return hurdle/hurdle price, entry/add/compelling/trim/valuation-gap/exit thresholds, kill/upgrade criteria, financing/capital-structure assumptions, target realization, mandatory re-underwrite timing, monitoring-relevant trade expression, or a user correction that changes the authoritative case.
+
+If persistent Library writes are unavailable:
+
+- [ ] Mark `CASE_PERSISTENCE_BLOCKED` explicitly rather than claiming the case was saved.
+- [ ] Preserve an exact current-baseline and decision-log artifact in the conversation when possible.
+- [ ] Backfill the Library record automatically in the next session where persistent file writes are available before performing a material update.
+
+This case-persistence step is part of completing the underwriting, not optional documentation.
+
+## 12. Mandatory monitor propagation
 
 Before finalizing any Full Underwriting, determine whether the conclusion creates or changes a monitor-worthy state. If it does, synchronize the live monitoring system in the same turn whenever the required task-editing capability is available.
 
@@ -138,8 +171,11 @@ This monitor-propagation step is part of completing the underwriting, not an opt
 11. Why is this superior to the closest alternative?
 12. By what date should the thesis realize and be re-underwritten?
 13. Did the independent challenger agree, revise, or fail the conclusion?
-14. Have all monitor-worthy changes been propagated to the live underwriting monitors or explicitly marked as blocked?
-15. Is the security actually investable, or merely interesting?
+14. Did I retrieve and freeze the canonical prior case before interpreting new evidence?
+15. Is the newly authoritative current baseline persisted at the canonical Library path with an append-only decision log?
+16. Do the live monitors match that persisted baseline, or is synchronization explicitly marked blocked?
+17. Could a fresh chat recover the current thesis, valuation, thresholds, kill criteria, and re-underwrite date without relying on memory?
+18. Is the security actually investable, or merely interesting?
 
 If the important questions cannot be answered, the underwriting is not Decision-ready.
 
