@@ -93,6 +93,36 @@ Run this before finalizing.
 - [ ] Add, trim, and exit evidence are included.
 - [ ] Exact size, account, hedge, tax, and execution are left to the portfolio/risk workflow.
 
+## 11. Mandatory monitor propagation
+
+Before finalizing any Full Underwriting, determine whether the conclusion creates or changes a monitor-worthy state. If it does, synchronize the live monitoring system in the same turn whenever the required task-editing capability is available.
+
+Monitor-worthy state includes any new or changed:
+
+- thesis status or security posture;
+- fair value, probability-weighted value, Bear/Base/Bull values, or return framework;
+- entry, add, compelling, trim, valuation-gap, or exit-review thresholds;
+- kill or deterioration criteria;
+- upgrade criteria;
+- catalyst or next-evidence triggers that could force earlier review;
+- target realization date;
+- mandatory re-underwrite date;
+- ownership/trade-expression context that changes how the security should be monitored.
+
+Required behavior:
+
+- [ ] If the security already exists in active underwriting monitors, update those monitors automatically before the final response.
+- [ ] If the security does not yet have appropriate monitoring and the underwriting ends INVESTABLE, INVESTABLE BUT PRICE-SENSITIVE, or WATCH / WAIT FOR PROOF, create an appropriate live monitor automatically rather than waiting for a separate user request.
+- [ ] Prefer integration into the central Daily Trigger Monitor, Weekly Evidence Review, and Re-underwrite Calendar when those are the authoritative monitoring surfaces; create a dedicated condition-watch only when the case benefits from security-specific evidence checks or when central-monitor integration is insufficient.
+- [ ] Price alone must never create an automatic buy/sell instruction; price thresholds trigger an underwriting refresh unless the user has explicitly defined another rule.
+- [ ] A mandatory re-underwrite date must be represented in the live re-underwrite calendar or an equivalent active task.
+- [ ] Event-driven early-review conditions must be carried into the monitoring prompt.
+- [ ] When a later re-underwrite changes the baseline, propagate the revised values, thresholds, kill criteria, and next review date into all affected live monitors before finishing.
+- [ ] Avoid duplicate active monitors. Check existing tasks first and update or consolidate rather than creating overlapping watches.
+- [ ] If task-editing capability is unavailable, do not falsely claim synchronization. State the specific limitation, preserve an exact monitor-update payload in a durable artifact when possible, and apply it automatically in the next session where task editing is available.
+
+This monitor-propagation step is part of completing the underwriting, not an optional follow-up.
+
 ## Final decision questions
 
 1. What exactly is mispriced?
@@ -108,7 +138,8 @@ Run this before finalizing.
 11. Why is this superior to the closest alternative?
 12. By what date should the thesis realize and be re-underwritten?
 13. Did the independent challenger agree, revise, or fail the conclusion?
-14. Is the security actually investable, or merely interesting?
+14. Have all monitor-worthy changes been propagated to the live underwriting monitors or explicitly marked as blocked?
+15. Is the security actually investable, or merely interesting?
 
 If the important questions cannot be answered, the underwriting is not Decision-ready.
 
