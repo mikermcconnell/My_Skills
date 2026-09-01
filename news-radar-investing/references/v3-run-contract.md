@@ -1,14 +1,14 @@
 # News Radar Investing V3 Run Contract
 
-This contract is authoritative for scheduled News Radar V3 runs. Radar is the high-recall detection, memory, prioritization, active-thesis-testing, and routing layer. Research With Confidence owns independent verification, causality, counterfactuals, confounders, economic materiality, value capture, and the preliminary expectations-gap decision. Full Underwriting owns current-price analysis, fully diluted capital structure, scenarios, valuation, expected return, opportunity cost, timing, kill criteria, and the final security posture. Event-Trade Underwriting owns short-duration event payoff and execution analysis.
+This contract is authoritative for scheduled News Radar V3 runs. Radar is the high-recall detection, memory, prioritization, active-thesis-testing, market-context, and routing layer. Research With Confidence owns independent verification, causality, counterfactuals, confounders, economic materiality, value capture, and the preliminary expectations-gap decision. Full Underwriting owns current-price analysis, fully diluted capital structure, scenarios, valuation, expected return, opportunity cost, timing, kill criteria, and the final security posture. Event-Trade Underwriting owns short-duration event payoff and execution analysis.
 
 ## Authoritative cadence
 
 Use one schedule everywhere:
 
-- **08:00 America/Toronto** — overnight international developments, pre-market filings, regulatory actions, portfolio risks, thesis evidence due, and known catalyst outcomes.
-- **11:30 America/Toronto** — intraday primary-source confirmation, new North American developments, thesis/forecast updates, open-event updates, and evidence-due checks.
-- **15:00 America/Toronto** — pre-close changes, time-sensitive holdings risk, final research-queue selection, thesis-review changes, and unresolved-event status.
+- **08:00 America/Toronto** — overnight international developments, pre-market filings, regulatory actions, portfolio risks, thesis evidence due, known catalyst outcomes, and pre-market/overnight market context.
+- **11:30 America/Toronto** — intraday primary-source confirmation, new North American developments, thesis/forecast updates, open-event updates, evidence-due checks, and live market-tape context.
+- **15:00 America/Toronto** — pre-close changes, time-sensitive holdings risk, final research-queue selection, thesis-review changes, unresolved-event status, and live market-tape context.
 
 An explicitly invoked after-close capture may record earnings, filings, trial results, and regulatory announcements, but it does not replace the next scheduled run.
 
@@ -16,7 +16,7 @@ Scan from the last successful run timestamp. When a run is advanced, delayed, sk
 
 ## Mandatory preflight
 
-Before broad discovery, load the narrow current context required to protect capital, test active theses, and prevent duplicate work:
+Before broad discovery, load the narrow current context required to protect capital, test active theses, distinguish broad-market from idiosyncratic moves, and prevent duplicate work:
 
 ```text
 last_successful_run_at
@@ -36,10 +36,11 @@ thesis_evidence_ledger
 thesis_watchlist_exposures
 linked_investor_research_state
 pending_thesis_proposals
+same_day_market_context
 available_source_feeds_and_outages
 ```
 
-Use live state when supported. If a required context source cannot be read, mark it `STATE_UNAVAILABLE`, state the affected coverage, and do not imply that the holding, underwriting, or thesis was checked.
+Use live state when supported. If a required context source cannot be read, mark it `STATE_UNAVAILABLE`, state the affected coverage, and do not imply that the holding, underwriting, thesis, or market driver was checked.
 
 GitHub source, local seeds, migrations, and remembered thesis prose may explain schema but are not confirmed production Mind Model state.
 
@@ -65,6 +66,9 @@ Mind_Model_review_queue_checked
 thesis_forecasts_due_checked
 thesis_state_unavailable
 known_catalysts_checked
+market_tape_checked
+market_tape_as_of
+market_tape_sources
 primary_feeds_searched_successfully
 expert_social_and_alternative_lanes_checked
 feeds_unavailable_delayed_or_not_connected
@@ -145,6 +149,39 @@ A thesis with no material delta is recorded as checked in the manifest, not expa
 
 Radar may write research-only evidence, linked research questions, or a pending thesis proposal when supported. It must never approve the proposal or directly change the approved thesis.
 
+## Compact market tape — What's moving markets today
+
+Produce this on every scheduled visible run after urgent portfolio-defense classification. It is contextual market attribution, not a separate quota of Radar events.
+
+Use the freshest same-day evidence available at the run cutoff:
+
+- **08:00:** North American futures and overnight international markets; do not describe regular-session index moves that have not happened yet.
+- **11:30 / 15:00:** actual same-day U.S./Canadian indexes, sectors, and factor leadership/weakness.
+- Check S&P 500, Nasdaq/large-cap growth, and TSX when relevant. Add Treasury yields/rates, oil, FX, volatility, credit, metals, or other commodities only when materially influencing the tape or the user's portfolio.
+- Identify sector/factor leadership when it helps separate market-driven portfolio moves from company-specific evidence.
+
+Visible market-tape contract:
+
+```text
+heading: What's moving markets today
+maximum_bullets: 3
+visible_word_budget: about 80-100 words total
+as_of_time: required when using live prices
+```
+
+Each bullet should combine an **observed move** with the best-supported **reported/likely driver**. Do not state causal attribution as fact when it is inferential. If the evidence does not support a clean explanation, say `attribution uncertain`.
+
+Do not:
+
+- repeat company-specific events already clear from the lead Radar table unless they are genuinely driving the broader market;
+- convert ordinary index/sector movement into P0/P1/P2 simply to populate the tape;
+- treat a market narrative as proof of a thesis or security event;
+- exceed the compact-output budget materially to provide a macro essay.
+
+A broad market factor becomes a normal Radar event only when it independently passes the five gates and is sufficiently linked to a holding, active underwriting, or thesis.
+
+If reliable market data or attribution cannot be retrieved, state `Market tape unavailable or attribution uncertain` in one short line and preserve the feed gap in the manifest.
+
 ## Detection status and late-event recovery
 
 Every material observation receives one detection status:
@@ -190,6 +227,8 @@ A large or unusual price move may trigger a targeted source search, but price mo
 
 Use `PRICE_DISLOCATION_UNEXPLAINED` until an underlying event, factor exposure, positioning effect, forced flow, or attribution error is identified. Route only the factual question that remains.
 
+The market tape can provide factor context for this investigation, but it must not be used to manufacture a company-specific explanation.
+
 ## Research-only persistence
 
 For scheduled V3 runs, persistence of research-only state is the default requirement, not an optional extra.
@@ -208,6 +247,7 @@ Persist when supported:
 - underwriting-requirement classification and rationale;
 - open P2 evidence requests and due dates;
 - frozen catalyst and forecast packets;
+- market-tape as-of time and high-level drivers when supported;
 - late detections, feed outages, and persistence failures.
 
 Use the supported Event Ledger or research store when available. If no canonical store is available, save a dated Library artifact and clearly label the fallback. If neither write path works, mark `PERSISTENCE_FAILED` in the report rather than implying continuity.
@@ -235,7 +275,7 @@ Use this order:
 7. slow-burn evidence crossing a threshold;
 8. new opportunity discovery.
 
-A P0 risk takes the fast path. Do not delay it to complete thesis research, a broad value-chain map, false-friend analysis, or thematic beneficiary list.
+A P0 risk takes the fast path. Do not delay it to complete thesis research, a market-tape summary, a broad value-chain map, false-friend analysis, or thematic beneficiary list.
 
 ## Minimum security and thesis mapping
 
@@ -316,7 +356,8 @@ Radar should not normally perform:
 - detailed clinical-commercial underwriting;
 - portfolio loss-budget, hedge, funding-source, or position-size calculations;
 - a final buy, sell, add, trim, exit, or investability decision;
-- approval of a thesis proposal or forecast change.
+- approval of a thesis proposal or forecast change;
+- an extended macro or market commentary section.
 
 Depth exceptions are limited to:
 
@@ -336,6 +377,7 @@ Apply these compression rules:
 - **Gates shorthand:** use compact notation such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or disputed gate that matters to routing.
 - **RWC questions:** show one primary visible question by default; maximum two when genuinely independent. The stored record/artifact may retain up to three.
 - **P2/P3:** normally table-only. Add visible prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
+- **Market tape:** mandatory, but maximum 3 bullets and roughly 80–100 words total. It must fit inside the compact-output budget rather than being additive macro commentary.
 - **Baseline:** restate only the one or two baseline facts required to understand the delta.
 - **Mechanism:** state once. Do not repeat the same causal chain in multiple forms.
 - **Reconciliation:** mention only items whose status changed. Otherwise one sentence is enough: `Open items reconciled; no additional decision-relevant delta.`
@@ -348,11 +390,12 @@ Preferred visible order:
 
 1. title and one-sentence run status;
 2. lead table;
-3. compact P0/P1 detail blocks;
-4. Thesis Research table only if needed;
-5. one short `Other checks` paragraph only if needed;
-6. one short coverage/persistence paragraph;
-7. artifact link.
+3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
+4. compact P0/P1 detail blocks;
+5. Thesis Research table only if needed;
+6. one short `Other checks` paragraph only if needed;
+7. one short coverage/persistence paragraph;
+8. artifact link.
 
 ## Compact scheduled output
 
@@ -360,6 +403,12 @@ Lead with:
 
 | Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
 |---|---|---|---|---|---|---|---|---|
+
+Immediately after the lead table add:
+
+### What's moving markets today
+
+Use no more than three bullets and roughly 80–100 words total. Use the correct market state for the scheduled slot and include an as-of time when using live prices. The section should answer whether broad rates, commodities, macro/geopolitics, sector leadership, or risk appetite are driving the tape, while clearly separating observed movement from causal attribution.
 
 For P0 and P1, visible detail should normally contain only:
 
@@ -386,6 +435,7 @@ Do not list unchanged theses individually. Record them as checked in the persist
 A valid no-lead run should report compactly:
 
 - no qualifying P0/P1/P2 item or material thesis delta in the searched universe;
+- a short market tape or its stated unavailability;
 - only material duplicate/open-event changes;
 - overdue event/thesis evidence if any;
 - thesis-research coverage and material unavailable Mind Model state;
