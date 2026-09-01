@@ -55,9 +55,38 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    Use live TaskTracker `requiresReunderwrite`, security readiness, underwriting status, owned exposure, and current triggers when available. If causal/materiality/value-capture uncertainty remains, use `CONDITIONAL — AFTER RWC` rather than prematurely declaring new underwriting.
 15. Persist research-only state automatically using the supported canonical store, TaskTracker research/evidence/proposal paths, or dated Library fallback. Persist the underwriting-requirement classification and rationale. Declare `PERSISTENCE_FAILED` if no write succeeds.
 16. When supported, write genuinely new thesis evidence to the Mind Model evidence ledger, create a linked Investor Research question for an explicit gap, or create a reviewable pending thesis proposal. **Never approve a proposal or directly change an approved thesis.**
-17. Keep Radar analytically thin. Stop after the exact delta, baseline, source status, plausible materiality, preliminary mechanism, direct exposure, affected thesis/pillar/forecast when relevant, capture uncertainty, strongest failure reason, underwriting requirement, and no more than three decisive Research With Confidence questions.
+17. Keep Radar analytically thin. Stop after the exact delta, baseline, source status, plausible materiality, preliminary mechanism, direct exposure, affected thesis/pillar/forecast when relevant, capture uncertainty, strongest failure reason, underwriting requirement, and no more than three decisive Research With Confidence questions in the stored record.
 18. Route causality, counterfactuals, detailed materiality, full value capture, and expectations analysis to Research With Confidence. Route valuation, dilution, scenarios, returns, timing, kill criteria, and security posture to Full Underwriting. Route event payoff/execution questions to Event-Trade Underwriting.
 19. Do not automatically change a Mind Model thesis, probability, forecast, underwriting posture, fair value, entry range, kill criterion, review date, holding, or portfolio sizing.
+
+## Compact visible-output budget
+
+The visible chat response should target roughly **75% of the prior V3 report length for an equivalent run**. Compress repetition, not research coverage. The persisted run record and attached Markdown artifact remain complete and auditable.
+
+Use these rules:
+
+- Do not repeat a fact already clear from the lead table unless the prose adds causality, uncertainty, provenance, or routing information.
+- P0/P1 visible detail blocks should normally be **120–160 words maximum each**. An urgent P0 may exceed this only when necessary to prevent a misleading classification.
+- In visible prose, compress the five gates to shorthand such as `Gates: N/M/C/R pass; E unknown`. Spell them out only when a failed or ambiguous gate needs explanation.
+- Show **one primary RWC question by default; maximum two** when they are genuinely independent. The complete artifact may preserve up to three.
+- P2/P3 normally stay in the lead table only. Add prose only for overdue/missed evidence, an unusual classification issue, or a material portfolio-risk reason.
+- Do not restate the full prior baseline. Include only the one or two baseline facts required to understand the delta.
+- State the preliminary mechanism once. Do not restate the same causal chain in multiple paragraphs.
+- Reconciliation should mention only open items whose status changed. Otherwise use one sentence such as `Open items reconciled; no additional decision-relevant delta.`
+- The Thesis Research table appears only when a material thesis delta exists. Unchanged theses are covered in the end summary, not row-by-row.
+- Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; preserve the full manifest in the artifact.
+- Omit a separate source register from chat unless source provenance itself is decision-relevant. Citations may remain inline.
+- Keep the artifact link visible at the end.
+
+Preferred visible structure:
+
+1. title + one-sentence run status;
+2. lead table;
+3. compact P0/P1 detail blocks only;
+4. Thesis Research table only if material deltas exist;
+5. one short `Other checks` paragraph if needed;
+6. one short coverage/persistence paragraph;
+7. artifact link.
 
 ## Scheduled output
 
@@ -70,7 +99,7 @@ Lead with:
 | Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
 |---|---|---|---|---|---|---|---|---|
 
-Provide concise detail only for P0 and P1 items. For P2 and P3, state the missing evidence/date and underwriting requirement without a mini deep dive.
+Provide compact detail only for P0 and P1 items under the visible-output budget above. For P2 and P3, the table row is normally sufficient; include missing evidence/date and underwriting requirement there.
 
 When the Active Thesis Research lane finds a material delta, add:
 
@@ -79,16 +108,6 @@ When the Active Thesis Research lane finds a material delta, add:
 
 Do not list unchanged theses row-by-row. Record which theses were swept in the coverage manifest.
 
-End with:
-
-- holdings and active underwritings checked;
-- active theses, review-queue items, catalysts, and evidence-due items checked;
-- thesis-research coverage and any unavailable Mind Model state;
-- source lanes searched;
-- unavailable state, feed outages, and blind spots;
-- late detections and scan-gap recovery;
-- persistence status;
-- active Radar version and monitor contract used;
-- next scheduled slot.
+End with one compact paragraph covering holdings/underwritings/theses/review-queue/catalysts/evidence-due checked, material source lanes, unavailable state or material blind spots, late detections/scan-gap recovery when relevant, persistence status, active V3 contract, and next scheduled slot.
 
 A no-lead run is valid. Say that no qualifying event or material thesis delta was found in the searched universe rather than claiming that nothing material occurred anywhere.
