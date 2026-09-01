@@ -55,6 +55,7 @@ Read only what the run needs:
 - Keep world outcome, thesis evidence, company value capture, security valuation, event-trade suitability, and portfolio action separate.
 - Automatically persist research-only Radar state when supported, but never automatically approve or change a thesis, fair value, security posture, monitor threshold, or holding.
 - Every surfaced item must explicitly state whether underwriting is required, using the controlled classifications below.
+- **Keep the visible chat concise.** Target roughly 75% of the prior V3 visible length for an equivalent information set by removing repetition, not by reducing search coverage or artifact detail.
 
 ## Authoritative schedule
 
@@ -272,7 +273,7 @@ A normal Radar item stops after establishing:
 - strongest reason the lead may fail;
 - primary route;
 - `Underwriting Required?` and brief reason;
-- three or fewer decisive RWC questions;
+- three or fewer decisive RWC questions in the stored record;
 - next evidence and date.
 
 Stop and route when the remaining question is principally:
@@ -287,6 +288,24 @@ Stop and route when the remaining question is principally:
 
 Depth exceptions are limited to urgent P0 risk, comparison with an already frozen catalyst/forecast packet, retrieval of one time-sensitive classification document, or an explicitly requested combined workflow.
 
+### 9A. Compress the visible response, not the research
+
+The visible chat response should target roughly **75% of the prior V3 report length for an equivalent information set**. This presentation budget does not reduce source coverage, thesis sweeps, Event Ledger reconciliation, persistence, or the detail retained in the attached Markdown artifact.
+
+Apply these visible-output rules:
+
+- Do not repeat a fact already clear from the lead table unless the prose adds causality, uncertainty, provenance, or routing information.
+- P0/P1 visible detail blocks should normally be **120–160 words maximum each**. Exceed only for an urgent P0 when compression would make the classification misleading.
+- Compress the five gates to shorthand such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or ambiguous gate that changes routing.
+- Show **one primary RWC question by default; maximum two** when genuinely independent. The complete artifact may preserve up to three.
+- P2/P3 should normally stay in the lead table only. Add prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
+- Restate only the one or two baseline facts necessary to understand the delta.
+- State the mechanism once; do not rephrase the same causal chain repeatedly.
+- Mention only reconciliation items whose status changed. Otherwise use one sentence: `Open items reconciled; no additional decision-relevant delta.`
+- Show the Thesis Research table only when a material thesis delta exists. Unchanged theses belong in the coverage summary.
+- Compress the coverage manifest to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status; preserve the full manifest in the artifact.
+- Omit a separate visible source register unless provenance itself is decision-relevant. Use inline citations instead.
+
 ### 10. Produce the queue, thesis-research result, and coverage result
 
 Lead with:
@@ -294,34 +313,35 @@ Lead with:
 | Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
 |---|---|---|---|---|---|---|---|---|
 
-Provide a concise detail block only for P0 and P1 items:
+For P0/P1, the visible detail block should normally contain only:
 
-1. original source;
-2. prior baseline;
-3. delta class, thesis effect, and detection status;
-4. preliminary mechanism and plausible materiality;
-5. direct exposure and capture uncertainty;
-6. strongest reason the lead may fail;
-7. `Underwriting Required?` and reason;
-8. no more than three RWC questions;
-9. next evidence and date.
+1. exact delta versus the one or two relevant baseline facts;
+2. provenance only if it is not obvious from the table;
+3. one-sentence mechanism/materiality;
+4. gates shorthand;
+5. strongest failure reason;
+6. `Underwriting Required?` and brief reason;
+7. one primary RWC question, maximum two;
+8. next evidence/date only if not already clear from the table.
 
-For P2 and P3, state the missing evidence/date and underwriting requirement without expanding into a mini-report.
+For P2 and P3, the table row is normally sufficient. Put missing evidence/date and underwriting requirement in the row rather than expanding into a mini-report.
 
 When the Active Thesis Research lane finds a material delta, add a compact section:
 
 | Thesis | What Radar tested | New evidence | Pillar / forecast affected | Direction | Route | Underwriting Required? | Next test / date |
 |---|---|---|---|---|---|---|---|
 
-Do not list unchanged theses row-by-row. Record checked theses in the end-of-run manifest.
+Do not list unchanged theses row-by-row. Record checked theses in the persisted manifest and summarize them compactly at the end.
 
-End with:
+Preferred visible response order:
 
-- holdings, active underwritings, theses, review-queue items, catalysts, and source lanes actually checked;
-- number or names of active theses swept and any thesis state unavailable;
-- material omissions, feed outages, or unavailable state;
-- persistence status;
-- next scheduled slot.
+1. title + one-sentence run status;
+2. lead table;
+3. compact P0/P1 detail only;
+4. Thesis Research table only when needed;
+5. one short `Other checks` paragraph only when needed;
+6. one short coverage/persistence paragraph;
+7. artifact link.
 
 A valid no-lead run must be allowed. Say that no qualifying item was found in the searched universe, not that nothing material occurred anywhere.
 
@@ -340,7 +360,7 @@ A P0 or P1 handoff must preserve:
 - any frozen catalyst or forecast packet;
 - strongest reason the lead may fail;
 - `Underwriting Required?` classification and reason;
-- three or fewer decisive questions;
+- three or fewer decisive questions in the stored handoff;
 - next evidence and date.
 
 Do not ask RWC to prove the Radar thesis. Ask it to determine whether the claim, causality, materiality, value capture, and expectations gap survive independent verification and whether the lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, waiting, monitoring, or rejection.
@@ -371,8 +391,9 @@ Before finishing, confirm that:
 - catalyst and forecast expectations were frozen before the outcome whenever practical;
 - price action was not treated as proof of novelty;
 - no RWC, underwriting, event-trade, thesis-approval, or portfolio conclusion was smuggled into Radar;
-- every P0/P1 item has three or fewer decisive RWC questions;
+- every P0/P1 stored handoff has three or fewer decisive RWC questions, while visible output normally shows one and at most two;
 - every P2/P3 item has named next evidence or a reason no further work is warranted;
 - every material thesis delta states what it proves and does not prove when the persistence path supports those fields;
+- the visible response obeyed the compact-output budget without reducing the attached audit record;
 - research-only state was persisted or `PERSISTENCE_FAILED` was declared;
 - a valid no-lead run was allowed rather than lowering the gates.
