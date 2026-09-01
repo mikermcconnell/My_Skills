@@ -29,7 +29,8 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    - open Event Ledger records;
    - P0/P1/P2 items;
    - known catalysts;
-   - evidence due now or overdue.
+   - evidence due now or overdue;
+   - same-day broad-market data needed for a compact market-tape summary.
 5. Complete the V3 run coverage manifest. Mark unavailable state or source feeds explicitly.
 6. Scan portfolio and thesis risks before new opportunity discovery. P0 risks take the fast path.
 7. **Run the Active Thesis Research lane on every scheduled pass.** Cheaply sweep every readable non-retired thesis using its stored baseline, assumptions, strongest opposing case, falsifiers, pillars, source-of-truth metrics, forecasts, confirm/warning/break indicators, watchlist evidence needs, and next-highest-value tests. Allocate deeper Radar search budget in this order when TaskTracker supports it:
@@ -41,6 +42,7 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    6. `BLOCKED` or materially `CONFLICTED`;
    7. timely updates to normal active theses.
 8. Search the relevant event, filing, regulator, clinical, catalyst, expert, social, alternative-data, and slow-burn lanes available for the run.
+8A. **Build `What's moving markets today`.** Use current same-day market data and reliable attribution. At 08:00 use North American futures plus overnight markets; at 11:30 and 15:00 use actual same-day indexes/sectors/factors. Check S&P 500, Nasdaq/large-cap growth, and TSX when relevant; add rates, oil, FX, volatility, credit or commodities only when materially driving the tape. Separate observed moves from reported/likely causes. Do not turn a broad market move into a Radar event unless it independently clears the normal gates.
 9. Reconcile every serious item and thesis delta with the canonical Event Ledger, prior baseline, and relevant Mind Model evidence ledger.
 10. Apply the V3 late-detection rule. Backfill unrecorded material events that predate the scan window rather than dismissing them.
 11. Check every evidence item, thesis forecast, source-of-truth metric, or catalyst window whose due date has arrived. Record missing, delayed, removed, or still-unconfirmed evidence without automatically changing the thesis.
@@ -74,6 +76,9 @@ Use these rules:
 - State the preliminary mechanism once. Do not restate the same causal chain in multiple paragraphs.
 - Reconciliation should mention only open items whose status changed. Otherwise use one sentence such as `Open items reconciled; no additional decision-relevant delta.`
 - The Thesis Research table appears only when a material thesis delta exists. Unchanged theses are covered in the end summary, not row-by-row.
+- `What's moving markets today` is **mandatory but very short: maximum 3 bullets and roughly 80–100 words total**. It should explain broad tape drivers, not become another news section.
+- Separate market observation from causal attribution. Say `reported/likely driver` or `attribution uncertain` when appropriate.
+- Do not repeat company-specific items from the lead table in the market tape unless they are genuinely moving the broader market.
 - Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; preserve the full manifest in the artifact.
 - Omit a separate source register from chat unless source provenance itself is decision-relevant. Citations may remain inline.
 - Keep the artifact link visible at the end.
@@ -82,11 +87,12 @@ Preferred visible structure:
 
 1. title + one-sentence run status;
 2. lead table;
-3. compact P0/P1 detail blocks only;
-4. Thesis Research table only if material deltas exist;
-5. one short `Other checks` paragraph if needed;
-6. one short coverage/persistence paragraph;
-7. artifact link.
+3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
+4. compact P0/P1 detail blocks only;
+5. Thesis Research table only if material deltas exist;
+6. one short `Other checks` paragraph if needed;
+7. one short coverage/persistence paragraph;
+8. artifact link.
 
 ## Scheduled output
 
@@ -98,6 +104,12 @@ Lead with:
 
 | Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
 |---|---|---|---|---|---|---|---|---|
+
+Immediately after the table add:
+
+### What's moving markets today
+
+Use no more than three bullets and roughly 80–100 words total. Include an as-of time when using live prices. The purpose is to distinguish broad market/factor pressure from company- or thesis-specific deltas.
 
 Provide compact detail only for P0 and P1 items under the visible-output budget above. For P2 and P3, the table row is normally sufficient; include missing evidence/date and underwriting requirement there.
 
