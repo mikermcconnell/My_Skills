@@ -302,7 +302,7 @@ A normal Radar item should stop after establishing:
 7. strongest reason the lead may fail;
 8. primary route;
 9. underwriting-requirement classification and brief reason;
-10. three or fewer decisive Research With Confidence questions;
+10. three or fewer decisive Research With Confidence questions in the stored record;
 11. next evidence and date.
 
 Radar should not normally perform:
@@ -325,6 +325,35 @@ Depth exceptions are limited to:
 - retrieval of one time-sensitive document needed to classify the event correctly;
 - an explicitly requested combined workflow.
 
+## Visible-output compression budget
+
+The visible chat report should target roughly **75% of the prior V3 report length for an equivalent information set**. This is a presentation constraint only: do not reduce search coverage, stored evidence, routing metadata, or the completeness of the attached Markdown artifact.
+
+Apply these compression rules:
+
+- **Table first; avoid repetition.** Do not repeat a fact already clear from the lead table unless prose adds causality, uncertainty, provenance, or routing information.
+- **P0/P1 detail cap:** normally 120–160 visible words per item. Exceed only for an urgent P0 when compression would make the classification misleading.
+- **Gates shorthand:** use compact notation such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or disputed gate that matters to routing.
+- **RWC questions:** show one primary visible question by default; maximum two when genuinely independent. The stored record/artifact may retain up to three.
+- **P2/P3:** normally table-only. Add visible prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
+- **Baseline:** restate only the one or two baseline facts required to understand the delta.
+- **Mechanism:** state once. Do not repeat the same causal chain in multiple forms.
+- **Reconciliation:** mention only items whose status changed. Otherwise one sentence is enough: `Open items reconciled; no additional decision-relevant delta.`
+- **Thesis lane:** show the Thesis Research table only when a material thesis delta exists. Do not list unchanged theses individually.
+- **Coverage manifest:** compress to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status. Preserve the full manifest in the artifact.
+- **Sources:** omit a separate visible source register unless provenance itself is decision-relevant; inline citations are sufficient.
+- **Artifact:** the complete dated Markdown record remains the detailed audit trail and should not be shortened merely to meet the visible-output budget.
+
+Preferred visible order:
+
+1. title and one-sentence run status;
+2. lead table;
+3. compact P0/P1 detail blocks;
+4. Thesis Research table only if needed;
+5. one short `Other checks` paragraph only if needed;
+6. one short coverage/persistence paragraph;
+7. artifact link.
+
 ## Compact scheduled output
 
 Lead with:
@@ -332,37 +361,33 @@ Lead with:
 | Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
 |---|---|---|---|---|---|---|---|---|
 
-Provide a concise detail block only for P0 and P1 items:
+For P0 and P1, visible detail should normally contain only:
 
 ```text
-Original source
-Prior baseline
-Delta class and thesis effect
-Detection status
-Affected thesis / pillar / forecast when relevant
-Preliminary mechanism
-Why materiality is plausible
-Direct exposure and capture uncertainty
+Delta vs baseline
+Source/provenance only if not obvious from the table
+One-sentence mechanism/materiality
+Gates shorthand
 Strongest failure reason
-Underwriting Required? + reason
-RWC questions
-Next evidence and date
+Underwriting Required? + brief reason
+One primary RWC question, maximum two
+Next evidence/date if not already clear
 ```
 
-For P2 and P3, state the missing evidence, due date, and underwriting requirement without expanding into a mini-report.
+For P2 and P3, the table row is normally sufficient. Include missing evidence/date and underwriting requirement in the row rather than expanding into a mini-report.
 
 When thesis research produces a material delta, add:
 
 | Thesis | What Radar tested | New evidence | Pillar / forecast affected | Direction | Route | Underwriting Required? | Next test / date |
 |---|---|---|---|---|---|---|---|
 
-Do not list unchanged theses individually. Record them as checked in the manifest.
+Do not list unchanged theses individually. Record them as checked in the persisted manifest.
 
-A valid no-lead run should report:
+A valid no-lead run should report compactly:
 
 - no qualifying P0/P1/P2 item or material thesis delta in the searched universe;
-- material duplicates or open-event updates;
-- overdue event/thesis evidence checks;
-- thesis-research coverage and any unavailable Mind Model state;
-- coverage exceptions and outages;
+- only material duplicate/open-event changes;
+- overdue event/thesis evidence if any;
+- thesis-research coverage and material unavailable Mind Model state;
+- material coverage exceptions/outages;
 - persistence status.
