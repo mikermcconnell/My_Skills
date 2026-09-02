@@ -25,13 +25,15 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
 4. Load the narrow live context needed for portfolio defense and thesis testing:
    - active holdings;
    - active underwritings and monitors;
+   - **all active price-bearing monitors, including their stored thresholds/ranges and actions**;
    - current kill criteria and review dates;
    - live TaskTracker Mind Model overview, including active/non-retired theses, review queue, diagnostics, forecasts, evidence ledger, watchlist exposures, linked Investor Research state, and pending proposals;
    - open Event Ledger records;
    - P0/P1/P2 items;
    - known catalysts;
    - evidence due now or overdue;
-   - same-day broad-market data needed for a compact market-tape summary.
+   - same-day broad-market data needed for a compact market-tape summary;
+   - current/last reliable quotes needed for the Price Monitor Check.
 5. Complete the V3 run coverage manifest. Mark unavailable state or source feeds explicitly.
 6. Scan portfolio and thesis risks before new opportunity discovery. P0 risks take the fast path.
 7. **Run the Active Thesis Research lane on every scheduled pass.** Cheaply sweep every readable non-retired thesis using its stored baseline, assumptions, strongest opposing case, falsifiers, pillars, source-of-truth metrics, forecasts, confirm/warning/break indicators, watchlist evidence needs, and next-highest-value tests. Allocate deeper Radar search budget in this order when TaskTracker supports it:
@@ -43,12 +45,23 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    6. `BLOCKED` or materially `CONFLICTED`;
    7. timely updates to normal active theses.
 8. Search the relevant event, filing, regulator, clinical, catalyst, expert, social, alternative-data, and slow-burn lanes available for the run.
-8A. **Run all mandatory specialized lanes from `references/specialized-lanes.md`.** Every scheduled pass must check and visibly report: Slow-Burn Fundamentals; Catalysts / Evidence Due; Social Arbitrage / Alternative Data; Clinical / Medical; Expert / Industry Sources; TTWO — GTA VI / GTA Online / GTA+; AMZN — AWS / Retail / Ads / Optionality; and HOOD — Customer / Product / Social Arbitrage. Use `UPDATE`, `NO UPDATE`, or `UNAVAILABLE` for each lane. A `NO UPDATE` line means the lane was actually checked; do not use it when the relevant feed/state was unavailable.
+8A. **Run all mandatory specialized lanes from `references/specialized-lanes.md`.** Every scheduled pass must visibly report:
+   - Price Monitor Check;
+   - Slow-Burn Fundamentals;
+   - Catalysts / Evidence Due;
+   - Social Arbitrage / Alternative Data;
+   - Clinical / Medical;
+   - Expert / Industry Sources;
+   - TTWO — GTA VI / GTA Online / GTA+;
+   - AMZN — AWS / Retail / Ads / Optionality;
+   - HOOD — Customer / Product / Social Arbitrage.
+
+   The Price Monitor Check must be a table of all readable active price monitors with `Stock | Current price | Target / trigger | Action`. The other eight lanes use `UPDATE`, `NO UPDATE`, or `UNAVAILABLE`. `NO UPDATE` means the lane was actually checked; do not use it when the relevant feed/state was unavailable.
 8B. **Build `What's moving markets today`.** Use current same-day market data and reliable attribution. At 08:00 use North American futures plus overnight markets; at 11:30 and 15:00 use actual same-day indexes/sectors/factors. Check S&P 500, Nasdaq/large-cap growth, and TSX when relevant; add rates, oil, FX, volatility, credit or commodities only when materially driving the tape. Separate observed moves from reported/likely causes. Do not turn a broad market move into a Radar event unless it independently clears the normal gates.
 9. Reconcile every serious item and thesis delta with the canonical Event Ledger, prior baseline, and relevant Mind Model evidence ledger.
 10. Apply the V3 late-detection rule. Backfill unrecorded material events that predate the scan window rather than dismissing them.
 11. Check every evidence item, thesis forecast, source-of-truth metric, or catalyst window whose due date has arrived. Record missing, delayed, removed, or still-unconfirmed evidence without automatically changing the thesis.
-12. Treat unexplained price moves as investigation triggers, not automatic Novelty passes.
+12. Treat unexplained price moves as investigation triggers, not automatic Novelty passes. A price-monitor threshold crossing activates only its stored review/action workflow and is not itself a fundamental Novelty pass.
 13. Apply the five gates and assign one primary route: P0, P1, P2, P3, or REJECT / DUPLICATE.
 14. **Assign `Underwriting Required?` to every surfaced item and every material thesis-research delta** using exactly one of:
    - `NO`
@@ -79,7 +92,8 @@ Use these rules:
 - Reconciliation should mention only open items whose status changed. Otherwise use one sentence such as `Open items reconciled; no additional decision-relevant delta.`
 - The Thesis Research table appears only when a material thesis delta exists. Unchanged theses are covered in the end summary, not row-by-row.
 - `What's moving markets today` is **mandatory but very short: maximum 3 bullets and roughly 80–100 words total**. It should explain broad tape drivers, not become another news section.
-- **`Specialized lanes` is mandatory on every scheduled run.** Show all eight lane headings/status lines every time. Keep each normally to one line. `NO UPDATE` is informative coverage, not filler, and does not count as a P3 event.
+- **`Specialized lanes` is mandatory on every scheduled run.** Show the Price Monitor Check table plus all eight narrative lane status lines every time. `NO UPDATE` is informative coverage, not filler, and does not count as a P3 event.
+- The Price Monitor Check does **not** count against the 80–100 word market-tape budget. Keep it compact and table-only unless monitor/quote state is unavailable or a trigger needs a one-line note.
 - Separate market observation from causal attribution. Say `reported/likely driver` or `attribution uncertain` when appropriate.
 - Do not repeat company-specific items from the lead table in the market tape or specialized-lane section; cross-reference them compactly when needed.
 - Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; persist the full manifest in the supported canonical store or dated Library fallback when available.
@@ -91,7 +105,7 @@ Preferred visible structure:
 1. title + one-sentence run status;
 2. lead table;
 3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
-4. `Specialized lanes` — all eight mandatory one-line statuses;
+4. `Specialized lanes` — Price Monitor Check table plus eight mandatory one-line statuses;
 5. compact P0/P1 detail blocks only;
 6. Thesis Research table only if material deltas exist;
 7. one short `Other checks` paragraph if needed;
@@ -118,6 +132,17 @@ Then always add:
 
 ### Specialized lanes
 
+#### Price Monitor Check
+
+Include a price as-of timestamp and render every readable active price monitor:
+
+| Stock | Current price | Target / trigger | Action |
+|---|---:|---:|---|
+
+At 08:00 use reliable pre-market prices where available; otherwise label the latest regular-session price `prev. close`. At 11:30 and 15:00 use actual same-day prices where available. The target/action must come from the active monitor. Never invent or execute a new action. If active monitor state cannot be loaded, state `UNAVAILABLE — active price-monitor state could not be read` rather than presenting a partial list as complete.
+
+Then show all narrative lane statuses:
+
 - **Slow-Burn Fundamentals:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
 - **Catalysts / Evidence Due:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
 - **Social Arbitrage / Alternative Data:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
@@ -127,7 +152,7 @@ Then always add:
 - **AMZN — AWS / Retail / Ads / Optionality:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
 - **HOOD — Customer / Product / Social Arbitrage:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
 
-If a specialized-lane update already appears in the lead table, identify it briefly rather than duplicating the analysis. If no decision-relevant delta was found after checking the lane, explicitly say `NO UPDATE`.
+If a specialized-lane update already appears in the lead table, identify it briefly rather than duplicating the analysis. If no decision-relevant delta was found after checking a narrative lane, explicitly say `NO UPDATE`.
 
 Provide compact detail only for P0 and P1 items under the visible-output budget above. For P2 and P3, the table row is normally sufficient; include missing evidence/date and underwriting requirement there.
 
@@ -138,6 +163,6 @@ When the Active Thesis Research lane finds a material delta, add:
 
 Do not list unchanged theses row-by-row. Record which theses were swept in the coverage manifest.
 
-End with one compact paragraph covering holdings/underwritings/theses/review-queue/catalysts/evidence-due checked, specialized-lane coverage, material source lanes, unavailable state or material blind spots, late detections/scan-gap recovery when relevant, persistence status, active V3 contract, and next scheduled slot.
+End with one compact paragraph covering holdings/underwritings/theses/review-queue/catalysts/evidence-due checked, specialized-lane and price-monitor coverage, material source lanes, unavailable state or material blind spots, late detections/scan-gap recovery when relevant, persistence status, active V3 contract, and next scheduled slot.
 
-A no-lead run is valid. Say that no qualifying event or material thesis delta was found in the searched universe rather than claiming that nothing material occurred anywhere. The `Specialized lanes` section is still required and should show `NO UPDATE` or `UNAVAILABLE` for each lane.
+A no-lead run is valid. Say that no qualifying event or material thesis delta was found in the searched universe rather than claiming that nothing material occurred anywhere. The `Specialized lanes` section is still required: the Price Monitor Check table must still appear, and every narrative lane should show `NO UPDATE` or `UNAVAILABLE`.
