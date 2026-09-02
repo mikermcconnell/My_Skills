@@ -57,7 +57,7 @@ Read only what the run needs:
 - Keep world outcome, thesis evidence, company value capture, security valuation, event-trade suitability, and portfolio action separate.
 - Automatically persist research-only Radar state when supported, but never automatically approve or change a thesis, fair value, security posture, monitor threshold, or holding.
 - Every surfaced item must explicitly state whether underwriting is required, using the controlled classifications below.
-- **Keep the visible chat concise.** Target roughly 75% of the prior V3 visible length for an equivalent information set by removing repetition, not by reducing search coverage or artifact detail.
+- **Keep the visible chat concise but complete.** Target roughly 75% of the prior V3 visible length for an equivalent information set by removing repetition, not by reducing search coverage or required persisted state. The visible chat is the complete user-facing Radar response; no separate Markdown artifact is required.
 
 ## Authoritative schedule
 
@@ -223,7 +223,7 @@ For scheduled V3 runs, persist when supported:
 - market-tape as-of time and high-level drivers when persistence supports it;
 - feed outages, late detections, and persistence failures.
 
-Use the supported canonical store. If unavailable, save a dated Library artifact. If no write path succeeds, report `PERSISTENCE_FAILED`.
+Use the supported canonical store. If unavailable, save a dated Library persistence record; its file format is not mandated. If no write path succeeds, report `PERSISTENCE_FAILED`.
 
 Do not use Radar persistence to approve or change Mind Model probabilities, thesis wording, underwriting posture, fair value, entry ranges, kill criteria, review dates, or portfolio positions.
 
@@ -317,22 +317,23 @@ Depth exceptions are limited to urgent P0 risk, comparison with an already froze
 
 ### 9A. Compress the visible response, not the research
 
-The visible chat response should target roughly **75% of the prior V3 report length for an equivalent information set**. This presentation budget does not reduce source coverage, thesis sweeps, Event Ledger reconciliation, persistence, or the detail retained in the attached Markdown artifact.
+The visible chat response should target roughly **75% of the prior V3 report length for an equivalent information set**. This presentation budget does not reduce source coverage, thesis sweeps, Event Ledger reconciliation, persistence, or required stored audit state. **The visible chat is the complete user-facing Radar response; no separate Markdown artifact or attachment is required.**
 
 Apply these visible-output rules:
 
 - Do not repeat a fact already clear from the lead table unless the prose adds causality, uncertainty, provenance, or routing information.
 - P0/P1 visible detail blocks should normally be **120–160 words maximum each**. Exceed only for an urgent P0 when compression would make the classification misleading.
 - Compress the five gates to shorthand such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or ambiguous gate that changes routing.
-- Show **one primary RWC question by default; maximum two** when genuinely independent. The complete artifact may preserve up to three.
+- Show **one primary RWC question by default; maximum two** when genuinely independent. The stored record may preserve up to three.
 - P2/P3 should normally stay in the lead table only. Add prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
 - Restate only the one or two baseline facts necessary to understand the delta.
 - State the mechanism once; do not rephrase the same causal chain repeatedly.
 - Mention only reconciliation items whose status changed. Otherwise use one sentence: `Open items reconciled; no additional decision-relevant delta.`
 - Show the Thesis Research table only when a material thesis delta exists. Unchanged theses belong in the coverage summary.
 - The `What's moving markets today` section is capped at **3 bullets / roughly 80–100 words total** and should not cause the response to exceed the compact-output budget materially.
-- Compress the coverage manifest to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status; preserve the full manifest in the artifact.
+- Compress the coverage manifest to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status; persist the full manifest through the supported canonical store or dated Library fallback when available.
 - Omit a separate visible source register unless provenance itself is decision-relevant. Use inline citations instead.
+- Do not generate or link a separate Markdown file solely for Radar output.
 
 ### 10. Produce the queue, market tape, thesis-research result, and coverage result
 
@@ -375,8 +376,7 @@ Preferred visible response order:
 4. compact P0/P1 detail only;
 5. Thesis Research table only when needed;
 6. one short `Other checks` paragraph only when needed;
-7. one short coverage/persistence paragraph;
-8. artifact link.
+7. one short coverage/persistence paragraph.
 
 A valid no-lead run must be allowed. Say that no qualifying item was found in the searched universe, not that nothing material occurred anywhere.
 
@@ -430,6 +430,6 @@ Before finishing, confirm that:
 - every P0/P1 stored handoff has three or fewer decisive RWC questions, while visible output normally shows one and at most two;
 - every P2/P3 item has named next evidence or a reason no further work is warranted;
 - every material thesis delta states what it proves and does not prove when the persistence path supports those fields;
-- the visible response obeyed the compact-output budget, including the 3-bullet market-tape cap, without reducing the attached audit record;
+- the visible response obeyed the compact-output budget, including the 3-bullet market-tape cap, without reducing required persisted audit state;
 - research-only state was persisted or `PERSISTENCE_FAILED` was declared;
 - a valid no-lead run was allowed rather than lowering the gates.
