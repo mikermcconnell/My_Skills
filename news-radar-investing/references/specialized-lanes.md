@@ -84,7 +84,20 @@ If the current portfolio/thesis state contains no relevant clinical or medical e
 
 ## 6. Expert / Industry Sources
 
-Apply `EXPERT_SOURCES.md`. Check named high-signal experts and industry publications mapped to active holdings/theses. SemiAnalysis / Dylan Patel remain priority sources for AI infrastructure and semiconductors. Separate new factual observations, channel checks and estimates from expert interpretation; reject recycled commentary.
+Apply `EXPERT_SOURCES.md`. Check named high-signal experts, industry publications, and senior operators mapped to active holdings/theses. SemiAnalysis / Dylan Patel remain priority sources for AI infrastructure and semiconductors.
+
+For AI-related holdings, underwritings, theses, and market structure, this lane must also explicitly check attributable commentary from the **current CEOs, founders, senior executives, chief scientists/research leaders, infrastructure leaders, and major product/model leaders at frontier AI labs**. At minimum, cover relevant current leadership at:
+
+- **OpenAI**;
+- **Anthropic**;
+- **Google / Google DeepMind**;
+- **Meta / Meta AI**.
+
+Resolve the relevant current people and roles dynamically at run time rather than relying on a stale static name list, and extend to other frontier labs when they become material. Search official posts, interviews, podcasts, conferences, developer events, testimony, research/product launch commentary, technical blogs/papers, model/system cards, and other directly attributable public statements.
+
+Prioritize statements that can affect training/inference compute demand, AI infrastructure bottlenecks, model capability and deployment cadence, product adoption, enterprise/developer demand, pricing/monetization, capex and unit economics, cloud/vendor relationships, custom silicon, power/datacenter needs, open-weight strategy, regulation/safety constraints, or competitive read-throughs to public companies.
+
+Treat frontier-lab executive statements as **primary evidence of what the organization is saying, planning, observing, or claiming**, not as independent proof that the economics are correct. Separate factual observations, channel/operating knowledge, forecasts, aspirations, marketing claims, policy arguments, and expert interpretation; reject recycled commentary; and independently corroborate material claims before allowing them to change a thesis or security posture.
 
 ## 7. TTWO — GTA VI / GTA Online / GTA+
 
