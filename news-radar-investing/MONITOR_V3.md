@@ -63,14 +63,14 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
 
 ## Compact visible-output budget
 
-The visible chat response should target roughly **75% of the prior V3 report length for an equivalent run**. Compress repetition, not research coverage. The persisted run record and attached Markdown artifact remain complete and auditable.
+The visible chat response should target roughly **75% of the prior V3 report length for an equivalent run**. Compress repetition, not research coverage or required persisted state. **The visible chat is the complete user-facing Radar response. A separate Markdown artifact or attachment is not required.**
 
 Use these rules:
 
 - Do not repeat a fact already clear from the lead table unless the prose adds causality, uncertainty, provenance, or routing information.
 - P0/P1 visible detail blocks should normally be **120–160 words maximum each**. An urgent P0 may exceed this only when necessary to prevent a misleading classification.
 - In visible prose, compress the five gates to shorthand such as `Gates: N/M/C/R pass; E unknown`. Spell them out only when a failed or ambiguous gate needs explanation.
-- Show **one primary RWC question by default; maximum two** when they are genuinely independent. The complete artifact may preserve up to three.
+- Show **one primary RWC question by default; maximum two** when they are genuinely independent. The stored record may preserve up to three.
 - P2/P3 normally stay in the lead table only. Add prose only for overdue/missed evidence, an unusual classification issue, or a material portfolio-risk reason.
 - Do not restate the full prior baseline. Include only the one or two baseline facts required to understand the delta.
 - State the preliminary mechanism once. Do not restate the same causal chain in multiple paragraphs.
@@ -79,9 +79,9 @@ Use these rules:
 - `What's moving markets today` is **mandatory but very short: maximum 3 bullets and roughly 80–100 words total**. It should explain broad tape drivers, not become another news section.
 - Separate market observation from causal attribution. Say `reported/likely driver` or `attribution uncertain` when appropriate.
 - Do not repeat company-specific items from the lead table in the market tape unless they are genuinely moving the broader market.
-- Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; preserve the full manifest in the artifact.
+- Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; persist the full manifest in the supported canonical store or dated Library fallback when available.
 - Omit a separate source register from chat unless source provenance itself is decision-relevant. Citations may remain inline.
-- Keep the artifact link visible at the end.
+- Do not generate or link a separate Markdown file solely to satisfy Radar output formatting.
 
 Preferred visible structure:
 
@@ -91,8 +91,7 @@ Preferred visible structure:
 4. compact P0/P1 detail blocks only;
 5. Thesis Research table only if material deltas exist;
 6. one short `Other checks` paragraph if needed;
-7. one short coverage/persistence paragraph;
-8. artifact link.
+7. one short coverage/persistence paragraph.
 
 ## Scheduled output
 
