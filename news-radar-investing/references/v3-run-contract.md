@@ -2,6 +2,8 @@
 
 This contract is authoritative for scheduled News Radar V3 runs. Radar is the high-recall detection, memory, prioritization, active-thesis-testing, market-context, and routing layer. Research With Confidence owns independent verification, causality, counterfactuals, confounders, economic materiality, value capture, and the preliminary expectations-gap decision. Full Underwriting owns current-price analysis, fully diluted capital structure, scenarios, valuation, expected return, opportunity cost, timing, kill criteria, and the final security posture. Event-Trade Underwriting owns short-duration event payoff and execution analysis.
 
+`references/specialized-lanes.md` is authoritative for mandatory specialized-lane coverage, including the always-visible Price Monitor Check and the permanent TTWO, AMZN, and HOOD bespoke lanes.
+
 ## Authoritative cadence
 
 Use one schedule everywhere:
@@ -16,7 +18,7 @@ Scan from the last successful run timestamp. When a run is advanced, delayed, sk
 
 ## Mandatory preflight
 
-Before broad discovery, load the narrow current context required to protect capital, test active theses, distinguish broad-market from idiosyncratic moves, and prevent duplicate work:
+Before broad discovery, load the narrow current context required to protect capital, test active theses, distinguish broad-market from idiosyncratic moves, check monitored prices, and prevent duplicate work:
 
 ```text
 last_successful_run_at
@@ -26,6 +28,8 @@ next_evidence_due_queue
 known_catalyst_calendar
 active_holdings
 active_underwritings_and_monitors
+active_price_monitors_and_stored_actions
+current_or_latest_reliable_prices_for_monitored_securities
 current_kill_criteria_and_review_dates
 live_Mind_Model_overview
 active_nonretired_theses
@@ -40,9 +44,9 @@ same_day_market_context
 available_source_feeds_and_outages
 ```
 
-Use live state when supported. If a required context source cannot be read, mark it `STATE_UNAVAILABLE`, state the affected coverage, and do not imply that the holding, underwriting, thesis, or market driver was checked.
+Use live state when supported. If a required context source cannot be read, mark it `STATE_UNAVAILABLE`, state the affected coverage, and do not imply that the holding, underwriting, thesis, price monitor, or market driver was checked.
 
-GitHub source, local seeds, migrations, and remembered thesis prose may explain schema but are not confirmed production Mind Model state.
+GitHub source, local seeds, migrations, and remembered thesis prose may explain schema but are not confirmed production Mind Model or monitor state.
 
 ## Run coverage manifest
 
@@ -60,6 +64,9 @@ last_successful_run_at
 markets_and_event_categories_covered
 holdings_checked
 active_underwritings_checked
+price_monitors_checked
+price_monitor_quotes_as_of
+price_monitor_state_unavailable
 active_theses_loaded
 theses_researched
 Mind_Model_review_queue_checked
@@ -69,6 +76,7 @@ known_catalysts_checked
 market_tape_checked
 market_tape_as_of
 market_tape_sources
+specialized_lanes_checked
 primary_feeds_searched_successfully
 expert_social_and_alternative_lanes_checked
 feeds_unavailable_delayed_or_not_connected
@@ -182,6 +190,43 @@ A broad market factor becomes a normal Radar event only when it independently pa
 
 If reliable market data or attribution cannot be retrieved, state `Market tape unavailable or attribution uncertain` in one short line and preserve the feed gap in the manifest.
 
+## Mandatory specialized lanes
+
+Apply `references/specialized-lanes.md` on every scheduled pass.
+
+The visible `Specialized lanes` section must always contain:
+
+1. **Price Monitor Check** — a table of every readable active price monitor with `Stock | Current price | Target / trigger | Action`;
+2. **Slow-Burn Fundamentals**;
+3. **Catalysts / Evidence Due**;
+4. **Social Arbitrage / Alternative Data**;
+5. **Clinical / Medical**;
+6. **Expert / Industry Sources**;
+7. **TTWO — GTA VI / GTA Online / GTA+**;
+8. **AMZN — AWS / Retail / Ads / Optionality**;
+9. **HOOD — Customer / Product / Social Arbitrage**.
+
+For the eight narrative lanes use exactly one compact status: `UPDATE`, `NO UPDATE`, or `UNAVAILABLE`. `NO UPDATE` means the lane was actually checked and no decision-relevant delta was found since the prior successful run. If a material feed/state source was unavailable, say `UNAVAILABLE` instead.
+
+### Price Monitor Check rules
+
+Use the actual active monitor state and freshest reliable quote at the run cutoff.
+
+```text
+Stock | Current price | Target / trigger | Action
+```
+
+- Include all active price-bearing monitors, including watchlist or underwriting monitors that are not current holdings.
+- One security may have multiple rows when it has multiple distinct actionable thresholds.
+- At 08:00, use reliable pre-market price when available; otherwise use and label the latest regular-session `prev. close`.
+- At 11:30 and 15:00, use actual same-day prices when available and show a price as-of timestamp.
+- The target/trigger must be the stored threshold/range. Do not substitute analyst consensus or calculate a new fair value/entry target.
+- The action must be the stored monitor instruction. If the target exists but no action is stored, show `REVIEW — action unspecified`.
+- Do not execute the action. A threshold crossing only activates the stored review/re-underwrite/action workflow.
+- If monitor state is unavailable, state that explicitly; do not present a partial list as complete. If only individual quotes/records are missing, mark those cells `UNAVAILABLE` and disclose partial coverage.
+
+The Price Monitor Check is monitoring/coverage state. A threshold crossing is not by itself a fundamental Novelty pass and does not automatically become a P0/P1/P2/P3 event.
+
 ## Detection status and late-event recovery
 
 Every material observation receives one detection status:
@@ -227,6 +272,8 @@ A large or unusual price move may trigger a targeted source search, but price mo
 
 Use `PRICE_DISLOCATION_UNEXPLAINED` until an underlying event, factor exposure, positioning effect, forced flow, or attribution error is identified. Route only the factual question that remains.
 
+A price-monitor threshold crossing similarly activates only its stored action/review workflow. It is not evidence of a new fundamental event.
+
 The market tape can provide factor context for this investigation, but it must not be used to manufacture a company-specific explanation.
 
 ## Research-only persistence
@@ -248,6 +295,8 @@ Persist when supported:
 - open P2 evidence requests and due dates;
 - frozen catalyst and forecast packets;
 - market-tape as-of time and high-level drivers when supported;
+- specialized-lane coverage/status;
+- price-monitor coverage, quote as-of time, and crossed-trigger status when supported;
 - late detections, feed outages, and persistence failures.
 
 Use the supported Event Ledger or research store when available. If no canonical store is available, save a dated Library persistence record; its file format is not mandated. If neither write path works, mark `PERSISTENCE_FAILED` in the report rather than implying continuity.
@@ -256,7 +305,7 @@ Automatic Radar persistence must never:
 
 - approve or directly change a Mind Model thesis, wording, probability, status, health, or approved forecast;
 - approve a pending Mind Model proposal;
-- change fair value, entry ranges, security posture, kill criteria, or a re-underwrite date;
+- change fair value, entry ranges, security posture, price-monitor target/action, kill criteria, or a re-underwrite date;
 - create, alter, or approve a portfolio position or strategy;
 - place a trade.
 
@@ -275,7 +324,7 @@ Use this order:
 7. slow-burn evidence crossing a threshold;
 8. new opportunity discovery.
 
-A P0 risk takes the fast path. Do not delay it to complete thesis research, a market-tape summary, a broad value-chain map, false-friend analysis, or thematic beneficiary list.
+A P0 risk takes the fast path. Do not delay it to complete thesis research, a market-tape summary, the Price Monitor Check, a broad value-chain map, false-friend analysis, or thematic beneficiary list.
 
 ## Minimum security and thesis mapping
 
@@ -368,7 +417,7 @@ Depth exceptions are limited to:
 
 ## Visible-output compression budget
 
-The visible chat report should target roughly **75% of the prior V3 report length for an equivalent information set**. This is a presentation constraint only: do not reduce search coverage, stored evidence, routing metadata, or required persisted run state. **The visible chat is the complete user-facing Radar response; no separate Markdown artifact or attachment is required.**
+The visible chat report should target roughly **75% of the prior V3 report length for an equivalent information set**. This is a presentation constraint only: do not reduce search coverage, stored evidence, routing metadata, required persisted run state, or mandatory specialized-lane coverage. **The visible chat is the complete user-facing Radar response; no separate Markdown artifact or attachment is required.**
 
 Apply these compression rules:
 
@@ -378,11 +427,13 @@ Apply these compression rules:
 - **RWC questions:** show one primary visible question by default; maximum two when genuinely independent. The stored record may retain up to three.
 - **P2/P3:** normally table-only. Add visible prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
 - **Market tape:** mandatory, but maximum 3 bullets and roughly 80–100 words total. It must fit inside the compact-output budget rather than being additive macro commentary.
+- **Specialized lanes:** mandatory every run. Show the Price Monitor Check table and all eight narrative lane statuses. Keep narrative statuses to one line each. `NO UPDATE` does not count as a P3 event.
+- **Price Monitor Check:** table-only by default and separate from the market-tape word budget. Do not add valuation commentary.
 - **Baseline:** restate only the one or two baseline facts required to understand the delta.
 - **Mechanism:** state once. Do not repeat the same causal chain in multiple forms.
 - **Reconciliation:** mention only items whose status changed. Otherwise one sentence is enough: `Open items reconciled; no additional decision-relevant delta.`
 - **Thesis lane:** show the Thesis Research table only when a material thesis delta exists. Do not list unchanged theses individually.
-- **Coverage manifest:** compress to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status. Persist the full manifest through the canonical store or dated Library fallback when supported.
+- **Coverage manifest:** compress to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, price-monitor availability, and persistence status. Persist the full manifest through the canonical store or dated Library fallback when supported.
 - **Sources:** omit a separate visible source register unless provenance itself is decision-relevant; inline citations are sufficient.
 - **Chat completeness:** do not generate or link a separate Markdown file solely for Radar output. Canonical/Library persistence is an audit layer, not a second user-facing report.
 
@@ -391,10 +442,11 @@ Preferred visible order:
 1. title and one-sentence run status;
 2. lead table;
 3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
-4. compact P0/P1 detail blocks;
-5. Thesis Research table only if needed;
-6. one short `Other checks` paragraph only if needed;
-7. one short coverage/persistence paragraph.
+4. `Specialized lanes` — Price Monitor Check table plus eight narrative statuses;
+5. compact P0/P1 detail blocks;
+6. Thesis Research table only if needed;
+7. one short `Other checks` paragraph only if needed;
+8. one short coverage/persistence paragraph.
 
 ## Compact scheduled output
 
@@ -408,6 +460,30 @@ Immediately after the lead table add:
 ### What's moving markets today
 
 Use no more than three bullets and roughly 80–100 words total. Use the correct market state for the scheduled slot and include an as-of time when using live prices. The section should answer whether broad rates, commodities, macro/geopolitics, sector leadership, or risk appetite are driving the tape, while clearly separating observed movement from causal attribution.
+
+Then always add:
+
+### Specialized lanes
+
+#### Price Monitor Check
+
+Show a price as-of time and:
+
+| Stock | Current price | Target / trigger | Action |
+|---|---:|---:|---|
+
+Render every readable active price monitor. Use monitor-stored targets/actions only; do not invent or execute actions. If monitor state is unavailable, say so explicitly.
+
+Then show the eight narrative statuses:
+
+- **Slow-Burn Fundamentals:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Catalysts / Evidence Due:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Social Arbitrage / Alternative Data:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Clinical / Medical:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Expert / Industry Sources:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **TTWO — GTA VI / GTA Online / GTA+:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **AMZN — AWS / Retail / Ads / Optionality:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **HOOD — Customer / Product / Social Arbitrage:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
 
 For P0 and P1, visible detail should normally contain only:
 
@@ -435,6 +511,8 @@ A valid no-lead run should report compactly:
 
 - no qualifying P0/P1/P2 item or material thesis delta in the searched universe;
 - a short market tape or its stated unavailability;
+- the mandatory Price Monitor Check table;
+- `NO UPDATE` or `UNAVAILABLE` for every narrative specialized lane;
 - only material duplicate/open-event changes;
 - overdue event/thesis evidence if any;
 - thesis-research coverage and material unavailable Mind Model state;
