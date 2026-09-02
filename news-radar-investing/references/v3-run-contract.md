@@ -250,7 +250,7 @@ Persist when supported:
 - market-tape as-of time and high-level drivers when supported;
 - late detections, feed outages, and persistence failures.
 
-Use the supported Event Ledger or research store when available. If no canonical store is available, save a dated Library artifact and clearly label the fallback. If neither write path works, mark `PERSISTENCE_FAILED` in the report rather than implying continuity.
+Use the supported Event Ledger or research store when available. If no canonical store is available, save a dated Library persistence record; its file format is not mandated. If neither write path works, mark `PERSISTENCE_FAILED` in the report rather than implying continuity.
 
 Automatic Radar persistence must never:
 
@@ -368,23 +368,23 @@ Depth exceptions are limited to:
 
 ## Visible-output compression budget
 
-The visible chat report should target roughly **75% of the prior V3 report length for an equivalent information set**. This is a presentation constraint only: do not reduce search coverage, stored evidence, routing metadata, or the completeness of the attached Markdown artifact.
+The visible chat report should target roughly **75% of the prior V3 report length for an equivalent information set**. This is a presentation constraint only: do not reduce search coverage, stored evidence, routing metadata, or required persisted run state. **The visible chat is the complete user-facing Radar response; no separate Markdown artifact or attachment is required.**
 
 Apply these compression rules:
 
 - **Table first; avoid repetition.** Do not repeat a fact already clear from the lead table unless prose adds causality, uncertainty, provenance, or routing information.
 - **P0/P1 detail cap:** normally 120–160 visible words per item. Exceed only for an urgent P0 when compression would make the classification misleading.
 - **Gates shorthand:** use compact notation such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or disputed gate that matters to routing.
-- **RWC questions:** show one primary visible question by default; maximum two when genuinely independent. The stored record/artifact may retain up to three.
+- **RWC questions:** show one primary visible question by default; maximum two when genuinely independent. The stored record may retain up to three.
 - **P2/P3:** normally table-only. Add visible prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
 - **Market tape:** mandatory, but maximum 3 bullets and roughly 80–100 words total. It must fit inside the compact-output budget rather than being additive macro commentary.
 - **Baseline:** restate only the one or two baseline facts required to understand the delta.
 - **Mechanism:** state once. Do not repeat the same causal chain in multiple forms.
 - **Reconciliation:** mention only items whose status changed. Otherwise one sentence is enough: `Open items reconciled; no additional decision-relevant delta.`
 - **Thesis lane:** show the Thesis Research table only when a material thesis delta exists. Do not list unchanged theses individually.
-- **Coverage manifest:** compress to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status. Preserve the full manifest in the artifact.
+- **Coverage manifest:** compress to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, and persistence status. Persist the full manifest through the canonical store or dated Library fallback when supported.
 - **Sources:** omit a separate visible source register unless provenance itself is decision-relevant; inline citations are sufficient.
-- **Artifact:** the complete dated Markdown record remains the detailed audit trail and should not be shortened merely to meet the visible-output budget.
+- **Chat completeness:** do not generate or link a separate Markdown file solely for Radar output. Canonical/Library persistence is an audit layer, not a second user-facing report.
 
 Preferred visible order:
 
@@ -394,8 +394,7 @@ Preferred visible order:
 4. compact P0/P1 detail blocks;
 5. Thesis Research table only if needed;
 6. one short `Other checks` paragraph only if needed;
-7. one short coverage/persistence paragraph;
-8. artifact link.
+7. one short coverage/persistence paragraph.
 
 ## Compact scheduled output
 
