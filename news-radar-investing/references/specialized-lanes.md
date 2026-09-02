@@ -28,38 +28,41 @@ Mandatory visible lane order:
 8. **AMZN — AWS / Retail / Ads / Optionality**
 9. **HOOD — Customer / Product / Social Arbitrage**
 
-The Price Monitor Check is always a table. The other eight lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
+The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other eight lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
 
 Persist lane coverage/status in the run manifest when the write path supports it.
 
 ## 1. Price Monitor Check
 
-This is a permanent visible lane and must run on every scheduled Radar pass.
+This is a permanent visible lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for its dynamic membership, trigger resolution, sorting, visible action labels, consumed/re-arm logic, and failure behavior.
 
-Before rendering it, load or attempt to load **every active price-bearing monitor** from the canonical underwriting/monitor state. Do not limit this table to current holdings if an active monitor exists for a watchlist or underwriting security.
+Before rendering it, load or attempt to load **every active price-bearing monitor** from the canonical live underwriting/monitor state. Do not limit the lane to current holdings if an active monitor exists for a watchlist or underwriting security, and do not maintain a static Radar ticker list.
 
-Use the actual stored monitor threshold, target, entry range, review level, or other price trigger. Do **not** invent a fresh fair value, target price, entry range, or action inside Radar.
+The visible table is:
 
-For each active price trigger show:
-
-| Stock | Current price | Target / trigger | Action |
-|---|---:|---:|---|
+| Action | Stock | Current price | Next trigger | What to do |
+|---|---|---:|---:|---|
 
 Rules:
 
-- Include **all active price monitors**. If one security has multiple distinct actionable thresholds, use one row per threshold unless the stored monitor explicitly treats them as one range.
+- Show **one row per security**, not one row per threshold. Preserve all thresholds in canonical/audit state but show the highest-priority currently valid action or closest next valid trigger.
+- Sort by action/urgency: `RE-UNDERWRITE NOW`, `EXIT REVIEW NOW`, `TRIM REVIEW NOW`, `COMPELLING BUY/ADD REVIEW`, `BUY/ADD REVIEW NOW`, `GETTING CLOSE`, `NO ACTION`, `UNAVAILABLE`.
+- Use ownership-sensitive wording: `ADD` for owned securities, `BUY` for confirmed unowned securities, and `BUY/ADD` if ownership cannot be resolved.
+- `BUY/ADD REVIEW NOW` means a stored entry/add price trigger has been crossed. It does **not** mean automatically buy. Refresh underwriting first; if the thesis and threshold remain valid, advance to capital-allocation review.
+- `COMPELLING BUY/ADD REVIEW` means the deeper/more attractive stored buy/add threshold has been crossed and is currently valid. It still requires underwriting refresh and capital-allocation review before a portfolio decision.
+- A previously consumed trigger must not remain actionable merely because price is still beyond it. Respect canonical consumed and re-arm state and move to the next valid trigger when applicable.
+- `GETTING CLOSE` means price is within 5% of the next valid price trigger by default. This is a visible attention rule only; it does not alter the monitor or activate downstream work.
 - `Current price` must be the freshest reliable price available at the run cutoff and should preserve currency when ambiguity exists.
-- At **08:00**, use a reliable pre-market price when available; otherwise use the latest regular-session close and label it `prev. close`. Do not present an overnight indicative quote as a regular-session trade.
+- At **08:00**, use a reliable pre-market price when available; otherwise use the latest regular-session close and label it `prev. close`.
 - At **11:30** and **15:00**, use an actual same-day market price when available and state the table's price as-of time immediately above or below the table.
-- `Target / trigger` is the monitor's stored threshold or range, not analyst consensus and not a newly calculated Radar value.
-- `Action` is the monitor's stored action/instruction, such as `review`, `re-underwrite`, `entry review`, `trim review`, `exit review`, `monitor`, or another canonical instruction. **Do not execute the action.**
-- If the target exists but the action is not stored, write `REVIEW — action unspecified` rather than guessing.
-- If monitor state cannot be loaded, render the table heading and write `UNAVAILABLE — active price-monitor state could not be read`; do not silently show a partial list as complete.
-- If only some monitor records or quotes are unavailable, include the readable rows and mark the affected price/target/action cell `UNAVAILABLE`; disclose that the table is partial.
+- `Next trigger` must come from the canonical stored threshold/range. Do not substitute analyst consensus or calculate a new Radar target.
+- `What to do` is a concise translation of the stored downstream workflow, not a new trade instruction.
+- If live monitor state cannot be loaded, render the table heading and write `UNAVAILABLE — live active price-monitor state could not be read`; never silently show a stale static list as current.
+- If only some monitor records or quotes are unavailable, include readable securities, mark the affected row `UNAVAILABLE`, and disclose partial coverage.
 - If there are genuinely no active price monitors, show a one-row table stating `NO ACTIVE PRICE MONITORS`.
-- A crossed price trigger does not by itself change a thesis, fair value, posture, holding, or position size. It activates only the stored review/re-underwrite/action workflow.
+- A crossed price trigger does not by itself change a thesis, fair value, posture, holding, or position size.
 
-Persist the price-monitor coverage, quote timestamp/source when supported, trigger status, and any unavailable monitor/quote state in the run manifest or canonical monitor state.
+Persist the price-monitor coverage, quote timestamp/source, all underlying trigger state, selected visible action, consumed/re-arm state, and unavailable/partial state when supported.
 
 ## 2. Slow-Burn Fundamentals
 
