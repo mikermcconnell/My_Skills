@@ -21,6 +21,7 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
 1. Read the latest `news-radar-investing/SKILL.md` from `mikermcconnell/My_Skills` and confirm it is **version 3**.
 2. Read `news-radar-investing/ACTIVE_VERSION.md` and confirm the active monitor version is **3**.
 3. Apply `references/v3-run-contract.md` as the authoritative run contract.
+3A. Read and apply `references/specialized-lanes.md`. Its lane checks and always-visible lane-status section are mandatory on every scheduled run.
 4. Load the narrow live context needed for portfolio defense and thesis testing:
    - active holdings;
    - active underwritings and monitors;
@@ -42,7 +43,8 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    6. `BLOCKED` or materially `CONFLICTED`;
    7. timely updates to normal active theses.
 8. Search the relevant event, filing, regulator, clinical, catalyst, expert, social, alternative-data, and slow-burn lanes available for the run.
-8A. **Build `What's moving markets today`.** Use current same-day market data and reliable attribution. At 08:00 use North American futures plus overnight markets; at 11:30 and 15:00 use actual same-day indexes/sectors/factors. Check S&P 500, Nasdaq/large-cap growth, and TSX when relevant; add rates, oil, FX, volatility, credit or commodities only when materially driving the tape. Separate observed moves from reported/likely causes. Do not turn a broad market move into a Radar event unless it independently clears the normal gates.
+8A. **Run all mandatory specialized lanes from `references/specialized-lanes.md`.** Every scheduled pass must check and visibly report: Slow-Burn Fundamentals; Catalysts / Evidence Due; Social Arbitrage / Alternative Data; Clinical / Medical; Expert / Industry Sources; TTWO — GTA VI / GTA Online / GTA+; AMZN — AWS / Retail / Ads / Optionality; and HOOD — Customer / Product / Social Arbitrage. Use `UPDATE`, `NO UPDATE`, or `UNAVAILABLE` for each lane. A `NO UPDATE` line means the lane was actually checked; do not use it when the relevant feed/state was unavailable.
+8B. **Build `What's moving markets today`.** Use current same-day market data and reliable attribution. At 08:00 use North American futures plus overnight markets; at 11:30 and 15:00 use actual same-day indexes/sectors/factors. Check S&P 500, Nasdaq/large-cap growth, and TSX when relevant; add rates, oil, FX, volatility, credit or commodities only when materially driving the tape. Separate observed moves from reported/likely causes. Do not turn a broad market move into a Radar event unless it independently clears the normal gates.
 9. Reconcile every serious item and thesis delta with the canonical Event Ledger, prior baseline, and relevant Mind Model evidence ledger.
 10. Apply the V3 late-detection rule. Backfill unrecorded material events that predate the scan window rather than dismissing them.
 11. Check every evidence item, thesis forecast, source-of-truth metric, or catalyst window whose due date has arrived. Record missing, delayed, removed, or still-unconfirmed evidence without automatically changing the thesis.
@@ -77,8 +79,9 @@ Use these rules:
 - Reconciliation should mention only open items whose status changed. Otherwise use one sentence such as `Open items reconciled; no additional decision-relevant delta.`
 - The Thesis Research table appears only when a material thesis delta exists. Unchanged theses are covered in the end summary, not row-by-row.
 - `What's moving markets today` is **mandatory but very short: maximum 3 bullets and roughly 80–100 words total**. It should explain broad tape drivers, not become another news section.
+- **`Specialized lanes` is mandatory on every scheduled run.** Show all eight lane headings/status lines every time. Keep each normally to one line. `NO UPDATE` is informative coverage, not filler, and does not count as a P3 event.
 - Separate market observation from causal attribution. Say `reported/likely driver` or `attribution uncertain` when appropriate.
-- Do not repeat company-specific items from the lead table in the market tape unless they are genuinely moving the broader market.
+- Do not repeat company-specific items from the lead table in the market tape or specialized-lane section; cross-reference them compactly when needed.
 - Compress coverage, outages, blind spots, late detections, scan-gap recovery, and persistence into **one short closing paragraph**. Mention only material blind spots in chat; persist the full manifest in the supported canonical store or dated Library fallback when available.
 - Omit a separate source register from chat unless source provenance itself is decision-relevant. Citations may remain inline.
 - Do not generate or link a separate Markdown file solely to satisfy Radar output formatting.
@@ -88,10 +91,11 @@ Preferred visible structure:
 1. title + one-sentence run status;
 2. lead table;
 3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
-4. compact P0/P1 detail blocks only;
-5. Thesis Research table only if material deltas exist;
-6. one short `Other checks` paragraph if needed;
-7. one short coverage/persistence paragraph.
+4. `Specialized lanes` — all eight mandatory one-line statuses;
+5. compact P0/P1 detail blocks only;
+6. Thesis Research table only if material deltas exist;
+7. one short `Other checks` paragraph if needed;
+8. one short coverage/persistence paragraph.
 
 ## Scheduled output
 
@@ -110,6 +114,21 @@ Immediately after the table add:
 
 Use no more than three bullets and roughly 80–100 words total. Include an as-of time when using live prices. The purpose is to distinguish broad market/factor pressure from company- or thesis-specific deltas.
 
+Then always add:
+
+### Specialized lanes
+
+- **Slow-Burn Fundamentals:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Catalysts / Evidence Due:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Social Arbitrage / Alternative Data:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Clinical / Medical:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **Expert / Industry Sources:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **TTWO — GTA VI / GTA Online / GTA+:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **AMZN — AWS / Retail / Ads / Optionality:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+- **HOOD — Customer / Product / Social Arbitrage:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
+
+If a specialized-lane update already appears in the lead table, identify it briefly rather than duplicating the analysis. If no decision-relevant delta was found after checking the lane, explicitly say `NO UPDATE`.
+
 Provide compact detail only for P0 and P1 items under the visible-output budget above. For P2 and P3, the table row is normally sufficient; include missing evidence/date and underwriting requirement there.
 
 When the Active Thesis Research lane finds a material delta, add:
@@ -119,6 +138,6 @@ When the Active Thesis Research lane finds a material delta, add:
 
 Do not list unchanged theses row-by-row. Record which theses were swept in the coverage manifest.
 
-End with one compact paragraph covering holdings/underwritings/theses/review-queue/catalysts/evidence-due checked, material source lanes, unavailable state or material blind spots, late detections/scan-gap recovery when relevant, persistence status, active V3 contract, and next scheduled slot.
+End with one compact paragraph covering holdings/underwritings/theses/review-queue/catalysts/evidence-due checked, specialized-lane coverage, material source lanes, unavailable state or material blind spots, late detections/scan-gap recovery when relevant, persistence status, active V3 contract, and next scheduled slot.
 
-A no-lead run is valid. Say that no qualifying event or material thesis delta was found in the searched universe rather than claiming that nothing material occurred anywhere.
+A no-lead run is valid. Say that no qualifying event or material thesis delta was found in the searched universe rather than claiming that nothing material occurred anywhere. The `Specialized lanes` section is still required and should show `NO UPDATE` or `UNAVAILABLE` for each lane.
