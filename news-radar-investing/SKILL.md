@@ -36,6 +36,7 @@ Read only what the run needs:
 - `references/primary-source-feed-map.md` when defining source coverage, declaring scan limitations, or auditing missed feeds.
 - `references/slow-burn-and-catalyst-lanes.md` for cumulative fundamental changes and pre-event expectations packets.
 - `references/integration-and-persistence.md` when TaskTracker, Mind Model, Investing portfolios, Library fallback, or persistence are relevant.
+- `references/sell-discipline-and-closeout.md` for every owned-position sell check, TRIM/EXIT handoff, broker-confirmed sale reconciliation, partial close, full close, and postmortem.
 - `references/social-arbitrage-lane.md` for behavioural or alternative-data observations.
 - `references/clinical-radar-overlay.md` for medical research, clinical trials, regulator actions, and oncology alerts.
 - `EXPERT_SOURCES.md` when monitoring named experts such as SemiAnalysis or Dylan Patel.
@@ -58,6 +59,7 @@ Read only what the run needs:
 - Do not manufacture an investment angle, fill an alert quota, or force symmetrical positive and negative stories.
 - Keep world outcome, thesis evidence, company value capture, security valuation, event-trade suitability, monitor triggers, and portfolio action separate.
 - Automatically persist research-only Radar state when supported, but never automatically approve or change a thesis, fair value, security posture, monitor threshold/action, or holding.
+- Close the sell loop explicitly: detect review triggers, preserve lineage, and route any TRIM/EXIT decision through RWC, Full Underwriting, and Portfolio Capital Allocation as needed. A recommendation is not a sale; only an owned Investor Holdings closed-position record can support closeout reconciliation.
 - Every surfaced item must explicitly state whether underwriting is required, using the controlled classifications below.
 - **Keep the visible chat concise but complete.** Target roughly 75% of the prior V3 visible length for an equivalent information set by removing repetition, not by reducing search coverage, specialized-lane coverage, or required persisted state. The visible chat is the complete user-facing Radar response; no separate Markdown artifact is required.
 
@@ -77,6 +79,8 @@ Use the scan window since the last successful run. If a run is advanced, delayed
 
 Before broad discovery, load or attempt to load:
 
+MikeInvestor is canonical for live ownership, exposure, lots, options, research lineage, underwriting, proposals, closeouts, and active triggers. Call `get_investor_context` before a broad scan and retain its `stateVersion`; call `get_security_context` for every serious held issuer, candidate, or affected derivative. If unavailable, label live exposure unverified and use any authorized fallback only as secondary state.
+
 - the last successful run and current scan window;
 - open Event Ledger records and existing independence groups;
 - open P0, P1, and P2 items;
@@ -87,7 +91,8 @@ Before broad discovery, load or attempt to load:
 - **every active price-bearing monitor, its stored threshold/range and action, and the freshest reliable quote available for each monitored security**;
 - the live TaskTracker Mind Model overview, including active theses, review queue, diagnostics, forecasts, evidence, watchlist exposures, linked Investor Research state, and pending proposals;
 - same-day broad-market context available for the market tape;
-- available feeds, outages, and likely blind spots.
+- available feeds, outages, and likely blind spots;
+- open TRIM/EXIT proposals, broker-confirmed sales awaiting closeout reconciliation, partial closeouts, and full closeouts awaiting postmortem when MikeInvestor exposes them.
 
 Start the V3 run coverage manifest. If a required state source is unavailable, mark the gap and do not imply that the associated holdings, underwritings, theses, price monitors, or market drivers were checked.
 
@@ -98,9 +103,22 @@ Search first for developments that could impair a holding or active underwriting
 - financing, liquidity, dilution, covenant, auditor, internal-control, fraud, safety, legal, regulatory, clinical, operational, customer-concentration, or governance risk;
 - a breached or threatened kill criterion;
 - a milestone, readout, financing, filing, permit, launch, or decision that was due but did not arrive;
-- a material multi-holding or common-factor exposure.
+- a material multi-holding or common-factor exposure;
+- thesis deterioration or failure;
+- valuation/hurdle failure while the company thesis remains intact;
+- issuer, wrapper, factor, or correlated concentration;
+- recorded strategy stop, target, profit-taking rule, or time stop;
+- option/instrument timing, expiry, strike, leverage, volatility, assignment, or call-away risk;
+- stale, contradicted, or overdue underwriting evidence;
+- opportunity cost versus a credible alternative.
 
 P0 items take the fast path. Do not delay an urgent risk alert to complete thesis research, second-order beneficiary work, broad thematic mapping, the market-tape summary, or the Price Monitor Check.
+
+#### Sell-check handoff
+
+For every held News Radar or ChrisCamillo issuer and exact instrument, apply `references/sell-discipline-and-closeout.md`. Radar owns trigger detection and routing only. It must identify whether the candidate reason is target reached, valuation, thesis break, time stop, concentration, instrument failure, opportunity cost, or other; distinguish company deterioration from a security, sizing, or instrument problem; and name the next decision gate.
+
+Do not create a final sell verdict inside Radar. If downstream work produces a TRIM or EXIT recommendation, only a `PROPOSED` trade record may be created. The user/broker executes; Investor Holdings records the confirmed sale; and closeout reconciliation may occur only against the resulting owned `closedPositionId`.
 
 ### 2A. Run the Active Thesis Research lane
 
@@ -261,9 +279,10 @@ For scheduled V3 runs, persist when supported:
 - market-tape as-of time and high-level drivers when persistence supports it;
 - specialized-lane coverage/status;
 - price-monitor coverage, quote timestamp and crossed-trigger status when supported;
-- feed outages, late detections, and persistence failures.
+- feed outages, late detections, and persistence failures;
+- sell-review status, open TRIM/EXIT proposal lineage, and closeout-reconciliation gaps when the relevant state is available.
 
-Use the supported canonical store. If unavailable, save a dated Library persistence record; its file format is not mandated. If no write path succeeds, report `PERSISTENCE_FAILED`.
+Use MikeInvestor's research-write tools as the preferred canonical portfolio-aware store when connected: create or reuse a deterministic Radar event, preserve the observed `stateVersion`, and write only research lineage and routed findings. Use the other supported canonical stores for their own state. If unavailable, save a dated Library persistence record; its file format is not mandated. If no write path succeeds, report `PERSISTENCE_FAILED`.
 
 Do not use Radar persistence to approve or change Mind Model probabilities, thesis wording, underwriting posture, fair value, entry ranges, price-monitor targets/actions, kill criteria, review dates, or portfolio positions.
 
@@ -284,6 +303,8 @@ Radar establishes only a plausible expectations question. RWC determines whether
 ### 7. Map only enough exposure to route correctly
 
 For every serious item record:
+
+Aggregate exposure twice: first at issuer level across direct shares, CDRs/wrappers, and option-derived exposure; then at instrument level preserving each lot, wrapper, contract, strike, expiry, direction, and nonlinear risk.
 
 - direct holding or security;
 - linked thesis, pillar, forecast, watchlist exposure, or underwriting;
@@ -463,6 +484,7 @@ A P0 or P1 handoff must preserve:
 - market-open/closed status and available price context;
 - any frozen catalyst or forecast packet;
 - strongest reason the lead may fail;
+- candidate exit-reason class and sell-check gate when an owned position is under review;
 - `Underwriting Required?` classification and reason;
 - three or fewer decisive questions in the stored handoff;
 - next evidence and date.
@@ -499,6 +521,8 @@ Before finishing, confirm that:
 - catalyst and forecast expectations were frozen before the outcome whenever practical;
 - price action or a crossed price-monitor threshold was not treated as proof of novelty;
 - no monitor action was executed automatically;
+- every owned-position sell trigger was routed under the sell-discipline contract, and no recommendation was treated as a broker-confirmed sale;
+- any closeout claim was backed by an owned Investor Holdings `closedPositionId`; otherwise `CLOSEOUT_PERSISTENCE_UNAVAILABLE` or the missing reconciliation state was declared;
 - no RWC, underwriting, event-trade, thesis-approval, or portfolio conclusion was smuggled into Radar;
 - every P0/P1 stored handoff has three or fewer decisive RWC questions, while visible output normally shows one and at most two;
 - every P2/P3 item has named next evidence or a reason no further work is warranted;

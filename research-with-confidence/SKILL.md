@@ -1,6 +1,6 @@
 ---
 name: research-with-confidence
-description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, or deciding whether a public-equity lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, monitoring, or rejection. Do not use for a quick factual answer, final security valuation, short-duration payoff approval, or account-specific portfolio sizing.
+description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, portfolio-aware impact classification, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, Portfolio Defense questions, or deciding whether a public-equity lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, monitoring, or rejection. Do not use for a quick factual answer, final security valuation, short-duration payoff approval, or account-specific portfolio sizing.
 ---
 
 # Research With Confidence
@@ -31,6 +31,8 @@ Read only what the task needs:
 - Preserve uncertainty. Do not manufacture opposing evidence or false precision.
 - Stop when the remaining question is principally long-term valuation, scenario modeling, financing, dilution, event payoff, market microstructure, or portfolio construction; hand that work to the appropriate workflow.
 - Do not retrieve broad personal, portfolio, or workspace context unless the user requests it, supplies a specific handoff, or that exact context is necessary to answer the stated question.
+- When the question affects an owned security, use MikeInvestor for current exposure and lineage. Treat ownership as decision context, never as evidence that the factual claim is true or false.
+- Distinguish company-thesis deterioration from security valuation, portfolio concentration, and instrument/timing failure. A valid company thesis can coexist with a TRIM, EXIT, or option-roll review.
 
 ## Workflow
 
@@ -45,6 +47,8 @@ State:
 - the information cutoff and current date.
 
 For a Radar handoff, preserve the `event_id`, lane, original hypothesis, prior baseline, delta class, thesis effect, decisive questions, and any frozen catalyst packet.
+
+When portfolio impact is in scope, read MikeInvestor's live investor context and the relevant security context before concluding. Record the observed `stateVersion`, issuer exposure, exact instruments, active underwriting, proposal/closeout lineage, and source timestamps. Do the factual analysis independently first; then apply those facts to the live portfolio.
 
 ### 2. Build a claim and source ledger
 
@@ -132,6 +136,18 @@ State separately:
 
 RWC does not calculate the complete long-term valuation or event-trade payoff.
 
+
+### 6A. Separate company, security, and instrument effects
+
+For every owned exposure, classify each layer independently:
+
+- **Company thesis:** `INTACT | IMPROVED | DETERIORATED`.
+- **Security:** valuation, expected return, dilution, and what is priced in.
+- **Portfolio:** issuer/cluster concentration, account constraints, and opportunity cost.
+- **Instrument:** wrapper, strike, expiry, delta, theta, implied volatility, assignment/call-away, liquidity, and catalyst timing.
+
+For options, compare the evidence/catalyst date with expiry and the intended trade horizon. State whether the underlying thesis remains valid but the instrument is timing-mismatched. Never allow a profitable or loss-making option position to bias the factual verdict.
+
 ### 7. Red-team the research conclusion
 
 Identify:
@@ -163,6 +179,19 @@ Stop rather than expanding the report when additional work has low expected deci
 
 State the route, corrected thesis, evidence confidence, security-mispricing or event-surprise confidence, and one-sentence reason.
 
+### Portfolio Defense Impact
+
+When an owned issuer or instrument is affected, state exactly one primary impact:
+
+- `NO CHANGE`
+- `MONITOR`
+- `RE-UNDERWRITE SECURITY`
+- `CAPITAL-ALLOCATION REVIEW`
+- `TRIM/EXIT EVIDENCE CONFIRMED`
+- `INSTRUMENT/TIMING FAILURE`
+
+Then state company-thesis impact, exact affected instruments, current exposure, controlled sell-reason candidate when relevant, and the next decision gate. This is a research verdict, not execution or final sizing.
+
 ### Findings
 
 Use the structure appropriate to the task, but an investment RWC report must include:
@@ -180,9 +209,22 @@ Use the structure appropriate to the task, but an investment RWC report must inc
 11. unresolved questions and next evidence/date;
 12. stopping decision and next gate;
 13. exact Full Underwriting question when advancing to investment underwriting;
-14. exact event, intended horizon, and remaining payoff/execution questions when advancing to Event-Trade Underwriting.
+14. exact event, intended horizon, and remaining payoff/execution questions when advancing to Event-Trade Underwriting;
+15. `Portfolio Defense Impact` and company-versus-security-versus-instrument classification for owned exposure.
 
 Use `references/investment-handoff.md` as the contract for an underwriting handoff.
+
+
+## MikeInvestor persistence
+
+When the user or scheduled contract authorizes research persistence:
+
+1. reuse the Radar `eventId`;
+2. use fresh MikeInvestor context and its observed `stateVersion`;
+3. call `save_research_result` with stage `RWC`, ticker, factual verdict, corrected summary, company-thesis impact, economic bridge, next question, evidence references, and portfolio context;
+4. re-read and verify the result appears in the same security/event lineage.
+
+Persist the evidence verdict even when current ownership creates urgency, but never alter the verdict to justify a desired portfolio action. RWC may confirm evidence supporting a sell-review reason; it may not place a trade, approve a proposal, mutate holdings, or fabricate a closeout. A broker-confirmed closeout follows the News Radar sell-discipline contract.
 
 ## Boundaries
 

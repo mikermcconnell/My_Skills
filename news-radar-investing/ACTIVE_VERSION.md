@@ -10,6 +10,7 @@ monitor_contract: news-radar-investing/MONITOR_V3.md
 run_contract: news-radar-investing/references/v3-run-contract.md
 specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
+sell_discipline_contract: news-radar-investing/references/sell-discipline-and-closeout.md
 price_monitor_mode: dynamic_live_source
 price_monitor_visible_format: action_sorted_queue
 price_monitor_rows: one_per_security
@@ -19,7 +20,7 @@ visible_output: complete_chat_response
 markdown_artifact_required: false
 ```
 
-Every scheduled News Radar task instance must load the active skill, monitor contract, run contract, specialized-lanes contract, and price-monitor live-source contract before scanning. The active version applies beginning with the first scheduled occurrence after this activation commit.
+Every scheduled News Radar task instance must load the active skill, monitor contract, run contract, specialized-lanes contract, price-monitor live-source contract, and sell-discipline contract before scanning. The active version applies beginning with the first scheduled occurrence after this activation commit.
 
 The visible chat response is the complete user-facing Radar report. A separate Markdown attachment is not required. Every scheduled visible run must include the mandatory specialized-lanes coverage, including the Price Monitor Check table and the TTWO, AMZN, and HOOD bespoke lanes.
 
@@ -30,5 +31,7 @@ The visible Price Monitor is an **action-sorted queue**, not a raw threshold lis
 `news-radar-investing/references/price-monitor-live-source.md` is authoritative for the Price Monitor lane and supersedes older/conflicting Price Monitor presentation wording in other V3 files.
 
 Research-only persistence may still use the canonical store or a dated Library fallback when supported; that persisted state is an audit/persistence layer, not a second user-facing report or the next run's monitor source of truth.
+
+The sell-discipline contract closes the decision loop without authorizing execution. Radar detects and routes; downstream workflows may create only a proposed TRIM/EXIT; the user and broker execute; Investor Holdings records the confirmed sale; MikeInvestor may then reconcile the resulting owned closed-position record.
 
 Changing this pointer does not authorize changes to thesis probabilities, underwriting posture, fair value, monitor thresholds, review dates, or portfolio holdings.

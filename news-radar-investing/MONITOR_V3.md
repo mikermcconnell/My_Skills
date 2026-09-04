@@ -22,6 +22,7 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
 2. Read `news-radar-investing/ACTIVE_VERSION.md` and confirm the active monitor version is **3**.
 3. Apply `references/v3-run-contract.md` as the authoritative run contract.
 3A. Read and apply `references/specialized-lanes.md`. Its lane checks and always-visible lane-status section are mandatory on every scheduled run.
+3B. Read and apply `references/sell-discipline-and-closeout.md` for every owned-position sell trigger, open TRIM/EXIT proposal, broker-confirmed sale awaiting reconciliation, partial closeout, and full closeout awaiting postmortem.
 4. Load the narrow live context needed for portfolio defense and thesis testing:
    - active holdings;
    - active underwritings and monitors;
@@ -33,9 +34,10 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    - known catalysts;
    - evidence due now or overdue;
    - same-day broad-market data needed for a compact market-tape summary;
-   - current/last reliable quotes needed for the Price Monitor Check.
+   - current/last reliable quotes needed for the Price Monitor Check;
+   - MikeInvestor trade proposals and position closeouts, including broker-confirmed sales awaiting closeout reconciliation and residual exposure after partial sales.
 5. Complete the V3 run coverage manifest. Mark unavailable state or source feeds explicitly.
-6. Scan portfolio and thesis risks before new opportunity discovery. P0 risks take the fast path.
+6. Scan portfolio and thesis risks before new opportunity discovery. P0 risks take the fast path. Apply the controlled sell reasons and routing gates in the sell-discipline contract; Radar detects and routes but does not finalize or execute a sale.
 7. **Run the Active Thesis Research lane on every scheduled pass.** Cheaply sweep every readable non-retired thesis using its stored baseline, assumptions, strongest opposing case, falsifiers, pillars, source-of-truth metrics, forecasts, confirm/warning/break indicators, watchlist evidence needs, and next-highest-value tests. Allocate deeper Radar search budget in this order when TaskTracker supports it:
    1. owned exposure marked `requiresReunderwrite`;
    2. `EVENT_TRIGGERED` thesis;
@@ -70,11 +72,11 @@ Use the last successful run timestamp as the next scan-window start. If a schedu
    - `YES — NEW FULL UNDERWRITING`
    - `YES — EVENT-TRADE UNDERWRITING`
    Use live TaskTracker `requiresReunderwrite`, security readiness, underwriting status, owned exposure, and current triggers when available. If causal/materiality/value-capture uncertainty remains, use `CONDITIONAL — AFTER RWC` rather than prematurely declaring new underwriting.
-15. Persist research-only state automatically using the supported canonical store, TaskTracker research/evidence/proposal paths, or dated Library fallback. Persist the underwriting-requirement classification and rationale. Declare `PERSISTENCE_FAILED` if no write succeeds.
+15. Persist research-only state automatically using the supported canonical store, TaskTracker research/evidence/proposal paths, or dated Library fallback. Persist the underwriting-requirement classification, rationale, and sell-review lineage when applicable. Never claim a closeout without an owned Investor Holdings `closedPositionId`; if the reconciliation tool is absent, declare `CLOSEOUT_PERSISTENCE_UNAVAILABLE`. Declare `PERSISTENCE_FAILED` if no research write succeeds.
 16. When supported, write genuinely new thesis evidence to the Mind Model evidence ledger, create a linked Investor Research question for an explicit gap, or create a reviewable pending thesis proposal. **Never approve a proposal or directly change an approved thesis.**
 17. Keep Radar analytically thin. Stop after the exact delta, baseline, source status, plausible materiality, preliminary mechanism, direct exposure, affected thesis/pillar/forecast when relevant, capture uncertainty, strongest failure reason, underwriting requirement, and no more than three decisive Research With Confidence questions in the stored record.
 18. Route causality, counterfactuals, detailed materiality, full value capture, and expectations analysis to Research With Confidence. Route valuation, dilution, scenarios, returns, timing, kill criteria, and security posture to Full Underwriting. Route event payoff/execution questions to Event-Trade Underwriting.
-19. Do not automatically change a Mind Model thesis, probability, forecast, underwriting posture, fair value, entry range, kill criterion, review date, holding, or portfolio sizing.
+19. Do not automatically change a Mind Model thesis, probability, forecast, underwriting posture, fair value, entry range, kill criterion, review date, holding, or portfolio sizing. A downstream TRIM/EXIT may create only a `PROPOSED` record; the user/broker executes and Investor Holdings records the fill before closeout reconciliation.
 
 ## Compact visible-output budget
 

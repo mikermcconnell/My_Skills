@@ -1,6 +1,6 @@
 ---
 name: full-underwriting
-description: Perform a full buy-side underwriting of a listed company or public security and decide whether it is actually investable at the current price. Use when the user says full underwriting, underwrite this, is this actually cheap, take this from research to investment, or when a Research With Confidence lead needs reverse valuation, capital structure, financing and dilution, scenarios, catalysts, falsifiers, return hurdles, time-to-resolution, and a final Investable, Watch, Pass, or Reject decision. Do not use for first-pass idea generation, news triage, short-duration event trades, or account-specific sizing.
+description: Perform a full buy-side underwriting of a listed company or public security, decide whether it is attractive at the current price, and produce a portfolio-aware sizing handoff and proposed action for a new or existing holding. Use when the user says full underwriting, underwrite this, is this actually cheap, take this from research to investment, or when a Research With Confidence lead needs reverse valuation, capital structure, financing and dilution, scenarios, catalysts, falsifiers, return hurdles, time-to-resolution, current exposure, and a final security posture. Do not use for first-pass idea generation, news triage, short-duration event trades, brokerage execution, or final account-specific sizing approval.
 ---
 
 # Full Underwriting
@@ -17,6 +17,8 @@ A good company is not automatically a good investment. A correct world thesis is
 
 Use an existing RWC handoff as the evidence baseline. Preserve supported findings, challenges, confidence, and unresolved questions, but reverify current price, capital structure, market-sensitive facts, and all load-bearing assumptions. Do not inherit the earlier conclusion uncritically.
 
+When MikeInvestor is available, read its live investor context and security context before the final portfolio-aware recommendation. Preserve `stateVersion`, current issuer exposure, exact instruments, active baseline revision, proposal/closeout lineage, and market-data provenance. Exposure informs action and sizing; it must not distort the fundamental or valuation verdict.
+
 Use Event-Trade Underwriting instead when the user's intended horizon is hours, days, or a few weeks around one discrete event and the decisive questions are surprise, payoff, implied move, liquidity, halt, borrow, or slippage rather than long-term intrinsic value.
 
 ## References
@@ -28,6 +30,7 @@ Read only what the case needs:
 - `references/sector-overlays.md` for sector-specific economics.
 - `references/portfolio-handoff-and-hurdle-rules.md` for required-return, opportunity-cost, and portfolio inputs.
 - `references/underwriting-quality-checklist.md` before finalizing.
+- `../news-radar-investing/references/sell-discipline-and-closeout.md` when the result may be HOLD, TRIM, EXIT, HEDGE, an option roll, or a closeout review for an owned position.
 
 ## Core rules
 
@@ -41,6 +44,9 @@ Read only what the case needs:
 8. **Opportunity cost matters.** Compare expected annualized return and downside with the applicable hurdle and the closest realistic alternative.
 9. **Independence matters.** A decision-ready INVESTABLE conclusion should receive an independent challenger pass when that workflow is available. If it was not run, say so.
 10. **Do not force a buy.** PRICE-SENSITIVE, WATCH, PASS, and REJECT are successful outcomes.
+11. **Separate attractiveness from incremental action.** A fundamentally attractive security may still be `HOLD` when current exposure already meets or exceeds the appropriate target.
+12. **Every completed underwriting has a sizing handoff.** State starter %, target %, max %, current exposure, recommended NAV delta, and sizing confidence. Portfolio Capital Allocation approves or changes the final size.
+13. **Options require an instrument thesis.** Analyze strike, expiry, premium at risk, breakeven, liquidity, volatility, and catalyst timing separately from the company thesis.
 
 ## Workflow
 
@@ -52,7 +58,9 @@ State one sentence containing:
 - current price and date;
 - proposed investment horizon;
 - primary question;
-- current research posture.
+- current research posture;
+- live current exposure and exact instruments when owned;
+- whether the question is START, ADD, HOLD, TRIM, EXIT, HEDGE, or re-underwrite.
 
 ### 2. Establish the security and capital structure
 
@@ -185,6 +193,8 @@ The re-underwrite date is a decision boundary, not an automatic sell date. At th
 
 If no credible realization mechanism exists within the proposed horizon, downgrade to WATCH or PASS.
 
+For an owned position, compare the target-realization and re-underwrite dates with the recorded strategy time stop and any option expiry. A passed date triggers a review, not an automatic sell. Classify the candidate reason under the News Radar sell-discipline contract when HOLD, TRIM, EXIT, or roll is under consideration.
+
 ### 13. Red-team the thesis
 
 Assume the thesis is wrong. Test:
@@ -207,6 +217,21 @@ Separate:
 - **Monitoring events** — informative but do not themselves change value.
 
 State three to five measurable kill criteria. Price decline alone is not a falsifier.
+
+
+### 14A. Underwrite the instrument separately
+
+For common equity, CDRs, wrappers, options, convertibles, or other expressions, state both the company thesis and the instrument thesis.
+
+For an option, include:
+
+- underlying price, strike, expiry, days remaining, contracts, multiplier, and premium at risk;
+- breakeven and the move/timing required for the thesis to pay;
+- delta when reliable, theta/volatility exposure, liquidity, and likely slippage;
+- catalyst dates versus expiry and the risk of event-volatility collapse;
+- whether common stock or a later-dated contract is a cleaner expression.
+
+A company can remain `IMPROVED` while the option is `DETERIORATED / TIMING-MISMATCHED`. Never use sunk cost as a reason to hold or roll.
 
 ### 15. Determine readiness and run the challenge gate
 
@@ -238,9 +263,28 @@ Full Underwriting does not choose the exact account or position size. Hand the c
 - key factor, thesis, customer, commodity, geography, and currency exposures;
 - closest alternative and applicable hurdle;
 - entry, add, trim, and exit evidence;
-- unresolved constraints that prevent exact sizing.
+- unresolved constraints that prevent exact sizing;
+- **starter weight %**;
+- **target weight %**;
+- **maximum weight %**;
+- **current issuer exposure %**, with denominator and as-of time;
+- **recommended NAV delta %**;
+- **sizing confidence: High | Medium | Low**, with the main uncertainty.
 
 Portfolio Capital Allocation owns the loss budget, position range, funding source, cluster exposure, and staged entry. It may still choose cash, wait, or reject the allocation even when Full Underwriting says INVESTABLE.
+
+
+### 16A. Produce a proposed action record
+
+Choose one portfolio action independently from the security posture:
+
+`START | ADD | HOLD | TRIM | EXIT | HEDGE | NO_ACTION`
+
+A completed underwriting may persist a canonical baseline and create only a `PROPOSED` MikeInvestor trade proposal when authorized. The proposal must include the same `eventId`, ticker, instrument intent, recommended NAV delta, target weight, max weight, thesis status, current price context, rationale, and observed `stateVersion`.
+
+Portfolio Capital Allocation remains the final sizing and implementation gate. Underwriting must not accept the proposal, choose the final account/funding source, execute a trade, or mutate a lot.
+
+For TRIM or EXIT, apply the News Radar sell-discipline contract. After the user/broker executes and Investor Holdings creates an owned `closedPositionId`, the closeout may be reconciled through MikeInvestor. Underwriting itself never fabricates a fill or marks a position closed.
 
 ## Final posture
 
@@ -265,6 +309,15 @@ Choose exactly one:
 **Expected holding period:**  
 **Target realization date:**  
 **Mandatory re-underwrite date:**  
+**Current issuer exposure / denominator / as-of:**  
+**Starter weight:**  
+**Target weight:**  
+**Maximum weight:**  
+**Recommended NAV delta:**  
+**Sizing confidence:**  
+**Portfolio action:** START / ADD / HOLD / TRIM / EXIT / HEDGE / NO_ACTION  
+**Company thesis:** INTACT / IMPROVED / DETERIORATED  
+**Instrument thesis:** N/A / INTACT / IMPROVED / DETERIORATED / TIMING-MISMATCHED  
 
 **One-sentence conclusion:** State the actual investment answer.
 
@@ -322,6 +375,18 @@ Choose one:
 - Add to watchlist
 - Pass
 - Reject
+
+
+## MikeInvestor persistence
+
+When the user or scheduled contract authorizes persistence:
+
+1. use the existing Radar/RWC `eventId` and fresh MikeInvestor `stateVersion`;
+2. save the complete canonical baseline through `save_underwriting`, including ownership at review, valuation, thresholds, monitoring dates, thesis status, security posture, and sizing handoff;
+3. create at most one `PROPOSED` action record through `create_trade_proposal`;
+4. re-read security context and verify baseline revision, proposal status, and lineage.
+
+Preserve history. Never overwrite prior decisions to make the latest conclusion appear continuous. A fundamentally attractive security can still produce a HOLD proposal because current exposure already satisfies the target. No persistence permission authorizes trade execution or final sizing approval.
 
 ## Boundaries
 

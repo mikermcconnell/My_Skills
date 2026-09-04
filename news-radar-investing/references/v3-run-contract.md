@@ -40,6 +40,10 @@ thesis_evidence_ledger
 thesis_watchlist_exposures
 linked_investor_research_state
 pending_thesis_proposals
+open_trim_exit_proposals
+position_closeouts_and_residual_exposure
+broker_confirmed_sales_awaiting_closeout_reconciliation
+full_closeouts_awaiting_postmortem
 same_day_market_context
 available_source_feeds_and_outages
 ```
@@ -83,6 +87,8 @@ feeds_unavailable_delayed_or_not_connected
 state_sources_unavailable
 material_blind_spots
 underwriting_requirements_assigned
+sell_reviews_checked
+closeout_reconciliation_status
 persistence_status
 next_scheduled_slot
 ```
@@ -297,7 +303,8 @@ Persist when supported:
 - market-tape as-of time and high-level drivers when supported;
 - specialized-lane coverage/status;
 - price-monitor coverage, quote as-of time, and crossed-trigger status when supported;
-- late detections, feed outages, and persistence failures.
+- late detections, feed outages, and persistence failures;
+- owned-position sell-review lineage, open TRIM/EXIT proposals, and closeout-reconciliation gaps.
 
 Use the supported Event Ledger or research store when available. If no canonical store is available, save a dated Library persistence record; its file format is not mandated. If neither write path works, mark `PERSISTENCE_FAILED` in the report rather than implying continuity.
 
@@ -310,6 +317,8 @@ Automatic Radar persistence must never:
 - place a trade.
 
 Those decisions remain downstream and follow their own authorization and monitor-propagation rules.
+
+Apply `sell-discipline-and-closeout.md` whenever an owned-position review may lead to TRIM or EXIT. Radar may persist the trigger and route; it must not finalize the sell. A closeout may be reconciled only after Investor Holdings contains an owned broker-confirmed `closedPositionId`. If the MikeInvestor closeout capability is unavailable, declare `CLOSEOUT_PERSISTENCE_UNAVAILABLE` and do not infer closure from a recommendation or submitted order.
 
 ## Portfolio-defense priority
 
@@ -405,6 +414,7 @@ Radar should not normally perform:
 - detailed clinical-commercial underwriting;
 - portfolio loss-budget, hedge, funding-source, or position-size calculations;
 - a final buy, sell, add, trim, exit, or investability decision;
+- a fabricated fill, holding mutation, or closeout without an owned Investor Holdings closed-position record;
 - approval of a thesis proposal or forecast change;
 - an extended macro or market commentary section.
 

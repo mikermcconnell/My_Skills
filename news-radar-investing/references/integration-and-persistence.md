@@ -113,6 +113,8 @@ This priority controls **Radar search attention**, not thesis approval or portfo
 
 ### Investing portfolios
 
+MikeInvestor is canonical when connected. Read `get_investor_context` before a broad run and `get_security_context` for every serious held issuer or affected derivative. Preserve its `stateVersion` for authorized writes. Treat the local repository below as a labelled fallback, not a competing live portfolio source.
+
 Local repository when available:
 
 `C:\Users\Mike McConnell\Documents\mike_apps\Investing`
@@ -188,7 +190,8 @@ Persist automatically:
 - P2 evidence requests, due dates, and overdue status;
 - frozen catalyst and thesis-forecast packets;
 - feed outages, unavailable state sources, late detections, and persistence failures;
-- the exact Research With Confidence handoff for each P0 or P1 item.
+- the exact Research With Confidence handoff for each P0 or P1 item;
+- sell-review lineage, open TRIM/EXIT proposal status, and closeout-reconciliation gaps when MikeInvestor exposes them.
 
 ### Preferred persistence order
 
@@ -206,7 +209,7 @@ When persisting V3 research state:
 
 1. reread the latest production or Library state immediately before writing;
 2. search for the same `event_id`, underlying fact, independence group, thesis evidence, and existing pending proposal;
-3. update the canonical event record rather than creating a duplicate;
+3. update or reuse the canonical event record rather than creating a duplicate; for sell reviews, preserve the same event/proposal/closed-position lineage required by `sell-discipline-and-closeout.md`;
 4. preserve the original source and first-seen fields before adding follow-up evidence;
 5. append only atomic evidence justified by the source;
 6. link evidence to the correct thesis/pillar/forecast when supported;
@@ -229,7 +232,7 @@ Automatic Radar persistence must never:
 - place or simulate an executed order;
 - choose account location, position size, funding source, or hedge.
 
-Research With Confidence may recommend an underwriting advance. Full Underwriting and downstream workflows own decision-state changes and their required monitor propagation.
+Research With Confidence may recommend an underwriting advance. Full Underwriting and downstream workflows own decision-state changes and their required monitor propagation. A downstream sell recommendation may create only a `PROPOSED` TRIM or EXIT. The user/broker executes; Investor Holdings records the transaction and closed position; MikeInvestor may then reconcile the resulting owned `closedPositionId` without changing holdings.
 
 ## Late detection and overdue thesis evidence
 
@@ -267,4 +270,6 @@ The user-facing output may stay compact, but the stored record must make omissio
 
 ## Trade and holding boundary
 
-A Radar write records research. It never places an order, changes a holding, or activates a strategy position. Even when Mike has previously stated that a broker transaction occurred, the Radar may link the known exposure but may not invent fill details or change the portfolio record without the supported transaction workflow.
+A Radar write records research. It never places an order, changes a holding, or activates a strategy position. Even when Mike has previously stated that a broker transaction occurred, Radar may link the known exposure but may not invent fill details or change the portfolio record without the supported transaction workflow.
+
+For sell closeout, apply `sell-discipline-and-closeout.md`. A recommendation, accepted idea, submitted order, or screenshot is not a closeout. Reconciliation requires an owned Investor Holdings `closedPositionId`, a matching `TRIM` or `EXIT` proposal, and the same `eventId`. If the live `record_position_closeout` capability is absent, say `CLOSEOUT_PERSISTENCE_UNAVAILABLE` and leave the sale awaiting reconciliation.
