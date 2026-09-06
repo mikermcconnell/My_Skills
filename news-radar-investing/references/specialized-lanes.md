@@ -27,8 +27,9 @@ Mandatory visible lane order:
 7. **TTWO — GTA VI / GTA Online / GTA+**
 8. **AMZN — AWS / Retail / Ads / Optionality**
 9. **HOOD — Customer / Product / Social Arbitrage**
+10. **Nancy Pelosi — Congressional Disclosures / Stock & Options**
 
-The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other eight lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
+The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other nine lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
 
 Persist lane coverage/status in the run manifest when the write path supports it.
 
@@ -160,6 +161,28 @@ Prioritize genuinely new evidence on:
 - revenue diversification, operating leverage, share-based compensation/dilution and material management commentary.
 
 Treat app/social excitement as a lead, not as proof of funded accounts, assets, revenue or profit. Seek independent KPI confirmation and route the business bridge to RWC before security underwriting changes.
+
+## 10. Nancy Pelosi — Congressional Disclosures / Stock & Options
+
+This is a permanent congressional-disclosure / alternative-data lane and must run on every scheduled Radar pass. Apply `references/nancy-pelosi-tracker-lane.md` as authoritative for its source hierarchy, transaction normalization, disclosure-lag handling, options treatment, routing, visible status, and persistence.
+
+Search the official **U.S. House Clerk Financial Disclosure / Periodic Transaction Report (PTR)** source first. Secondary congressional-trade databases and news reports may be used for discovery or reconciliation but must not supersede the official filing when it is available.
+
+Prioritize genuinely new official disclosures involving:
+
+- purchases of public-company common stock, ETFs, or other marketable securities;
+- purchases of call or put options, preserving strike, expiration and contract count only when disclosed;
+- sales, exchanges, option exercises, or amendments when they materially change the interpretation of a previously tracked position;
+- large disclosed amount ranges or transactions in securities that overlap the user's holdings, active underwritings, watchlist or active theses;
+- transactions occurring near a material public catalyst only as a research lead, never as proof of nonpublic information or a reason to copy the trade.
+
+Preserve **transaction date and filing/disclosure date separately**. Congressional PTRs are delayed disclosures, so a trade may be weeks old when first observable. Do not call the trade itself `LATE_DETECTION` merely because the transaction predates the current scan window if the filing only became public in the current window.
+
+Preserve the official owner code. If a filing identifies `SP` or another non-self owner, describe it as a **Pelosi household / spouse disclosure** rather than stating that Nancy Pelosi personally executed the transaction.
+
+Treat disclosed dollar values as ranges, never exact amounts. Do not infer current position size, continued ownership, inside information, illegality, superior expected returns, or an automatic BUY/SELL signal from the disclosure.
+
+The normal next question is: **what public, independently testable company/catalyst/valuation evidence could explain the disclosed transaction, and does that evidence matter to our thesis?** Route that question through normal V3 gates and RWC when material.
 
 ## Routing and output boundary
 
