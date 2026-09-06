@@ -23,6 +23,8 @@ markdown_artifact_required: false
 
 Every scheduled News Radar task instance must load the active skill, monitor contract, run contract, specialized-lanes contract, price-monitor live-source contract, sell-discipline contract, and Nancy Pelosi congressional-disclosure tracker contract before scanning. The active version applies beginning with the first scheduled occurrence after this activation commit.
 
+**Specialized-lane membership/count precedence:** `news-radar-investing/references/specialized-lanes.md` controls the current mandatory lane membership and count. Its current **10-lane** definition supersedes any older `nine lanes` / `eight narrative lanes` wording that may still appear in `SKILL.md`, `MONITOR_V3.md`, or `references/v3-run-contract.md`. Scheduled task prompts must follow the 10-lane contract.
+
 The visible chat response is the complete user-facing Radar report. A separate Markdown attachment is not required. Every scheduled visible run must include the mandatory specialized-lanes coverage, including the Price Monitor Check table, the TTWO, AMZN, and HOOD bespoke lanes, and the Nancy Pelosi congressional-disclosure / stock-and-options tracker lane.
 
 The Price Monitor Check is **dynamic**: every Radar run must query the canonical live price-monitor/underwriting-monitor state at run time, enumerate whatever active price-bearing monitors exist then, and retrieve current prices for that dynamically resolved set. Radar must not maintain a hard-coded ticker/threshold/action list or use the prior Radar table as source of truth. Additions, removals, activations, deactivations, threshold edits, action edits, consumed triggers, and re-arm state in the canonical monitor must flow into the next Radar run automatically.
