@@ -28,6 +28,13 @@
       "prompt": "A court ruling on a merger is due tomorrow. I only want to hold the trade for a few days. The factual antitrust record is disputed, the spread is 10%, and rejection downside may be 30%. Research the claim and tell me the correct next gate.",
       "expected_output": "Independently verifies the legal and transaction facts, source origins, timing and competing interpretations; separates factual confidence from tradeability; does not perform an incomplete event-payoff analysis inside RWC; routes to Event-Trade Underwriting only if the discrete-event facts survive and the user explicitly wants the short horizon; otherwise waits for named evidence or rejects; hands off the exact event, information cutoff, disputed facts, possible states, and missing execution or payoff inputs.",
       "files": []
+    },
+    {
+      "id": 5,
+      "name": "thematic-expression-selection-tankers",
+      "prompt": "Radar concludes usable tanker capacity is scarce and freight rates could stay much higher than expected. It names STNG, DHT and FRO as beneficiaries. Research this with confidence and choose the correct next gate.",
+      "expected_output": "Does not automatically advance the named tanker stocks. After verifying the causal and expectations thesis, explicitly marks the expression-selection gate mandatory; compares individual tanker equities, a tanker-equity basket or broad shipping fund when relevant, direct tanker-freight/futures exposure and any listed futures-based vehicle when available, options only if catalyst timing supports them, and no-trade. Uses common dimensions including exposure purity, economic capture, mispricing, idiosyncratic/structure risk, timing, liquidity/implementation and portfolio fit. Distinguishes an initial freight-rate edge, which may favor a direct freight expression, from a later equity-duration/FCF/NAV edge, which may favor a specific operator. States best direct, best equity, best diversified and chosen expression plus the flip condition. A single stock may advance to Full Underwriting only after that comparison; unresolved wrapper/roll economics route to Targeted Research; a fully priced thesis routes to Monitor rather than forcing an equity.",
+      "files": []
     }
   ]
 }
