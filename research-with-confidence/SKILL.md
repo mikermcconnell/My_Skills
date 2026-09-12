@@ -1,13 +1,13 @@
 ---
 name: research-with-confidence
-description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, portfolio-aware impact classification, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, Portfolio Defense questions, or deciding whether a public-equity lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, monitoring, or rejection. Do not use for a quick factual answer, final security valuation, short-duration payoff approval, or account-specific portfolio sizing.
+description: Independently verify a complex claim or News Radar handoff using source provenance, cross-checking, counterfactual analysis, explicit confidence, portfolio-aware impact classification, expression/security selection, and clear stopping rules. Use for deep dives, current claim verification, fact-checking, causal research, Portfolio Defense questions, or deciding whether a public-equity lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, monitoring, or rejection. Do not use for a quick factual answer, final security valuation, short-duration payoff approval, or account-specific portfolio sizing.
 ---
 
 # Research With Confidence
 
-Determine what is actually true, what changed, what caused it, how economically material it could be, and what remains unresolved.
+Determine what is actually true, what changed, what caused it, how economically material it could be, what public-market expression best captures the edge, and what remains unresolved.
 
-For investment leads, RWC is the truth and causality gate between Radar and the appropriate underwriting workflow. It may validate, refine, delay, or reject the original hypothesis. Its job is not to prove the Radar thesis.
+For investment leads, RWC is the truth, causality, and expression-selection gate between Radar and the appropriate underwriting workflow. It may validate, refine, delay, redirect, or reject the original hypothesis or proposed security. Its job is not to prove the Radar thesis or force the first named stock into underwriting.
 
 ## References
 
@@ -16,6 +16,7 @@ Read only what the task needs:
 - `references/research-workflow.md` for the general and investment research sequence.
 - `references/confidence-and-source-rules.md` for claim ledgers, source independence, and confidence calibration.
 - `references/investment-handoff.md` when the output may advance to underwriting.
+- `references/expression-selection.md` for sectoral, macro, commodity, regulatory, thematic, cross-company, or other investment theses with multiple plausible tradable implementations.
 - `references/clinical-and-biotech-overlay.md` for medical, oncology, clinical, or regulatory research.
 
 ## Core rules
@@ -27,8 +28,11 @@ Read only what the task needs:
 - Separate `Fact`, `Company claim`, `Independent evidence`, `Derived calculation`, `Assumption`, `Inference`, and `Unknown`.
 - Test a causal thesis against the counterfactual: what likely would have happened without this event?
 - Look for confounders and competing explanations before attributing an observed market or operating change to the event.
-- Separate evidence confidence, company value-capture confidence, security-mispricing confidence, and short-duration tradeability.
+- Separate evidence confidence, company value-capture confidence, security-mispricing confidence, expression-selection confidence, and short-duration tradeability.
 - Preserve uncertainty. Do not manufacture opposing evidence or false precision.
+- For sectoral, macro, commodity, regulatory, thematic, cross-company, or other leads with multiple plausible tradable implementations, **complete the Expression / Security Selection Gate before routing any single stock to Full Underwriting**. Compare the relevant stock(s), ETF/ETN/fund or commodity pool, basket, direct underlying/futures, options when timing supports them, and no-trade alternative. State unavailable categories explicitly.
+- Never select a stock merely because Radar named it first, it is familiar, it is already owned, or it is easier to underwrite. Identify where the mispricing actually sits: the underlying economic variable, a packaged/direct instrument, the sector, or a specific company's capture and valuation.
+- Do not assume an ETF/fund is lower risk. Futures-based funds, commodity pools, ETNs, leveraged/inverse products, and options can introduce roll, basis, path, credit, leverage, liquidity, or wrapper risk.
 - Stop when the remaining question is principally long-term valuation, scenario modeling, financing, dilution, event payoff, market microstructure, or portfolio construction; hand that work to the appropriate workflow.
 - Do not retrieve broad personal, portfolio, or workspace context unless the user requests it, supplies a specific handoff, or that exact context is necessary to answer the stated question.
 - When the question affects an owned security, use MikeInvestor for current exposure and lineage. Treat ownership as decision context, never as evidence that the factual claim is true or false.
@@ -136,7 +140,6 @@ State separately:
 
 RWC does not calculate the complete long-term valuation or event-trade payoff.
 
-
 ### 6A. Separate company, security, and instrument effects
 
 For every owned exposure, classify each layer independently:
@@ -147,6 +150,42 @@ For every owned exposure, classify each layer independently:
 - **Instrument:** wrapper, strike, expiry, delta, theta, implied volatility, assignment/call-away, liquidity, and catalyst timing.
 
 For options, compare the evidence/catalyst date with expiry and the intended trade horizon. State whether the underlying thesis remains valid but the instrument is timing-mismatched. Never allow a profitable or loss-making option position to bias the factual verdict.
+
+### 6B. Select the best public-market expression
+
+Apply this step whenever the thesis is sectoral, macro, commodity, regulatory, thematic, cross-company, or otherwise has multiple plausible tradable implementations. Use `references/expression-selection.md`.
+
+Compare viable candidates on a common basis:
+
+- **Exposure purity** — how directly the instrument responds to the researched variable.
+- **Economic capture** — how much of the thesis reaches the holder after corporate economics, financing, capital allocation, index dilution, or wrapper mechanics.
+- **Mispricing / expectations gap** — whether this instrument, not just the theme, underprices the outcome.
+- **Idiosyncratic or structural risk** — company, balance-sheet, basis, roll, tracking, counterparty, leverage, liquidity, or wrapper risk unrelated to the core edge.
+- **Timing fit** — whether instrument duration matches the evidence-resolution and value-realization window.
+- **Liquidity / implementation** — spreads, market depth, borrow, roll costs, accessibility, and practical constraints.
+- **Portfolio fit** — existing issuer/theme concentration, overlap, correlation, and account constraints.
+
+When available and relevant, explicitly test:
+
+1. individual stock(s);
+2. ETF / ETN / listed fund / commodity pool;
+3. a deliberate basket;
+4. direct underlying / futures / direct instrument;
+5. options only when timing can justify theta/IV/path risk;
+6. `NO TRADE`.
+
+Then state:
+
+- **Best direct expression** — or `NONE / UNAVAILABLE`;
+- **Best equity expression** — or `NONE / UNAVAILABLE`;
+- **Best diversified expression** — or `NONE / UNAVAILABLE`;
+- **Chosen expression** — including `NO TRADE` when appropriate;
+- **Why it wins** — the edge it captures better than alternatives;
+- **Flip condition** — what evidence, price, duration, or structure change would make another expression superior.
+
+Exposure purity alone does not win the gate. A direct instrument may already price the event while an equity underprices duration; conversely, an apparently cheap equity may add management/balance-sheet risk when a cleaner direct instrument better matches the researched edge.
+
+A mandatory expression gate is **incomplete** if it maps only companies and never checks the relevant ETF/fund/direct/basket/no-trade alternatives.
 
 ### 7. Red-team the research conclusion
 
@@ -164,12 +203,14 @@ Do not add weak negative points merely to appear balanced.
 
 Choose exactly one primary outcome:
 
-- **ADVANCE -> FULL UNDERWRITING:** mechanism and materiality survive; a plausible medium- or long-term security-level expectations gap exists; valuation, financing, downside, return, and time are now decisive.
-- **ADVANCE -> EVENT-TRADE UNDERWRITING:** the user explicitly seeks an hours/days/few-weeks trade around a discrete event; factual verification survives; the remaining questions are event probabilities, payoff, implied expectations, executable price, liquidity, gap, halt, borrow, options, or slippage. Do not use this route for a normal investment thesis.
-- **TARGETED RESEARCH:** one or more named evidence items can resolve a load-bearing uncertainty.
+- **ADVANCE -> FULL UNDERWRITING:** mechanism and materiality survive; a plausible medium- or long-term security-level expectations gap exists; the selected equity/fund/basket captures enough of the economics; any mandatory expression-selection gate is complete; valuation, financing, downside, return, and time are now decisive.
+- **ADVANCE -> EVENT-TRADE UNDERWRITING:** the user explicitly seeks an hours/days/few-weeks trade around a discrete event or short-horizon direct/derivative expression; factual verification survives; the remaining questions are event probabilities, payoff, implied expectations, executable price, liquidity, gap, halt, borrow, futures basis/roll, options, or slippage. Do not use this route for a normal investment thesis.
+- **TARGETED RESEARCH:** one or more named evidence items can resolve a load-bearing uncertainty, including unresolved wrapper, roll, basis, liquidity, options, or implementation economics that determine the best expression.
 - **WAIT FOR DATED EVIDENCE:** a near catalyst or document will provide substantially more information; state the date and do not underwrite stale inputs.
-- **MONITOR:** the thesis is credible but currently immaterial, weakly captured, or too early.
-- **REJECT:** the premise is false, stale, misattributed, immaterial, uninvestable through public securities, untradeable on the proposed horizon, or already contradicted.
+- **MONITOR:** the thesis is credible but currently immaterial, weakly captured, too early, fully priced across viable expressions, or has no sufficiently attractive implementation yet.
+- **REJECT:** the premise is false, stale, misattributed, immaterial, uninvestable through public securities, structurally unattractive to express, untradeable on the proposed horizon, or already contradicted.
+
+Do not route a single stock to Full Underwriting simply because the world thesis survived. When a mandatory expression gate has not been completed, stop at `TARGETED RESEARCH` rather than assuming the equity is the correct vehicle.
 
 Stop rather than expanding the report when additional work has low expected decision value.
 
@@ -177,7 +218,7 @@ Stop rather than expanding the report when additional work has low expected deci
 
 ### Executive verdict
 
-State the route, corrected thesis, evidence confidence, security-mispricing or event-surprise confidence, and one-sentence reason.
+State the route, corrected thesis, evidence confidence, chosen expression when the expression gate applies, security-mispricing or event-surprise confidence, and one-sentence reason.
 
 ### Portfolio Defense Impact
 
@@ -204,16 +245,16 @@ Use the structure appropriate to the task, but an investment RWC report must inc
 6. economic materiality bridge;
 7. direct, second-order, non-beneficiary, and loser/comparator map;
 8. expectations and price context;
-9. strongest challenge;
-10. confidence by major claim;
-11. unresolved questions and next evidence/date;
-12. stopping decision and next gate;
-13. exact Full Underwriting question when advancing to investment underwriting;
-14. exact event, intended horizon, and remaining payoff/execution questions when advancing to Event-Trade Underwriting;
-15. `Portfolio Defense Impact` and company-versus-security-versus-instrument classification for owned exposure.
+9. **Expression / Security Selection Gate** when mandatory, including candidate comparison, best direct, best equity, best diversified, chosen expression, why it wins, and flip condition;
+10. strongest challenge;
+11. confidence by major claim;
+12. unresolved questions and next evidence/date;
+13. stopping decision and next gate;
+14. exact Full Underwriting question when advancing to investment underwriting, including the selected security/expression;
+15. exact event, intended horizon, and remaining payoff/execution questions when advancing to Event-Trade Underwriting;
+16. `Portfolio Defense Impact` and company-versus-security-versus-instrument classification for owned exposure.
 
 Use `references/investment-handoff.md` as the contract for an underwriting handoff.
-
 
 ## MikeInvestor persistence
 
@@ -221,7 +262,7 @@ When the user or scheduled contract authorizes research persistence:
 
 1. reuse the Radar `eventId`;
 2. use fresh MikeInvestor context and its observed `stateVersion`;
-3. call `save_research_result` with stage `RWC`, ticker, factual verdict, corrected summary, company-thesis impact, economic bridge, next question, evidence references, and portfolio context;
+3. call `save_research_result` with stage `RWC`, ticker, factual verdict, corrected summary, company-thesis impact, economic bridge, expression-selection result when applicable, next question, evidence references, and portfolio context;
 4. re-read and verify the result appears in the same security/event lineage.
 
 Persist the evidence verdict even when current ownership creates urgency, but never alter the verdict to justify a desired portfolio action. RWC may confirm evidence supporting a sell-review reason; it may not place a trade, approve a proposal, mutate holdings, or fabricate a closeout. A broker-confirmed closeout follows the News Radar sell-discipline contract.
@@ -229,6 +270,6 @@ Persist the evidence verdict even when current ownership creates urgency, but ne
 ## Boundaries
 
 - RWC does not issue a final `INVESTABLE`, event-trade posture, `PASS`, or position-size decision unless the user explicitly asks for a combined workflow and all requirements of the relevant downstream skill are completed.
-- RWC does not restart an existing handoff from zero, but it may overturn its interpretation.
+- RWC does not restart an existing handoff from zero, but it may overturn its interpretation or redirect the proposed expression.
 - RWC does not automatically update a Mind Model thesis. It may propose atomic evidence and a probability effect for review.
-- RWC does not treat a large TAM, statistically significant result, regulatory approval, strategic investment, partnership, recent stock move, or apparent event surprise as sufficient proof of security-level mispricing or tradeability.
+- RWC does not treat a large TAM, statistically significant result, regulatory approval, strategic investment, partnership, recent stock move, apparent event surprise, or high thematic exposure as sufficient proof of security-level mispricing, tradeability, or expression superiority.
