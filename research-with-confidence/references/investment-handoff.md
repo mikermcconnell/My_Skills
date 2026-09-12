@@ -2,6 +2,8 @@
 
 Use this structure whenever Research With Confidence may advance a lead to Full Underwriting.
 
+For sectoral, macro, commodity, regulatory, thematic, cross-company, or other leads with multiple plausible tradable implementations, also use `expression-selection.md`. The expression gate is mandatory before any single stock can advance to Full Underwriting.
+
 ## Required handoff
 
 ### Identity
@@ -37,32 +39,45 @@ research_route
 13. **Non-beneficiary / false friend** — related company that lacks sufficient capture or is already fully obvious.
 14. **Potential loser or comparator** — when useful.
 
+### Expression / security selection
+
+15. **Expression-gate applicability** — state `MANDATORY` or `NOT REQUIRED` and why.
+16. **Candidate-set comparison** — when mandatory, compare viable individual stocks, ETF/ETN/listed funds or commodity pools, baskets, direct underlying/futures, options when timing supports them, and `NO TRADE` using the common dimensions in `expression-selection.md`.
+17. **Best direct expression** — or `NONE / UNAVAILABLE`.
+18. **Best equity expression** — or `NONE / UNAVAILABLE`.
+19. **Best diversified expression** — or `NONE / UNAVAILABLE`.
+20. **Chosen expression and why** — identify where the actual mispricing sits, not merely where thematic exposure is highest.
+21. **Flip condition** — what evidence, price, duration, or structure change would make another expression superior.
+
+A thematic lead cannot advance a single stock while items 15–21 are incomplete.
+
 ### Expectations
 
-15. **Pre-event expectation evidence** — guidance, consensus, known catalyst date, positioning, or run-up.
-16. **Price and estimate context** — timestamped and limited to periods when the market could react.
-17. **Plausible expectation gap** — what the market may be missing: magnitude, duration, ownership economics, probability, timing, or attribution.
+22. **Pre-event expectation evidence** — guidance, consensus, known catalyst date, positioning, or run-up.
+23. **Price and estimate context** — timestamped and limited to periods when the market could react.
+24. **Plausible expectation gap** — what the market may be missing: magnitude, duration, ownership economics, probability, timing, attribution, or the relative pricing of alternative expressions.
 
 ### Confidence and next action
 
-18. **Evidence confidence** — by load-bearing claim.
-19. **Mispricing confidence** — separate from evidence confidence.
-20. **Three remaining unknowns maximum** — only decision-relevant gaps.
-21. **Next decisive evidence and date**.
-22. **Stopping decision** — Advance, Targeted Research, Wait, Monitor, or Reject.
-23. **Exact Full Underwriting question** — current price, horizon, and the market-implied outcome to test.
+25. **Evidence confidence** — by load-bearing claim.
+26. **Mispricing confidence** — separate from evidence confidence and specific to the chosen expression.
+27. **Three remaining unknowns maximum** — only decision-relevant gaps.
+28. **Next decisive evidence and date**.
+29. **Stopping decision** — Advance, Targeted Research, Wait, Monitor, or Reject.
+30. **Exact Full Underwriting question** — current price, horizon, chosen expression, and the market-implied outcome to test.
 
 ## Underwriting readiness test
 
 Advance only when:
 
 - the core mechanism survives;
-- a listed security captures enough of the economics;
 - the effect could be material;
 - a plausible expectations gap exists;
+- the selected security or instrument captures enough of the economics;
+- when the expression gate is mandatory, viable ETF/fund/basket/direct-instrument/options/no-trade alternatives have been compared and the chosen expression wins for a stated reason;
 - the remaining decisive work is valuation, financing/dilution, scenarios, timing, or risk/reward.
 
-Do not advance simply because the world thesis is true or the company is high quality.
+Do not advance simply because the world thesis is true, the company is high quality, the stock was named first, the stock is already owned, or an equity is easier to underwrite than the alternatives.
 
 ## Stopping rules
 
@@ -71,7 +86,8 @@ Choose `TARGETED RESEARCH` or `WAIT` rather than Full Underwriting when:
 - a named primary document, earnings release, trial dataset, fixture book, financing term, or regulator decision is imminent;
 - one missing denominator determines whether the effect is material;
 - current security price or capital structure cannot be established reliably;
-- the causal attribution remains dominated by confounders.
+- the causal attribution remains dominated by confounders;
+- the best expression may depend on unresolved wrapper, roll, basis, liquidity, options, or implementation economics.
 
 Choose `MONITOR` or `REJECT` when:
 
@@ -79,4 +95,5 @@ Choose `MONITOR` or `REJECT` when:
 - the effect is too small relative to enterprise value;
 - the thesis is already broadly visible and no variant remains;
 - the evidence cannot become observable in a useful horizon;
+- the thesis may be true but every viable expression is already fully priced or structurally unattractive;
 - further work is unlikely to change a decision.
