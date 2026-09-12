@@ -30,6 +30,14 @@ What decision follows?
 
 For public-equity research, also test whether the apparent security implication is already expected.
 
+For sectoral, macro, commodity, regulatory, thematic, cross-company, or other leads with multiple tradable implementations, add one more explicit branch before routing:
+
+```text
+Where does the mispricing sit, and what is the best expression of the edge?
+```
+
+Do not let a company named by Radar become the default security simply because it is familiar, owned, or easy to underwrite.
+
 ## 3. Gather evidence
 
 Start with the sources nearest the underlying fact. Use secondary or expert work to discover claims, interpret technical detail, or identify counterevidence, then trace load-bearing facts to originals where possible.
@@ -43,6 +51,8 @@ Search deliberately for:
 - denominator and base-rate information;
 - the strongest competing explanation.
 
+For investment leads subject to the expression gate, gather enough instrument-specific evidence to compare viable stocks, ETF/ETN/listed funds or commodity pools, baskets, direct underlying/futures, options when timing supports them, and no-trade. Include structure, underlying exposure, basis/roll mechanics where relevant, liquidity, timing, valuation/expectations, and portfolio overlap. Exposure purity alone is not enough.
+
 ## 4. Cross-check
 
 For each important claim:
@@ -53,6 +63,8 @@ For each important claim:
 - check units, dates, denominators, definitions, and revisions;
 - distinguish observed facts from company or expert interpretation;
 - state whether evidence supports causality, correlation, or plausibility only.
+
+For packaged or derivative expressions, also cross-check what the instrument actually owns or references rather than inferring exposure from its name.
 
 ## 5. Synthesize
 
@@ -72,3 +84,5 @@ Do not list every source equally. Emphasize the sources that change the conclusi
 ## Investment branch
 
 When the research concerns a public-equity lead, additionally use `investment-handoff.md`. RWC determines whether the lead deserves valuation work; it does not substitute a screen-level multiple for Full Underwriting.
+
+When the lead is sectoral, macro, commodity, regulatory, thematic, cross-company, or otherwise has multiple plausible tradable implementations, also use `expression-selection.md`. Complete that gate before routing a single stock to Full Underwriting. If the thesis survives but no expression offers sufficient capture, mispricing, timing, implementation quality, or portfolio fit, route to Targeted Research, Monitor, or Reject rather than forcing an equity candidate.
