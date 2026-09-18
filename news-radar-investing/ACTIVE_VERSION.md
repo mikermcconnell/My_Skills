@@ -16,16 +16,19 @@ price_monitor_mode: dynamic_live_source
 price_monitor_visible_format: action_sorted_queue
 price_monitor_rows: one_per_security
 price_monitor_proximity_band: 5_percent
-mandatory_visible_specialized_lanes: 10
+ai_efficiency_watch_contract: news-radar-investing/references/ai-efficiency-watch.md
+ai_efficiency_watch_activated_at: 2026-09-18
+ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto (catch up after a missed run)
+mandatory_visible_specialized_lanes: 11
 visible_output: complete_chat_response
 markdown_artifact_required: false
 ```
 
-Every scheduled News Radar task instance must load the active skill, monitor contract, run contract, specialized-lanes contract, price-monitor live-source contract, sell-discipline contract, and Nancy Pelosi congressional-disclosure tracker contract before scanning. The active version applies beginning with the first scheduled occurrence after this activation commit.
+Every scheduled News Radar task instance must load the active skill, monitor contract, run contract, specialized-lanes contract, price-monitor live-source contract, sell-discipline contract, Nancy Pelosi congressional-disclosure tracker contract, and AI Efficiency Watch contract before scanning. The active version applies beginning with the first scheduled occurrence after this activation commit.
 
-**Specialized-lane membership/count precedence:** `news-radar-investing/references/specialized-lanes.md` controls the current mandatory lane membership and count. Its current **10-lane** definition supersedes any older `nine lanes` / `eight narrative lanes` wording that may still appear in `SKILL.md`, `MONITOR_V3.md`, or `references/v3-run-contract.md`. Scheduled task prompts must follow the 10-lane contract.
+**Specialized-lane membership/count precedence:** `news-radar-investing/references/specialized-lanes.md` controls the current mandatory lane membership and count. Its current **11-lane** definition supersedes any older `nine lanes` / `ten lanes` / `eight narrative lanes` / `nine narrative lanes` wording that may still appear in `SKILL.md`, `MONITOR_V3.md`, or `references/v3-run-contract.md`. Scheduled task prompts must follow the 11-lane contract.
 
-The visible chat response is the complete user-facing Radar report. A separate Markdown attachment is not required. Every scheduled visible run must include the mandatory specialized-lanes coverage, including the Price Monitor Check table, the TTWO, AMZN, and HOOD bespoke lanes, and the Nancy Pelosi congressional-disclosure / stock-and-options tracker lane.
+The visible chat response is the complete user-facing Radar report. A separate Markdown attachment is not required. Every scheduled visible run must include the mandatory specialized-lanes coverage, including the Price Monitor Check table, the TTWO, AMZN, and HOOD bespoke lanes, the Nancy Pelosi congressional-disclosure / stock-and-options tracker lane, and AI Efficiency Watch.
 
 The Price Monitor Check is **dynamic**: every Radar run must query the canonical live price-monitor/underwriting-monitor state at run time, enumerate whatever active price-bearing monitors exist then, and retrieve current prices for that dynamically resolved set. Radar must not maintain a hard-coded ticker/threshold/action list or use the prior Radar table as source of truth. Additions, removals, activations, deactivations, threshold edits, action edits, consumed triggers, and re-arm state in the canonical monitor must flow into the next Radar run automatically.
 
@@ -34,6 +37,8 @@ The visible Price Monitor is an **action-sorted queue**, not a raw threshold lis
 `news-radar-investing/references/price-monitor-live-source.md` is authoritative for the Price Monitor lane and supersedes older/conflicting Price Monitor presentation wording in other V3 files.
 
 `news-radar-investing/references/nancy-pelosi-tracker-lane.md` is authoritative for the Pelosi tracker lane. The official House Clerk Periodic Transaction Report is the source of truth for disclosed transactions. The lane must distinguish transaction date from filing date, preserve owner codes such as spouse ownership, treat dollar values as disclosed ranges rather than exact amounts, capture option strike/expiry details only when actually disclosed, and never convert a congressional disclosure directly into a BUY/SELL instruction or allegation of informational advantage.
+
+`news-radar-investing/references/ai-efficiency-watch.md` is authoritative for AI Efficiency Watch. It adds dated claim-versus-result tracking, adoption/target/operating/financial/repeated evidence stages, quality and total-cost checks, a fixed cross-industry comparison cohort, two-earnings-cycle baseline backfill, and a Friday breadth summary. It feeds the existing Investor AI Efficiency Wave rubric without changing its scoring. Baseline completeness and durable persistence must be verified, never assumed.
 
 Research-only persistence may still use the canonical store or a dated Library fallback when supported; that persisted state is an audit/persistence layer, not a second user-facing report or the next run's monitor source of truth.
 
