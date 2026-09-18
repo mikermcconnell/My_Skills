@@ -28,8 +28,9 @@ Mandatory visible lane order:
 8. **AMZN — AWS / Retail / Ads / Optionality**
 9. **HOOD — Customer / Product / Social Arbitrage**
 10. **Nancy Pelosi — Congressional Disclosures / Stock & Options**
+11. **AI Efficiency Watch — Claims / Operating Gains / Financial Capture**
 
-The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other nine lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
+The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other ten lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
 
 Persist lane coverage/status in the run manifest when the write path supports it.
 
@@ -183,6 +184,16 @@ Preserve the official owner code. If a filing identifies `SP` or another non-sel
 Treat disclosed dollar values as ranges, never exact amounts. Do not infer current position size, continued ownership, inside information, illegality, superior expected returns, or an automatic BUY/SELL signal from the disclosure.
 
 The normal next question is: **what public, independently testable company/catalyst/valuation evidence could explain the disclosed transaction, and does that evidence matter to our thesis?** Route that question through normal V3 gates and RWC when material.
+
+## 11. AI Efficiency Watch — Claims / Operating Gains / Financial Capture
+
+Apply `references/ai-efficiency-watch.md` on every scheduled pass. This permanent cross-industry lane tracks companies using AI, not just AI suppliers. It supplements the existing Investor AI Efficiency Wave rubric without changing scoring or promotion rules.
+
+Maintain dated claim-versus-result evidence: adoption, targets, measured operating gains, financial benefits and repeated results. Separate company-reported claims from independent confirmation, digital AI from physical automation, pilot scope from scaled deployment, and gross time saved from quality-adjusted net economics. Record missing costs, confounders, failed promises and competitive threats as well as successes.
+
+Load relevant live holdings and approved thesis state; maintain the fixed comparison cohort plus a dynamic holdings/research overlay. Backfill the latest two completed earnings cycles with explicit completion status and resume cursor. At Friday 15:00 America/Toronto, add a compact, deduplicated weekly breadth summary; catch up after a missed run. Never count articles, ticker wrappers or unverified claims as independent company results.
+
+Use the existing five gates, one primary route and RWC handoff for material findings. Portfolio-defense risks remain first. Persist only through discovered supported research stores, verify writes, and mark unavailable or partial state explicitly. The lane does not directly approve thesis changes, change valuation or trade.
 
 ## Routing and output boundary
 
