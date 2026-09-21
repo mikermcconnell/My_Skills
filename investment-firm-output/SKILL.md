@@ -1,12 +1,12 @@
 ---
 name: investment-firm-output
-version: 6
+version: 7
 description: Publish new news and opportunities, meaningful changes to existing cases, Event Reaction strategy mechanics, and an action-sorted stock queue combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
 # Investment Firm output contract
 
-Approved September 20, 2026; news-first correction, combined-monitor patch, and Event Reaction mechanics override approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
+Approved September 20, 2026; news-first correction, combined-monitor patch, Event Reaction mechanics override, and Emerging Signal lens approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
 
 ## Authority and scope
 
@@ -27,6 +27,17 @@ Immediately state the intended slot, **actual information cutoff**, market-sessi
 Use these three main sections, in order; a genuinely urgent risk can precede them in a short warning:
 
 ### 1. New news and opportunities
+
+#### Emerging Signals inside new news
+
+Within **New news and opportunities**, surface material leading-indicator sequences from `news-radar-investing/references/emerging-signal-lens.md` without creating another section or newsletter.
+
+Use a compact label when useful:
+- **EMERGING SIGNAL — EARLY** for a credible upstream P2/P3 observation with a testable next step;
+- **EMERGING SIGNAL — BUILDING** when cumulative evidence is strengthening/weakening across time or independent sources;
+- **EMERGING SIGNAL — ESCALATE** when the sequence now warrants P1 RWC or P0 risk work.
+
+State the newest atomic evidence, what changed versus the sequence baseline, broad archetype(s), plausible economic bridge, strongest counter-hypothesis/missing proof, next confirmation/falsifier and route. Do not require reported revenue/profit to show a credible upstream signal. Do not show unchanged open sequences merely to fill the section. No scores or quotas.
 
 Show credible, material discoveries in the same run that finds them, including companies outside current holdings and watchlists. Do not defer every ordinary news lead to the Daily Brief, or require a completed BUY/SELL conclusion to tell the user what happened.
 
@@ -118,7 +129,7 @@ Use the same quote hierarchy and strict near/crossed confirmation across all thr
 
 Keep the combined narrative normally 300–600 words plus the stock table, shorter on quiet runs. This is not a required minimum or a cap on important discoveries. Remove repeated baselines, internal routing chains and lane-status dumps rather than hiding new news. Full evidence, gate assessments and handoffs remain in supported research records. No separate Markdown attachment is required solely for Radar.
 
-End with a short coverage line, with details in the existing run manifest: discovery status; unique new developments; new evidence on existing stories; older late detections; outside-universe candidates (or unknown membership); material discoveries included in this output; and significant source gaps. These are **diagnostics, not output quotas**. Keep overlapping dimensions separate; do not sum outside-universe candidates or multi-ticker mappings as extra events. Included-in-output is not proof of notification delivery.
+End with a short coverage line, with details in the existing run manifest: discovery status; emerging-signal sequences created/updated/escalated when any; unique new developments; new evidence on existing stories; older late detections; outside-universe candidates (or unknown membership); material discoveries included in this output; and significant source gaps. These are **diagnostics, not output quotas**. Keep overlapping dimensions separate; do not sum outside-universe candidates or multi-ticker mappings as extra events. Included-in-output is not proof of notification delivery.
 
 The run must log its actual unseeded broad-search queries/feeds, source families, markets, time windows and completion/skip reasons under the existing manifest. Routine reconciliation cannot substitute for broad discovery. A P0 emergency may preempt it, but then discovery is PARTIAL/NOT_RUN and the missing window carries forward. A missing private portfolio connector does not prevent a public-news scan; mark only the affected ownership/mapping fields unknown.
 
