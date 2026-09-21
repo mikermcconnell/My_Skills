@@ -4,13 +4,14 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-21-event-reaction-mechanics-override
+analytical_revision: 2026-09-21-emerging-signal-lens
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
 run_contract: news-radar-investing/references/v3-run-contract.md
 source_routing_contract: news-radar-investing/references/source-and-routing-rules.md
 source_feed_contract: news-radar-investing/references/primary-source-feed-map.md
+emerging_signal_contract: news-radar-investing/references/emerging-signal-lens.md
 specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
 sell_discipline_contract: news-radar-investing/references/sell-discipline-and-closeout.md
@@ -30,7 +31,7 @@ ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto, inside the Dai
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 6
+output_contract_version: 7
 output_contract_approved_at: 2026-09-21
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 routine_radar_title: Investment Firm — Radar
@@ -48,7 +49,7 @@ markdown_artifact_required: false
 
 ## Single baseline and read order
 
-Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 6.
+Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 7.
 
 The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane are reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required. The combined-monitor patch changes the table's source union and schema, not the news-first sequence or cadence.
 
@@ -69,6 +70,16 @@ Live concrete defense stop/target/time/concentration/instrument/thesis/valuation
 Use `Action | Stock | Current price | Next trigger | Source | What to do`. Visible actions remain review-only under the price contract's urgency order. Every legacy-contributing instruction begins `Refresh/migrate underwriting first;`; a relevant legacy REUNDERWRITE_REQUIRED record selects RE-UNDERWRITE NOW ahead of its separate price hit. Preserve source IDs/dates, migration status, consumed/re-arm history and defense trigger types. Read all three classes before saying NO ACTIVE STOCK MONITORS; all must be readable and contain no eligible row. Material missing-class coverage is PARTIAL, not zero. Keep missing-level/unstructured/disabled/migration blockers visible in coverage and retained case detail without inventing active rows.
 
 Exact quotes and stored conditions remain separate; missing fields are shown narrowly. Same quote confirmation/5% proximity controls apply across all classes. Fair value is not automatically a sell threshold; stocks, CDRs, options, currencies and strategies remain distinct. This is review routing, not automatic migration, allocation, approval or trading.
+
+## Emerging Signal / leading-indicator baseline
+
+The protected discovery pass now includes a cross-sector Emerging Signal lens. It is not a new lane or task.
+
+Radar looks for acceleration/deterioration patterns that may lead reported fundamentals, stores/reuses Signal Sequences for trajectory-shaped evidence, and escalates with existing P3/P2/P1/P0 routes. It does not require reported revenue/profit before surfacing a credible testable upstream signal, but it also does not convert attention or one datapoint into an investment conclusion.
+
+Pattern archetypes include adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage/deleverage, distribution advantage/failure, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
+
+No numeric score, idea quota, twelfth lane or additional automation is introduced.
 
 ## Event Reaction mechanical sleeve
 
