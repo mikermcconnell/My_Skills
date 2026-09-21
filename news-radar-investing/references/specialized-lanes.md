@@ -26,20 +26,37 @@ The price table is always visible under the shared contract; the other ten lanes
 
 ## 1. Price Monitor Check
 
-Run each pass using `price-monitor-live-source.md` for live membership, exact-instrument quotes, confirmation, action priority, consumed/re-arm rules and failure handling. Enumerate every active price-bearing monitor dynamically, including non-owned candidates. Do not use a static ticker list or remembered target. Read live holdings and accepted sources; unlinked baselines and missing-level holdings remain explicitly labelled coverage rows under the shared output contract, not invented active monitors.
+This is a permanent visible lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for the combined table, source precedence, review actions, quote confirmation and failure handling.
+
+Before rendering it, load or attempt to load:
+1. every active price-bearing CANONICAL monitor from MikeInvestor;
+2. every readable persisted LEGACY Investment Firm monitor record defined by the live-source contract;
+3. every sufficiently concrete PORTFOLIO DEFENSE sell/re-underwrite trigger for owned positions.
+
+Do not limit the table to current holdings. Do not maintain a static Radar ticker list.
 
 The visible table is:
 
-| Stock / position | Latest price | Buy / add level | Trim / sell-review level | What to do | Why / next step |
-|---|---:|---|---|---|---|
+| Action | Stock | Current price | Next trigger | Source | What to do |
+|---|---|---:|---|---|---|
 
-Use one row per security/decision expression, splitting exact instruments or strategies only when their decisions differ. Preserve all thresholds in the audit. Internal actions remain RE-UNDERWRITE NOW, EXIT REVIEW NOW, TRIM REVIEW NOW, COMPELLING BUY/ADD REVIEW, BUY/ADD REVIEW NOW, GETTING CLOSE, NO ACTION and UNAVAILABLE. Raw triggered review is not a completed BUY/ADD/TRIM/SELL recommendation. Report simple labels under the output skill without bypassing underwriting/allocation.
+Rules:
+- Show one row per security, resolving the exact listing or option contract rather than merging incompatible instruments into one issuer-wide decision.
+- De-duplicate using the source-precedence rules in `price-monitor-live-source.md`; duplicate source records are not additional securities.
+- Sort by urgency: RE-UNDERWRITE NOW, EXIT REVIEW NOW, TRIM REVIEW NOW, COMPELLING BUY/ADD REVIEW, BUY/ADD REVIEW NOW, GETTING CLOSE, NO ACTION, UNAVAILABLE.
+- Use ownership-sensitive wording: ADD for owned, BUY for confirmed unowned, BUY/ADD if ownership is unresolved.
+- For Source = LEGACY, never imply canonical approval. What to do must start with `Refresh/migrate underwriting first;`. Apply the same prefix to LEGACY + DEFENSE.
+- For Source = PORTFOLIO DEFENSE, apply `sell-discipline-and-closeout.md`; Radar routes review only and never declares or executes a sale.
+- A canonical monitor supersedes an equivalent legacy threshold. A distinct non-overlapping legacy threshold is eligible only when canonical state explicitly lacks it and the legacy record is migration-pending; it cannot bypass canonical disablement of an equivalent condition.
+- A higher-urgency portfolio-defense condition may supersede a canonical or legacy buy/add row. Use CANONICAL + DEFENSE or LEGACY + DEFENSE only when both materially contribute.
+- Use the same fresh-quote and 5% GETTING CLOSE rules across all source classes.
+- Decision-relevant LEGACY migrationStatus REUNDERWRITE_REQUIRED selects RE-UNDERWRITE NOW ahead of its separate crossed price level.
+- Preserve consumed thresholds until their explicit persisted re-arm condition is met. Missing history is not an invented reset.
+- Structured legacy recovery state, including records stored at stage RWC with verdict LEGACY_MONITOR_ACTIVE and economicBridge.legacyMonitor, is not a completed RWC/underwriting conclusion.
+- Check all three source classes even when canonical state is empty. NO ACTIVE STOCK MONITORS requires all three readable and no eligible row. Preserve readable classes and label PARTIAL when missing coverage could materially change membership/action.
+- Generic prose baselines and old tables are not eligible LEGACY records. Retain relevant missing-level/disabled/mapping-blocked research in a compact coverage note and existing Decision List, not fabricated source-labelled rows.
 
-Keep consumed triggers inactive until their recorded re-arm condition is met. A crossed already-reviewed zone may be shown as a fact, not a new signal. Within 5% of the next valid trigger is a display-only getting-close note. Current price, source timestamp, currency and trigger state are separate; preserve readable fields when another source fails.
-
-At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:00 use actual same-day regular-session pricing where open, otherwise labelled last-session data. Check exact listing/share class/CDR/option and inequality; never compare a USD underlying with a CAD or option-premium threshold. Fair value is not an automatic sell price.
-
-A missing monitor source stays UNAVAILABLE, not a reconstructed active list. A checked-empty source can be described as no active monitors in that source, without erasing separately readable accepted research or holdings. No price crossing changes thesis, valuation, posture, position size or trade authority.
+At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:00 use actual same-day regular-session pricing where open, otherwise labelled last-session data. Preserve quote/source dates and smallest unavailable fields. Check exact listing/share class/CDR/option, lot/strategy and inequality; never compare a USD underlying with a CAD or option-premium threshold. Fair value is not an automatic sell price. No price crossing, legacy visibility or defense review changes thesis, valuation, posture, position size or trade authority.
 
 ## 2. Slow-Burn Fundamentals
 

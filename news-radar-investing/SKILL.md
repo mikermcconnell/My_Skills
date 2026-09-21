@@ -1,8 +1,8 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-21-news-discovery-correction
-description: Run the high-recall public-equity news front end: protect urgent portfolio risks, search beyond existing holdings and themes, distinguish new developments from new evidence and late detections, test active theses, check all eleven specialized lanes and price monitors, and route precise research questions. Publish new news, meaningful case changes and the stock table together. Do not use Radar to manufacture valuation, final buy/sell decisions, position sizing or trade execution.
+revision: 2026-09-21-combined-monitor-patch
+description: Run the high-recall public-equity news front end: protect urgent portfolio risks, search beyond existing holdings and themes, distinguish new developments from new evidence and late detections, test active theses, check all eleven specialized lanes and the combined canonical/legacy/portfolio-defense monitor queue, and route precise research questions. Publish new news, meaningful case changes and the stock table together. Do not use Radar to manufacture valuation, final buy/sell decisions, position sizing or trade execution.
 ---
 
 # News Radar Investing V3
@@ -22,7 +22,7 @@ Use the latest files from the same current repository revision where practical:
 - `references/source-and-routing-rules.md`: source provenance, five gates, priority and freshness rules.
 - `references/primary-source-feed-map.md`: mandatory broad-search design and source coverage; read on every scheduled run, not just audits.
 - `references/specialized-lanes.md`: all eleven required lane definitions. Coverage statuses belong in the persisted manifest; meaningful findings flow into the combined report.
-- `references/price-monitor-live-source.md`: dynamic monitor membership, exact instruments, quote hierarchy/confirmation, consumed/re-arm state and failure handling.
+- `references/price-monitor-live-source.md`: combined CANONICAL/LEGACY/PORTFOLIO DEFENSE membership, source precedence, exact-security de-duplication, review actions, quote hierarchy/confirmation, consumed/re-arm state and failure handling.
 - `references/event-ledger-schema.md`: supported event fields, delta classes, thesis effects, observation types and deduplication.
 - `references/integration-and-persistence.md`: supported TaskTracker, Mind Model, Investor and dated fallback paths.
 - `references/sell-discipline-and-closeout.md`: every owned-position sell check and closeout handoff.
@@ -30,6 +30,12 @@ Use the latest files from the same current repository revision where practical:
 - `references/nancy-pelosi-tracker-lane.md`, `references/ai-efficiency-watch.md`, and `references/ai-efficiency-watch-state.md`: disclosure and AI-efficiency specifics, fixed-cohort state and first-week timing.
 
 There is one current scheduled presentation: **new news and opportunities; changes to existing investment cases; stock monitor**. Do not recreate old mandatory lane-status dumps, routing-wide tables, stock-only reports, or Daily-Brief-only news suppression. Analytical Radar version remains 3; output-contract versioning is separate.
+
+## Operating principle — combined monitor visibility
+
+- **Do not let migration hide the watchlist.** The Price Monitor Check merges canonical monitors, explicitly persisted legacy Investment Firm monitors, and active portfolio-defense triggers. Legacy rows must be visibly labeled and must refresh/migrate underwriting before capital-allocation action.
+
+The uploaded patch's runtime inventory is dated context, not a hard-coded ticker list or proof of a fresh read. A legacy recovery result stored at stage RWC is not a fresh RWC conclusion. Do not create/migrate records, activate disabled monitors, or change investment thresholds as part of this presentation patch.
 
 ## Cadence
 
@@ -52,7 +58,7 @@ A supported new lead can be shown before full underwriting. **Newsworthy and BUY
 
 Read/attempt current investor context, last successful cutoff, existing event identity, verified reporting fallback and imminent risk/evidence deadlines. Discover the authorized live Investor connection at runtime; keep fresh returned state versions for supported writes, not reusable historical tokens. Resolve serious security contexts separately when needed.
 
-Load the relevant holdings, accepted underwritings/monitors, exact options/lots, kill/review criteria, catalysts, open P0/P1/P2, proposals, closeouts, live Mind Model state and feed outages. Their full reconciliation can continue after the protected discovery pass; do not block all public-news searching on missing private state or recreate the whole research estate every scan. Mark missing fields/coverage honestly and bound connection retries.
+Load the relevant holdings, accepted underwritings/monitors, exact options/lots, kill/review criteria, catalysts, open P0/P1/P2, proposals, closeouts, live Mind Model state and feed outages. For the monitor queue read **every active CANONICAL price-bearing monitor; every readable persisted LEGACY Investment Firm monitor awaiting migration; every concrete PORTFOLIO DEFENSE sell/re-underwrite trigger; each source's stored threshold/range/action/consumed state; and the freshest reliable quote available for each monitored security** at its comparison cutoff. Preserve linked event/result IDs, source dates and migration/defense fields. Their full reconciliation can continue after the protected discovery pass; do not block all public-news searching on missing private state or recreate the whole research estate every scan. Mark missing fields/coverage honestly and bound connection retries.
 
 Perform a rapid explicit urgent-risk screen: financing/liquidity, dilution/covenants, auditor/internal controls/fraud, safety/legal/regulatory/clinical risk, operational/customer issues, threatened kill criteria, hard imminent instrument deadlines and serious common-factor risk. P0 can interrupt any step and must not wait for table construction or broad discovery. Routine unchanged concentration, old unresolved proposals and long-range review-calendar cleanup are not reasons to starve discovery.
 
@@ -66,13 +72,20 @@ A P0 emergency or unavailable external sources can leave discovery partial, but 
 
 ### 3. Complete targeted thesis, case and specialist checks
 
-After the protected pass, complete remaining portfolio defense, exact-instrument sell checks, due evidence/catalyst checks, active-thesis tests, all eleven specialist lanes and dynamic price monitoring. Do not skip required coverage silently; label partial work rather than claiming completion.
+After the protected pass, complete remaining portfolio defense, exact-instrument sell checks, due evidence/catalyst checks, active-thesis tests, all eleven specialist lanes and combined price/legacy/defense monitoring. Do not skip required coverage silently; label partial work rather than claiming completion.
 
 For live Mind Model, cheaply sweep every readable non-retired thesis: baseline, assumptions, strongest opposing case, falsifiers, next-highest-value test; pillars' claim/mechanism/metric/baseline/target/date/source/falsifier; forecasts' statements, dates and confirm/warning/break indicators; watchlist mechanisms/evidence needs and linked readiness; diagnostics such as stale, concentrated, conflicted, missing challenge/forecast/pillars. GitHub schemas/seeds or remembered prose are not live state.
 
 Within targeted thesis work, deeper priority stays: owned `requiresReunderwrite`; EVENT_TRIGGERED; owned OVERDUE; other OVERDUE; DUE; BLOCKED/CONFLICTED; then timely tests of other active theses. Do not perform three full thesis deep dives daily. Each delta retains thesis/pillar/forecast IDs where supported, test, evidence, SUPPORT/CHALLENGE/CONTEXT, what it proves/does not prove, gates, route, underwriting requirement and next test.
 
 All eleven lanes remain required: prices; slow-burn fundamentals; catalysts/evidence due; social/alternative data; clinical/medical; expert/industry; TTWO; AMZN; HOOD; Pelosi household disclosures; AI Efficiency Watch. Record UPDATE, NO UPDATE, UNAVAILABLE or partial qualifications for each; NO UPDATE requires actual checking. Use current accepted baselines, not permanently hard-coded financial assumptions in a skill. New material findings appear in this run, not just the afternoon brief.
+
+The Price Monitor Check produces one action-sorted table under `price-monitor-live-source.md`:
+
+| Action | Stock | Current price | Next trigger | Source | What to do |
+|---|---|---:|---|---|---|
+
+Combine the three readable source classes, de-duplicate one row per exact security, let canonical supersede equivalent legacy and let higher-urgency defense override a buy review. Every legacy-contributing instruction begins `Refresh/migrate underwriting first;`; a decision-relevant legacy REUNDERWRITE_REQUIRED record selects RE-UNDERWRITE NOW. Use only explicitly persisted structured legacy state, not generic prose or old tables. All-three-readable-and-empty alone permits NO ACTIVE STOCK MONITORS; preserve readable rows when a class fails and qualify material coverage. Disabled/mapping-blocked records remain disabled, with their unresolved status recorded rather than an invented active signal. A defense row is a review, not a sale.
 
 Freeze catalyst/forecast expectations before results when practical. Compare cumulative slow-burn evidence over comparable periods and preserve atomic observations. Check missing, delayed or removed expected evidence; absence is an observation, not automatic deterioration. An unusual price move or monitor crossing is a search/review trigger, not a fundamental Novelty pass.
 
@@ -124,20 +137,20 @@ Apply controlled sell reasons and `sell-discipline-and-closeout.md` to every rel
 
 ### 8. Save, publish and verify
 
-Persist supported research-only events, evidence, observation history, catalyst/forecast packets, routes/underwriting requirements, specialist/price coverage, sell-review lineage and full run manifest. Respect ownership, schema, idempotency and fresh-state concurrency. After a bounded fresh-state retry fails, use verified authorized dated fallback and continue coverage; do not bypass version checks or spend the scan repeatedly repairing saves. Never place diagnostic fields into unsupported strict API payloads.
+Persist supported research-only events, evidence, observation history, catalyst/forecast packets, routes/underwriting requirements, specialist/combined-monitor coverage, sell-review lineage and full run manifest. Preserve each visible row's source class, linked legacy event/result/date/migration/consumed/re-arm state, defense type/position scope and canonical-over-legacy suppression reason. Respect ownership, schema, idempotency and fresh-state concurrency. After a bounded fresh-state retry fails, use verified authorized dated fallback and continue coverage; do not bypass version checks or spend the scan repeatedly repairing saves. Never place diagnostic fields into unsupported strict API payloads.
 
-Publish **new news and opportunities + meaningful case changes + the complete simple stock table** in the same requested Radar report under `investment-firm-output/SKILL.md`. Critical warnings can lead; qualifying new news normally precedes recurring prices. Market context is compact and clearly attributed. Unchanged cases are not mini-reports; unchanged stock rows remain visible. A supported completed downstream recommendation can be relayed, never invented from a price hit.
+Publish **new news and opportunities + meaningful case changes + the complete combined stock action queue** in the same requested Radar report under `investment-firm-output/SKILL.md`. Critical warnings can lead; qualifying new news normally precedes recurring prices. Market context is compact and clearly attributed. Unchanged cases are not mini-reports; unchanged eligible monitor rows remain visible. A supported completed downstream recommendation can be relayed separately in decision context, never invented from a price hit, defense condition or legacy preservation record.
 
-Read prior canonical and fallback records before classifying or saving; preserve original detection separately from saved/report-prepared/delivered status. Append the combined report and stock snapshot to the existing private journal, not public GitHub. Retain existing per-slot IDs/stock-reader compatibility and avoid duplicate output on exact retries. A failed report save does not suppress important news; disclose it in the same output. Do not mutate the standing Decision List from Radar; its existing publisher owns scheduled refresh.
+Read prior canonical and fallback records before classifying or saving; preserve original detection separately from saved/report-prepared/delivered status. Append the combined report and stock snapshot to the existing private journal, not public GitHub. Retain existing per-slot IDs, with report_format_version 5 and stock_table_schema combined_action_queue_v1; read prior schemas honestly rather than fabricating source labels for old rows. Avoid duplicate output on exact retries. A failed report save does not suppress important news; disclose it in the same output. Do not mutate the standing Decision List from Radar; its existing publisher owns scheduled refresh.
 
 The weekday Daily Brief synthesizes, tracks research progress and updates the standing view; it must not be the only place fresh news is allowed to appear. Friday's AI-efficiency aggregation remains there, with the existing fixed cohort, backfill cursor and September 25 first eligible boundary. Material AI/disclosure news still appears in normal Radar as warranted with provenance and no automatic investment inference.
 
 ## Completion checks
 
-Record actual completion or limitations for urgent defense, the protected unseeded discovery pass, all eleven lanes, targeted thesis/evidence/catalyst work, quotes/monitor state and supported persistence. Missing private state must not be called checked-empty or suppress public news.
+Record actual completion or limitations for urgent defense, the protected unseeded discovery pass, all eleven lanes, targeted thesis/evidence/catalyst work, quotes/all three monitor source classes and supported persistence. Missing private state must not be called checked-empty or suppress public news.
 
 Use the existing run manifest to record source families/queries/time windows, unique new developments, new evidence, late detections, outside-universe candidates/unknown membership, unchanged follow-ups, material discoveries included in output and blocked coverage. These are diagnostic counts, not quotas or fabricated performance statistics. Preserve separate overlapping dimensions and actual event IDs.
 
-Check that fallback-only previously detected news is not recounted; genuinely new evidence is not incorrectly suppressed; first-publication and event dates are distinct; no unsearched universe receives an all-clear; completed stock decisions are separate from raw thresholds; consumed triggers do not re-fire; currencies/options/lots stay distinct; P0 was not delayed; routes do not invent work; and no financial baseline, thesis, threshold, holding or trade authority changed through Radar.
+Check that fallback-only previously detected news is not recounted; genuinely new evidence is not incorrectly suppressed; first-publication and event dates are distinct; no unsearched universe receives an all-clear; monitor reviews are separate from completed decisions; canonical-empty does not hide valid legacy/defense records; canonical precedence and one-row-per-security de-duplication hold; LEGACY instructions have the required prefix and REUNDERWRITE_REQUIRED priority; consumed triggers do not re-fire; disabled records stay disabled; currencies/options/lots stay distinct; P0 was not delayed; routes do not invent work; and no financial baseline, thesis, threshold, holding or trade authority changed through Radar.
 
 A quiet run is legitimate only within stated searched coverage. A scan that never completed broad discovery is PARTIAL, not evidence that no new opportunities exist. Configuration/read-back checks alone are not a successful corrected live scan or confirmed delivery.

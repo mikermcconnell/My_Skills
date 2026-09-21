@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-21-news-discovery-correction
+analytical_revision: 2026-09-21-combined-monitor-patch
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
@@ -15,9 +15,11 @@ specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
 sell_discipline_contract: news-radar-investing/references/sell-discipline-and-closeout.md
 nancy_pelosi_tracker_contract: news-radar-investing/references/nancy-pelosi-tracker-lane.md
-price_monitor_mode: dynamic_live_source
-price_monitor_audit_format: action_sorted_queue
-price_monitor_rows: one_per_security_or_distinct_instrument_decision
+price_monitor_mode: combined_canonical_persisted_legacy_portfolio_defense
+price_monitor_audit_format: action_sorted_queue_with_source
+price_monitor_rows: one_per_exact_security_not_one_per_source
+price_monitor_visible_columns: Action | Stock | Current price | Next trigger | Source | What to do
+price_monitor_source_classes: CANONICAL; LEGACY; PORTFOLIO DEFENSE
 price_monitor_proximity_band: 5_percent
 ai_efficiency_watch_contract: news-radar-investing/references/ai-efficiency-watch.md
 ai_efficiency_watch_state_contract: news-radar-investing/references/ai-efficiency-watch-state.md
@@ -26,14 +28,15 @@ ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto, inside the Dai
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 4
+output_contract_version: 5
 output_contract_approved_at: 2026-09-21
+stock_table_schema: combined_action_queue_v1
 routine_radar_title: Investment Firm — Radar
 routine_radar_sections: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell
 routine_radar_publication: one combined report with each existing 08:00, 11:00 and 15:00 run
 protected_broad_discovery: after bounded urgent-risk triage, before routine deep reconciliation or stock-table assembly
 news_universe: not limited to current holdings, watchlists, accepted underwritings or active themes
-stock_table_publication: inside each combined Radar report, including unchanged rows
+stock_table_publication: inside each combined Radar report, including unchanged eligible monitor rows
 novelty_memory: accessible canonical Event Ledger plus verified dated fallback / Reporting Journal
 narrative_publication: one weekday 15:00 Daily Brief for synthesis, not duplicate full news/stock reports
 other_publication: exceptional urgent Action Alerts and material unsaved-finding fail-safe
@@ -43,9 +46,9 @@ markdown_artifact_required: false
 
 ## Single baseline and read order
 
-Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is now a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 4.
+Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 5.
 
-The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane have been reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required.
+The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane are reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required. The combined-monitor patch changes the table's source union and schema, not the news-first sequence or cadence.
 
 ## Discover and publish news, not just existing stock status
 
@@ -53,15 +56,23 @@ Do a bounded initial urgent-risk screen, then the protected open-universe discov
 
 Publish supported material findings in the current combined report, even before RWC/underwriting makes a trade decision. Show NEW DEVELOPMENT, NEW EVIDENCE — EXISTING STORY, LATE DETECTION or NOVELTY UNVERIFIED with original dates and exact next questions. Outside-known-universe status is separate and verified or unknown. Unfamiliar ticker count is not a goal; no story quota or lowered gates.
 
-Keep the new-news section first unless urgent risk leads, changed cases second and the complete stock table third. Include unchanged HOLD/WAIT stock rows but do not retell unchanged old cases as news. Market context and discovery coverage are compact. One combined output per existing slot, not a separate news report plus separate table.
+Keep the new-news section first unless urgent risk leads, changed cases second and the combined stock action queue third. Include unchanged eligible monitor rows with plain wait/review next steps but do not retell unchanged old cases as news. Market context and discovery coverage are compact. One combined output per existing slot, not a separate news report plus separate table.
 
-## Memory, source state and action boundaries
+## Combined monitor sources and action boundaries
+
+The table is the union of **CANONICAL + explicitly persisted LEGACY + PORTFOLIO DEFENSE**. Canonical controls its live membership/thresholds/consumed/re-arm state and supersedes equivalent legacy conditions. Legacy eligibility requires actual structured recovery records from supported live research/event storage, such as LEGACY_PRICE_MONITOR, LEGACY_MONITOR_ACTIVE and economicBridge.legacyMonitor. Stage RWC on such a record is preservation metadata, not fresh completed RWC/underwriting. Generic prose, memory, old visible tables and dated upload ticker lists do not establish active legacy membership.
+
+Live concrete defense stop/target/time/concentration/instrument/thesis/valuation review conditions may supply or supersede the selected action, without creating thresholds or final sells. De-duplicate one row per exact security, preserving listing/currency/option contract and applicable lot/strategy. Combined Source labels CANONICAL + DEFENSE or LEGACY + DEFENSE require material contribution to the selected row. A distinct legacy threshold is eligible only when canonical explicitly lacks that non-overlapping condition and the record remains migration-pending. Disabled equivalent canonical conditions cannot be revived through legacy.
+
+Use `Action | Stock | Current price | Next trigger | Source | What to do`. Visible actions remain review-only under the price contract's urgency order. Every legacy-contributing instruction begins `Refresh/migrate underwriting first;`; a relevant legacy REUNDERWRITE_REQUIRED record selects RE-UNDERWRITE NOW ahead of its separate price hit. Preserve source IDs/dates, migration status, consumed/re-arm history and defense trigger types. Read all three classes before saying NO ACTIVE STOCK MONITORS; all must be readable and contain no eligible row. Material missing-class coverage is PARTIAL, not zero. Keep missing-level/unstructured/disabled/migration blockers visible in coverage and retained case detail without inventing active rows.
+
+Exact quotes and stored conditions remain separate; missing fields are shown narrowly. Same quote confirmation/5% proximity controls apply across all classes. Fair value is not automatically a sell threshold; stocks, CDRs, options, currencies and strategies remain distinct. This is review routing, not automatic migration, allocation, approval or trading.
+
+## Memory, source state and compatible reporting
 
 Read verified fallback seen-history as well as canonical event records. A fallback-only saved discovery is already seen even when a canonical write failed; preserve its first-detected date and persistence gap. Do not count it as new again. This does not promote fallback prose to an accepted thesis, active monitor, completed research or delivered notification. Missing history means novelty unverified.
 
-Live canonical state owns monitor membership/actions/consumed/re-arm behavior. Exact quotes and stored levels remain separate; missing fields are shown narrowly. Accepted research absent from app monitors can be shown only as labelled reference/unlinked coverage, not silently activated. A price hit is REVIEW until actual current downstream gates support a plain recommendation. Fair value is not automatically a sell threshold; stocks, CDRs, options, currencies and strategies remain distinct.
-
-Use the existing per-slot `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` issue identity for compatible readers, now with combined report format 4 and both news and stock content. A title change does not justify a duplicate issue. Preserve canonical evidence IDs, original cutoffs, prepared/delivered distinction and the Daily Brief's independent window. Saved/last-run/notification flags are not actual delivery receipts.
+Use the existing per-slot `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` issue identity for compatible readers, now with report_format_version 5, stock_table_schema combined_action_queue_v1 and both news and stock content. A title/schema change does not justify a duplicate issue. Older snapshots remain dated with their actual schema and must not acquire invented source labels. Preserve canonical evidence IDs, original cutoffs, prepared/delivered distinction and the Daily Brief's independent window. Saved/last-run/notification flags are not actual delivery receipts.
 
 Radar appends research and snapshots to the existing private journal; Daily Brief remains the scheduled writer of the existing standing view. Preserve newer manual snapshots and unresolved cases. The simultaneous afternoon report must not be assumed completed. The brief provides synthesis/progress and Friday aggregation without reproducing the full Radar output; it is not the sole place new news appears.
 
@@ -69,6 +80,6 @@ Radar appends research and snapshots to the existing private journal; Daily Brie
 
 Keep official House PTR owner/trade/filing/range/option-return rules, dynamic current expert roles and the AI fixed cohort/backfill/state adapter, costs/quality/confounders and first-week boundary. New specialist evidence may appear intraday; the full weekly AI breadth summary stays in Friday's brief. No new rubric, monitor or task.
 
-Extend the existing first-five-brief comparison with actual discovery-pass completion, outside-known-universe coverage, unique-origin new/evidence/late counts, fallback-aware duplication, same-run inclusion of material news, unchanged-case suppression and stock-row retention. Metrics are diagnostics, not quotas or claims of superior returns. Keep unsupported enrichment in the run manifest/fallback rather than strict production payloads.
+Extend the existing first-five-brief comparison with actual discovery-pass completion, outside-known-universe coverage, unique-origin new/evidence/late counts, fallback-aware duplication, same-run inclusion of material news, unchanged-case suppression, all three monitor sources, legacy-prefix/migration priority, canonical suppression/defense precedence, all-three-empty/partial handling and exact-security de-duplication. Metrics are diagnostics, not quotas or claims of superior returns. Keep unsupported enrichment in the run manifest/fallback rather than strict production payloads.
 
-No change to investment theses, probabilities, fair values, sizing, thresholds, review dates, holdings, proposals, fills, optional-workflow flags, application deployment or broker authority is authorized by this reporting/search correction. Preserve existing application risk-alert channels until verified replacement. Configuration saved/read-back and actual corrected scan/persistence/delivery are separate evidence; notification-channel limitations remain explicit.
+No change to investment theses, probabilities, fair values, sizing, thresholds, review dates, holdings, proposals, fills, optional-workflow flags, application deployment or broker authority is authorized by this reporting/search patch. No legacy migration, monitor activation or runtime inventory creation is performed by editing these skills. Preserve existing application risk-alert channels until verified replacement. Configuration saved/read-back and actual corrected scan/persistence/delivery are separate evidence; notification-channel limitations remain explicit.
