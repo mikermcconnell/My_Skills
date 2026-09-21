@@ -1,202 +1,112 @@
 # Specialized Radar Lanes — V3
 
-This contract defines the specialized lanes that must be checked on every scheduled News Radar V3 run and must always appear in the complete visible chat response.
+Reconciled September 21, 2026. These eleven lanes remain mandatory checks on every **08:00, 11:00 and 15:00 America/Toronto** scheduled run. They supplement urgent defense, protected open-universe discovery, active-thesis tests and market context; they do not replace broad discovery or restrict it to these names.
 
-These lanes supplement portfolio defense, Active Thesis Research, broad event/news/filing/regulator discovery, evidence-due checks, and the market tape. They do not replace those core workflows.
+`investment-firm-output/SKILL.md` owns the combined visible report: **New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell**. Do not emit another mandatory lane-status section or defer every narrative discovery to the Daily Brief. Material new findings surface in the same run; full specialist detail remains in research records.
 
-## Mandatory visible section
+## Required coverage manifest
 
-Every scheduled 08:00, 11:30, and 15:00 run must include a `Specialized lanes` section covering every lane below, even when there is no qualifying update.
+Record for each lane: UPDATE with exact new evidence; NO UPDATE only after its relevant sources were actually checked; or UNAVAILABLE/PARTIAL with the specific limitation. Do not invent findings, claim unsearched coverage or repeat an unchanged old case just to fill a lane. A single observation can be relevant to several lanes, but has one original evidence identity and is not counted repeatedly.
 
-For narrative lanes use one of these visible statuses:
+The stable lane membership is:
 
-- `UPDATE — <one-sentence material delta or routed item>`
-- `NO UPDATE — no decision-relevant delta found in the searched sources since the prior successful run`
-- `UNAVAILABLE — <feed/state limitation>`
+1. Price Monitor Check
+2. Slow-Burn Fundamentals
+3. Catalysts / Evidence Due
+4. Social Arbitrage / Alternative Data
+5. Clinical / Medical
+6. Expert / Industry Sources
+7. TTWO — GTA VI / GTA Online / GTA+
+8. AMZN — AWS / Retail / Ads / Optionality
+9. HOOD — Customer / Product / Social Arbitrage
+10. Nancy Pelosi — Congressional Disclosures / Stock & Options
+11. AI Efficiency Watch — Claims / Operating Gains / Financial Capture
 
-Do not invent an update to avoid saying `NO UPDATE`. If an item is already in the lead Radar table, the specialized-lane line should identify or cross-reference it briefly rather than repeat the full analysis.
-
-Mandatory visible lane order:
-
-1. **Price Monitor Check**
-2. **Slow-Burn Fundamentals**
-3. **Catalysts / Evidence Due**
-4. **Social Arbitrage / Alternative Data**
-5. **Clinical / Medical**
-6. **Expert / Industry Sources**
-7. **TTWO — GTA VI / GTA Online / GTA+**
-8. **AMZN — AWS / Retail / Ads / Optionality**
-9. **HOOD — Customer / Product / Social Arbitrage**
-10. **Nancy Pelosi — Congressional Disclosures / Stock & Options**
-11. **AI Efficiency Watch — Claims / Operating Gains / Financial Capture**
-
-The Price Monitor Check is always an action-sorted table governed by `price-monitor-live-source.md`. The other ten lanes normally use one compact status line each. A material P0/P1 remains explained in the normal lead table/detail block rather than expanded again here.
-
-Persist lane coverage/status in the run manifest when the write path supports it.
+The price table is always visible under the shared contract; the other ten lanes need not print unchanged status lines. The existing feed-map discovery pass is a core workflow, not a newly created twelfth lane. Urgent P0 can interrupt; routine familiar-company searches do not displace protected discovery.
 
 ## 1. Price Monitor Check
 
-This is a permanent visible lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for its dynamic membership, trigger resolution, sorting, visible action labels, consumed/re-arm logic, and failure behavior.
-
-Before rendering it, load or attempt to load **every active price-bearing monitor** from the canonical live underwriting/monitor state. Do not limit the lane to current holdings if an active monitor exists for a watchlist or underwriting security, and do not maintain a static Radar ticker list.
+Run each pass using `price-monitor-live-source.md` for live membership, exact-instrument quotes, confirmation, action priority, consumed/re-arm rules and failure handling. Enumerate every active price-bearing monitor dynamically, including non-owned candidates. Do not use a static ticker list or remembered target. Read live holdings and accepted sources; unlinked baselines and missing-level holdings remain explicitly labelled coverage rows under the shared output contract, not invented active monitors.
 
 The visible table is:
 
-| Action | Stock | Current price | Next trigger | What to do |
-|---|---|---:|---:|---|
+| Stock / position | Latest price | Buy / add level | Trim / sell-review level | What to do | Why / next step |
+|---|---:|---|---|---|---|
 
-Rules:
+Use one row per security/decision expression, splitting exact instruments or strategies only when their decisions differ. Preserve all thresholds in the audit. Internal actions remain RE-UNDERWRITE NOW, EXIT REVIEW NOW, TRIM REVIEW NOW, COMPELLING BUY/ADD REVIEW, BUY/ADD REVIEW NOW, GETTING CLOSE, NO ACTION and UNAVAILABLE. Raw triggered review is not a completed BUY/ADD/TRIM/SELL recommendation. Report simple labels under the output skill without bypassing underwriting/allocation.
 
-- Show **one row per security**, not one row per threshold. Preserve all thresholds in canonical/audit state but show the highest-priority currently valid action or closest next valid trigger.
-- Sort by action/urgency: `RE-UNDERWRITE NOW`, `EXIT REVIEW NOW`, `TRIM REVIEW NOW`, `COMPELLING BUY/ADD REVIEW`, `BUY/ADD REVIEW NOW`, `GETTING CLOSE`, `NO ACTION`, `UNAVAILABLE`.
-- Use ownership-sensitive wording: `ADD` for owned securities, `BUY` for confirmed unowned securities, and `BUY/ADD` if ownership cannot be resolved.
-- `BUY/ADD REVIEW NOW` means a stored entry/add price trigger has been crossed. It does **not** mean automatically buy. Refresh underwriting first; if the thesis and threshold remain valid, advance to capital-allocation review.
-- `COMPELLING BUY/ADD REVIEW` means the deeper/more attractive stored buy/add threshold has been crossed and is currently valid. It still requires underwriting refresh and capital-allocation review before a portfolio decision.
-- A previously consumed trigger must not remain actionable merely because price is still beyond it. Respect canonical consumed and re-arm state and move to the next valid trigger when applicable.
-- `GETTING CLOSE` means price is within 5% of the next valid price trigger by default. This is a visible attention rule only; it does not alter the monitor or activate downstream work.
-- `Current price` must be the freshest reliable price available at the run cutoff and should preserve currency when ambiguity exists.
-- At **08:00**, use a reliable pre-market price when available; otherwise use the latest regular-session close and label it `prev. close`.
-- At **11:30** and **15:00**, use an actual same-day market price when available and state the table's price as-of time immediately above or below the table.
-- `Next trigger` must come from the canonical stored threshold/range. Do not substitute analyst consensus or calculate a new Radar target.
-- `What to do` is a concise translation of the stored downstream workflow, not a new trade instruction.
-- If live monitor state cannot be loaded, render the table heading and write `UNAVAILABLE — live active price-monitor state could not be read`; never silently show a stale static list as current.
-- If only some monitor records or quotes are unavailable, include readable securities, mark the affected row `UNAVAILABLE`, and disclose partial coverage.
-- If there are genuinely no active price monitors, show a one-row table stating `NO ACTIVE PRICE MONITORS`.
-- A crossed price trigger does not by itself change a thesis, fair value, posture, holding, or position size.
+Keep consumed triggers inactive until their recorded re-arm condition is met. A crossed already-reviewed zone may be shown as a fact, not a new signal. Within 5% of the next valid trigger is a display-only getting-close note. Current price, source timestamp, currency and trigger state are separate; preserve readable fields when another source fails.
 
-Persist the price-monitor coverage, quote timestamp/source, all underlying trigger state, selected visible action, consumed/re-arm state, and unavailable/partial state when supported.
+At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:00 use actual same-day regular-session pricing where open, otherwise labelled last-session data. Check exact listing/share class/CDR/option and inequality; never compare a USD underlying with a CAD or option-premium threshold. Fair value is not an automatic sell price.
+
+A missing monitor source stays UNAVAILABLE, not a reconstructed active list. A checked-empty source can be described as no active monitors in that source, without erasing separately readable accepted research or holdings. No price crossing changes thesis, valuation, posture, position size or trade authority.
 
 ## 2. Slow-Burn Fundamentals
 
-Apply `slow-burn-and-catalyst-lanes.md`. Look for cumulative decision-relevant changes that may not create a standalone headline: guidance language, estimates and underlying drivers, backlog/book-to-bill, pricing, utilization, capacity, margins, capex, cash conversion, share count, financing, disclosure quality, management wording, operating KPIs, repeated channel evidence, and missing expected evidence.
+Apply `slow-burn-and-catalyst-lanes.md`. Seek cumulative comparable changes in guidance, estimates/drivers, backlog/book-to-bill, pricing, utilization, capacity, margins, capex/cash conversion, share count/financing, disclosure quality, management wording, operating KPIs, repeated channel evidence and missing expected evidence. Preserve atomic dates/observations and distinguish new evidence from retelling an old thesis.
 
 ## 3. Catalysts / Evidence Due
 
-Apply `slow-burn-and-catalyst-lanes.md`. Check known catalyst dates, frozen expectations packets, thesis forecast dates, next-evidence dates, regulator windows, trial readouts, earnings, launches, financing, court decisions, permits, and other dated evidence. Missing or delayed evidence is itself an observation but not automatically negative.
+Apply `slow-burn-and-catalyst-lanes.md`. Check current catalyst dates, frozen expectations, thesis forecasts, next-evidence dates, regulator/court windows, trial readouts, earnings, launches, financing and permits. Missing/delayed evidence is an observation, not automatically negative. Do not repeat completed reviews or stale dates when a newer accepted record supersedes them. Repeating an unchanged due item is not a new discovery.
 
 ## 4. Social Arbitrage / Alternative Data
 
-Apply `social-arbitrage-lane.md`. Search for genuinely new consumer, employee, supplier, developer, community, search, app, product, pricing, inventory, transaction, hiring, traffic, engagement, signup, usage, or cultural behavior that could reach financial results before conventional estimates. Preserve authenticity and denominator uncertainty. Social evidence can surface a lead; it does not confirm economics.
+Apply `social-arbitrage-lane.md`. Look for original consumer, employee, supplier, developer, community, search/app/product/pricing/inventory/transaction/hiring/traffic/engagement/signup/usage/cultural evidence that could precede financial reporting. Preserve authenticity, representativeness, denominators and incentive/bot risks. Social signals can surface a lead; they do not confirm company economics. Do not restrict the core broad-discovery pass to familiar social narratives.
 
 ## 5. Clinical / Medical
 
-Apply `clinical-radar-overlay.md`. Check relevant holdings, active underwritings, watchlist programs and competitor read-throughs for registry/protocol changes, enrollment, endpoints, safety, readouts, regulator actions, reimbursement, manufacturing/CMC, partnerships, and overdue evidence.
+Apply `clinical-radar-overlay.md`. Check relevant holdings, accepted underwritings, watchlist programs and competitor read-throughs for registry/protocol/enrollment/endpoint/safety/readout/regulatory/reimbursement/manufacturing/CMC/partnership changes and overdue evidence. Preserve sponsor versus independent/regulatory origin.
 
-If the current portfolio/thesis state contains no relevant clinical or medical exposure, a cheap source/evidence-due sweep is sufficient and the visible line may say `NO UPDATE`.
+A cheap relevant source/evidence-due sweep may suffice where no current clinical exposure exists; mark what was actually checked. This does not exempt the protected broad-source pass from considering meaningful new clinical/regulatory developments in unfamiliar public companies. Do not invent medical conclusions or clinical-commercial valuation inside Radar.
 
 ## 6. Expert / Industry Sources
 
-Apply `EXPERT_SOURCES.md`. Check named high-signal experts, industry publications, and senior operators mapped to active holdings/theses. SemiAnalysis / Dylan Patel remain priority sources for AI infrastructure and semiconductors.
+Apply `EXPERT_SOURCES.md`. Named industry experts, specialist publications and senior operators remain important; SemiAnalysis/Dylan Patel remain priority discovery sources for AI infrastructure/semiconductors. These are source preferences, not proof of access or independent economic confirmation.
 
-For AI-related holdings, underwritings, theses, and market structure, this lane must also explicitly check attributable commentary from the **current CEOs, founders, senior executives, chief scientists/research leaders, infrastructure leaders, and major product/model leaders at frontier AI labs**. At minimum, cover relevant current leadership at:
+For relevant AI exposure, explicitly check attributable commentary from current CEOs, founders, senior executives, chief scientists/research leaders, infrastructure leaders and major product/model leaders at OpenAI, Anthropic, Google/Google DeepMind and Meta/Meta AI; extend to other material frontier labs. Resolve current people/roles at run time rather than use a stale name list. Search official posts, interviews/podcasts/conferences/developer events/testimony, research/product commentary, technical papers/blogs and model/system cards as accessible.
 
-- **OpenAI**;
-- **Anthropic**;
-- **Google / Google DeepMind**;
-- **Meta / Meta AI**.
-
-Resolve the relevant current people and roles dynamically at run time rather than relying on a stale static name list, and extend to other frontier labs when they become material. Search official posts, interviews, podcasts, conferences, developer events, testimony, research/product launch commentary, technical blogs/papers, model/system cards, and other directly attributable public statements.
-
-Prioritize statements that can affect training/inference compute demand, AI infrastructure bottlenecks, model capability and deployment cadence, product adoption, enterprise/developer demand, pricing/monetization, capex and unit economics, cloud/vendor relationships, custom silicon, power/datacenter needs, open-weight strategy, regulation/safety constraints, or competitive read-throughs to public companies.
-
-Treat frontier-lab executive statements as **primary evidence of what the organization is saying, planning, observing, or claiming**, not as independent proof that the economics are correct. Separate factual observations, channel/operating knowledge, forecasts, aspirations, marketing claims, policy arguments, and expert interpretation; reject recycled commentary; and independently corroborate material claims before allowing them to change a thesis or security posture.
+Prioritize observable implications for training/inference demand, bottlenecks, capability/deployment cadence, adoption, enterprise/developer demand, pricing/monetization, capex/unit costs, vendor/custom-silicon relationships, power/datacenters, open weights and regulatory/safety/competitive constraints. Separate observations, forecasts, aspirations, marketing, policy argument and expert inference. Primary evidence of what a lab says is not independent proof of its economics; corroborate before downstream thesis/posture changes. Reject recycled commentary and preserve unavailable source coverage.
 
 ## 7. TTWO — GTA VI / GTA Online / GTA+
 
-This is a permanent bespoke holdings/thesis-risk lane and must run on every scheduled Radar pass.
+Permanent bespoke lane. Retrieve current TTWO ownership/thesis/accepted underwriting when available and use primary Rockstar/Take-Two sources before secondary/social evidence. Search for new evidence on launch timing/delay/acceleration; Online launch sequencing/architecture; GTA+ pricing/timing/integration/attach; multiplayer/persistent-world scope, cross-progression and economy/platform continuity; recurring spend/engagement/retention/content cadence; preorder conversion/cancellations, edition mix/pricing; product quality/preview/review/readiness; social/search/video/player evidence; Net Bookings/EBITDA expectations; NBA 2K/mobile offsets; dilution/debt and management commentary.
 
-Load the current TTWO holding/thesis/underwriting baseline first when available. Search primary Rockstar and Take-Two sources before secondary/social evidence.
-
-Prioritize genuinely new evidence on:
-
-- GTA VI launch timing versus the current November 19 baseline and any delay/acceleration evidence;
-- GTA VI Online / GTA Online launch sequencing and architecture;
-- GTA+ timing, pricing, subscription integration and attach potential;
-- multiplayer/persistent-world scope, cross-progression, account/economy continuity and platform strategy;
-- recurring-spend mechanics, engagement, retention and post-launch content cadence;
-- preorder conversion/cancellations, premium/edition mix and pricing;
-- product quality, previews/reviews and launch readiness;
-- Rockstar social signals plus search/video/social/player engagement as leads, not proof of economics;
-- FY27 Net Bookings and FY28/FY29 EBITDA evidence;
-- NBA 2K/mobile offsets, dilution, share count, net debt and management commentary.
-
-Treat a blockbuster GTA VI launch as substantially expected. The key variant remains evidence supporting or challenging roughly >40M FY27 launch-window units / ~50M+ first-year units plus durable Online/GTA+ economics. Do not treat social excitement alone as confirmation.
+Use the CURRENT accepted unit/monetization/timing variant rather than hard-code it into a scan. Historical November 19 timing and >40M FY27 launch-window / ~50M first-year examples require fresh source/baseline confirmation and never automatically override newer records. A blockbuster launch or social excitement alone is not proof of an expectations gap. Distinguish common shares from each option's catalyst/expiry/strategy.
 
 ## 8. AMZN — AWS / Retail / Ads / Optionality
 
-This is a permanent bespoke holdings/thesis-risk lane and must run on every scheduled Radar pass.
+Permanent bespoke lane. Load current ownership/accepted thesis/underwriting and search filings, IR, AWS and regulator/partner/customer sources. Prioritize new AWS demand/backlog/RPO/utilization/capacity/power evidence; Trainium/Inferentia/Graviton/Bedrock/partner/customer deployments; margins/capex/depreciation/returns and capacity-to-utilization-to-revenue-to-profit-to-cash conversion; custom-silicon/workload shifts and bottlenecks; retail/marketplace/fulfillment/delivery/regionalization/Prime/seller/margin evidence; advertising growth/pricing/measurement/advertiser behavior and active legal issues; labor/antitrust/cloud/consumer regulation; Zoox/drones/robotics/healthcare optionality only where new evidence can matter; and reproducible instance availability/hiring/customer/developer/seller/advertiser/traffic/delivery observations.
 
-Load the current AMZN holding/thesis/underwriting baseline first when available. Search Amazon filings, IR, AWS announcements and regulator/partner/customer primary sources before relying on secondary commentary.
-
-Prioritize genuinely new evidence on:
-
-- AWS revenue growth, backlog/remaining performance obligations, customer demand, utilization, capacity constraints and incremental power/datacenter availability;
-- AI infrastructure demand and deployment across Trainium, Inferentia, Graviton, Bedrock, Anthropic and major customer workloads;
-- AWS margins, capex intensity, depreciation, return on invested capital and the capacity -> utilization -> revenue -> operating income -> cash flow chain;
-- custom-silicon share/adoption versus Nvidia/other accelerators and evidence of workload migration or bottlenecks;
-- retail/3P marketplace growth, fulfillment productivity, delivery speed, regionalization, Prime economics, seller behavior and margin structure;
-- advertising growth, pricing/load, measurement, advertiser behavior and material regulatory/legal developments, including Sponsored Ads/FTC issues when active;
-- meaningful labor, antitrust, marketplace, cloud or consumer-protection regulatory risk;
-- material optionality from Zoox, Prime Air/drones, robotics, healthcare or other emerging businesses only when new evidence could affect the thesis or valuation path;
-- social/alternative-data signals such as AWS instance availability, hiring, developer/customer activity, seller behavior, advertiser behavior, traffic, app/search trends or delivery observations when they can be independently bridged to the business.
-
-Do not convert a product announcement, capacity headline or social observation directly into AWS/AMZN economics. Route unresolved causality, value capture and expectations questions to RWC.
+Do not turn an announcement, capacity headline or social observation directly into AWS economics. Route unresolved causal/capture/expectations questions to RWC. For partnerships, check the public counterparty and which business captures incremental value, not only the familiar AMZN holding. Keep shares/CDRs and tactical/long-duration option decisions distinct.
 
 ## 9. HOOD — Customer / Product / Social Arbitrage
 
-This is a permanent bespoke holdings/thesis-risk lane and must run on every scheduled Radar pass.
+Permanent bespoke lane with mandatory behavioral evidence checks. Retrieve current ownership/accepted case. Seek new net deposits, funded accounts/assets/transfers/quality/retention; equity/options/crypto volume/mix/monetization; Gold subscribers/attach/ARPU; cash sweep/net-interest economics; credit card/retirement/banking/prediction-market/advisory adoption; international rollout; original downloads/rankings/search/referrals/anecdotes/waitlists/activity proxies; satisfaction/outages/complaints/trust/service quality; crypto/options/PFOF/prediction-market/custody/tokenization regulation; diversification, operating leverage, SBC/dilution and management evidence.
 
-Load the current HOOD holding/thesis/underwriting baseline first when available. The social-arbitrage check is mandatory because customer/product behavior may lead reported KPIs.
-
-Prioritize genuinely new evidence on:
-
-- net deposits, funded customers, assets under custody, transfer-in behavior and customer quality/retention;
-- equities, options and crypto trading volumes/activity plus mix and monetization;
-- Robinhood Gold subscriptions, attachment, ARPU and retention;
-- cash sweep/net-interest economics and sensitivity to the rate environment;
-- credit card, retirement/IRA, banking/cash products, event contracts/prediction markets, advisory and other product adoption;
-- international expansion and product/geographic rollout;
-- app downloads/rankings, web/search interest, social discussion, referral behavior, customer anecdotes, product waitlists, transaction/activity proxies and other Chris-Camillo-style behavioral leads;
-- customer satisfaction, outages, complaints, trust/safety issues and service quality that could affect retention or acquisition;
-- regulatory changes affecting crypto, options, payment for order flow, event contracts, custody, tokenization or other material revenue pools;
-- revenue diversification, operating leverage, share-based compensation/dilution and material management commentary.
-
-Treat app/social excitement as a lead, not as proof of funded accounts, assets, revenue or profit. Seek independent KPI confirmation and route the business bridge to RWC before security underwriting changes.
+Behavioral excitement is a lead, not proof of funded accounts, revenue or profit. Seek independent KPI confirmation and preserve source/denominator uncertainty. New product news is distinct from unchanged portfolio concentration or an old closeout; do not recycle them as the same event.
 
 ## 10. Nancy Pelosi — Congressional Disclosures / Stock & Options
 
-This is a permanent congressional-disclosure / alternative-data lane and must run on every scheduled Radar pass. Apply `references/nancy-pelosi-tracker-lane.md` as authoritative for its source hierarchy, transaction normalization, disclosure-lag handling, options treatment, routing, visible status, and persistence.
+Permanent disclosure/alternative-data lane. Apply `nancy-pelosi-tracker-lane.md` for source hierarchy, normalization, disclosure lag, options and persistence. Search official U.S. House Clerk financial disclosure/PTR first; secondary databases/news can aid discovery, never supersede a readable filing.
 
-Search the official **U.S. House Clerk Financial Disclosure / Periodic Transaction Report (PTR)** source first. Secondary congressional-trade databases and news reports may be used for discovery or reconciliation but must not supersede the official filing when it is available.
+Check newly published/amended purchases, sales, exchanges, exercises and materially changed interpretation for stock/ETF/options/other marketable securities. Retain strike/expiry/contracts only as disclosed, public catalyst context and economic research questions. Large reported ranges and overlap with our exposures can guide relevance, not copying trades or inferring nonpublic information.
 
-Prioritize genuinely new official disclosures involving:
+Preserve transaction versus first-public filing/disclosure dates. An old trade first made public now is not late Radar detection just because the trade predates the window. Preserve owner codes: SP means household/spouse disclosure, not a claim Nancy personally executed it. Dollar ranges are not exact sizes; disclosed positions are not guaranteed current holdings. Do not infer insider information, illegality, superior returns or automatic BUY/SELL. Market-price proxies are not actual personal/option returns; follow the specialist cost-basis/exercise rules.
 
-- purchases of public-company common stock, ETFs, or other marketable securities;
-- purchases of call or put options, preserving strike, expiration and contract count only when disclosed;
-- sales, exchanges, option exercises, or amendments when they materially change the interpretation of a previously tracked position;
-- large disclosed amount ranges or transactions in securities that overlap the user's holdings, active underwritings, watchlist or active theses;
-- transactions occurring near a material public catalyst only as a research lead, never as proof of nonpublic information or a reason to copy the trade.
-
-Preserve **transaction date and filing/disclosure date separately**. Congressional PTRs are delayed disclosures, so a trade may be weeks old when first observable. Do not call the trade itself `LATE_DETECTION` merely because the transaction predates the current scan window if the filing only became public in the current window.
-
-Preserve the official owner code. If a filing identifies `SP` or another non-self owner, describe it as a **Pelosi household / spouse disclosure** rather than stating that Nancy Pelosi personally executed the transaction.
-
-Treat disclosed dollar values as ranges, never exact amounts. Do not infer current position size, continued ownership, inside information, illegality, superior expected returns, or an automatic BUY/SELL signal from the disclosure.
-
-The normal next question is: **what public, independently testable company/catalyst/valuation evidence could explain the disclosed transaction, and does that evidence matter to our thesis?** Route that question through normal V3 gates and RWC when material.
+Reuse a sufficiently current verified official-source producer check with its cutoff when appropriate, and search incremental gaps/amendments as necessary. Do not re-read unchanged filings merely to manufacture new items. Ask what public, independently testable company/catalyst/valuation evidence makes the observation relevant; use normal gates/RWC.
 
 ## 11. AI Efficiency Watch — Claims / Operating Gains / Financial Capture
 
-Apply `references/ai-efficiency-watch.md` on every scheduled pass. This permanent cross-industry lane tracks companies using AI, not just AI suppliers. It supplements the existing Investor AI Efficiency Wave rubric without changing scoring or promotion rules.
+Apply `ai-efficiency-watch.md` and `ai-efficiency-watch-state.md`. This permanent cross-industry lane tracks users of AI, not only suppliers, without changing Investor rubric/scoring/promotion rules.
 
-Maintain dated claim-versus-result evidence: adoption, targets, measured operating gains, financial benefits and repeated results. Separate company-reported claims from independent confirmation, digital AI from physical automation, pilot scope from scaled deployment, and gross time saved from quality-adjusted net economics. Record missing costs, confounders, failed promises and competitive threats as well as successes.
+Maintain dated adoption, targets, measured operating gains, financial benefits and repeated-result evidence. Separate company claims from independent corroboration, digital AI from physical automation, pilot from scaled scope and gross time saved from quality-adjusted net economics. Retain costs, human review, quality, confounders, setbacks, unfulfilled promises and competitive threats as well as gains.
 
-Load relevant live holdings and approved thesis state; maintain the fixed comparison cohort plus a dynamic holdings/research overlay. Backfill the latest two completed earnings cycles with explicit completion status and resume cursor. At Friday 15:00 America/Toronto, add a compact, deduplicated weekly breadth summary; catch up after a missed run. Never count articles, ticker wrappers or unverified claims as independent company results.
+Use current holdings/thesis state plus fixed comparison cohort and dynamic overlay. Backfill the latest two completed earnings cycles with explicit partial/completion status and resume cursor; do not restart every run or claim complete baseline without evidence. Preserve the supported state adapter and existing per-run backfill bound. New material observations surface in this Radar report; the full deduplicated weekly breadth summary belongs only to the existing Friday 15:00 Daily Brief, with first eligible boundary September 25, 2026 and activation-aware missed-run handling. Never count articles/wrappers/unverified claims as independent company results.
 
-Use the existing five gates, one primary route and RWC handoff for material findings. Portfolio-defense risks remain first. Persist only through discovered supported research stores, verify writes, and mark unavailable or partial state explicitly. The lane does not directly approve thesis changes, change valuation or trade.
+Use the five gates, one route and precise RWC handoff; preserve P0 priority. Save supported research only and verify writes; mark unavailable/partial state. No direct thesis, valuation or trading changes.
 
-## Routing and output boundary
+## Common safeguards
 
-Any specialized-lane observation still uses the normal V3 five gates, one primary route, detection status, Event Ledger reconciliation and exactly one `Underwriting Required?` classification when it is a surfaced event or material thesis delta.
+Every material lane event uses original-source/independence checks, canonical PLUS verified fallback seen-history, exact publication/event/detection dates, five gates, one route and one underwriting classification. Do not rediscover fallback-only saved news just because canonical persistence failed. Unknown history remains unknown, not new by default.
 
-The always-visible lane status is a coverage guarantee, not an alert quota. `NO UPDATE` is the correct output when a narrative lane was checked and no decision-relevant delta was found. `UNAVAILABLE` is required when the lane could not actually be checked because a material feed or state source was unavailable. The Price Monitor Check is coverage/reporting state and does not create a Radar event merely because a security is near or through a threshold.
+The eleven-lane manifest is a coverage obligation, not an output quota. The protected unseeded broad pass is separately required under the run/feed contracts. A level crossing is stock-monitor state, not automatically fundamental news. No new lane, recurring task, duplicate report or automatic execution is introduced by this correction.
