@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-21-combined-monitor-patch
+analytical_revision: 2026-09-21-event-reaction-mechanics-override
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
@@ -14,11 +14,13 @@ source_feed_contract: news-radar-investing/references/primary-source-feed-map.md
 specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
 sell_discipline_contract: news-radar-investing/references/sell-discipline-and-closeout.md
+event_reaction_mechanics_contract: news-radar-investing/references/event-reaction-strategy-mechanics.md
 nancy_pelosi_tracker_contract: news-radar-investing/references/nancy-pelosi-tracker-lane.md
 price_monitor_mode: combined_canonical_persisted_legacy_portfolio_defense
 price_monitor_audit_format: action_sorted_queue_with_source
 price_monitor_rows: one_per_exact_security_not_one_per_source
 price_monitor_visible_columns: Action | Stock | Current price | Next trigger | Source | What to do
+event_reaction_visible_columns: Action | Stock / lot | Entry | Current | Stop loss | Target sells | Time exit | What to do
 price_monitor_source_classes: CANONICAL; LEGACY; PORTFOLIO DEFENSE
 price_monitor_proximity_band: 5_percent
 ai_efficiency_watch_contract: news-radar-investing/references/ai-efficiency-watch.md
@@ -28,9 +30,9 @@ ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto, inside the Dai
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 5
+output_contract_version: 6
 output_contract_approved_at: 2026-09-21
-stock_table_schema: combined_action_queue_v1
+stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 routine_radar_title: Investment Firm — Radar
 routine_radar_sections: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell
 routine_radar_publication: one combined report with each existing 08:00, 11:00 and 15:00 run
@@ -67,6 +69,14 @@ Live concrete defense stop/target/time/concentration/instrument/thesis/valuation
 Use `Action | Stock | Current price | Next trigger | Source | What to do`. Visible actions remain review-only under the price contract's urgency order. Every legacy-contributing instruction begins `Refresh/migrate underwriting first;`; a relevant legacy REUNDERWRITE_REQUIRED record selects RE-UNDERWRITE NOW ahead of its separate price hit. Preserve source IDs/dates, migration status, consumed/re-arm history and defense trigger types. Read all three classes before saying NO ACTIVE STOCK MONITORS; all must be readable and contain no eligible row. Material missing-class coverage is PARTIAL, not zero. Keep missing-level/unstructured/disabled/migration blockers visible in coverage and retained case detail without inventing active rows.
 
 Exact quotes and stored conditions remain separate; missing fields are shown narrowly. Same quote confirmation/5% proximity controls apply across all classes. Fair value is not automatically a sell threshold; stocks, CDRs, options, currencies and strategies remain distinct. This is review routing, not automatic migration, allocation, approval or trading.
+
+## Event Reaction mechanical sleeve
+
+Event Reaction / post_earnings positions are strategy-mechanics exceptions. Read current Investor `config/strategy-manifest.json` and the Event Reaction mechanics contract. Ordinary stop/partial-target/runner-target/time-exit decisions for that exact strategy lot do not enter fundamental underwriting.
+
+Render Event Reaction positions in a separate mechanics subtable before the generic combined monitor queue. Current September 21 baseline: 10% stop; +12.5% sell 85%; +15% runner on remaining 15%; 30 trading-session maximum hold. Entry fill/date and prior partial-sale state must be authoritative. Missing data produces ER DATA NEEDED/ER MECHANICS REVIEW, not RE-UNDERWRITE NOW.
+
+Same-ticker non-Event-Reaction expressions remain independently eligible for normal underwriting/defense monitoring.
 
 ## Memory, source state and compatible reporting
 
