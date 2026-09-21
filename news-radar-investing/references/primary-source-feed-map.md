@@ -30,11 +30,23 @@ At each 08:00, 11:00 and 15:00 Toronto run, plan and attempt these four source-f
 
 Retain actual queries/feed names, source family, seed type (UNSEEDED_BROAD or TARGETED), markets/categories, requested time window, retrieval time, source timestamps, original-source follow-through and outcomes. A query that just lists existing holdings is targeted even if called broad. Do not claim COMPLETE from four failed searches or from opening four copies of the same syndicated story. Use differentiated appropriate sources where one fails and preserve any remaining gap. Do not claim exhaustive global coverage from a sample.
 
-Follow newly encountered leads far enough to distinguish new fact from recycled reporting and map a plausible listed beneficiary/exposed company. A known mega-cap need not be the main economic beneficiary. Consider counterparties, substitutes and non-beneficiaries when the event mechanism makes that relevant; full value capture remains RWC's work. A new ticker alone is not an opportunity, and none must be forced into a quiet run.
+Follow newly encountered leads far enough to distinguish new fact from recycled reporting, test whether the observation begins or updates an Emerging Signal sequence, and map a plausible listed beneficiary/exposed company. A known mega-cap need not be the main economic beneficiary. Consider counterparties, substitutes and non-beneficiaries when the event mechanism makes that relevant; full value capture remains RWC's work. A new ticker alone is not an opportunity, and none must be forced into a quiet run.
 
 For newly encountered companies, compare prior public guidance/filings/announcements even when no accepted internal underwriting exists. If novelty or mapping cannot be established, label it and route a precise evidence question when worthwhile. Missing private baseline is not automatic grounds to ignore public news; equally, unknown is not a Novelty PASS.
 
 The protected pass covers genuinely fresh information since the last verified relevant cutoff plus labelled overlap/recovery for indexing gaps. Public availability time, underlying event time and first detection differ. Do not relabel old late discoveries as breaking news or let old recovery work dominate every fresh-window pass.
+
+## Emerging-signal overlay on broad discovery
+
+Apply `emerging-signal-lens.md` **inside the existing protected broad-discovery pass**. It is not another source family or lane.
+
+Broad discovery must search not only for discrete events, but also for **unusual changes in trajectories** that can lead reported fundamentals. For promising observations, compare a prior baseline and seek evidence of magnitude, velocity, persistence, breadth, independence, a plausible business bridge, an expectations lag and a decisive next test.
+
+Use the global pattern library across sectors: adoption acceleration; demand inflection; pricing power/weakness; capacity/bottleneck shifts; operating leverage/deleverage; distribution advantage/failure; competitive displacement; behavior-to-financial conversion; narrative/evidence divergence; and promise-to-measurement.
+
+This means a source item can be material even when it does not yet report revenue or earnings impact. Radar should surface a credible upstream signal with uncertainty and route the missing proof, rather than reject it merely because financial conversion has not happened yet.
+
+For a newly interesting lead, perform a bounded trajectory check: retrieve at least one appropriate prior comparable observation when accessible, look for independent confirmation/contradiction, identify the next leading metric and the later financial KPI it could feed, and determine whether guidance/consensus/narrative already recognizes the change. Do not let this bounded follow-up consume the whole open-universe scan.
 
 ## General public-equity sources
 
@@ -94,7 +106,7 @@ A material unexplained move prompts checks of poorly indexed filings/official re
 
 Use the existing V3 manifest, not another reporting system. Retain run ID/version, actual window/cutoff and intended slot/status; holdings/underwritings/monitors/kill dates checked; theses/watchlists/catalysts/evidence due checked; primary and expert/social sources actually searched; source/feed/state gaps; persistence; and next slot.
 
-Add protected-discovery diagnostics defined in `v3-run-contract.md`: per-family completion and query/feed evidence; new-development IDs; new-evidence-on-old-story IDs; late detections and original dates/latency; outside-known-universe candidates or membership unknown; unchanged follow-ups; duplicates; material discoveries included in the combined output and omissions with reasons. Count distinct underlying observations, not stories, wrappers or retry attempts. Outside-universe membership overlaps freshness; do not add it again to event totals. Included in output is not proof of delivered notification. No yield quota.
+Add protected-discovery diagnostics defined in `v3-run-contract.md`: per-family completion and query/feed evidence; emerging-signal candidate/sequence IDs and trajectory changes; new-development IDs; new-evidence-on-old-story IDs; late detections and original dates/latency; outside-known-universe candidates or membership unknown; unchanged follow-ups; duplicates; material discoveries included in the combined output and omissions with reasons. Count distinct underlying observations, not stories, wrappers or retry attempts. Outside-universe membership overlaps freshness; do not add it again to event totals. Included in output is not proof of delivered notification. No yield quota.
 
 Read verified fallback as well as canonical seen-history. Failed canonical saving does not make the same previously saved discovery new next time. Keep app-persistence gaps separate from novelty and investment authority. Use partial/unknown instead of zero when coverage is missing.
 
