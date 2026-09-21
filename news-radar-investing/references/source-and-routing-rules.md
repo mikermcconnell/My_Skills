@@ -28,7 +28,7 @@ Missing expected documents, removed KPIs, delayed milestones or unfulfilled proo
 
 ### Materiality
 
-Require a plausible bridge to revenue/units/pricing/share/backlog; margins; free cash flow/capex/working capital/debt/dilution; assets/resources/royalties/milestones; clinical/regulatory/legal/transaction/policy probability; time to realization; or permanent-loss risk. Radar needs a plausible mechanism, not a completed sensitivity model. Social importance alone is not security materiality.
+Require a plausible bridge to revenue/units/pricing/share/backlog; margins; free cash flow/capex/working capital/debt/dilution; assets/resources/royalties/milestones; clinical/regulatory/legal/transaction/policy probability; time to realization; or permanent-loss risk. Radar needs a plausible mechanism, not a completed sensitivity model. For an Emerging Signal, an observable upstream change with a credible path to a later financial KPI can satisfy the research-stage materiality hypothesis even before revenue/profit is reported. Social importance alone is not security materiality.
 
 ### Capture
 
@@ -43,6 +43,19 @@ Identify a plausible unresolved question about prior public knowledge/guidance, 
 ### Researchability
 
 Name a document, datum, counterparty, disclosure, benchmark, source-of-truth metric or dated catalyst that can resolve uncertainty. A permanently unobservable story should not consume highest research priority. Missing access is a limitation, not invented confirmation.
+
+## Leading-indicator / Emerging Signal treatment
+
+Apply `emerging-signal-lens.md` when observable behavior or operations may lead reported results.
+
+For these cases:
+- **Materiality** may be a plausible upstream transmission path; reported revenue/profit is not required at Radar stage.
+- **Expectation** may remain an explicit research question; Radar need not prove mispricing before P2/P1.
+- **Researchability** should name the next leading indicator plus the later financial KPI or disclosure that would confirm/kill the bridge.
+- A sequence that gains meaningful velocity, persistence, breadth or independent confirmation can escalate from P3/P2 to P1 even before financial conversion is reported.
+- Do not mistake one viral datapoint, one management claim or one price move for a sequence.
+
+When several observations belong to one parent trajectory, preserve one Signal Sequence and atomic evidence lineage. New evidence changes the trajectory; it is not a new thesis by default.
 
 ## Route and priority
 
