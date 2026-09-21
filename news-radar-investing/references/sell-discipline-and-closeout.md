@@ -23,7 +23,25 @@ These are decision and record states. They are not broker order states.
 - Investor Holdings records the actual sale and creates the owned `closedPositionId`.
 - MikeInvestor may reconcile that existing closed-position record to research lineage. It must not fabricate a fill or change a holding.
 
-A price or time trigger starts a review. It is not an automatic sale unless a separately authorized strategy contract explicitly says the rule is mechanical.
+A price or time trigger starts a review. It is not an automatic sale unless a separately authorized strategy contract explicitly says the rule is mechanical. Event Reaction / post_earnings is such a mechanical strategy for its frozen stop, partial-profit, runner-target and maximum-hold exits; apply the strategy exception below.
+
+## Mechanical-strategy exception — Event Reaction
+
+The generic sell-decision sequence below does **not** apply to ordinary exit mechanics for positions explicitly tagged to Investor strategy_id `event_reaction` or a current alias such as `post_earnings`.
+
+For those lots, read the current Investor `config/strategy-manifest.json` and `event-reaction-strategy-mechanics.md`. The strategy manifest is authoritative for the frozen exit rules. As of September 21, 2026:
+
+- stop loss = 10% below confirmed entry fill;
+- +12.5% target = sell 85%;
+- +15% runner target = sell the remaining 15%;
+- maximum hold = 30 trading sessions;
+- the remaining runner is also subject to the strategy stop and time exit.
+
+A valid ER STOP SELL, ER PARTIAL TARGET SELL, ER RUNNER TARGET SELL, or ER TIME EXIT does **not** require RWC, Full Underwriting, Event-Trade Underwriting, or Portfolio Capital Allocation solely to execute the frozen strategy mechanic. It is not a company-thesis sell decision. The user/broker still executes; Investor Holdings still supplies the authoritative confirmed sale and closeout lineage.
+
+If the same issuer has another non-Event-Reaction holding, apply the normal sell discipline to that separate expression. If the Event Reaction strategy data are missing or a trading halt/corporate action prevents reliable application, use ER DATA NEEDED / ER MECHANICS REVIEW rather than route to fundamental underwriting.
+
+News Radar may still report material issuer news, but that news does not override the frozen Event Reaction lot mechanics unless the strategy contract itself contains a corresponding rule.
 
 ## Mandatory sell-check coverage
 
