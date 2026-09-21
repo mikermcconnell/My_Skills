@@ -24,6 +24,12 @@ The stable lane membership is:
 
 The price table is always visible under the shared contract; the other ten lanes need not print unchanged status lines. The existing feed-map discovery pass is a core workflow, not a newly created twelfth lane. Urgent P0 can interrupt; routine familiar-company searches do not displace protected discovery.
 
+## Cross-lane Emerging Signal overlay
+
+`emerging-signal-lens.md` applies across all eleven lanes when the evidence is trajectory-shaped. A clinical uptake sequence, supplier bottleneck, demand inflection, developer migration, operating-leverage trend or competitive displacement can become an Emerging Signal even when it originates outside Social Arbitrage.
+
+Do not create a twelfth lane or duplicate the same atomic evidence across lanes. Preserve one evidence identity / Signal Sequence, note the contributing lane(s), and escalate with the existing P3/P2/P1/P0 routes when cumulative evidence changes materially.
+
 ## 1. Price Monitor Check
 
 This is a permanent visible lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for the combined table, source precedence, review actions, quote confirmation and failure handling.
