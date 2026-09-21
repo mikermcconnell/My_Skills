@@ -173,7 +173,7 @@ Do not approve/change Mind Model theses or forecasts, fair values, entry/exit le
 Retain existing fields plus diagnostic enrichment in supported storage:
 
 ```text
-run_id; radar_version=3; report_format_version=5; stock_table_schema=combined_action_queue_v1
+run_id; radar_version=3; report_format_version=7; stock_table_schema=combined_action_queue_v2_with_event_reaction_mechanics
 scheduled_slot; actual_start; scan_window_start; scan_window_end
 run_status SUCCESS|PARTIAL|FAILED|ADVANCED|DELAYED
 last_successful_run_at and evidence cutoff provenance
