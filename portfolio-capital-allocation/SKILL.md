@@ -44,7 +44,7 @@ If the underwriting is screen-grade, stale, unchallenged in a high-risk case, or
 7. **Do not use Kelly by default.** Subjective probabilities and fat-tailed outcomes make full-Kelly sizing dangerous. Use it only as a clearly labelled cross-check when inputs are unusually robust and the user requests it.
 8. **Funding source matters.** State what would be sold, reduced, or left uninvested. Avoid treating portfolio capital as costless.
 9. **Entry rules must be evidence- or price-based.** Do not divide a purchase into arbitrary tranches without a reason.
-10. **Sizing is provisional.** Material price, thesis, financing, catalyst, correlation, or portfolio changes require a refresh.
+10. **Sizing is provisional.** Material price, thesis, financing, catalyst, correlation, or portfolio changes require a refresh.\n11. **Evidence earns additional capital.** For every staged position, define what specific evidence must arrive before the position can move from starter -> target -> maximum. Size does not increase merely because time passed or the stock rose.\n12. **No proof, no scale.** If the required evidence is late, ambiguous, weaker than expected, or contradicted, hold the current weight, reduce it, or return to Full Underwriting rather than automatically completing the target.\n13. **Every staged position needs a deadline.** Each evidence gate must have a date or evidence window and a cancellation/falsifier condition so unresolved theses cannot drift into larger permanent positions.
 
 ## Workflow
 
