@@ -1,532 +1,143 @@
 ---
 name: news-radar-investing
 version: 3
-description: Operate the high-recall, portfolio-aware front end of the public-equity research process. Detect and persist genuinely new events, actively test live Mind Model theses against their causal pillars, forecasts, falsifiers, and evidence gaps, surface slow-burn fundamental deltas, overdue evidence, known catalysts, clinical developments, filing changes, expert observations, social/alternative-data signals, bespoke TTWO/AMZN/HOOD evidence, active price-monitor triggers, and possible price-attribution errors; distinguish them from recycled coverage; prioritize risks to existing holdings and active underwritings; identify whether security underwriting is required; add a compact same-day market-tape summary; and route precise questions to Research With Confidence. Use for scheduled News Radar V3 runs, holdings-risk scans, active-thesis research, price-monitor checks, medical or cancer-trial radar, catalyst preparation, filing-delta review, expert or social-signal monitoring, bespoke holdings lanes, and first-pass alert triage. Do not use for full causal research, complete value-capture analysis, valuation, final buy or sell decisions, event-trade approval, or account-specific position sizing.
+revision: 2026-09-21-news-discovery-correction
+description: Run the high-recall public-equity news front end: protect urgent portfolio risks, search beyond existing holdings and themes, distinguish new developments from new evidence and late detections, test active theses, check all eleven specialized lanes and price monitors, and route precise research questions. Publish new news, meaningful case changes and the stock table together. Do not use Radar to manufacture valuation, final buy/sell decisions, position sizing or trade execution.
 ---
 
 # News Radar Investing V3
 
-Operate the high-recall detection, memory, prioritization, thesis-testing, market-context, and routing layer of the investment process:
-
-`News Radar V3 -> Research With Confidence -> Full Underwriting or Event-Trade Underwriting -> independent challenge when applicable -> Portfolio Capital Allocation -> Mind Model / monitoring`
-
-Radar catches, normalizes, persists, actively tests approved theses, summarizes the same-day market tape, checks active price monitors and mandatory specialized lanes, and routes. It does not prove the thesis, approve a thesis change, perform valuation, execute a monitor action, or declare a security investable.
-
-## Stage boundary
-
-Keep the stages distinct:
-
-- **News Radar V3** owns detection, novelty control, canonical event memory, portfolio-defense priority, active-thesis testing, compact market-tape context, price-monitor reporting, specialized-lane coverage, preliminary exposure mapping, underwriting-requirement classification, and the exact next question.
-- **Research With Confidence** owns independent verification, causality, counterfactuals, confounders, economic materiality, value capture, and whether a plausible expectations gap survives.
-- **Full Underwriting** owns current price, capital structure and dilution, reverse valuation, scenarios, expected return, downside, opportunity cost, time-to-resolution, kill criteria, and the final security posture.
-- **Event-Trade Underwriting** owns discrete short-duration payoff states, break-even event probabilities, execution, liquidity, halt, gap, borrow, options, and slippage risk.
-- **Portfolio Capital Allocation** owns loss budgets, weights, funding sources, cluster limits, and staged implementation.
-- **Mind Model** owns the approved thesis record, causal pillars, forecasts, falsifiers, evidence ledger, watchlist transmission map, proposals, and decision history.
+`Radar -> Research With Confidence -> Full Underwriting or Event-Trade Underwriting -> independent challenge when applicable -> Portfolio Capital Allocation -> Mind Model / monitoring`
 
-Do not let an interesting Radar item, thesis, market narrative, or price trigger consume the time needed to complete the broader high-recall scan.
+Radar owns detection, normalization, novelty memory, risk priority, active-thesis tests, market context, price-monitor checks, preliminary exposure mapping and routing. It is neither a full portfolio-review worker nor a stock-table-only service. **A fixed monitored-stock list is not the boundary of the news search.**
 
-## References
+## Authority and read order
 
-Read only what the run needs:
+Use the latest files from the same current repository revision where practical:
 
-- `references/v3-run-contract.md` is authoritative for the V3 schedule, run manifest, active-thesis research, market-tape summary, mandatory specialized-lane output, price-monitor reporting, late-event recovery, overdue-evidence checks, underwriting-requirement classification, persistence, depth boundary, and compact output.
-- `references/specialized-lanes.md` is authoritative for the mandatory Price Monitor Check plus the Slow-Burn, Catalyst, Social Arbitrage, Clinical, Expert, TTWO, AMZN, and HOOD lane definitions and visible statuses.
-- `references/event-ledger-schema.md` for the canonical event record, novelty classes, thesis effects, observation types, and deduplication.
-- `references/source-and-routing-rules.md` for source provenance, the five gates, priority routing, and scheduled-run behavior.
-- `references/primary-source-feed-map.md` when defining source coverage, declaring scan limitations, or auditing missed feeds.
-- `references/slow-burn-and-catalyst-lanes.md` for cumulative fundamental changes and pre-event expectations packets.
-- `references/integration-and-persistence.md` when TaskTracker, Mind Model, Investing portfolios, Library fallback, or persistence are relevant.
-- `references/sell-discipline-and-closeout.md` for every owned-position sell check, TRIM/EXIT handoff, broker-confirmed sale reconciliation, partial close, full close, and postmortem.
-- `references/social-arbitrage-lane.md` for behavioural or alternative-data observations.
-- `references/clinical-radar-overlay.md` for medical research, clinical trials, regulator actions, and oncology alerts.
-- `EXPERT_SOURCES.md` when monitoring named experts such as SemiAnalysis or Dylan Patel.
+- `ACTIVE_VERSION.md`: active version, cadence and contract pointers.
+- `MONITOR_V3.md`: scheduled-task responsibilities.
+- `references/v3-run-contract.md`: run sequence, protected broad discovery, manifest, research boundary and quality tests.
+- `../investment-firm-output/SKILL.md`: sole user-facing layout, news/stock publication and delivery coordination.
+- `references/source-and-routing-rules.md`: source provenance, five gates, priority and freshness rules.
+- `references/primary-source-feed-map.md`: mandatory broad-search design and source coverage; read on every scheduled run, not just audits.
+- `references/specialized-lanes.md`: all eleven required lane definitions. Coverage statuses belong in the persisted manifest; meaningful findings flow into the combined report.
+- `references/price-monitor-live-source.md`: dynamic monitor membership, exact instruments, quote hierarchy/confirmation, consumed/re-arm state and failure handling.
+- `references/event-ledger-schema.md`: supported event fields, delta classes, thesis effects, observation types and deduplication.
+- `references/integration-and-persistence.md`: supported TaskTracker, Mind Model, Investor and dated fallback paths.
+- `references/sell-discipline-and-closeout.md`: every owned-position sell check and closeout handoff.
+- `references/slow-burn-and-catalyst-lanes.md`, `references/social-arbitrage-lane.md`, `references/clinical-radar-overlay.md`, and `EXPERT_SOURCES.md`: relevant specialist depth.
+- `references/nancy-pelosi-tracker-lane.md`, `references/ai-efficiency-watch.md`, and `references/ai-efficiency-watch-state.md`: disclosure and AI-efficiency specifics, fixed-cohort state and first-week timing.
 
-## Operating principles
+There is one current scheduled presentation: **new news and opportunities; changes to existing investment cases; stock monitor**. Do not recreate old mandatory lane-status dumps, routing-wide tables, stock-only reports, or Daily-Brief-only news suppression. Analytical Radar version remains 3; output-contract versioning is separate.
 
-- Optimize for **high recall with explicit uncertainty**, not a low-volume list containing only obvious winners.
-- Treat every alert as a lead, not proof, a trade signal, an approved thesis update, or a valuation change.
-- Protect existing capital first. Potential permanent-loss or thesis-breaking risk to a holding or active underwriting outranks new opportunity discovery.
-- **Actively test approved theses.** Do not wait for generic news to happen to mention a thesis ticker. Search directly for the thesis's assumptions, causal pillars, forecasts, falsifiers, source-of-truth metrics, and next-highest-value tests.
-- Add a **compact same-day market tape** to every scheduled visible run so the user can distinguish company-specific moves from broad rates, commodities, macro, geopolitical, sector, or factor pressure.
-- **Always show specialized-lane coverage.** Every scheduled run must visibly report the Price Monitor Check plus Slow-Burn, Catalysts/Evidence Due, Social Arbitrage, Clinical/Medical, Expert/Industry, TTWO, AMZN, and HOOD lanes. `NO UPDATE` is a valid and required status after a lane was actually checked.
-- Compare every claim with its prior baseline. A new article is not necessarily new information.
-- Search for cumulative changes and missing expected evidence, not only dramatic headlines.
-- For known catalysts and thesis forecasts, freeze expectations before the result whenever practical.
-- Separate **source origin** from **claim status**. A company release is primary evidence of what management said, not independent proof that the economics are correct.
-- Separate **observed market movement** from **causal attribution**. Do not present a market narrative as fact merely because prices moved together.
-- Timestamp first publication, underlying event time, first Radar detection, market status, and any price or volume reaction.
-- Never invent a reaction while the relevant market is closed or use a price move as proof that a new fundamental event exists.
-- Do not manufacture an investment angle, fill an alert quota, or force symmetrical positive and negative stories.
-- Keep world outcome, thesis evidence, company value capture, security valuation, event-trade suitability, monitor triggers, and portfolio action separate.
-- Automatically persist research-only Radar state when supported, but never automatically approve or change a thesis, fair value, security posture, monitor threshold/action, or holding.
-- Close the sell loop explicitly: detect review triggers, preserve lineage, and route any TRIM/EXIT decision through RWC, Full Underwriting, and Portfolio Capital Allocation as needed. A recommendation is not a sale; only an owned Investor Holdings closed-position record can support closeout reconciliation.
-- Every surfaced item must explicitly state whether underwriting is required, using the controlled classifications below.
-- **Keep the visible chat concise but complete.** Target roughly 75% of the prior V3 visible length for an equivalent information set by removing repetition, not by reducing search coverage, specialized-lane coverage, or required persisted state. The visible chat is the complete user-facing Radar response; no separate Markdown artifact is required.
+## Cadence
 
-## Authoritative schedule
+Existing runs start at **08:00, 11:00 and 15:00 America/Toronto, daily**, including weekends. No additional task. An explicitly requested after-close capture does not replace a scheduled pass. Recover the window since the last actually completed scan cutoff; preserve advanced, delayed, skipped, partial or failed gaps. Scheduled start, actual cutoff and delivery time are separate facts.
 
-Scheduled V3 runs use:
+## Stage boundaries
 
-- **08:00 America/Toronto**
-- **11:30 America/Toronto**
-- **15:00 America/Toronto**
+- Radar finds and routes leads; it does not prove causality, approve theses, value companies or execute monitor actions.
+- RWC independently verifies facts, counterfactuals, confounders, economic materiality, value capture and whether an expectations gap survives.
+- Full Underwriting owns current price, dilution/capital structure, reverse valuation, scenarios, expected return, opportunity cost, timing, kill criteria and security posture.
+- Event-Trade Underwriting owns discrete payoff, break-even odds, execution, liquidity, halt/gap, borrow, options and slippage.
+- Portfolio Capital Allocation owns loss budgets, weights, funding, clusters and staged implementation.
+- Mind Model owns approved theses/pillars/forecasts, evidence and proposal history. A pending proposal is not an approved change.
 
-Use the scan window since the last successful run. If a run is advanced, delayed, skipped, partial, or failed, preserve the reason and ensure the next run covers the gap.
+A supported new lead can be shown before full underwriting. **Newsworthy and BUY-ready are different states.** Never demand a complete value-capture or valuation model merely to surface a credible researchable development.
 
-## Workflow
+## Run workflow
 
-### 1. Preflight the current state
+### 1. Bounded preflight and urgent defense
 
-Before broad discovery, load or attempt to load:
+Read/attempt current investor context, last successful cutoff, existing event identity, verified reporting fallback and imminent risk/evidence deadlines. Discover the authorized live Investor connection at runtime; keep fresh returned state versions for supported writes, not reusable historical tokens. Resolve serious security contexts separately when needed.
 
-MikeInvestor is canonical for live ownership, exposure, lots, options, research lineage, underwriting, proposals, closeouts, and active triggers. Call `get_investor_context` before a broad scan and retain its `stateVersion`; call `get_security_context` for every serious held issuer, candidate, or affected derivative. If unavailable, label live exposure unverified and use any authorized fallback only as secondary state.
+Load the relevant holdings, accepted underwritings/monitors, exact options/lots, kill/review criteria, catalysts, open P0/P1/P2, proposals, closeouts, live Mind Model state and feed outages. Their full reconciliation can continue after the protected discovery pass; do not block all public-news searching on missing private state or recreate the whole research estate every scan. Mark missing fields/coverage honestly and bound connection retries.
 
-- the last successful run and current scan window;
-- open Event Ledger records and existing independence groups;
-- open P0, P1, and P2 items;
-- evidence due now or overdue;
-- known catalyst dates and frozen packets;
-- live holdings and active underwritings;
-- current monitors, kill criteria, and review dates;
-- **every active price-bearing monitor, its stored threshold/range and action, and the freshest reliable quote available for each monitored security**;
-- the live TaskTracker Mind Model overview, including active theses, review queue, diagnostics, forecasts, evidence, watchlist exposures, linked Investor Research state, and pending proposals;
-- same-day broad-market context available for the market tape;
-- available feeds, outages, and likely blind spots;
-- open TRIM/EXIT proposals, broker-confirmed sales awaiting closeout reconciliation, partial closeouts, and full closeouts awaiting postmortem when MikeInvestor exposes them.
+Perform a rapid explicit urgent-risk screen: financing/liquidity, dilution/covenants, auditor/internal controls/fraud, safety/legal/regulatory/clinical risk, operational/customer issues, threatened kill criteria, hard imminent instrument deadlines and serious common-factor risk. P0 can interrupt any step and must not wait for table construction or broad discovery. Routine unchanged concentration, old unresolved proposals and long-range review-calendar cleanup are not reasons to starve discovery.
 
-Start the V3 run coverage manifest. If a required state source is unavailable, mark the gap and do not imply that the associated holdings, underwritings, theses, price monitors, or market drivers were checked.
+### 2. Protected open-universe discovery
 
-### 2. Run portfolio defense first
+Complete the source-feed map's broad discovery pass **after urgent triage and before routine deep reconciliation, thesis expansion, all-stock quote assembly or downstream valuation**. Use actual current queries/feeds not restricted to existing tickers, themes, counterparties or saved cases. Cover cross-market issuer/filing/operating/financing developments; regulator/court/clinical/policy decisions; and industry demand/supply/technology/customer shifts. Include relevant U.S., Canadian and international coverage as accessible and record the exact boundaries; do not imply exhaustive global coverage.
 
-Search first for developments that could impair a holding or active underwriting, including:
+Portfolio-specific searches complement, not replace, this pass. Inspect useful unfamiliar counterparties and beneficiaries, not automatically the familiar holding. Record queries/feeds, categories, windows, primary-source retrievals, rejected/duplicate leads and coverage gaps. The source-feed map specifies minimum process coverage, not a required number of discoveries. Do not manufacture new tickers, stories or positive/negative balance.
 
-- financing, liquidity, dilution, covenant, auditor, internal-control, fraud, safety, legal, regulatory, clinical, operational, customer-concentration, or governance risk;
-- a breached or threatened kill criterion;
-- a milestone, readout, financing, filing, permit, launch, or decision that was due but did not arrive;
-- a material multi-holding or common-factor exposure;
-- thesis deterioration or failure;
-- valuation/hurdle failure while the company thesis remains intact;
-- issuer, wrapper, factor, or correlated concentration;
-- recorded strategy stop, target, profit-taking rule, or time stop;
-- option/instrument timing, expiry, strike, leverage, volatility, assignment, or call-away risk;
-- stale, contradicted, or overdue underwriting evidence;
-- opportunity cost versus a credible alternative.
+A P0 emergency or unavailable external sources can leave discovery partial, but record the skipped families/window and reason. Resume missing coverage at the next pass. Missing holdings/underwriting state limits portfolio attribution, not the ability to report supported public developments. A new issuer without a saved baseline can be investigated against its prior public guidance; unknown novelty remains explicit, not a false pass or automatic rejection.
 
-P0 items take the fast path. Do not delay an urgent risk alert to complete thesis research, second-order beneficiary work, broad thematic mapping, the market-tape summary, or the Price Monitor Check.
+### 3. Complete targeted thesis, case and specialist checks
 
-#### Sell-check handoff
+After the protected pass, complete remaining portfolio defense, exact-instrument sell checks, due evidence/catalyst checks, active-thesis tests, all eleven specialist lanes and dynamic price monitoring. Do not skip required coverage silently; label partial work rather than claiming completion.
 
-For every held News Radar or ChrisCamillo issuer and exact instrument, apply `references/sell-discipline-and-closeout.md`. Radar owns trigger detection and routing only. It must identify whether the candidate reason is target reached, valuation, thesis break, time stop, concentration, instrument failure, opportunity cost, or other; distinguish company deterioration from a security, sizing, or instrument problem; and name the next decision gate.
+For live Mind Model, cheaply sweep every readable non-retired thesis: baseline, assumptions, strongest opposing case, falsifiers, next-highest-value test; pillars' claim/mechanism/metric/baseline/target/date/source/falsifier; forecasts' statements, dates and confirm/warning/break indicators; watchlist mechanisms/evidence needs and linked readiness; diagnostics such as stale, concentrated, conflicted, missing challenge/forecast/pillars. GitHub schemas/seeds or remembered prose are not live state.
 
-Do not create a final sell verdict inside Radar. If downstream work produces a TRIM or EXIT recommendation, only a `PROPOSED` trade record may be created. The user/broker executes; Investor Holdings records the confirmed sale; and closeout reconciliation may occur only against the resulting owned `closedPositionId`.
+Within targeted thesis work, deeper priority stays: owned `requiresReunderwrite`; EVENT_TRIGGERED; owned OVERDUE; other OVERDUE; DUE; BLOCKED/CONFLICTED; then timely tests of other active theses. Do not perform three full thesis deep dives daily. Each delta retains thesis/pillar/forecast IDs where supported, test, evidence, SUPPORT/CHALLENGE/CONTEXT, what it proves/does not prove, gates, route, underwriting requirement and next test.
 
-### 2A. Run the Active Thesis Research lane
+All eleven lanes remain required: prices; slow-burn fundamentals; catalysts/evidence due; social/alternative data; clinical/medical; expert/industry; TTWO; AMZN; HOOD; Pelosi household disclosures; AI Efficiency Watch. Record UPDATE, NO UPDATE, UNAVAILABLE or partial qualifications for each; NO UPDATE requires actual checking. Use current accepted baselines, not permanently hard-coded financial assumptions in a skill. New material findings appear in this run, not just the afternoon brief.
 
-After urgent portfolio-defense work and before open-universe discovery, actively research the current non-retired Mind Model theses.
+Freeze catalyst/forecast expectations before results when practical. Compare cumulative slow-burn evidence over comparable periods and preserve atomic observations. Check missing, delayed or removed expected evidence; absence is an observation, not automatic deterioration. An unusual price move or monitor crossing is a search/review trigger, not a fundamental Novelty pass.
 
-Use the live TaskTracker Mind Model overview when available. GitHub source, local seeds, migrations, or remembered thesis prose explain schema but are not confirmed production state.
+### 4. Reconcile novelty using durable evidence, not just successful app writes
 
-For each active thesis, construct a compact **thesis search manifest** from the stored thesis rather than inventing generic search terms. Research the smallest set of current sources needed to test:
+For every serious observation identify original source, publication and underlying event time; search the canonical Event Ledger, verified dated fallback/Reporting Journal and relevant prior public/accepted baseline. Use existing event/independence-group IDs where known. Several articles repeating one origin are one observation.
 
-- thesis `baseline`, `summary`, `assumptions`, `investmentHypothesis`, and `strongestOpposingCase`;
-- thesis-level `falsifiers` and `nextHighestValueTest`;
-- every material causal pillar's `claim`, `mechanism`, `metric`, `baseline`, `target`, `targetDate`, `sourceOfTruth`, `falsifier`, and `nextHighestValueTest`;
-- every open forecast's `statement`, `resolutionDate`, `metric`, `baseline`, `target`, `sourceOfTruth`, `confirmIndicators`, `warningIndicators`, and `breakIndicators`;
-- watchlist exposure `mechanism`, `evidenceNeeded`, `falsifier`, `positionStatus`, linked `securityReadiness`, and linked underwriting status when available;
-- thesis diagnostics such as `STALE`, `CONCENTRATED`, `CONFLICTED`, `MISSING_CHALLENGE`, `MISSING_FORECAST`, and `MISSING_PILLARS` when they change what evidence is most valuable to seek.
+A finding previously saved only in fallback is already detected for reporting. Preserve its first-seen date and app-save limitation; do not call it new or late again merely because the app array is empty. A materially new observation on that story can still qualify. Fallback memory does not approve an investment baseline, activate a monitor or prove delivery/work completion.
 
-Do not give every thesis a full deep search three times per day. Run a cheap, explicit sweep across all active theses, then allocate deeper Radar search budget in this order when TaskTracker state supports it:
+Preserve supported `delta_class`, `thesis_effect` and `detection_status`. Output distinguishes NEW DEVELOPMENT, NEW EVIDENCE — EXISTING STORY, LATE DETECTION and NOVELTY UNVERIFIED. Outside-existing-universe status is separately verified, not inferred from an unfamiliar name. If history is unavailable, mark novelty uncertainty and route the missing comparison where worthwhile.
 
-1. owned exposure whose review queue says `requiresReunderwrite`;
-2. `EVENT_TRIGGERED` thesis;
-3. owned exposure with `OVERDUE` review;
-4. other `OVERDUE` thesis;
-5. `DUE` thesis;
-6. `BLOCKED` or materially `CONFLICTED` thesis;
-7. normal active thesis whose forecast, falsifier, source-of-truth metric, or next-highest-value test has a timely observable update.
+Backfill genuinely late first detections with original dates, latency, likely missed-feed cause and reduced usefulness if relevant. An older transaction newly disclosed now is not late merely because the transaction date is old. Recycled coverage and unchanged due items are not discoveries. Retain unresolved decisions without repeatedly presenting them as news.
 
-For each material thesis delta:
+### 5. Apply five gates and route
 
-1. identify the exact thesis, pillar, forecast, falsifier, or watchlist exposure affected;
-2. compare the new evidence with the stored baseline and existing evidence ledger;
-3. preserve whether the evidence is `SUPPORT`, `CHALLENGE`, or `CONTEXT` and what it proves versus does not prove when the write path supports those fields;
-4. apply the normal five gates and one primary Radar route;
-5. classify the underwriting requirement;
-6. route unresolved causal/economic questions to RWC;
-7. persist research-only evidence, a linked research question, or a pending thesis proposal when supported and justified.
+Assess separately: Novelty; Materiality; Capture; Expectation; Researchability. A plausible financial mechanism and a named resolving test suffice for research triage; RWC owns proof. Fail versus unknown are different. False/repeated/immaterial/no-exposure claims are rejected; a worthwhile credible lead with a resolvable unknown can be P2/P3 rather than falsely passed or rejected.
 
-Radar may create evidence or a reviewable proposal, but it must never approve a proposal or directly change an approved thesis. A proposal is a record that evidence may justify a change, not the change itself.
+Assign one primary route:
 
-A thesis with no material delta does not need a mini-report. Record it as checked in the run manifest.
+- **P0 — HOLDINGS / THESIS RISK**: credible potential permanent-loss or thesis-breaking risk; investigate promptly, preserving unavailable exposure qualifications.
+- **P1 — RESEARCH WITH CONFIDENCE NOW**: material, plausibly novel, economically traceable and potentially misunderstood or incomplete.
+- **P2 — TARGETED EVIDENCE**: name the missing fact/document/denominator/counterparty/comparison and expected check date or explain unknown timing.
+- **P3 — MONITOR**: real but insufficient current materiality, capture, expectations gap or researchability; state next evidence or why no further work is warranted.
+- **REJECT / DUPLICATE**: false, stale without a delta, repeated/circular, immaterial, non-comparable or unsupported with no credible research path.
 
-### 2B. Build the compact market tape
+Map only enough exposure to route: direct holding/security, related thesis/pillar/forecast/underwriting, DIRECT/DERIVATIVE/READ_THROUGH/NONE_IDENTIFIED, preliminary mechanism, main capture uncertainty, cluster and readiness where supported. Aggregate issuer exposure only with verified mappings and preserve exact shares/CDRs/options/lots, currency, contracts, strike, expiry, direction and nonlinearity separately. Do not fabricate option delta or cash-inclusive NAV.
 
-Every scheduled visible run should include a short `What's moving markets today` section. This is **context**, not a substitute for event routing or thesis research.
+For P1 opportunity, industry/policy/bottleneck/class events or cross-company transmission, check a plausible second-order candidate and non-beneficiary/comparator where accessible. Mark unresolved, not invented; do not delay P0 for a complete beneficiary map.
 
-Use the freshest same-day evidence available at the run cutoff:
+### 6. Classify underwriting and hand off
 
-- at **08:00**, use U.S./Canadian futures plus overnight global markets because regular North American trading is not open;
-- at **11:30** and **15:00**, use actual same-day index/sector/factor movement rather than stale futures;
-- check the S&P 500, Nasdaq/large-cap growth, and TSX when relevant; rates/yields, oil, FX, volatility, credit, or commodities only when they are materially influencing the tape;
-- identify sector or factor leadership/weakness when it helps explain the user's portfolio moves.
+Each surfaced material event/thesis delta retains exactly one internal `Underwriting Required?` classification:
 
-Visible market-tape rules:
+- `NO`: evidence monitoring; no security work currently needed.
+- `CONDITIONAL — AFTER RWC`: causal/materiality/capture/expectations questions remain; normal new-P1 state.
+- `YES — RE-UNDERWRITE EXISTING`: current accepted security work may materially change and valuation/posture is the main remaining step; use actual re-underwrite triggers or live `requiresReunderwrite`.
+- `YES — NEW FULL UNDERWRITING`: enough independent causal/capture evidence is established to move to security valuation, not merely an exciting headline.
+- `YES — EVENT-TRADE UNDERWRITING`: adequate factual support for a discrete event whose unresolved questions are payoff/execution.
 
-- **maximum 3 bullets and roughly 80–100 words total**;
-- each bullet should combine the observed move with the best-supported driver, e.g. `Rates`, `Oil/geopolitics`, `AI/semis`, `Risk appetite`;
-- distinguish `observed` from `reported/likely driver`; if attribution is unclear, say so;
-- include an as-of time when using live prices;
-- do not repeat a company-specific event already clear in the lead Radar table unless it is genuinely driving the broader market;
-- do not promote a broad market move into P0/P1/P2 merely to populate the tape. It must independently pass the normal gates and portfolio/thesis relevance rules to become a Radar event;
-- if market data or reliable attribution is unavailable, say `Market tape unavailable or attribution uncertain` rather than inventing a narrative.
+Explain YES/CONDITIONAL in one sentence. Translate into plain next steps in chat instead of an acronym chain. A route does not claim a running worker, approved recommendation, saved proposal or fill.
 
-The market tape should help answer: **Is today's portfolio move mostly market/factor-driven, or is there a company/thesis-specific delta?**
+Stored P0/P1 handoffs preserve event/parent IDs, source/lane/cutoff and original dates, prior baseline, delta/thesis effect/detection status, thesis/pillar/forecast links, original hypothesis, preliminary mechanism, exposure/capture uncertainty, visible confounders, market state/reaction, frozen packet, strongest failure reason, sell-reason/gate if relevant, underwriting classification/rationale, up to three decisive RWC questions and next evidence/date. Ask RWC to challenge and verify, not prove Radar right. Normally show one primary question, at most two independent ones, in chat.
 
-### 2C. Run the mandatory specialized lanes
+### 7. Enforce analytical and execution boundaries
 
-Apply `references/specialized-lanes.md` on every scheduled run.
+Stop after exact delta, source/independence, timestamps, plausible mechanism, affected exposures, gates, strongest failure reason, route, underwriting requirement and next evidence. Defer full causality/counterfactuals/capture, variant perception, reverse valuation, dilution, scenarios/returns, clinical-commercial economics, event microstructure and allocation/hedging to their stages. Limited exceptions: urgent P0, comparing a frozen catalyst/forecast, retrieving one time-sensitive classification document or an explicit combined-workflow request. Do not let a price review consume broad-discovery coverage.
 
-The complete visible chat must always include:
+Apply controlled sell reasons and `sell-discipline-and-closeout.md` to every relevant owned News Radar/ChrisCamillo expression. Radar records review triggers, not final sells. Downstream may create only a PROPOSED TRIM/EXIT under its authorized workflow. User/broker executes; owned Investor Holdings `closedPositionId` is required for reconciliation. Partial closure retains residual exposure; full closure requires the supported postmortem. Missing tool/record means CLOSEOUT_PERSISTENCE_UNAVAILABLE or AWAITING_HOLDINGS_RECORD, not closure.
 
-1. **Price Monitor Check** — all readable active price monitors in a `Stock | Current price | Target / trigger | Action` table;
-2. **Slow-Burn Fundamentals**;
-3. **Catalysts / Evidence Due**;
-4. **Social Arbitrage / Alternative Data**;
-5. **Clinical / Medical**;
-6. **Expert / Industry Sources**;
-7. **TTWO — GTA VI / GTA Online / GTA+**;
-8. **AMZN — AWS / Retail / Ads / Optionality**;
-9. **HOOD — Customer / Product / Social Arbitrage**.
+### 8. Save, publish and verify
 
-For the eight narrative lanes, use `UPDATE`, `NO UPDATE`, or `UNAVAILABLE`. `NO UPDATE` means the lane was actually checked. Do not use it when a material feed or required state source was unavailable.
+Persist supported research-only events, evidence, observation history, catalyst/forecast packets, routes/underwriting requirements, specialist/price coverage, sell-review lineage and full run manifest. Respect ownership, schema, idempotency and fresh-state concurrency. After a bounded fresh-state retry fails, use verified authorized dated fallback and continue coverage; do not bypass version checks or spend the scan repeatedly repairing saves. Never place diagnostic fields into unsupported strict API payloads.
 
-For the Price Monitor Check:
+Publish **new news and opportunities + meaningful case changes + the complete simple stock table** in the same requested Radar report under `investment-firm-output/SKILL.md`. Critical warnings can lead; qualifying new news normally precedes recurring prices. Market context is compact and clearly attributed. Unchanged cases are not mini-reports; unchanged stock rows remain visible. A supported completed downstream recommendation can be relayed, never invented from a price hit.
 
-- include all active price-bearing monitors, including non-owned watchlist or underwriting monitors;
-- use the monitor's stored target/threshold/range and stored action only;
-- at 08:00 use reliable pre-market pricing when available, otherwise label the latest regular-session price `prev. close`;
-- at 11:30 and 15:00 use actual same-day pricing when available and state the price as-of time;
-- if one security has multiple actionable thresholds, use multiple rows unless the monitor stores them as one range;
-- if a target exists but no action is stored, write `REVIEW — action unspecified`;
-- if active monitor state cannot be loaded, say `UNAVAILABLE — active price-monitor state could not be read` rather than presenting a partial list as complete;
-- never execute the stored action or infer a new fair value, target, entry range, trim, exit, or sizing decision.
+Read prior canonical and fallback records before classifying or saving; preserve original detection separately from saved/report-prepared/delivered status. Append the combined report and stock snapshot to the existing private journal, not public GitHub. Retain existing per-slot IDs/stock-reader compatibility and avoid duplicate output on exact retries. A failed report save does not suppress important news; disclose it in the same output. Do not mutate the standing Decision List from Radar; its existing publisher owns scheduled refresh.
 
-A crossed price threshold activates the stored review/action workflow but is not by itself a fundamental Novelty pass.
+The weekday Daily Brief synthesizes, tracks research progress and updates the standing view; it must not be the only place fresh news is allowed to appear. Friday's AI-efficiency aggregation remains there, with the existing fixed cohort, backfill cursor and September 25 first eligible boundary. Material AI/disclosure news still appears in normal Radar as warranted with provenance and no automatic investment inference.
 
-### 3. Scan the relevant lanes
+## Completion checks
 
-Classify the run as one or more of:
+Record actual completion or limitations for urgent defense, the protected unseeded discovery pass, all eleven lanes, targeted thesis/evidence/catalyst work, quotes/monitor state and supported persistence. Missing private state must not be called checked-empty or suppress public news.
 
-- **Scheduled event scan** — the normal 08:00, 11:30, or 15:00 pass.
-- **After-close capture** — record earnings, filings, trial results, and regulator actions for the next queue without automatically deep-researching everything.
-- **User-supplied alert** — evaluate the exact item and its baseline.
-- **Holdings-risk scan** — prioritize current capital at risk.
-- **Active-thesis research** — test current Mind Model pillars, forecasts, falsifiers, and evidence gaps.
-- **Price-monitor check** — report all active monitored prices/thresholds/actions without executing them.
-- **Slow-burn fundamental delta scan** — append and compare filings, calls, KPIs, estimates, trial records, capacity, financing, share count, risk factors, or monitor evidence.
-- **Catalyst preparation** — create or refresh a frozen pre-event expectations packet.
-- **Evidence-due scan** — check promised or scheduled evidence whose date or window has arrived.
-- **Expert, social, or alternative-data scan** — identify original observations and preserve provenance.
-- **Bespoke holding lane** — run the permanent TTWO, AMZN, and HOOD search manifests defined in `references/specialized-lanes.md`.
+Use the existing run manifest to record source families/queries/time windows, unique new developments, new evidence, late detections, outside-universe candidates/unknown membership, unchanged follow-ups, material discoveries included in output and blocked coverage. These are diagnostic counts, not quotas or fabricated performance statistics. Preserve separate overlapping dimensions and actual event IDs.
 
-Declare the actual source universe searched and unavailable feeds.
+Check that fallback-only previously detected news is not recounted; genuinely new evidence is not incorrectly suppressed; first-publication and event dates are distinct; no unsearched universe receives an all-clear; completed stock decisions are separate from raw thresholds; consumed triggers do not re-fire; currencies/options/lots stay distinct; P0 was not delayed; routes do not invent work; and no financial baseline, thesis, threshold, holding or trade authority changed through Radar.
 
-### 4. Reconcile every serious observation with the Event Ledger and thesis baseline
-
-For every serious alert, thesis delta, cumulative pattern, or overdue-evidence item:
-
-1. identify the original source and underlying event;
-2. search for the most relevant prior guidance, filing, trial record, policy baseline, thesis pillar, forecast, monitor snapshot, or earlier reporting;
-3. search the Event Ledger for the same underlying fact or independence group;
-4. search the relevant Mind Model evidence ledger when a thesis is affected;
-5. assign one `delta_class`, one `thesis_effect`, one `detection_status`, one primary route, and one underwriting-requirement classification;
-6. group dependent coverage under one canonical `event_id`;
-7. append atomic slow-burn observations rather than inventing a dramatic headline;
-8. preserve a frozen catalyst or forecast packet and compare the result with it without rewriting the packet.
-
-If the baseline is unknown, use `UNKNOWN`, state what must be checked, and do not call the event genuinely new.
-
-#### Late-detection rule
-
-If the underlying event predates the current scan window but no canonical record exists, classify it `LATE_DETECTION`, backfill it, measure latency, identify the likely missed-feed reason, and route it normally. Never reject a material unrecorded event merely because it should have been found earlier.
-
-#### Missing-evidence rule
-
-When expected evidence is absent or delayed, record the absence as an observation. Radar detects the change in the evidence state; RWC determines whether the absence is economically or probabilistically meaningful.
-
-#### Price-dislocation rule
-
-An unusual stock move can trigger a targeted source search, but price action alone does not pass Novelty. Use `PRICE_DISLOCATION_UNEXPLAINED` until an underlying event or defensible attribution is found.
-
-A price-monitor threshold crossing similarly activates only the stored monitor workflow and is not proof of a new fundamental event.
-
-### 5. Persist research-only state
-
-For scheduled V3 runs, persist when supported:
-
-- the run coverage manifest;
-- canonical Event Ledger additions and updates;
-- first-seen, detection, and event timestamps;
-- duplicate and rejected items needed for calibration;
-- atomic slow-burn observations;
-- active-thesis research observations and checked-thesis coverage;
-- thesis evidence records for genuinely new decision-relevant claims;
-- linked Investor Research questions when the next missing fact is explicit;
-- reviewable Mind Model proposals when evidence may justify a thesis change, without approval;
-- underwriting-requirement classification and rationale;
-- P2 evidence requests and due dates;
-- catalyst packets;
-- market-tape as-of time and high-level drivers when persistence supports it;
-- specialized-lane coverage/status;
-- price-monitor coverage, quote timestamp and crossed-trigger status when supported;
-- feed outages, late detections, and persistence failures;
-- sell-review status, open TRIM/EXIT proposal lineage, and closeout-reconciliation gaps when the relevant state is available.
-
-Use MikeInvestor's research-write tools as the preferred canonical portfolio-aware store when connected: create or reuse a deterministic Radar event, preserve the observed `stateVersion`, and write only research lineage and routed findings. Use the other supported canonical stores for their own state. If unavailable, save a dated Library persistence record; its file format is not mandated. If no write path succeeds, report `PERSISTENCE_FAILED`.
-
-Do not use Radar persistence to approve or change Mind Model probabilities, thesis wording, underwriting posture, fair value, entry ranges, price-monitor targets/actions, kill criteria, review dates, or portfolio positions.
-
-### 6. Apply the five hard gates
-
-Assess each separately:
-
-1. **Novelty** — is there a genuine information delta, independent confirmation, cumulative change, contradiction, new risk, or changed evidence state rather than repeated guidance, stale coverage, circular sourcing, or non-comparable data?
-2. **Materiality** — could it materially change revenue, margins, cash flow, asset value, financing, probability, timing, thesis health, or permanent-loss risk?
-3. **Capture** — is there a listed security or existing thesis with sufficiently direct economic exposure?
-4. **Expectation** — is there a plausible reason the market may not fully understand the magnitude, duration, ownership, timing, second-order consequence, or attribution?
-5. **Researchability** — can a named document, datapoint, counterparty, benchmark, thesis source of truth, or dated catalyst resolve the important uncertainty?
-
-Failure of Novelty, Materiality, or Capture normally means `REJECT / DUPLICATE`. An unresolved Expectation or Researchability gate normally means `P2` or `P3`, not a forced rejection.
-
-Radar establishes only a plausible expectations question. RWC determines whether a genuine expectations gap survives.
-
-### 7. Map only enough exposure to route correctly
-
-For every serious item record:
-
-Aggregate exposure twice: first at issuer level across direct shares, CDRs/wrappers, and option-derived exposure; then at instrument level preserving each lot, wrapper, contract, strike, expiry, direction, and nonlinear risk.
-
-- direct holding or security;
-- linked thesis, pillar, forecast, watchlist exposure, or underwriting;
-- exposure type: `DIRECT`, `DERIVATIVE`, `READ_THROUGH`, or `NONE_IDENTIFIED`;
-- preliminary mechanism;
-- main capture uncertainty;
-- portfolio cluster when relevant;
-- linked security readiness and underwriting status when available.
-
-Require a second-order beneficiary and a false friend or comparator only for P1 opportunity discovery, industry or class-level events, bottleneck shifts, policy changes, or cases where cross-company transmission is the point of the lead.
-
-Do not complete detailed value-capture ranking inside Radar.
-
-### 8. Route the event
-
-Assign exactly one primary route:
-
-- **P0 — HOLDINGS / THESIS RISK:** potential thesis break, financing/liquidity problem, fraud/safety/regulatory issue, clinical hold or rejection, breached kill criterion, break indicator, or another permanent-loss concern. Investigate first.
-- **P1 — RESEARCH WITH CONFIDENCE NOW:** material, plausibly novel, economically traceable, and potentially misunderstood, misattributed, or incomplete.
-- **P2 — TARGETED EVIDENCE:** one named fact, document, denominator, customer, comparator, causal link, thesis source of truth, or due item is missing. State exactly what and when.
-- **P3 — MONITOR:** real development, but currently insufficient materiality, capture, expectation gap, or researchability.
-- **REJECT / DUPLICATE:** false, stale, repeated without a new delta, immaterial, circularly sourced, inaccessible, non-comparable, or not meaningfully captured by a public security or active thesis.
-
-Radar may flag a possible short-duration setup, but it must not convert recency into a trade. Route factual verification through RWC and event payoff or execution questions to Event-Trade Underwriting.
-
-### 8A. Classify whether underwriting is required
-
-Every surfaced P0, P1, P2, P3, and material thesis-research delta must include exactly one `Underwriting Required?` value:
-
-- **`NO`** — evidence belongs in thesis/evidence monitoring; no security underwriting is currently needed.
-- **`CONDITIONAL — AFTER RWC`** — the item could warrant underwriting, but causality, economic materiality, value capture, or expectations still need RWC. This is the normal classification for a new P1 candidate whose security work would be premature before RWC.
-- **`YES — RE-UNDERWRITE EXISTING`** — an existing security underwriting may have materially changed and the remaining decision work is principally current price, scenarios, value, downside, timing, kill criteria, or posture. Use this when TaskTracker explicitly marks `requiresReunderwrite` or when verified evidence has crossed a current underwriting's material re-underwrite trigger.
-- **`YES — NEW FULL UNDERWRITING`** — a new security has enough verified causal and capture evidence that valuation/security work is now the principal remaining step. Do not use this merely because an event is exciting; if RWC uncertainty remains material, use `CONDITIONAL — AFTER RWC`.
-- **`YES — EVENT-TRADE UNDERWRITING`** — a discrete short-duration event has adequate factual support and the main remaining questions are payoff states, break-even probability, executable price, liquidity, options, halt/gap, borrow, or slippage.
-
-This classification is routing metadata, not a valuation or investability conclusion. Radar must state the one-sentence reason for any `YES` or `CONDITIONAL` classification.
-
-When live TaskTracker state is available, use it as an input rather than guessing:
-
-- `reviewQueue.requiresReunderwrite` strongly supports `YES — RE-UNDERWRITE EXISTING`;
-- linked watchlist `securityReadiness`, Investor Research `underwritingStatus`, owned position status, thesis review state, and current kill/review triggers should inform the classification;
-- Mind Model transmission alone does not make a security decision-ready.
-
-### 9. Enforce the hard depth boundary
-
-A normal Radar item stops after establishing:
-
-- what changed versus baseline;
-- source origin, claim status, and independence;
-- timestamps and market status;
-- plausible materiality and preliminary mechanism;
-- affected holding, thesis, pillar, forecast, or candidate set;
-- five-gate results;
-- strongest reason the lead may fail;
-- primary route;
-- `Underwriting Required?` and brief reason;
-- three or fewer decisive RWC questions in the stored record;
-- next evidence and date.
-
-Stop and route when the remaining question is principally:
-
-- causal attribution or counterfactual analysis;
-- detailed economic materiality or value capture;
-- complete expectations analysis;
-- valuation, dilution, financing, scenario modeling, expected return, or timing;
-- clinical-commercial underwriting;
-- event payoff, options, liquidity, halt, borrow, or slippage;
-- portfolio sizing, funding, cluster loss, or hedging.
-
-Depth exceptions are limited to urgent P0 risk, comparison with an already frozen catalyst/forecast packet, retrieval of one time-sensitive classification document, or an explicitly requested combined workflow.
-
-### 9A. Compress the visible response, not the research
-
-The visible chat response should target roughly **75% of the prior V3 report length for an equivalent information set**. This presentation budget does not reduce source coverage, thesis sweeps, specialized-lane checks, Event Ledger reconciliation, persistence, or required stored audit state. **The visible chat is the complete user-facing Radar response; no separate Markdown artifact or attachment is required.**
-
-Apply these visible-output rules:
-
-- Do not repeat a fact already clear from the lead table unless the prose adds causality, uncertainty, provenance, or routing information.
-- P0/P1 visible detail blocks should normally be **120–160 words maximum each**. Exceed only for an urgent P0 when compression would make the classification misleading.
-- Compress the five gates to shorthand such as `Gates: N/M/C/R pass; E unknown`. Spell out only a failed or ambiguous gate that changes routing.
-- Show **one primary RWC question by default; maximum two** when genuinely independent. The stored record may preserve up to three.
-- P2/P3 should normally stay in the lead table only. Add prose only for overdue/missing evidence, unusual classification, or material portfolio-risk context.
-- Restate only the one or two baseline facts necessary to understand the delta.
-- State the mechanism once; do not rephrase the same causal chain repeatedly.
-- Mention only reconciliation items whose status changed. Otherwise use one sentence: `Open items reconciled; no additional decision-relevant delta.`
-- Show the Thesis Research table only when a material thesis delta exists. Unchanged theses belong in the coverage summary.
-- The `What's moving markets today` section is capped at **3 bullets / roughly 80–100 words total** and should not cause the response to exceed the compact-output budget materially.
-- The `Specialized lanes` section is mandatory. The Price Monitor Check is table-only by default; the other eight lanes should normally be one line each.
-- The Price Monitor Check does not count against the market-tape word budget. Do not add valuation commentary to it.
-- Compress the coverage manifest to one short closing paragraph in chat. Mention only material unavailable state, outages, blind spots, late detections, scan-gap recovery, price-monitor availability, and persistence status; persist the full manifest through the supported canonical store or dated Library fallback when available.
-- Omit a separate visible source register unless provenance itself is decision-relevant. Use inline citations instead.
-- Do not generate or link a separate Markdown file solely for Radar output.
-
-### 10. Produce the queue, market tape, specialized lanes, thesis-research result, and coverage result
-
-Lead with:
-
-| Priority | Event ID | What changed | Affected holding / thesis | Gate issue | Route | Underwriting Required? | Exact next question | Evidence / date |
-|---|---|---|---|---|---|---|---|---|
-
-Immediately after the lead table, add:
-
-### What's moving markets today
-
-Use up to three short bullets and roughly 80–100 words total. Cover only the broad drivers that are actually relevant to the day's tape. Separate observed price/index/factor movement from causal attribution and include an as-of time when using live market data.
-
-Then always add:
-
-### Specialized lanes
-
-#### Price Monitor Check
-
-Show the price as-of time and:
-
-| Stock | Current price | Target / trigger | Action |
-|---|---:|---:|---|
-
-Render every readable active price monitor. Use monitor-stored targets/actions only. If monitor state is unavailable, state that explicitly rather than presenting a partial list as complete.
-
-Then show:
-
-- **Slow-Burn Fundamentals:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **Catalysts / Evidence Due:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **Social Arbitrage / Alternative Data:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **Clinical / Medical:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **Expert / Industry Sources:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **TTWO — GTA VI / GTA Online / GTA+:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **AMZN — AWS / Retail / Ads / Optionality:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-- **HOOD — Customer / Product / Social Arbitrage:** `UPDATE | NO UPDATE | UNAVAILABLE` — compact status.
-
-If a specialized-lane update is already represented in the lead table, cross-reference it briefly instead of repeating the analysis. `NO UPDATE` is required when a narrative lane was successfully checked and no decision-relevant delta was found.
-
-For P0/P1, the visible detail block should normally contain only:
-
-1. exact delta versus the one or two relevant baseline facts;
-2. provenance only if it is not obvious from the table;
-3. one-sentence mechanism/materiality;
-4. gates shorthand;
-5. strongest failure reason;
-6. `Underwriting Required?` and brief reason;
-7. one primary RWC question, maximum two;
-8. next evidence/date only if not already clear from the table.
-
-For P2 and P3, the table row is normally sufficient. Put missing evidence/date and underwriting requirement in the row rather than expanding into a mini-report.
-
-When the Active Thesis Research lane finds a material delta, add a compact section:
-
-| Thesis | What Radar tested | New evidence | Pillar / forecast affected | Direction | Route | Underwriting Required? | Next test / date |
-|---|---|---|---|---|---|---|---|
-
-Do not list unchanged theses row-by-row. Record checked theses in the persisted manifest and summarize them compactly at the end.
-
-Preferred visible response order:
-
-1. title + one-sentence run status;
-2. lead table;
-3. `What's moving markets today` — maximum 3 bullets / roughly 80–100 words;
-4. `Specialized lanes` — Price Monitor Check table plus eight narrative status lines;
-5. compact P0/P1 detail only;
-6. Thesis Research table only when needed;
-7. one short `Other checks` paragraph only when needed;
-8. one short coverage/persistence paragraph.
-
-A valid no-lead run must be allowed. Say that no qualifying item was found in the searched universe, not that nothing material occurred anywhere. The Price Monitor Check and all eight narrative specialized-lane statuses still appear.
-
-## Handoff to Research With Confidence
-
-A P0 or P1 handoff must preserve:
-
-- `event_id`, lane, original source, and information cutoff;
-- prior baseline, `delta_class`, `thesis_effect`, and `detection_status`;
-- linked thesis, pillar, forecast, falsifier, or exposure when applicable;
-- original Radar hypothesis;
-- preliminary mechanism;
-- direct exposure and main capture uncertainty;
-- obvious confounders already visible without deep investigation;
-- market-open/closed status and available price context;
-- any frozen catalyst or forecast packet;
-- strongest reason the lead may fail;
-- candidate exit-reason class and sell-check gate when an owned position is under review;
-- `Underwriting Required?` classification and reason;
-- three or fewer decisive questions in the stored handoff;
-- next evidence and date.
-
-Do not ask RWC to prove the Radar thesis. Ask it to determine whether the claim, causality, materiality, value capture, and expectations gap survive independent verification and whether the lead deserves Full Underwriting, Event-Trade Underwriting, targeted research, waiting, monitoring, or rejection.
-
-## Slow-burn and thesis cadence
-
-- Intraday runs append genuinely new atomic observations and sweep current thesis falsifiers/forecast indicators.
-- A structured weekly review compares cumulative evidence with dated comparable baselines and reviews thesis diagnostics such as stale, concentrated, conflicted, missing challenge, or missing forecast.
-- Earnings, material filings, trial updates, major operating disclosures, or thesis forecast resolution dates trigger a comparable-period delta check.
-- Preserve history. Do not rewrite earlier observations, forecasts, or catalyst packets once the trend becomes obvious.
-
-## Quality check
-
-Before finishing, confirm that:
-
-- the V3 coverage manifest was completed or its failure was declared;
-- live holdings, active underwritings, monitors, active price monitors, theses, Mind Model review queue, catalysts, and evidence-due items were checked or explicitly marked unavailable;
-- every readable active price monitor appeared in the visible Price Monitor Check with current/latest reliable price, stored target/trigger, and stored action, or monitor state was explicitly declared unavailable;
-- the Active Thesis Research lane swept every readable non-retired thesis at least cheaply and deeper work followed the priority order;
-- all eight narrative specialized lanes were checked and visibly marked `UPDATE`, `NO UPDATE`, or `UNAVAILABLE`;
-- the TTWO, AMZN, and HOOD bespoke lanes ran every scheduled pass;
-- the market tape was produced from same-day data or explicitly marked unavailable/uncertain, with observed moves separated from attribution;
-- the original event and prior baseline were checked;
-- affected thesis pillars, forecasts, falsifiers, and watchlist evidence gaps were checked when relevant;
-- late detections were backfilled rather than discarded;
-- overdue or missing expected evidence was checked;
-- every event has one delta class, one thesis effect, one detection status, one primary route, and one underwriting-requirement classification;
-- repeated coverage sharing one origin was deduplicated;
-- source origin and claim status were not conflated;
-- P0 risks were not delayed for thesis, thematic, price-monitor, specialized-lane, or market-tape work;
-- slow-burn evidence used comparable periods and preserved atomic observations;
-- catalyst and forecast expectations were frozen before the outcome whenever practical;
-- price action or a crossed price-monitor threshold was not treated as proof of novelty;
-- no monitor action was executed automatically;
-- every owned-position sell trigger was routed under the sell-discipline contract, and no recommendation was treated as a broker-confirmed sale;
-- any closeout claim was backed by an owned Investor Holdings `closedPositionId`; otherwise `CLOSEOUT_PERSISTENCE_UNAVAILABLE` or the missing reconciliation state was declared;
-- no RWC, underwriting, event-trade, thesis-approval, or portfolio conclusion was smuggled into Radar;
-- every P0/P1 stored handoff has three or fewer decisive RWC questions, while visible output normally shows one and at most two;
-- every P2/P3 item has named next evidence or a reason no further work is warranted;
-- every material thesis delta states what it proves and does not prove when the persistence path supports those fields;
-- the visible response obeyed the compact-output budget, including the 3-bullet market-tape cap, without reducing specialized-lane coverage or required persisted audit state;
-- research-only state was persisted or `PERSISTENCE_FAILED` was declared;
-- a valid no-lead run was allowed rather than lowering the gates.
+A quiet run is legitimate only within stated searched coverage. A scan that never completed broad discovery is PARTIAL, not evidence that no new opportunities exist. Configuration/read-back checks alone are not a successful corrected live scan or confirmed delivery.
