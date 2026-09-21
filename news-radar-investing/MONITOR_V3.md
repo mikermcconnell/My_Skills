@@ -1,6 +1,6 @@
 # News Radar Investing V3 — Scheduled Monitor Instructions
 
-ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 5 or later. Do not layer another output contract over them.
+ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 6 or later. Do not layer another output contract over them.
 
 ## Schedule and outputs
 
@@ -8,7 +8,7 @@ Keep existing **08:00, 11:00 and 15:00 America/Toronto daily** runs, including w
 
 1. **New news and opportunities** — supported material developments, including outside our existing stock list; distinguish new events, new evidence on existing stories, older late detections and uncertain novelty.
 2. **Changes to existing investment cases** — meaningful new evidence/status/decision/deadline changes only; not recycled old case summaries.
-3. **Stock monitor — Buy / Hold / Wait / Sell** — one action-sorted combined CANONICAL + persisted LEGACY + PORTFOLIO DEFENSE queue, including unchanged eligible monitors and explicit data gaps.
+3. **Stock monitor — Buy / Hold / Wait / Sell** — Event Reaction strategy mechanics first, then one action-sorted combined CANONICAL + persisted LEGACY + PORTFOLIO DEFENSE queue for non-Event-Reaction expressions.
 
 Urgent portfolio risk may lead. Material news must not be suppressed until a BUY/SELL decision exists or deferred exclusively to the Daily Brief. The stock table remains required but does not define the news universe. Compact market context and source-coverage notes belong within this same output. Do not produce a second separate stock notification from the run.
 
@@ -31,6 +31,14 @@ The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains
 13. Save research-only records using supported canonical writes with fresh state/idempotency. After a bounded fresh-state retry, use verified authorized fallback instead of spending the run repairing persistence. Never bypass concurrency or put unsupported diagnostic fields in a strict API payload. Keep original lineage and saving limitations.
 14. Append the combined report, compatible stock snapshot and full coverage/discovery/source-class manifest to the existing private Reporting Journal with revision protection and read-back. Radar does not overwrite the Decision List; its existing daily publisher copies the latest completed snapshot with its original cutoff and preserves newer manual snapshots/unresolved cases. Never write private portfolio data or document IDs into public GitHub.
 15. Publish the combined report even on quiet or partial runs, with no forced news. Show supported material discoveries promptly, unchanged case details only where needed, and the combined stock queue every time. If saving failed, disclose within this same output. Use exceptional Action Alerts outside scheduled reports only when waiting materially matters; do not duplicate an unchanged outage or consumed trigger.
+
+## Event Reaction monitor exception
+
+For current positions explicitly tagged to Investor strategy_id `event_reaction` / alias `post_earnings`, read the current Investor strategy manifest and `references/event-reaction-strategy-mechanics.md`.
+
+Do not send those lots to RWC/Full Underwriting/Event-Trade Underwriting/Portfolio Capital Allocation for ordinary strategy stop/target/time mechanics. Display their confirmed entry, current price, calculated stop, +12.5%/85% partial target, +15% runner target, 30-trading-session time exit and mechanical action. Current rule numbers are examples of the September 21 manifest; the manifest remains authoritative.
+
+A material issuer headline can still appear as news. It does not replace the Event Reaction mechanics. If the same ticker is held under another strategy, keep that other expression in the normal combined queue.
 
 ## Combined stock table and readiness
 
