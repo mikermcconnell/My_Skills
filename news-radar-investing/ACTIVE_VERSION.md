@@ -18,7 +18,7 @@ event_reaction_mechanics_contract: news-radar-investing/references/event-reactio
 nancy_pelosi_tracker_contract: news-radar-investing/references/nancy-pelosi-tracker-lane.md
 price_monitor_mode: combined_canonical_persisted_legacy_portfolio_defense
 price_monitor_audit_format: action_sorted_queue_with_source
-price_monitor_rows: one_per_exact_security_not_one_per_source
+price_monitor_rows: generic_queue_one_per_exact_security_not_one_per_source; event_reaction_one_per_exact_security_strategy_lot
 price_monitor_visible_columns: Action | Stock | Current price | Next trigger | Source | What to do
 event_reaction_visible_columns: Action | Stock / lot | Entry | Current | Stop loss | Target sells | Time exit | What to do
 price_monitor_source_classes: CANONICAL; LEGACY; PORTFOLIO DEFENSE
@@ -48,7 +48,7 @@ markdown_artifact_required: false
 
 ## Single baseline and read order
 
-Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 5.
+Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 6.
 
 The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane are reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required. The combined-monitor patch changes the table's source union and schema, not the news-first sequence or cadence.
 
@@ -82,7 +82,7 @@ Same-ticker non-Event-Reaction expressions remain independently eligible for nor
 
 Read verified fallback seen-history as well as canonical event records. A fallback-only saved discovery is already seen even when a canonical write failed; preserve its first-detected date and persistence gap. Do not count it as new again. This does not promote fallback prose to an accepted thesis, active monitor, completed research or delivered notification. Missing history means novelty unverified.
 
-Use the existing per-slot `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` issue identity for compatible readers, now with report_format_version 5, stock_table_schema combined_action_queue_v1 and both news and stock content. A title/schema change does not justify a duplicate issue. Older snapshots remain dated with their actual schema and must not acquire invented source labels. Preserve canonical evidence IDs, original cutoffs, prepared/delivered distinction and the Daily Brief's independent window. Saved/last-run/notification flags are not actual delivery receipts.
+Use the existing per-slot `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` issue identity for compatible readers, now with report_format_version 6, stock_table_schema combined_action_queue_v2_with_event_reaction_mechanics and both news and stock content. A title/schema change does not justify a duplicate issue. Older snapshots remain dated with their actual schema and must not acquire invented source labels. Preserve canonical evidence IDs, original cutoffs, prepared/delivered distinction and the Daily Brief's independent window. Saved/last-run/notification flags are not actual delivery receipts.
 
 Radar appends research and snapshots to the existing private journal; Daily Brief remains the scheduled writer of the existing standing view. Preserve newer manual snapshots and unresolved cases. The simultaneous afternoon report must not be assumed completed. The brief provides synthesis/progress and Friday aggregation without reproducing the full Radar output; it is not the sole place new news appears.
 
