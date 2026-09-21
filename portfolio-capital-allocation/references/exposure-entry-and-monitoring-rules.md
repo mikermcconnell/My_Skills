@@ -108,7 +108,7 @@ When two securities express the same thesis, compare:
 
 The stronger company is not automatically the better security. Reallocate only when the expected improvement exceeds switching costs and uncertainty.
 
-## Monitoring contract
+## Evidence-earned sizing ladder\n\nFor every evidence-staged allocation, preserve an explicit progression:\n\n`Starter -> Target -> Maximum`\n\nEach step must record:\n\n- current weight;\n- next permitted weight;\n- evidence required to unlock that weight;\n- valuation/hurdle condition that must still be satisfied;\n- Bear-loss / cluster-risk condition that must still fit;\n- deadline or expected evidence window;\n- cancellation/falsifier;\n- gate status: `PASS | PARTIAL | FAIL | OVERDUE | NOT DUE`.\n\nScaling requires **both** the evidence gate and the valuation/risk gates to pass. A stronger narrative, repeated guidance, or a higher stock price does not count as earned evidence. A cheaper stock can improve expected return but does not substitute for missing proof when the stage was explicitly evidence-gated.\n\nIf the evidence gate passes but the stock no longer clears the return hurdle, do not add. If the evidence is overdue or fails, hold, reduce, or re-underwrite rather than allowing the position to drift toward its target automatically.\n\n## Monitoring contract
 
 Create an append-only allocation monitor containing:
 
