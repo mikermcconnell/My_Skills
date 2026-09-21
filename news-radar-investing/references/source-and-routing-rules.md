@@ -1,183 +1,91 @@
 # Source and Routing Rules — V3
 
-## Separate source origin from claim status
+Reconciled September 21, 2026. The run contract owns protected discovery and cadence; the feed map owns source coverage; `investment-firm-output/SKILL.md` owns the combined news/case-change/stock-table presentation. These rules do not require completed investment underwriting before surfacing a credible lead.
 
-### Source origin
+## Source origin versus claim status
 
-Use the most specific applicable category:
+Use the most specific source origin: regulator/court/government; securities filing/exchange; company IR/designated channel; trial registry/standards/official dataset; independent structured data provider; high-quality journalism; named expert/practitioner; anonymous industry source; or social/retail/forum observation.
 
-- regulator, court, or government;
-- securities filing or exchange notice;
-- company investor relations or designated corporate channel;
-- trial registry, standards body, or official dataset;
-- independent structured data provider;
-- high-quality journalism;
-- named industry expert or practitioner;
-- anonymous industry source;
-- social, retail, or forum observation.
+Classify the actual claim using supported values: REPORTED_FACT; REGULATOR_OR_COURT_FINDING; COMPANY_CLAIM; INDEPENDENT_CONFIRMATION; CHANNEL_CHECK_OR_OBSERVATION; DERIVED_CALCULATION; RESEARCHER_INFERENCE; UNSUPPORTED_ASSERTION.
 
-### Claim status
+A primary source can be promotional. Reliability changes confidence, not whether evidence supports or challenges the thesis. A new company statement establishes what was said, not that its forecasts/economics are independently proven. Use directly attributable current sources and preserve access limitations.
 
-Classify what the source actually provides:
+## Independence and seen-history
 
-- `REPORTED_FACT`
-- `REGULATOR_OR_COURT_FINDING`
-- `COMPANY_CLAIM`
-- `INDEPENDENT_CONFIRMATION`
-- `CHANNEL_CHECK_OR_OBSERVATION`
-- `DERIVED_CALCULATION`
-- `RESEARCHER_INFERENCE`
-- `UNSUPPORTED_ASSERTION`
+Assign one independence_group per material claim: an issuer release repeated by outlets; one syndicated wire; one analyst note summarized elsewhere; one registry update repeated by its sponsor; or genuinely separate counterparty/regulator/dataset/practitioner observations. Several articles with the same origin count once.
 
-A source can be primary and promotional. Reliability changes confidence, not whether a claim supports or challenges a thesis.
+Before declaring first detection, consult the canonical Event Ledger AND verified dated fallback/Reporting Journal. Reuse existing event/parent/evidence IDs where supported. A finding saved only in fallback is already seen for reporting even if its app write failed. Preserve first-detected time and the app-write gap; do not rediscover it every run. Fallback seen-history is not an accepted investment baseline, active monitor, completed research or proof of delivery.
 
-## Independence groups
+If history is unavailable, state novelty/history unverified. Do not infer zero prior events from missing access or empty app arrays when fallback research is readable. Prior public guidance can establish a comparison for a new company with no internal underwriting; missing internal coverage is not automatic rejection.
 
-Assign one `independence_group` to every material claim. Examples:
-
-- the same issuer release quoted by many outlets;
-- one newswire syndicated across publications;
-- one analyst note summarized by several websites;
-- one trial registry update repeated by the sponsor;
-- genuinely separate customer, supplier, regulator, dataset, or practitioner evidence.
-
-Several articles from one origin count as one evidentiary observation.
-
-## Gate guidance
+## Five gates
 
 ### Novelty
 
-Pass only when the claim or evidence state changes the prior baseline. Independent confirmation can pass even when the underlying claim is old, but label it correctly.
+Pass only for a real change in the fact/evidence state versus the relevant prior baseline. Independent confirmation may qualify for an old underlying claim, labelled as new evidence. A price move, article date, new ticker or mention count does not by itself pass.
 
-A large price move, a new headline, a fresh publication date, or a high mention count does not by itself pass Novelty.
-
-A missed expected document, removed KPI, delayed milestone, or unfulfilled promised proof may pass Novelty when the changed evidence state is itself new. Do not automatically infer that the implication is negative.
+Missing expected documents, removed KPIs, delayed milestones or unfulfilled proof can be newly relevant evidence-state changes. Repeated unchanged absence is not new every run, and absence is not automatically negative. If the source observation is supported but prior-state comparison is unavailable, keep Novelty UNKNOWN and identify the resolving check rather than inventing a PASS or discarding a worthwhile lead.
 
 ### Materiality
 
-Pass when a plausible bridge exists to at least one of:
-
-- revenue, units, price, market share, backlog;
-- gross or operating margin;
-- free cash flow, capex, working capital, debt, dilution;
-- asset value, reserves or resources, royalties, milestones;
-- clinical, regulatory, legal, transaction, or policy probability;
-- time to realization;
-- permanent-loss risk.
-
-Radar needs a plausible bridge, not a completed sensitivity model. Large social importance is not automatically security materiality.
+Require a plausible bridge to revenue/units/pricing/share/backlog; margins; free cash flow/capex/working capital/debt/dilution; assets/resources/royalties/milestones; clinical/regulatory/legal/transaction/policy probability; time to realization; or permanent-loss risk. Radar needs a plausible mechanism, not a completed sensitivity model. Social importance alone is not security materiality.
 
 ### Capture
 
-Pass only when a public security, existing holding, or active thesis has sufficiently direct economic exposure. Check the actual subsidiary, geography, product mix, royalty, customer relationship, ownership, share class, and dilution only far enough to avoid routing the wrong security.
+Require sufficiently direct potential exposure through a public security, holding or active thesis. Check actual issuer/subsidiary, product/geography, ownership/royalty/counterparty, share class and dilution far enough to avoid the wrong security. A newly identified public company need not already be held, watched or underwritten. For multi-party events consider unfamiliar counterparties or beneficiaries rather than defaulting to the familiar mega-cap.
 
-Research With Confidence owns the complete value-capture map. Full Underwriting owns fully diluted equity economics.
+RWC owns the complete independently verified value-capture map; Full Underwriting owns fully diluted equity economics. Unknown mapping/capture is a named research question, not a proven investment benefit. A demonstrably absent economic link fails this gate.
 
 ### Expectation
 
-Look for a plausible unresolved question involving:
-
-- prior guidance or public knowledge;
-- pre-event price run-up or selloff;
-- consensus estimates and revisions;
-- positioning, options, short interest, or narrative saturation;
-- missed duration, ownership, timing, second-order consequence, or attribution;
-- a security move that appears inconsistent with the underlying evidence.
-
-Radar does not need to prove mispricing. It only determines whether an expectations question deserves research.
+Identify a plausible unresolved question about prior public knowledge/guidance, pre-event price changes, consensus revisions, positioning/options/short interest/narrative saturation, duration/ownership/timing/second-order effects or disputed attribution. Radar does not prove mispricing or assign a percentage priced in; it identifies whether research is warranted.
 
 ### Researchability
 
-Pass when named documents, data, counterparties, disclosures, benchmarks, or dated catalysts can resolve the key uncertainty. A compelling but permanently unobservable story should not consume the highest research priority.
+Name a document, datum, counterparty, disclosure, benchmark, source-of-truth metric or dated catalyst that can resolve uncertainty. A permanently unobservable story should not consume highest research priority. Missing access is a limitation, not invented confirmation.
 
-## Priority rules
+## Route and priority
 
-Rank within each route using:
+Assess PASS/FAIL/UNKNOWN separately. A clear failure of Novelty/Materiality/Capture normally rejects or deduplicates; a credible observation with a resolvable unknown is not equivalent to failure. P1 needs a plausible positive novelty/materiality/economic-exposure case. A remaining targeted uncertainty can be P2/P3 without false certainty. Do not lower gates to meet a story quota.
 
-1. risk to an existing holding or active underwriting;
-2. breached or threatened kill criteria;
-3. potential permanent-loss magnitude;
-4. evidence due today or overdue;
-5. novelty and source proximity;
-6. financial materiality;
-7. exposure purity;
-8. time sensitivity;
-9. likely expectation gap;
-10. availability of decisive evidence.
+Assign exactly one primary route: P0 holdings/thesis risk; P1 Research With Confidence now; P2 targeted evidence; P3 monitor; REJECT/DUPLICATE. Name one concrete next step and evidence/date, retaining up to three decisive questions in the stored P0/P1 handoff. A route is not a running worker, trade-ready recommendation or executed trade.
 
-Do not rank by headline drama, raw mention count, or potential upside alone.
+Rank within targeted routes by imminent holding/underwriting risk, threatened kill criteria, permanent-loss magnitude, consequential due evidence, novelty/source proximity, financial materiality, exposure purity, time sensitivity, plausible expectations gap and decisive evidence availability. Do not rank by drama, mentions or upside alone. This ranking does NOT move broad discovery behind all routine known-case work: follow the protected pass immediately after bounded urgent triage.
 
 ## P0 fast path
 
-For a possible thesis break, financing or liquidity issue, fraud, safety event, regulator action, clinical hold or rejection, internal-control problem, or another permanent-loss concern:
+For a credible possible thesis break, financing/liquidity/fraud/safety/regulatory/clinical/internal-control/permanent-loss event, locate original support, resolve affected exposure where possible, state new risk versus prior baseline and the immediate evidence needed, and route promptly. If private ownership cannot be confirmed, qualify the portfolio implication rather than fabricate it or suppress an independently credible warning.
 
-- identify the original source;
-- confirm the affected holding or underwriting;
-- state the exact new risk and prior baseline;
-- name the immediate evidence needed;
-- route promptly.
-
-Do not delay a P0 alert to complete second-order beneficiary mapping, false-friend analysis, broad thematic context, or a full economic model.
+Do not delay urgent risk for beneficiary mapping, full valuation, table assembly or broad context. If this preempts discovery, record the skipped sources/window as partial and recover them. Unchanged old risk labels or failed saves alone do not create a fresh P0.
 
 ## Conditional security mapping
 
-Require direct exposure and the main capture uncertainty for every serious event.
+For each serious event identify direct security/exposure, preliminary mechanism and main capture uncertainty. Require a suitable second-order candidate and comparator/non-beneficiary when relevant to P1 opportunity, industry/policy/bottleneck/class events, already-recognized obvious issuers or cross-company transmission. Mark unknown when evidence is absent; do not force a beneficiary or delay P0. RWC independently verifies mapping before underwriting advancement.
 
-Require a second-order candidate and non-beneficiary or comparator only when the lead is:
+## Freshness and late detection
 
-- a P1 opportunity;
-- an industry, policy, bottleneck, or class-level event;
-- likely to be fully recognized in the obvious issuer;
-- valuable mainly because of cross-company transmission.
+Keep underlying event time, first public availability, first Radar detection, ingestion, research completion and report delivery distinct. Visible labels NEW DEVELOPMENT, NEW EVIDENCE — EXISTING STORY, LATE DETECTION and NOVELTY UNVERIFIED map to existing supported schema fields; do not add unsupported enums to strict writes.
 
-Research With Confidence must independently verify the complete security map before an underwriting advance.
+For earlier public information first detected now with no earlier canonical OR verified fallback detection: label LATE_DETECTION, preserve original dates, measure/estimate latency with uncertainty, identify likely missed-feed/process cause and route normally. Do not discard valuable late evidence or call it fresh because it was found today.
 
-## Late-detection routing
+A prior event newly disclosed publicly in the window is not automatically late; congressional filing date and trade date are the clear example. Dependent repeated coverage is FOLLOW_UP/DUPLICATE, not a newly detected event. A failed canonical write cannot reset first detection. If seen-history cannot be checked, qualify the novelty and latency conclusion.
 
-When an event predates the current scan window but has no canonical Event Ledger record:
-
-- label it `LATE_DETECTION`;
-- backfill the original publication and event timestamps;
-- calculate or estimate detection latency;
-- identify the likely missed-feed or process reason;
-- route using the same five gates as an on-time event.
-
-Do not call it new merely because Radar found it today, and do not reject it merely because it should have been found earlier.
+Outside-known-universe status is separate from freshness: compare with readable holdings/watchlist/underwriting records at discovery, or mark membership unknown. Familiar companies can have genuinely new news; unfamiliar companies can have old recycled stories.
 
 ## Price-dislocation routing
 
-An unexplained move may create a temporary `PRICE_DISLOCATION_UNEXPLAINED` investigation item.
+An unexplained move can create PRICE_DISLOCATION_UNEXPLAINED. Search poorly indexed filings/official decisions/trial records/issuer channels; counterparty/competitor/peer evidence; macro/commodities/rates/factors/index/options/short-interest/forced flows; and stale/false social attribution. Do not advance to P1 without a real underlying delta or defensible attribution question. A price-monitor crossing activates only its stored review workflow, never establishes fundamental novelty or automatic BUY/SELL.
 
-First search for:
+## Schedule and reporting
 
-- a poorly indexed filing, court action, regulator update, trial record, or company announcement;
-- customer, supplier, competitor, or peer read-through;
-- macro, commodity, rates, factor, index, options, short-interest, or forced-flow explanations;
-- stale or false attribution circulating in media or social channels.
+Existing runs are **08:00, 11:00 and 15:00 America/Toronto, daily**. Morning uses overnight/premarket context; midday intraday updates; afternoon pre-close evidence and decisions. Every slot retains protected broad discovery, targeted checks and the simple stock table. Explicit after-close capture preserves the next scheduled pass. Recover actual missed/partial source windows; do not use a scheduled timestamp as proof of a completed scan.
 
-Do not advance to P1 until a genuine underlying delta or defensible attribution question exists.
+Publish one combined report under the output contract: new news/opportunities first (urgent risks may lead), meaningful changes to existing cases second, and the stock table third. Material credible new findings are surfaced in the same run with uncertainty, not hidden until full underwriting or exclusively deferred to the Daily Brief. The brief synthesizes rather than republishes everything.
 
-## Scheduled cadence
+P0/P1 detail retains exact delta/baseline, source status, preliminary mechanism/exposure, strongest failure reason, underwriting requirement, precise question and next evidence/date. P2/P3 stay compact. Unchanged old cases belong in retained state/table, not as fresh news. All eleven lanes are checked; their unchanged status dump is not required in chat.
 
-The authoritative News Radar V3 schedule is:
+Stop when the remaining work is principally independent causality/counterfactuals, detailed materiality/capture/expectations, valuation/dilution/scenarios/returns/timing, clinical-commercial economics, event payoff/execution or portfolio construction. Preserve existing stage permissions and no automatic trading.
 
-- **08:00 America/Toronto:** overnight international developments, pre-market filings, regulator actions, portfolio risks, known catalyst outcomes, and evidence due before the open.
-- **11:30 America/Toronto:** intraday primary-source confirmation, new North American developments, updates to open events, and evidence-due checks.
-- **15:00 America/Toronto:** pre-close changes, time-sensitive holdings risk, final research-queue selection, unresolved-event status, and coverage exceptions.
-- **After close when explicitly invoked:** capture earnings, filings, trial results, and regulator announcements. Deep research only for P0 items or when explicitly requested.
+## No quota and audit
 
-Each run searches from the last successful timestamp and updates open events rather than rediscovering them. Advanced, delayed, partial, failed, or skipped runs must preserve the resulting gap and reason.
-
-## Scheduled output discipline
-
-A scheduled run should prioritize breadth and routing accuracy over mini deep dives.
-
-For P0 and P1, provide the exact delta, baseline, source status, preliminary mechanism, direct exposure, strongest failure reason, three or fewer Research With Confidence questions, and next evidence/date.
-
-For P2 and P3, state the missing evidence and date without expanding into a full report.
-
-Stop when the remaining work is principally causal verification, detailed materiality, full value capture, expectations analysis, valuation, dilution, scenarios, return, clinical-commercial analysis, event payoff, or portfolio construction.
-
-## No-quota rule
-
-A valid run may return no P0, P1, or P2 leads. Never lower the gates to produce activity. Report what was scanned, open-event updates, material duplicates, overdue-evidence checks, source and state limitations, and persistence status.
+A completed scan may find no qualifying new lead. Say no qualifying developments were found in the actual sources checked, not that nothing material happened anywhere. If discovery was incomplete, say so rather than report an unqualified zero. Persist actual source coverage, outside-universe search evidence, new/updated/late/duplicate IDs and material discoveries included in output in the existing manifest. They are diagnostics, not lead targets or proof of delivery. Failed saving and notification settings remain operational limitations, not novelty or investment conclusions.
