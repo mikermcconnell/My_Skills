@@ -20,3 +20,14 @@ Dedicated portfolio-allocation gate added to the Investment Firm workflow.
 - Do not infer personal risk tolerance; show sensitivity when no explicit loss budget exists.
 - Aggregate correlated economic clusters rather than relying on ticker count.
 - Preserve separate company, security, portfolio, and instrument decisions.
+
+
+## Evidence-earned sizing update — September 21, 2026
+
+Added a mandatory evidence ladder for staged allocations.
+
+Each staged position must now show:
+
+`Current weight -> Next weight -> Evidence required -> Valuation condition -> Deadline -> Gate status -> Cancellation/falsifier`
+
+Scaling requires evidence, valuation/hurdle, and portfolio-risk gates to pass together. Time passage, price appreciation, repeated guidance, or narrative momentum do not unlock additional capital by themselves. Failed or overdue proof blocks scaling and can route the position back to Full Underwriting.
