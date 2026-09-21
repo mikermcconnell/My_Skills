@@ -1,6 +1,6 @@
 # News Radar Investing V3 — Scheduled Monitor Instructions
 
-ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 6 or later. Do not layer another output contract over them.
+ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 7 or later. Do not layer another output contract over them.
 
 ## Schedule and outputs
 
@@ -16,10 +16,10 @@ The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains
 
 ## Run sequence
 
-1. Read the current skill, active pointer, run contract, source/routing rules, primary-source feed map, shared output contract and specialist/price/sell/disclosure/AI-efficiency references. All eleven checks remain required; record unchanged lane statuses in the audit, not a mandatory visible dump.
+1. Read the current skill, active pointer, run contract, source/routing rules, primary-source feed map, `references/emerging-signal-lens.md`, shared output contract and specialist/price/sell/disclosure/AI-efficiency references. All eleven checks remain required; record unchanged lane statuses in the audit, not a mandatory visible dump.
 2. Recover the actual window since the last verified completed cutoff, including delayed/advanced/partial/failed gaps. Keep intended slot, actual start/cutoff and receipt separate. Do not advance unsearched broad-source windows merely because a portfolio check succeeded.
 3. Make a bounded live-context/seen-history preflight and rapid urgent-risk screen. Read actual holdings, imminent evidence/instrument deadlines and potential P0 risks where available. Missing private state is a limitation, not a reason to abandon public news. Repeated routine connector retries and historic inventory cleanup do not belong before all discovery.
-4. **Complete the protected open-universe pass next**, before routine deep case reconciliation, thesis expansion, all-name quote assembly or downstream underwriting. Use actual unseeded broad searches across the four source families in `primary-source-feed-map.md`; record queries/feeds, windows, markets, outcome and limitations. Known-ticker searches alone do not count. No required number of leads or new tickers. A P0 emergency can preempt this, with explicit skipped-window recovery.
+4. **Complete the protected open-universe pass next**, before routine deep case reconciliation, thesis expansion, all-name quote assembly or downstream underwriting. Apply the Emerging Signal lens to detect trajectory-shaped leading indicators, not only discrete events. Use actual unseeded broad searches across the four source families in `primary-source-feed-map.md`; record queries/feeds, windows, markets, outcome and limitations. Known-ticker searches alone do not count. No required number of leads or new tickers. A P0 emergency can preempt this, with explicit skipped-window recovery.
 5. Complete remaining portfolio defense, source-led active-thesis tests, due evidence/catalysts and all eleven specialist lanes. Load current Mind Model pillars/forecasts/falsifiers and use the run contract's targeted priority; cheaply sweep each readable active thesis rather than deep-diving all of them. Missing live thesis state is not inferred from GitHub seeds or memory.
 6. Read all three monitor source classes and enumerate their union under `price-monitor-live-source.md`: active CANONICAL monitors, explicitly persisted structured LEGACY recovery records and concrete live PORTFOLIO DEFENSE conditions. Retrieve exact-instrument quotes near the comparison cutoff. Preserve source IDs/dates, active/inactive status, thresholds, consumed/re-arm and migration state. Canonical supersedes equivalent legacy; higher-priority defense may supersede a buy review. De-duplicate one row per exact security and keep applicable lot/strategy. No generic prose baseline, old table or upload ticker list becomes a live legacy row. Missing-level/disabled/mapping-blocked research remains a coverage note and existing case detail, not an invented monitor. Available quotes survive missing trigger state; unknown ownership/cash is not guessed.
 7. Build market context using futures/overnight data at 08:00 and actual regular-session data at 11:00/15:00 when open, otherwise labelled last-session prices. Distinguish observations from attribution; a price move is a search trigger, not proof of company news.
@@ -31,6 +31,21 @@ The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains
 13. Save research-only records using supported canonical writes with fresh state/idempotency. After a bounded fresh-state retry, use verified authorized fallback instead of spending the run repairing persistence. Never bypass concurrency or put unsupported diagnostic fields in a strict API payload. Keep original lineage and saving limitations.
 14. Append the combined report, compatible stock snapshot and full coverage/discovery/source-class manifest to the existing private Reporting Journal with revision protection and read-back. Radar does not overwrite the Decision List; its existing daily publisher copies the latest completed snapshot with its original cutoff and preserves newer manual snapshots/unresolved cases. Never write private portfolio data or document IDs into public GitHub.
 15. Publish the combined report even on quiet or partial runs, with no forced news. Show supported material discoveries promptly, unchanged case details only where needed, and the combined stock queue every time. If saving failed, disclose within this same output. Use exceptional Action Alerts outside scheduled reports only when waiting materially matters; do not duplicate an unchanged outage or consumed trigger.
+
+## Emerging Signal operating rule
+
+The Emerging Signal / Leading Indicator lens is global and does not add a twelfth lane.
+
+During each protected discovery pass and relevant specialist checks:
+- look for unusual acceleration/deceleration in adoption, demand, pricing, capacity, distribution, competition, operating leverage and behavior-to-financial conversion;
+- create/reuse Signal Sequences when cumulative trajectory matters;
+- compare new atomic evidence against the saved baseline/sequence, not just the newest headline;
+- surface credible upstream signals before reported financial conversion when there is a plausible business bridge and testable next evidence;
+- escalate P3/P2 -> P1 when cumulative evidence materially strengthens velocity, persistence, breadth, independence, business transmission or the expectations gap;
+- check due sequence confirmations at their natural cadence;
+- do not create a score, story quota, ticker quota, new task or automatic trade.
+
+Material sequences appear inside `New news and opportunities` using EARLY / BUILDING / ESCALATE wording when useful.
 
 ## Event Reaction monitor exception
 
