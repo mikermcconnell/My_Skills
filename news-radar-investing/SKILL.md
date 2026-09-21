@@ -1,7 +1,7 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-21-combined-monitor-patch
+revision: 2026-09-21-emerging-signal-lens
 description: Run the high-recall public-equity news front end: protect urgent portfolio risks, search beyond existing holdings and themes, distinguish new developments from new evidence and late detections, test active theses, check all eleven specialized lanes and the combined canonical/legacy/portfolio-defense monitor queue, and route precise research questions. Publish new news, meaningful case changes and the stock table together. Do not use Radar to manufacture valuation, final buy/sell decisions, position sizing or trade execution.
 ---
 
@@ -20,6 +20,7 @@ Use the latest files from the same current repository revision where practical:
 - `references/v3-run-contract.md`: run sequence, protected broad discovery, manifest, research boundary and quality tests.
 - `../investment-firm-output/SKILL.md`: sole user-facing layout, news/stock publication and delivery coordination.
 - `references/source-and-routing-rules.md`: source provenance, five gates, priority and freshness rules.
+- `references/emerging-signal-lens.md`: global leading-indicator pattern recognition, Signal Sequences, trajectory escalation and confirmation cadence.
 - `references/primary-source-feed-map.md`: mandatory broad-search design and source coverage; read on every scheduled run, not just audits.
 - `references/specialized-lanes.md`: all eleven required lane definitions. Coverage statuses belong in the persisted manifest; meaningful findings flow into the combined report.
 - `references/price-monitor-live-source.md`: combined CANONICAL/LEGACY/PORTFOLIO DEFENSE membership, source precedence, exact-security de-duplication, review actions, quote hierarchy/confirmation, consumed/re-arm state and failure handling.
@@ -51,6 +52,16 @@ Existing runs start at **08:00, 11:00 and 15:00 America/Toronto, daily**, includ
 - Mind Model owns approved theses/pillars/forecasts, evidence and proposal history. A pending proposal is not an approved change.
 
 A supported new lead can be shown before full underwriting. **Newsworthy and BUY-ready are different states.** Never demand a complete value-capture or valuation model merely to surface a credible researchable development.
+
+## Global Emerging Signal / Leading Indicator lens
+
+Radar must look for **things that rhyme**, not only named historical setups.
+
+Apply `references/emerging-signal-lens.md` during protected broad discovery and the Social / Alternative Data lane. For credible observations ask whether there is an unusual change in magnitude, velocity, persistence, breadth or independent confirmation; whether a plausible business bridge exists; whether expectations may lag; and what next fact would confirm or falsify the hypothesis.
+
+Use the pattern library across sectors: adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage/deleverage, distribution advantage/failure, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
+
+When the edge depends on a developing trajectory, preserve a Signal Sequence / parent hypothesis and compare each new observation with the prior trajectory. Do not wait for reported revenue or profit before surfacing a credible upstream signal; route missing conversion/expectations proof to P2 or P1 RWC as appropriate. Do not create a numeric score, quota, new lane, or new automation.
 
 ## Event Reaction strategy override
 
@@ -86,7 +97,7 @@ For live Mind Model, cheaply sweep every readable non-retired thesis: baseline, 
 
 Within targeted thesis work, deeper priority stays: owned `requiresReunderwrite`; EVENT_TRIGGERED; owned OVERDUE; other OVERDUE; DUE; BLOCKED/CONFLICTED; then timely tests of other active theses. Do not perform three full thesis deep dives daily. Each delta retains thesis/pillar/forecast IDs where supported, test, evidence, SUPPORT/CHALLENGE/CONTEXT, what it proves/does not prove, gates, route, underwriting requirement and next test.
 
-All eleven lanes remain required: prices; slow-burn fundamentals; catalysts/evidence due; social/alternative data; clinical/medical; expert/industry; TTWO; AMZN; HOOD; Pelosi household disclosures; AI Efficiency Watch. Record UPDATE, NO UPDATE, UNAVAILABLE or partial qualifications for each; NO UPDATE requires actual checking. Use current accepted baselines, not permanently hard-coded financial assumptions in a skill. New material findings appear in this run, not just the afternoon brief.
+All eleven lanes remain required, and the Emerging Signal lens applies across them where relevant: prices; slow-burn fundamentals; catalysts/evidence due; social/alternative data; clinical/medical; expert/industry; TTWO; AMZN; HOOD; Pelosi household disclosures; AI Efficiency Watch. Record UPDATE, NO UPDATE, UNAVAILABLE or partial qualifications for each; NO UPDATE requires actual checking. Use current accepted baselines, not permanently hard-coded financial assumptions in a skill. New material findings appear in this run, not just the afternoon brief.
 
 The Price Monitor Check produces one action-sorted table under `price-monitor-live-source.md`:
 
