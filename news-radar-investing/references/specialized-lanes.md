@@ -58,6 +58,12 @@ Rules:
 
 At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:00 use actual same-day regular-session pricing where open, otherwise labelled last-session data. Preserve quote/source dates and smallest unavailable fields. Check exact listing/share class/CDR/option, lot/strategy and inequality; never compare a USD underlying with a CAD or option-premium threshold. Fair value is not an automatic sell price. No price crossing, legacy visibility or defense review changes thesis, valuation, posture, position size or trade authority.
 
+### Event Reaction strategy positions
+
+Within the Price Monitor Check, identify exact live lots tagged to Investor strategy_id `event_reaction` / alias `post_earnings` and apply `event-reaction-strategy-mechanics.md` before the generic combined queue.
+
+These lots use the current strategy manifest's mechanical stop/partial-target/runner-target/time-exit rules and are shown in the separate Event Reaction mechanics subtable. Do not label ordinary Event Reaction mechanics RE-UNDERWRITE NOW, BUY/ADD REVIEW, TRIM REVIEW, or EXIT REVIEW. Same-issuer non-Event-Reaction positions remain separately eligible for the generic queue.
+
 ## 2. Slow-Burn Fundamentals
 
 Apply `slow-burn-and-catalyst-lanes.md`. Seek cumulative comparable changes in guidance, estimates/drivers, backlog/book-to-bill, pricing, utilization, capacity, margins, capex/cash conversion, share count/financing, disclosure quality, management wording, operating KPIs, repeated channel evidence and missing expected evidence. Preserve atomic dates/observations and distinguish new evidence from retelling an old thesis.
