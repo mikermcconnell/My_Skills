@@ -1,12 +1,12 @@
 ---
 name: investment-firm-output
-version: 5
+version: 6
 description: Publish new news and opportunities, meaningful changes to existing cases, and one action-sorted stock table combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
 # Investment Firm output contract
 
-Approved September 20, 2026; news-first correction and combined-monitor patch approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
+Approved September 20, 2026; news-first correction, combined-monitor patch, and Event Reaction mechanics override approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
 
 ## Authority and scope
 
@@ -55,12 +55,31 @@ If a development already appears in section 1, cross-reference it rather than re
 
 ### 3. Stock monitor — Buy / Hold / Wait / Sell
 
+### Event Reaction strategy split
+
+Before the generic combined queue, identify live positions explicitly tagged to Investor strategy_id `event_reaction` or its current manifest aliases such as `post_earnings`. Apply `news-radar-investing/references/event-reaction-strategy-mechanics.md`.
+
+**Do not route those Event Reaction lots to underwriting for ordinary stop, profit-target, runner-target, time-exit, valuation, or thesis-review mechanics.** Their position action is governed by the frozen strategy manifest. New company news may still appear in sections 1–2, but it does not convert the Event Reaction lot into a fundamental underwriting case.
+
+Render them separately:
+
+#### Event Reaction — strategy mechanics
+
+| Action | Stock / lot | Entry | Current | Stop loss | Target sells | Time exit | What to do |
+|---|---|---:|---:|---:|---|---|---|
+
+Read the current Investor `config/strategy-manifest.json` each run. The September 21 baseline is 10% stop; +12.5% partial target selling 85%; +15% runner target on the remaining 15%; 30 trading-session maximum hold. Calculate the corresponding prices from the confirmed entry fill. If the manifest or confirmed entry/partial-sale state is unavailable, show ER DATA NEEDED rather than infer levels.
+
+Event Reaction action labels are ER STOP SELL, ER PARTIAL TARGET SELL, ER RUNNER TARGET SELL, ER TIME EXIT, ER HOLD, ER MECHANICS REVIEW, or ER DATA NEEDED. These strategy exits do not require RWC, Full Underwriting, Event-Trade Underwriting, or Portfolio Capital Allocation solely to follow the frozen mechanics. User/broker execution and authoritative Holdings closeout remain required.
+
+Do not duplicate these Event Reaction mechanics in the generic CANONICAL/LEGACY/PORTFOLIO DEFENSE queue. If the same ticker also has a different strategy or long-term lot, keep that separate expression eligible for the generic queue.
+
 Return one action-sorted combined queue on every scheduled Radar report, including quiet runs and unchanged eligible monitors:
 
 | Action | Stock | Current price | Next trigger | Source | What to do |
 |---|---|---:|---|---|---|
 
-The monitored queue has a defined source-based universe; the news search is NOT restricted to it. Preserve actual quote timestamp, session, currency, original monitor/baseline date and source provenance in each row or compact notes. Show the smallest unavailable field rather than erasing a readable price or level. Retain all lower-priority thresholds/conditions in audit state, not multiple duplicate rows for the same security.
+After the Event Reaction mechanics subsection, render the generic combined queue. The monitored queue has a defined source-based universe; the news search is NOT restricted to it. Preserve actual quote timestamp, session, currency, original monitor/baseline date and source provenance in each row or compact notes. Show the smallest unavailable field rather than erasing a readable price or level. Retain all lower-priority thresholds/conditions in audit state, not multiple duplicate rows for the same security.
 
 **Three source classes.** Read and combine:
 
