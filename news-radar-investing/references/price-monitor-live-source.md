@@ -1,255 +1,104 @@
 # Price Monitor Live-Source Contract — News Radar V3
 
-This contract is authoritative for the `Price Monitor Check` specialized lane's dynamic monitor membership, quote verification, internal trigger classification and consumed/re-arm controls. **The shared `investment-firm-output/SKILL.md` version 2 owns user-facing presentation and publication.** Its mandatory simple stock-monitor table supersedes the older visible table and action labels below; those remain the internal trigger-audit format, not a competing scheduled report.
+Reconciled September 21, 2026. This file owns dynamic monitor membership, quote verification, internal trigger classification and consumed/re-arm controls. The latest `investment-firm-output/SKILL.md` owns visible labels and publication. The price lane supplements news discovery; it is not the boundary of Radar's news universe.
 
-## Reporting integration — September 21, 2026
+## Place within the scheduled run
 
-On every Radar run, prepare the stock-monitor snapshot required by the shared output contract and record it in the existing supported research/reporting journal. Scheduled scans contribute to the existing weekday Daily Brief; do not create another notification stream. Explicitly requested manual Radar or price-monitor reports include the simple table. Keep all eleven lane checks and the existing scan cadence.
+At each existing **08:00, 11:00 and 15:00 America/Toronto** daily Radar run, publish this lane's simple stock table as the third section of the combined news/case-change/stock report. Keep all eleven specialist checks. Do not create another table notification, dashboard or task; do not defer ordinary new news exclusively to the Daily Brief.
 
-The user-facing table is `Stock / position | Latest price | Buy / add level | Trim / sell-review level | What to do | Why / next step`. The plain recommendation is BUY, ADD, HOLD, WAIT, TRIM, SELL or REVIEW as defined by the output contract. Internal price-trigger labels below remain separate from that recommendation. A raw BUY REVIEW is REVIEW until required current underwriting/allocation gates actually complete; it is never upgraded to BUY merely by presentation.
+Read/attempt urgent monitor/ownership context during bounded preflight. Complete routine all-name quote assembly and ordinary price-trigger review after the protected broad-discovery pass under `v3-run-contract.md`. Genuine urgent risk can preempt discovery with a recorded coverage gap. The field-resolution order below describes the price subroutine, not permission to replace the full run with price checking.
 
-Include all dynamically read active monitored names, including unchanged WAIT/HOLD rows, and retain instrument-specific decisions. State quote/monitor cutoffs, verified coverage, reached price zones separately from completed buy decisions, and missing fields. Preserve available quotes when monitor state is missing. Obey all confirmation and currency rules below.
+Visible table:
 
-Where actual current accepted Library/other authorized baselines are readable but absent from app monitoring, show a separately labelled `REFERENCE SCREEN — monitor linkage unverified` within the same stock-monitor subsection. This is a sourced price-versus-baseline comparison, NOT a reconstruction of canonical active-monitor membership. Read the actual baseline and newer decisions, cite its date, retain unknown trigger history, exclude unlinked entries from armed-trigger counts, and never create/re-arm/migrate a monitor through reporting. Explicitly removed/disabled monitors stay inactive. Empty app arrays do not imply there is no historical research; unavailable source data do not imply empty arrays. Retain genuine live held names without recovered baselines as missing-level coverage rows rather than invent targets. The output contract specifies the full reconciliation and recommendation rules.
+| Stock / position | Latest price | Buy / add level | Trim / sell-review level | What to do | Why / next step |
+|---|---:|---|---|---|---|
 
-## Source-of-truth rule
+Include unchanged HOLD/WAIT names and distinguish exact instruments/strategies where decisions differ. BUY/ADD/HOLD/WAIT/TRIM/SELL/REVIEW means what the shared output contract defines. Internal BUY REVIEW remains REVIEW until required actual current downstream work completes. A plain recommendation can relay a current supported completed decision, not manufacture one from a crossing. No automatic trading.
 
-At the start of **every scheduled Radar run**, query the live canonical price-monitor / underwriting-monitor state available to that run and enumerate the active price-bearing monitors **from that source at run time**.
+## Dynamic source of truth
 
-Do not:
+Query actual available canonical live monitor/underwriting state each run and enumerate currently active price-bearing records, including non-owned candidates. Preserve monitor ID/status, current thresholds/ranges, stored downstream actions, ownership linkage, kill/review state, consumed triggers and re-arm logic. Changes flow into the next run from that source; no skill edit should be needed per ticker.
 
-- hard-code tickers, thresholds, targets, or actions inside News Radar;
-- use the prior Radar price table as the current monitor list;
-- carry forward a removed or disabled monitor merely because it appeared on an earlier run;
-- omit a newly added monitor because it was absent from an earlier Radar run;
-- cache a threshold, action, consumed-state, or re-arm state after the canonical monitor has changed it;
-- substitute remembered underwriting levels, analyst targets, disabled legacy tasks, or a locally reconstructed list for readable live monitor state.
+Never use a fixed ticker/level list, old prompt, analyst target, previous Radar table or remembered underwriting as live membership. Do not retain removed/disabled monitors, miss newly active ones or cache superseded actions/trigger state. Unknown membership is not a checked-empty list.
 
-A monitor added, removed, activated, disabled, re-armed, consumed, or edited in the canonical price-monitor system must therefore flow automatically into the **next Radar run** without a News Radar skill edit.
+Independently readable actual accepted current Library baselines absent from app monitors can appear only in a **REFERENCE SCREEN — monitor linkage unverified** portion of the same table. Read actual source plus newer decisions and retain original date; a quote comparison is not an active/armed trigger, refreshed underwriting, approved migration or trade-ready decision. Exclude reference-only rows from armed/new-trigger counts. Never reactivate explicitly disabled records. Include actual live holdings with missing recovered levels as missing-level coverage rows, not invented targets. Empty app arrays do not erase accepted research; unavailable sources do not mean empty arrays.
 
-## Separate monitor state from quote state
+## Independent data planes
 
-Treat these as **two independent data planes**:
+Canonical monitor state owns membership/status, levels/actions, ownership-linked conditions, trigger history and next valid workflow. Market-price state owns the price, exact instrument, currency, session, timestamp and provenance. Failure of one must not erase readable values from the other.
 
-1. **Canonical monitor state** owns membership, active/inactive status, ownership, thresholds/ranges, stored downstream actions, consumed-trigger state, re-arm logic, kill/re-underwrite state, and monitor identifiers.
-2. **Market-price state** owns the current or latest reliable security price, currency, market session, timestamp, and quote provenance.
+Fresh price but missing re-arm/trigger: show price, unavailable trigger/action and REVIEW with the exact gap. Readable trigger but unavailable quote: keep the stored level, mark quote missing and no price comparison. Unknown ownership but otherwise valid trigger/quote: retain the internal BUY/ADD REVIEW classification without guessing ownership; final personalized action/sizing remains unverified. Never use UNAVAILABLE as a blanket replacement for a successfully retrieved quote.
 
-Failure of one plane must **not erase readable data from the other plane**.
+## Price subroutine sequence
 
-Examples:
-
-- If a fresh NVDA quote is readable but its canonical trigger/re-arm state is not, show the fresh NVDA price and mark only `Action`, `Next trigger`, or `What to do` as unavailable as appropriate.
-- If canonical trigger state is readable but the current quote cannot be retrieved reliably, preserve the stored trigger in `Next trigger`, mark `Current price` unavailable, and do not activate an action that requires a price comparison.
-- If ownership alone is unavailable but the trigger/action is otherwise readable, preserve the price and trigger and use ownership-neutral `BUY/ADD` review wording rather than suppressing the row.
-- Do not use `UNAVAILABLE` as a blanket substitute for a price that was successfully retrieved.
-
-The row should expose the **smallest unavailable field**, while the internal row-level `Action` remains `UNAVAILABLE` whenever the unresolved field prevents a reliable trigger/action determination. The plain user-facing recommendation is REVIEW with the specific missing field, not a false all-clear.
-
-## Required run sequence
-
-Use this order on every run:
-
-1. Read the canonical live monitor source.
-2. Dynamically enumerate all records that are currently active and price-bearing.
-3. Resolve each security's ownership state when available, active thresholds/ranges, stored downstream actions, monitor identifier/status, trigger-consumed state, and re-arm rules.
-4. Retrieve the freshest reliable market price for the dynamically resolved security set as of the Radar cutoff using the quote-source hierarchy below.
-5. Apply the near-trigger / crossed-trigger confirmation rule when required.
-6. Mechanically determine which active trigger/action is currently the **next valid action** for each security. Respect consumed and re-arm state; a previously reviewed trigger must not remain actionable merely because price remains beyond it.
-7. Collapse the internal trigger view to **one row per security/decision expression**. Preserve all underlying thresholds in monitor/audit state, and retain separate instruments where decisions differ. The shared output contract controls the simple user-facing table.
-8. Sort the internal queue by action/urgency using the controlled order below; the user-facing table follows the shared contract's decision ordering.
-9. Record monitor-state and quote `as_of` timestamps plus quote source/provenance when supported. Prepare the shared table's coverage, accepted-baseline references and recommendation-readiness fields without changing investment state.
+1. Read live monitor state and active membership, resolving exact instrument and ownership where supported.
+2. Retrieve current threshold/action versions, consumed/re-arm conditions, monitor ID and review/kill state.
+3. Get the freshest reliable quote for each exact instrument at the actual comparison cutoff using the hierarchy below.
+4. Confirm near/crossed or ambiguous observations under the stricter rule below.
+5. Determine currently valid crossed/near/not-crossed state mechanically, respecting consumed/re-arm conditions.
+6. Select the highest-priority active review or closest next valid trigger per decision expression; preserve all underlying levels in the audit.
+7. Keep completed downstream recommendation separate from trigger state and translate under the output contract.
+8. Record monitor/quote as-of times, source tiers, confirmation, gaps and coverage; publish inside the combined report without mutating trigger state.
 
 ## Quote-source hierarchy
 
-The purpose of the quote hierarchy is to maximize reliable price coverage **without weakening trigger-state controls**. Use the best current source actually accessible during the run; do not declare a quote unavailable merely because one preferred website/feed failed.
+Use the best appropriate source actually accessible; a preferred provider failure alone is not a reason to declare all prices missing.
 
-### Tier 1 — direct / consolidated / official market data
+**Tier 1 — direct/consolidated/official market data.** Prefer a timestamped direct market-data tool, exchange feed or consolidated/official quote with unambiguous mapping. Examples include U.S. exchange-backed/consolidated feeds, TMX/TSX/TSXV for Canada and the relevant Euronext/local venue elsewhere. One verified Tier 1 observation may support ordinary not-near rows, and may meet the confirmation standard below when clearly current and exact.
 
-Prefer a direct market-data tool, exchange feed, consolidated tape, or official exchange quote when it provides a current timestamped price for the exact instrument.
+**Tier 2 — high-quality aggregator.** For U.S. equities prefer StockAnalysis when direct tooling is unavailable and a same-day timestamped quote is exposed; preserve any stated real-time/delayed/feed provenance rather than assuming it. It is not a source of monitor membership. Use a suitable timestamped local-market provider for other listings.
 
-Examples include:
+**Tier 3 — reputable secondary source.** Investing.com, MarketScreener or a comparable provider can fill gaps when exact instrument/currency/session/time are clear. Check fragmented small-cap and international mappings especially carefully.
 
-- U.S. consolidated or exchange-backed quote feeds;
-- official Nasdaq / NYSE / CBOE-backed market data when surfaced through an accessible provider;
-- TMX / TSX / TSXV official market data for Canadian listings;
-- Euronext or the relevant official exchange for European listings;
-- another official listing venue for securities outside those markets.
+**Tier 4 — indirect snippets/news, last resort only.** A stale article or unverified search snippet may supply explicitly dated context, not activate current BUY/ADD, TRIM, EXIT, near-trigger or re-underwrite price actions. Preserve the original timestamp and indirect/stale status; do not call the observation executable or current.
 
-A single high-quality Tier 1 quote may be sufficient for ordinary `NO ACTION` rows when the security is not near a trigger and the instrument mapping is unambiguous.
+## Near/crossed confirmation
 
-### Tier 2 — preferred high-quality quote aggregator
+Require confirmation when a first quote is within **5% of the next valid trigger**, appears through any valid entry/add/compelling/trim/exit/kill/review threshold, shows a classification-sensitive unusual move or has ambiguous symbol/share class/currency/venue/session.
 
-For **U.S.-listed equities**, prefer **StockAnalysis** when Tier 1 direct tooling is unavailable and StockAnalysis exposes a same-day timestamped quote. Preserve whether the page identifies the observation as real-time versus delayed/consolidated-tape data when available.
+Use **two current observations from differentiated sources**, or **one clearly timestamped direct/consolidated/official Tier 1 quote** with unambiguous mapping. Differentiated sources need not be independent economic data generators, but must help detect stale caches, wrong symbols, currencies or sessions. Record both sources/timestamps when used; do not portray different-time quotes as simultaneous.
 
-StockAnalysis is a preferred practical fallback because it commonly exposes same-day U.S. quotes with timestamps and identifies underlying CBOE / Nasdaq UTP provenance. It is **not** the canonical source for monitor membership or trigger state.
+If disagreement could change classification, do not average. Investigate exact instrument, session/time, corporate action/split, currency and delay. Keep a clearly superior quote visible if justified; unresolved disagreement leaves internal action UNAVAILABLE and visible REVIEW. Preserve reliable fields without issuing a guessed comparison.
 
-For non-U.S. securities, prefer a comparable high-quality local-market source that clearly resolves the exact instrument, currency, market session, and quote timestamp.
+## Internal review queue
 
-### Tier 3 — reputable secondary market source
+Retain the audit format `Action | Stock | Current price | Next trigger | What to do`. This is not a competing scheduled user report. Controlled order:
 
-If Tier 1 and Tier 2 are unavailable or incomplete, use a reputable secondary provider such as Investing.com, MarketScreener, or another established market-data source when it clearly identifies the correct instrument and provides a sufficiently current quote.
+1. **RE-UNDERWRITE NOW** — active canonical material review/kill trigger; run the required existing review before a portfolio decision.
+2. **EXIT REVIEW NOW** — active stored exit/kill-price workflow; refresh and decide downstream, never automatic exit.
+3. **TRIM REVIEW NOW** — valid valuation/trim boundary; refresh valuation before a reduction recommendation.
+4. **COMPELLING BUY REVIEW / COMPELLING ADD REVIEW** — deeper attractive valid threshold crossed; review underwriting then allocation if still supported.
+5. **BUY REVIEW NOW / ADD REVIEW NOW** — normal valid entry/add threshold crossed; same downstream gates.
+6. **GETTING CLOSE** — no valid trigger crossed, within 5% of the next valid trigger. Display only; no new underwriting/action solely from proximity.
+7. **NO ACTION** — no valid crossing/proximity; this means no new price-trigger action, not no thesis/portfolio risk.
+8. **UNAVAILABLE** — required state cannot support a reliable classification.
 
-For Canadian or international small-cap securities where coverage is fragmented, cross-check exchange, symbol, currency, and timestamp carefully before using the price.
+Use ADD for verified owned, BUY for verified unowned and BUY/ADD review where ownership is unknown. Within equal priority sort meaningful severity/proximity then ticker. User-facing stock decisions follow the shared contract's priority and plain labels.
 
-### Tier 4 — search/news snippets only as last resort
+If multiple thresholds are crossed, display the highest-priority valid action for that expression, not duplicate rows. A deeper nested compelling threshold supersedes ordinary entry. Between upside/downside levels show the active valid condition, otherwise nearest next valid trigger. Different options/strategies may need distinct rows; do not collapse incompatible decisions into an issuer-wide recommendation.
 
-Search-result snippets, news articles, or other indirect price references are last-resort context only.
+A consumed trigger is inactive until its explicit canonical re-arm condition is satisfied. Do not infer re-arm logic, consume it through publication or revive it because price stays beyond it. Its price relationship can remain visible as already reviewed. If missing trigger history changes the action, retain price but mark trigger/action unavailable. An old fallback observation can establish already-seen news for reporting, but cannot establish missing canonical re-arm state.
 
-Do not use an unverified snippet or stale article price to activate a current `BUY/ADD`, `TRIM`, `EXIT`, `GETTING CLOSE`, or `RE-UNDERWRITE` price action. If only indirect/stale evidence exists, show the best known price with its original timestamp only when useful and label it clearly as stale/indirect.
+## Failure and timestamp rules
 
-## Near-trigger and crossed-trigger confirmation
+If only one field fails, show the smallest missing field. If some membership/records/quotes are missing, label PARTIAL and retain valid rows. If no canonical membership can be read, say live active monitor membership/state unavailable and do not rebuild it from prior tables. Separately readable accepted-source reference rows remain reference-only. If a source is checked-empty, say NO ACTIVE PRICE MONITORS IN THIS SOURCE, not no historical research or no held securities.
 
-Apply stricter quote verification whenever the price could change the user's action queue.
+A stale fallback may be shown only when useful, with its original cutoff and STALE FALLBACK label; it cannot establish a current valid crossed/armed trigger. Quote fallbacks follow the source hierarchy within reasonable time; unknown prices cannot become BUY/SELL or an all-clear.
 
-A security requires **confirmation** when:
+At 08:00 use verified premarket or labelled previous close. At 11:00 and 15:00 use fresh actual regular-session prices when the relevant venue is open, otherwise explicitly dated last-session data. Never substitute a stale premarket value when a reliable regular-session one is available. Quote retrieval time is not necessarily trade time. Weekend/holiday data remain last-session, not fabricated live marks.
 
-- the first retrieved price is within **5%** of the next valid price trigger;
-- the first retrieved price appears to have crossed any valid buy/add, compelling, trim, exit, kill, or other price-based review trigger;
-- the price move is large enough that stale or mis-mapped data would materially change classification;
-- the instrument, share class, listing venue, currency, or market session is ambiguous.
+## Instrument and action boundary
 
-Confirmation standard:
+Verify security/company, share class, intended venue, currency, ADR/CDR versus ordinary share, corporate actions and session. Preserve strategy/lot and each option's underlying, premium, strike, expiry and direction. An underlying price cannot be compared with an option-premium trigger or a different currency/listing without a valid explicit mapping. Missing delta means no invented delta-adjusted exposure; missing cash means no inferred total NAV.
 
-- Prefer **two current observations from differentiated market-data sources**, or
-- one clearly timestamped direct/consolidated/official Tier 1 quote whose instrument mapping is unambiguous.
+`PRICE TRIGGER -> existing underwriting refresh -> if valid, allocation review -> human portfolio decision`.
 
-When using two sources, they need not be economically independent data-generators, but they should be sufficiently differentiated to detect a stale page, symbol mismatch, currency error, or bad cached observation. Preserve both sources/timestamps in audit state when practical.
+A crossing itself changes no thesis, fair value, position size, monitor boundary or holding. Fair value, dividend-inclusive target-date total value and consensus analyst estimates are not automatic sell thresholds. A sourced current completed downstream recommendation can be shown plainly only under the shared output gates. This never authorizes orders, shorts, fills, holdings mutation, optional workflow activation or history migration.
 
-If sources disagree materially enough to change the trigger classification:
+## Persistence and regression checks
 
-- do not average them;
-- investigate instrument, currency, timestamp, session, split/corporate-action, and delayed-feed differences;
-- keep the best-supported current price visible if one is clearly superior;
-- mark the internal action `UNAVAILABLE` and the user recommendation REVIEW when the disagreement cannot be resolved reliably before cutoff.
+Save in supported research/manifest/fallback: canonical source/read time; monitor ID/status; ownership; all threshold/action versions; consumed/re-arm state; exact listing/currency/session and quote provenance/tier/time; stricter confirmation sources; conflicts/resolution; crossed/near/not-crossed state; selected internal action/next valid trigger; visible supported recommendation provenance; source dates for accepted references; linkage/missing-field gaps and coverage.
 
-## Internal trigger action queue
+Snapshots are audit history, not tomorrow's source of truth when live sources are readable. Keep the compatible stock snapshot within the same combined Radar issue; its publication neither consumes/re-arms a trigger nor proves delivery. Radar appends to the existing journal; the Daily Brief maintains the standing view using original cutoffs, without duplicating the full table in chat.
 
-The following is the retained trigger-audit format, not a separate scheduled user report:
-
-| Action | Stock | Current price | Next trigger | What to do |
-|---|---|---:|---:|---|
-
-The internal table is an **action queue**, not a raw dump of every stored threshold. Translate it into the shared output contract's simple table only after separating price state, work status and completed recommendation.
-
-### Controlled internal actions and sort order
-
-Sort from highest to lowest urgency:
-
-1. **RE-UNDERWRITE NOW** — a canonical re-underwrite, kill, or equivalent material review trigger is active. Run the required underwriting refresh before any portfolio action.
-2. **EXIT REVIEW NOW** — a valid stored exit/kill-price workflow has been triggered. Refresh thesis/kill criteria and advance to exit decision only if the downstream review confirms it.
-3. **TRIM REVIEW NOW** — a valid stored valuation/trim trigger has been crossed. Refresh valuation and advance to trim review only if the downstream review confirms the valuation gap has closed.
-4. **COMPELLING ADD REVIEW** / **COMPELLING BUY REVIEW** — the most attractive stored buy/add threshold is currently valid and crossed. Use ADD for owned, BUY for confirmed unowned, BUY/ADD if ownership unavailable. Refresh underwriting immediately; if the thesis and threshold remain valid, advance to capital-allocation review. This is **not an automatic purchase**.
-5. **ADD REVIEW NOW** / **BUY REVIEW NOW** — a normal stored buy/add/entry threshold is currently valid and crossed. Use ownership-sensitive wording as above. Refresh underwriting; if thesis/valuation remain valid, advance to capital-allocation review. This is **not an automatic purchase**.
-6. **GETTING CLOSE** — no action trigger is crossed, but price is within **5% of the next valid price trigger** by default. Watch; no underwriting or portfolio action from proximity alone. The 5% band is a display rule only and does not change the canonical monitor.
-7. **NO ACTION** — no valid trigger is crossed and price is not within the 5% proximity band. No new price-trigger action; this is not proof that the company or portfolio has no outstanding risks.
-8. **UNAVAILABLE** — required state cannot be resolved reliably enough to determine the action. No price-monitor action from stale or guessed data.
-
-Within the same bucket, sort by proximity/severity when mechanically meaningful, then ticker alphabetically as a stable tie-breaker.
-
-### Selecting one internal trigger per security/decision expression
-
-- When multiple triggers are crossed, show the **highest-priority currently valid action**, not multiple duplicate rows for the same decision.
-- For nested buy/add levels, a deeper valid compelling threshold supersedes an ordinary entry/add threshold in the internal row.
-- For a security with both downside buy/add triggers and upside trim/valuation-gap triggers, show whichever valid action is actually active; otherwise show the closest **next valid** trigger.
-- A consumed trigger is not active until its canonical re-arm condition is satisfied. If a consumed threshold remains below/above the current price but has not re-armed, skip it and evaluate the next valid trigger. Its price relation may remain visible as already reviewed in the shared table, not a new action.
-- Do not infer re-arm logic. If canonical state does not reveal whether a previously triggered action is consumed/re-armed and that ambiguity changes the action, keep any reliable current price visible but mark the internal action and/or next-trigger state UNAVAILABLE and explain the ambiguity compactly.
-- If ownership is unavailable, do not guess BUY versus ADD; use internal BUY/ADD REVIEW NOW or COMPELLING BUY/ADD REVIEW when the underlying trigger itself is valid and readable. The user-facing recommendation remains REVIEW until its required gates are complete.
-
-## Unavailable-state rules
-
-UNAVAILABLE applies to the **decision field that cannot be resolved**, not automatically to every cell in the row.
-
-Internal examples:
-
-### Fresh price available; trigger/re-arm unavailable
-
-```text
-| UNAVAILABLE | NVDA | $229.45 at 15:25 ET | Trigger/re-arm unavailable | Current price is readable; no monitor action until canonical trigger state resolves |
-```
-
-### Trigger readable; quote unavailable
-
-```text
-| UNAVAILABLE | XYZ | UNAVAILABLE | <=$50 BUY review | Trigger is readable; no comparison/action until a reliable current quote is retrieved |
-```
-
-### Ownership unavailable; trigger and quote readable
-
-```text
-| BUY/ADD REVIEW NOW | XYZ | $49.20 at 14:40 ET | <=$50 entry review | Refresh underwriting; if still valid, advance to capital-allocation review; ownership unresolved |
-```
-
-### Whole monitor source unavailable
-
-If canonical monitor membership itself cannot be read and no other canonical active-monitor source is available, show:
-
-`UNAVAILABLE — live active price-monitor membership/state could not be read`
-
-Do **not** reconstruct the active monitor universe from a prior Radar table merely to populate rows. Separately readable actual baselines/holdings may be shown with the shared contract's reference-only or missing-level labels, never as an invented active-monitor source.
-
-## Freshness and failure behavior
-
-The canonical price-monitor state is the source of truth for **membership, target/trigger, ownership-linked action, consumed state, re-arm state, and downstream workflow**. Market-data sources are the source of truth for **current price**.
-
-Do **not** silently fall back to a previous Radar table or stale static monitor list. A stale monitor fallback may be shown only when explicitly useful and must be labelled STALE FALLBACK with its original timestamp; it must never be presented as current monitor state or used to issue BUY/ADD/TRIM/EXIT REVIEW NOW.
-
-For quote retrieval specifically, failure of one provider is **not** enough to declare the price unavailable. Attempt the next appropriate source tier when doing so is practical within the run cutoff.
-
-If a fresh quote exists but monitor trigger/re-arm state is unresolved, **show the quote anyway** and mark only the decision-dependent fields unavailable.
-
-If the monitor source is readable but a quote remains unavailable after reasonable source fallback, retain that security row, preserve any readable trigger, and mark the action unavailable when the trigger comparison cannot be made.
-
-If the monitor source is only partially readable, clearly label the table PARTIAL and never imply completeness.
-
-If the canonical source confirms there are no active price-bearing monitors, show NO ACTIVE PRICE MONITORS for that source. Do not translate it into no historical underwriting, no held securities, or no price-screening candidates. Reconcile actual separately readable sources as described above.
-
-At **08:00**, use reliable pre-market pricing when available; otherwise use the latest regular-session close and label it prev. close.
-
-At **11:30** and **15:00**, prefer actual same-day regular-session pricing and preserve the quote as-of time. Do not substitute stale pre-market pricing when a regular-session quote can be obtained.
-
-## Instrument and currency validation
-
-Before using a quote for trigger classification, verify when relevant:
-
-- ticker and company/security identity;
-- share class;
-- primary or intended listing venue;
-- quote currency;
-- ADR/CDR/wrapper versus local ordinary share;
-- split or other corporate action;
-- regular-session versus pre/post-market session.
-
-If instrument mapping is unresolved, a price for a different listing is not a valid substitute for a canonical trigger denominated on another instrument/currency.
-
-## Trigger behavior and action boundary
-
-The internal action translates the canonical monitor into a decision queue; it is **not** permission to trade.
-
-A crossed price trigger activates only the downstream workflow named by the canonical monitor. In particular:
-
-`BUY/ADD PRICE TRIGGER -> refresh underwriting -> if still valid, capital-allocation review -> portfolio decision`
-
-Radar must never translate a price crossing directly into BUY, ADD, SELL or TRIM as an executed instruction. Its trigger engine uses the controlled review labels above. The shared user-facing table can state a plain BUY/ADD/TRIM/SELL recommendation only when a separate current completed review actually supports it under the output contract, never from price alone.
-
-A crossed trigger does not by itself change a thesis, fair value, security posture, holding, or portfolio size.
-
-## Persistence
-
-Persist the dynamic monitor coverage snapshot when supported, including:
-
-- canonical monitor source and read timestamp;
-- monitor identifier when available;
-- active/inactive state used for inclusion;
-- ownership state when available;
-- all stored thresholds/ranges and downstream actions;
-- consumed/re-arm state;
-- market-price source, source tier, quote timestamp, session, listing, and currency;
-- confirmation source(s) when the security was within 5% of or through a valid trigger;
-- any material source disagreement and how it was resolved;
-- mechanically determined crossed/near/not-crossed state;
-- selected internal action and next valid trigger;
-- unavailable fields versus row-level unavailable action;
-- unavailable or partial monitor state;
-- separately labelled accepted-baseline references, monitor-linkage gaps and completed-recommendation provenance for the shared stock table.
-
-Persisted snapshots are audit history only. They are **never** the source of truth for the next run when the live canonical monitor source is readable. Publication does not consume/re-arm a trigger or prove delivery.
+Validate no missed intended names, no invented targets from memory, no missing-price BUY/SELL, no consumed-trigger repeat, correct currency/options, and reference-only separation. Also verify this subroutine did not silently displace protected news discovery. Keep failures in the existing run audit, not a new reporting service.
