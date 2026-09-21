@@ -1,7 +1,7 @@
 ---
 name: investment-firm-output
 version: 6
-description: Publish new news and opportunities, meaningful changes to existing cases, and one action-sorted stock table combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
+description: Publish new news and opportunities, meaningful changes to existing cases, Event Reaction strategy mechanics, and an action-sorted stock queue combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
 # Investment Firm output contract
@@ -128,7 +128,7 @@ Before classifying novelty, consult both the accessible canonical Event Ledger a
 
 Separate four states: first detected; saved in a supported record/fallback; research work actually completed; delivered to the user. Failed persistence does not make old news new, and a saved report does not prove delivery. Undelivered important findings may carry forward compactly as dated carry-forwards without being counted as discoveries again.
 
-Retain the existing per-slot ID `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` for compatibility; it now contains the combined Radar report with `report_format_version: 5`, `stock_table_schema: combined_action_queue_v1`, original event IDs and the stock snapshot. Read older stock-only/combined schemas with their dates, never inventing source classes for an old row. Check records for the same slot before an exact retry; do not create two issues solely because title or schema changed. Preserve earlier records and original cutoffs. Label preparation and DELIVERY_UNCONFIRMED until there is a real delivered-message reference or explicit acknowledgement. Notification flags, last-run time and a successful save are not receipts.
+Retain the existing per-slot ID `stock-monitor:YYYY-MM-DD:HHMM:America_Toronto` for compatibility; it now contains the combined Radar report with `report_format_version: 6`, `stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics`, original event IDs and the stock snapshot. Read older stock-only/combined schemas with their dates, never inventing source classes for an old row. Check records for the same slot before an exact retry; do not create two issues solely because title or schema changed. Preserve earlier records and original cutoffs. Label preparation and DELIVERY_UNCONFIRMED until there is a real delivered-message reference or explicit acknowledgement. Notification flags, last-run time and a successful save are not receipts.
 
 For each stock row retain visible source class, legacy event/result identifier and original date, migration and known consumed/re-arm state, defense trigger type/applicable position, and canonical-over-legacy suppression reason. Keep all contributing record IDs, exact-security key, lower-priority conditions and per-class coverage in supported audit storage. These reporting fields are not new production API schema requirements; unsupported enrichment stays in the manifest/fallback.
 
