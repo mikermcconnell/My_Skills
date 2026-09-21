@@ -1,161 +1,103 @@
 # Primary-Source Feed Map — V3
 
-Use this map to design or audit Radar coverage. It is a source architecture, not a claim that every feed is connected or complete. State which feeds, holdings, underwritings, theses, catalysts, and evidence-due items were actually checked during each run.
+Reconciled September 21, 2026. Read on every scheduled Radar pass, not only coverage audits. This is a source architecture, not a claim that every feed is connected or complete. Record actual sources, windows, markets and limitations.
 
 ## Core principle
 
-Prefer the source closest to the underlying event, then use independent sources to interpret, challenge, or confirm it.
+Prefer the source closest to the event, then independent sources to interpret, challenge or confirm it. Journalism, experts and social observations can discover an event before a primary-source search; follow worthwhile leads back to the original filing, decision, dataset, statement or observable evidence when accessible. Label inaccessible primary support instead of inventing verification.
 
-A derivative article can surface an event faster than a primary-source search, but the Event Ledger should link back to the original filing, decision, dataset, trial record, statement, or observable evidence whenever available.
+News discovery is open-universe. The stock-monitor table has a defined active list; that list must not become a filter excluding other public companies from news discovery. A credible new fact can deserve research before it supports a trade.
 
 ## V3 coverage order
 
-Search in this order unless a time-sensitive event requires otherwise:
+1. **Bounded preflight and urgent portfolio-risk triage.** Identify imminent permanent-loss or instrument risks and necessary ownership/history context. P0 can interrupt all work. Do not complete a full historical portfolio reconciliation here.
+2. **Protected open-universe discovery.** Search broad current sources before routine case expansion, thesis deep searches, quote-table assembly and persistence repair. Use event/category/source-led queries, not only current tickers, active thesis keywords or known counterparties.
+3. **Targeted coverage and continuation.** Complete remaining portfolio defense, known catalysts, open cases, active-thesis tests, ecosystem sources and all eleven specialist lanes. Apply risk priority within this work; preserve required coverage or disclose a partial pass.
+4. **Classification, bounded saving and combined publication.** Deduplicate against canonical plus verified fallback memory, record supported research and show material new findings in the current Radar report with the stock table.
 
-1. active holdings, active underwritings, monitors, kill criteria, and evidence due;
-2. known catalysts and open P0/P1/P2 items;
-3. active Mind Model theses and watchlist candidates;
-4. named customers, suppliers, partners, competitors, regulators, and ecosystem sources linked to those exposures;
-5. broad opportunity discovery.
+Routine unresolved work cannot consume the entire broad-discovery pass. If a genuine P0 emergency preempts it, record PARTIAL/NOT_RUN with skipped source families/window and recover next run. Unavailable private state restricts attribution/decision fields, not public-news discovery. Failed external sources remain explicit gaps, not evidence of no new events.
 
-This ordering protects current capital without turning every run into a full portfolio review.
+## Required broad-discovery pass
+
+At each 08:00, 11:00 and 15:00 Toronto run, plan and attempt these four source-family passes across relevant U.S., Canadian and international markets as accessible. This is a coverage floor, not an article, ticker or investment-lead quota:
+
+| Source family | Discovery not limited to existing holdings |
+|---|---|
+| Broad issuer and market-news scan | Review current cross-sector news/feed or search results without a saved-ticker whitelist. Identify actual operating, transaction, financing, demand or product changes, not just market-price commentary. |
+| Filing, exchange and company disclosures | Scan relevant recent filings, material issuer releases, guidance revisions, contracts, financing, corporate actions and exchange notices beyond the known-name queue. |
+| Official decisions | Scan relevant regulator, court, policy, procurement and clinical decision sources; identify materially changed access, probability, liability, approval or timing. |
+| Industry and ecosystem change | Scan current demand/supply, pricing, capacity, technology, customer/supplier and independent industry evidence, including non-AI sectors and unfamiliar public counterparties where pertinent. |
+
+Retain actual queries/feed names, source family, seed type (UNSEEDED_BROAD or TARGETED), markets/categories, requested time window, retrieval time, source timestamps, original-source follow-through and outcomes. A query that just lists existing holdings is targeted even if called broad. Do not claim COMPLETE from four failed searches or from opening four copies of the same syndicated story. Use differentiated appropriate sources where one fails and preserve any remaining gap. Do not claim exhaustive global coverage from a sample.
+
+Follow newly encountered leads far enough to distinguish new fact from recycled reporting and map a plausible listed beneficiary/exposed company. A known mega-cap need not be the main economic beneficiary. Consider counterparties, substitutes and non-beneficiaries when the event mechanism makes that relevant; full value capture remains RWC's work. A new ticker alone is not an opportunity, and none must be forced into a quiet run.
+
+For newly encountered companies, compare prior public guidance/filings/announcements even when no accepted internal underwriting exists. If novelty or mapping cannot be established, label it and route a precise evidence question when worthwhile. Missing private baseline is not automatic grounds to ignore public news; equally, unknown is not a Novelty PASS.
+
+The protected pass covers genuinely fresh information since the last verified relevant cutoff plus labelled overlap/recovery for indexing gaps. Public availability time, underlying event time and first detection differ. Do not relabel old late discoveries as breaking news or let old recovery work dominate every fresh-window pass.
 
 ## General public-equity sources
 
 ### Securities and exchange disclosure
 
-Monitor where relevant:
+Use relevant SEC EDGAR submissions/inline XBRL, ownership/registration/tender/merger filings; SEDAR+ issuer filings; exchange notices, halts, listing changes and corporate actions; issuer IR releases, presentations, transcripts and designated channels; and debt/rating/covenant/credit evidence when capital structure matters.
 
-- SEC EDGAR submissions, inline XBRL facts, ownership filings, registration statements, tender or merger materials;
-- SEDAR+ issuer filings and disclosure alerts;
-- exchange notices, trading halts, listing changes, corporate actions, and material issuer announcements;
-- issuer investor-relations feeds, earnings releases, presentations, transcripts, and designated disclosure channels;
-- debt, rating-agency, covenant, financing, and credit disclosures when capital structure is material.
+Priority deltas: guidance, segment/KPI definitions, risk factors, accounting policies, auditor/internal controls, covenants/liquidity, shares/compensation, related parties, customer concentration and capital allocation. Missing previously material tables, removed KPIs and overdue disclosure can matter. Issuer claims are primary evidence of what management says, not independent proof of economics.
 
-High-priority filing deltas include:
+### Regulators, courts, policy and official data
 
-- guidance, segment, KPI, risk-factor, accounting-policy, auditor, internal-control, covenant, liquidity, share-count, compensation, related-party, customer-concentration, and capital-allocation changes;
-- removed tables, changed definitions, missing previously material disclosures, or evidence that was due but did not arrive.
+Use the original body for decisions/enforcement/permits/sanctions/tariffs/reimbursement/safety/recalls/licenses/rulemaking; dockets/opinions/settlements/injunctions/transaction decisions; procurement/budgets/grants/subsidies/statistics/trade/energy/transport notices; and standards/certification records. Track public release and expected windows; absent or delayed actions are evidence-state observations without automatic negative interpretation.
 
-### Regulators, courts, policy, and official data
+### Company ecosystem
 
-Use the relevant original body for:
+Check named customers, suppliers, partners, distributors, competitors and industry bodies. Orders, capacity, partner economics, competitor launches and omissions may matter more than promotional issuer claims. These targeted searches supplement the open-universe pass rather than satisfying it alone.
 
-- regulator decisions, enforcement, permits, sanctions, tariffs, reimbursement, safety actions, recalls, licenses, and rulemaking;
-- court dockets, opinions, settlements, injunctions, and transaction decisions;
-- government procurement, budgets, grants, subsidies, statistics, trade data, energy data, and transportation or shipping notices;
-- standards bodies and official certification records where technical adoption depends on approval.
+## Clinical, biotech and medical sources
 
-Track decision windows and expected dates. A missing or delayed official action can become an evidence-state observation even before its economic meaning is known.
+Use ClinicalTrials.gov/other registries with history; FDA, Health Canada, EMA, MHRA, PMDA, NMPA and reimbursement/assessment bodies; peer-reviewed work, conference abstracts, protocols, analysis plans, labels, briefing/advisory materials and safety databases; sponsor/partner filings for rights, royalties, milestones, manufacturing, launch, runway and financing.
 
-### Company ecosystem evidence
+Registry changes show record changes, not automatically success/failure. Compare archived baselines and sponsor versus regulator origin; check enrollment, sites, endpoints, completion/decision dates and overdue evidence. Preserve medical specialist safeguards; broad discovery is not clinical-commercial underwriting.
 
-Check named customers, suppliers, partners, distributors, competitors, and industry bodies. A customer order, supplier capacity statement, partner economics, competitor launch, or counterparty omission can be more decision-relevant than the focal company's promotional claim.
-
-## Clinical, biotech, and medical sources
-
-Use when relevant:
-
-- ClinicalTrials.gov and other jurisdictional trial registries, including version history;
-- FDA, Health Canada, EMA, MHRA, PMDA, NMPA, reimbursement and health-technology-assessment bodies;
-- peer-reviewed publications, conference abstracts, protocols, statistical-analysis plans, labels, briefing documents, advisory-committee materials, and safety databases;
-- sponsor filings and partner disclosures for rights, milestones, royalties, manufacturing, launch, runway, and financing.
-
-Registry changes are evidence of a record change, not automatic proof of clinical success or failure. Compare the archived baseline and identify sponsor versus regulator-originated information. Track enrollment, sites, endpoints, completion dates, decision windows, and evidence that becomes overdue.
-
-## Sector-specific examples
+## Sector examples
 
 ### Technology and industrials
 
-- product qualification, standards, benchmark, patent, developer, procurement, cloud-capacity, supply-chain, channel, lead-time, backlog, manufacturing, power, cooling, networking, packaging, and financing evidence;
-- named-customer or ecosystem confirmation rather than generic total-addressable-market claims;
-- migration of a bottleneck from one layer to another.
+Qualification, standards, benchmarks, patents, developers, procurement, cloud capacity, supply chains, lead times, backlog, manufacturing, power, cooling, networking, packaging and financing. Seek named customer/ecosystem support rather than generic market-size claims and inspect bottleneck migration between layers.
 
 ### Resources and energy
 
-- technical reports, reserve or resource statements, permits, studies, operating data, commodity balances, pipeline or storage, export or import, sanctions, environmental, and project-financing records;
-- missed construction, permit, financing, or production milestones.
+Technical/reserve/resource reports, permits/studies/operating data, commodity balances, pipelines/storage/import/export/sanctions/environmental and project financing. Track missed construction, financing, permit and production milestones.
 
 ### Shipping and transportation
 
-- company fixtures and fleet disclosures, port or traffic data, AIS-based datasets with known limitations, freight indices, insurance, sanctions, charter coverage, orderbooks, scrapping, and route changes;
-- evidence of normalization or disruption that must move together rather than relying on one daily datapoint.
+Fixtures/fleet disclosures, ports/traffic/AIS data with limitations, freight indices, insurance/sanctions/charter coverage, orderbooks/scrapping/routes and linked normalization/disruption indicators. Do not infer a durable mechanism from one daily datapoint.
 
 ### Financials and fintech
 
-- regulator, banking, brokerage, payment, deposit, credit, capital, liquidity, customer-asset, transaction-volume, take-rate, and disclosure records;
-- legal or policy changes affecting prediction markets, crypto, payments, custody, capital, or customer access.
+Regulatory/banking/brokerage/payment/deposit/credit/capital/liquidity/customer-asset/volume/take-rate disclosures; policy/legal changes affecting prediction markets, crypto, payments, custody, capital and access.
 
-## Expert, journalism, social, and alternative-data lanes
+### Consumer, healthcare services and other industries
 
-These are valid discovery and interpretation sources, but preserve provenance:
+Demand/order trends, pricing/mix, reimbursement, occupancy/utilization, service quality, labor/productivity, customer retention, channel inventory and competitive capacity. Rotate relevant sectors based on current source results and record actual coverage; do not let familiar AI themes define all discovery.
 
-- named experts and specialist research;
-- high-quality journalism;
-- channel checks and practitioners;
-- social, retail, forum, app, search, traffic, pricing, product-availability, inventory, employee, or transaction observations.
+## Expert, journalism, social and alternative data
 
-For each observation state whether it is:
+Named experts, specialist research, quality journalism, practitioners/channel checks and observable social/retail/forum/app/search/traffic/pricing/availability/inventory/employee/transaction evidence are valid discovery inputs. Preserve original observation versus summary/inference; reproducibility; representativeness/denominator; promotional, affiliate, bot or echo-chamber risks. Multiple reposts of the same screenshot/filing/expert statement are one origin.
 
-- an original observation;
-- a summary of another source;
-- an inference;
-- independently reproducible;
-- representative or anecdotal;
-- potentially promotional, bot-driven, affiliate-incentivized, or part of an investor echo chamber.
+Follow `EXPERT_SOURCES.md` and the specialist lane's dynamic current-role lookup for frontier-lab commentary. A company executive statement establishes what was said/planned/claimed, not independent confirmation. New material evidence can be reported with uncertainty before a final investment recommendation, never as proof of economics.
 
-Do not count several accounts repeating the same screenshot, filing, article, or expert statement as independent evidence.
+## Price-dislocation investigations
 
-## Price-dislocation investigation sources
+A material unexplained move prompts checks of poorly indexed filings/official records/company channels; peers/customers/suppliers, commodities/rates/FX/sectors/index changes; options/borrow/short-interest/rebalance/forced-flow/liquidity; and social claims traced to an origin. The move is a search trigger, not proof of novelty, materiality or mispricing.
 
-When a holding or candidate moves materially without an indexed company announcement, check where available:
+## Manifest and calibration
 
-- recent filings, regulator and court records, trial registries, exchange notices, and company channels;
-- customers, suppliers, competitors, peers, commodities, rates, currencies, sectors, and index changes;
-- options, short-interest, borrow, rebalance, forced-flow, or liquidity explanations;
-- social claims for an identifiable original source.
+Use the existing V3 manifest, not another reporting system. Retain run ID/version, actual window/cutoff and intended slot/status; holdings/underwritings/monitors/kill dates checked; theses/watchlists/catalysts/evidence due checked; primary and expert/social sources actually searched; source/feed/state gaps; persistence; and next slot.
 
-The move is a search trigger, not proof of novelty or materiality.
+Add protected-discovery diagnostics defined in `v3-run-contract.md`: per-family completion and query/feed evidence; new-development IDs; new-evidence-on-old-story IDs; late detections and original dates/latency; outside-known-universe candidates or membership unknown; unchanged follow-ups; duplicates; material discoveries included in the combined output and omissions with reasons. Count distinct underlying observations, not stories, wrappers or retry attempts. Outside-universe membership overlaps freshness; do not add it again to event totals. Included in output is not proof of delivered notification. No yield quota.
 
-## V3 coverage manifest
+Read verified fallback as well as canonical seen-history. Failed canonical saving does not make the same previously saved discovery new next time. Keep app-persistence gaps separate from novelty and investment authority. Use partial/unknown instead of zero when coverage is missing.
 
-Record for each scheduled run:
+Existing Radar Calibration Audit should evaluate unique-origin capture, latency/on-time versus late detection, novelty precision, outside-universe coverage, RWC survival/underwriting yield, missed-event contribution, evidence-due resolution, outages and research cost. Extend the existing first-five-brief rollout review to inspect actual broad-query coverage and whether material new findings reached the report. No separate audit newsletter or new task.
 
-```text
-run_id and radar_version
-run timestamp and scan window
-scheduled slot and run status
-last successful run timestamp
-markets and event categories covered
-holdings checked
-active underwritings, monitors, kill criteria, and review dates checked
-theses and watchlist checked
-known catalysts checked
-evidence-due items checked
-primary feeds searched successfully
-feeds unavailable, delayed, or not connected
-expert, social, and alternative lanes searched
-state sources unavailable
-material limitations and likely blind spots
-persistence status
-next scheduled slot
-```
-
-A result with incomplete source or state coverage must not imply that no material events occurred. Say that no qualifying event was found in the searched universe.
-
-## Feed-performance feedback
-
-Radar Calibration Audit should evaluate each feed by:
-
-- unique-origin capture;
-- on-time versus late detection;
-- latency;
-- novelty precision;
-- RWC survival;
-- underwriting yield;
-- missed-event contribution;
-- evidence-due resolution yield;
-- outage frequency and disclosure quality;
-- research cost.
-
-Do not remove a high-recall feed merely because it produces noise without checking whether another source catches the same valuable events in time.
+Do not discard a noisy high-recall source until an alternative catches the same valuable events in time. Do not claim news was missed based only on repetitive output; compare a defined actual event sample with the detection ledger, fallback records and publication receipts.
