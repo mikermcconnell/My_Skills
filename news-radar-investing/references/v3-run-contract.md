@@ -41,6 +41,7 @@ known_catalyst_calendar and frozen packets
 active_holdings, exact lots/options and issuer mappings
 active_underwritings_and_monitors
 active_price_monitors_and_stored_actions
+Event_Reaction_strategy_tagged_positions_and_current_manifest_exit_rules
 persisted_legacy_price_monitors_and_migration_status
 portfolio_defense_price_time_stop_concentration_instrument_triggers
 current_kill_criteria_and_review_dates
@@ -55,6 +56,16 @@ same_day_market_context and available_source_feeds_and_outages
 ```
 
 Load quotes during their actual comparison step so earlier cached marks are not falsely labelled current. Do not finish every historical reconciliation before starting discovery. GitHub source/seeds describe schema, not confirmed production thesis/holdings state. Missing cash is not zero cash; holdings-only exposure is not cash-inclusive NAV. Respect current authentication/schema/version checks.
+
+## Event Reaction strategy-mechanics routing
+
+When live strategy/position state explicitly tags a lot to Investor strategy_id `event_reaction` or a current alias such as `post_earnings`, read `references/event-reaction-strategy-mechanics.md` and the current Investor `config/strategy-manifest.json`.
+
+Event Reaction's ordinary per-position stop/target/time-exit mechanics are outside the fundamental underwriting path. Do not assign YES/CONDITIONAL underwriting solely because an Event Reaction lot approaches or hits its strategy stop, partial target, runner target, or 30-session time exit. Use internal `Underwriting Required? = NO` with strategy-mechanics rationale and render the separate Event Reaction mechanics table under the output contract.
+
+Current September 21 baseline from the manifest: 10% stop; +12.5% partial target selling 85%; +15% runner target on the remaining 15%; 30 trading-session maximum hold. Calculate from confirmed entry fill/date and authoritative remaining quantity/partial-sale state. If those are missing, mark ER DATA NEEDED / ER MECHANICS REVIEW. Do not infer from old reports.
+
+The same issuer's separate non-Event-Reaction position remains eligible for normal RWC/underwriting/Portfolio Defense. Issuer news may still surface in Radar without changing the Event Reaction lot's mechanical action.
 
 ## Active Thesis Research
 
