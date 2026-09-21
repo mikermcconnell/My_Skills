@@ -52,6 +52,14 @@ Existing runs start at **08:00, 11:00 and 15:00 America/Toronto, daily**, includ
 
 A supported new lead can be shown before full underwriting. **Newsworthy and BUY-ready are different states.** Never demand a complete value-capture or valuation model merely to surface a credible researchable development.
 
+## Event Reaction strategy override
+
+For a live position explicitly tagged to Investor strategy_id `event_reaction` or a current manifest alias such as `post_earnings`, use `references/event-reaction-strategy-mechanics.md` before generic underwriting or Portfolio Defense routing.
+
+Event Reaction is a frozen mechanical sleeve. Ordinary stop-loss, partial-profit, runner-target and maximum-hold decisions for that lot have `Underwriting Required? = NO` and are handled by strategy mechanics, not RWC / Full Underwriting / Event-Trade Underwriting / Portfolio Capital Allocation. The current authoritative rule values come from Investor `config/strategy-manifest.json`, not this skill or memory. As of September 21, 2026 the manifest uses a 10% stop, +12.5% partial target selling 85%, +15% runner target on the remaining 15%, and 30 trading sessions maximum hold.
+
+News about the issuer can still surface and be researched. It does not change the Event Reaction lot's mechanical action unless the strategy contract itself says so. Preserve a separate non-Event-Reaction position in the same issuer under normal underwriting/defense rules.
+
 ## Run workflow
 
 ### 1. Bounded preflight and urgent defense
