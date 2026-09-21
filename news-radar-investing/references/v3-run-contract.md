@@ -1,6 +1,6 @@
 # News Radar Investing V3 Run Contract
 
-Reconciled September 21, 2026, including the combined-monitor patch. Radar is the high-recall detection, memory, risk-priority, thesis-testing, market-context and routing layer. `investment-firm-output/SKILL.md` owns the combined visible report; `source-and-routing-rules.md` owns gate/provenance detail; `primary-source-feed-map.md` owns broad-source coverage; `specialized-lanes.md` owns eleven-lane membership; `price-monitor-live-source.md` owns combined monitor sources, precedence, review actions and quote/trigger controls. Do not maintain another competing presentation template here.
+Reconciled September 21, 2026, including the combined-monitor patch. Radar is the high-recall detection, memory, risk-priority, thesis-testing, market-context and routing layer. `investment-firm-output/SKILL.md` owns the combined visible report; `source-and-routing-rules.md` owns gate/provenance detail; `primary-source-feed-map.md` owns broad-source coverage; `emerging-signal-lens.md` owns cross-sector leading-indicator pattern recognition and trajectory memory; `specialized-lanes.md` owns eleven-lane membership; `price-monitor-live-source.md` owns combined monitor sources, precedence, review actions and quote/trigger controls. Do not maintain another competing presentation template here.
 
 ## Cadence and independent windows
 
@@ -13,7 +13,7 @@ Detection, successful persistence, actual research progress and delivered-report
 ## Required execution order
 
 1. **Bounded preflight and urgent-risk triage.** Load/attempt minimum live ownership/identity, last cutoff, urgent cases/deadlines and seen-event memory. Identify possible material permanent-loss or imminent instrument risk. P0 can interrupt every later step and must be surfaced promptly. Routine history cleanup is not an emergency.
-2. **Protected broad discovery.** Before routine deep case reconciliation, full quote-table assembly or thesis expansion, complete the feed-map's unseeded cross-market/source-family search. Searching only existing tickers, named counterparties, old event IDs or the active thesis list does not satisfy this step. Preserve public-news scanning even when private connectors fail.
+2. **Protected broad discovery.** Before routine deep case reconciliation, full quote-table assembly or thesis expansion, complete the feed-map's unseeded cross-market/source-family search and apply the Emerging Signal / Leading Indicator lens. Searching only existing tickers, named counterparties, old event IDs or the active thesis list does not satisfy this step. Preserve public-news scanning even when private connectors fail.
 3. **Targeted continuation.** Finish portfolio defense, exact-instrument sell checks, cheap active-thesis sweeps, evidence-due/catalysts, all eleven specialist lanes and the combined canonical/legacy/defense monitor check. Deep targeted work follows risk/evidence priority without retroactively erasing missing broad coverage.
 4. **Classify and route.** Compare original sources and prior evidence, deduplicate against canonical AND verified fallback memory, apply five gates, map sufficient public-security exposure, assign one route and underwriting requirement, and stop at the depth boundary.
 5. **Record and publish.** Save supported research-only state and manifests, with bounded retry/fallback. Return one combined news/case-change/stock-table report under the output contract, even when parts are unavailable. Verify saves separately from delivery.
@@ -37,6 +37,7 @@ last_successful_run_at and verified evidence cutoff
 open_event_ledger_records and independence groups
 verified dated fallback / Reporting Journal seen-event records
 open_P0_P1_P2_items and next_evidence_due_queue
+open_emerging_signal_sequences_and_due_confirmation_checks
 known_catalyst_calendar and frozen packets
 active_holdings, exact lots/options and issuer mappings
 active_underwritings_and_monitors
@@ -66,6 +67,20 @@ Event Reaction's ordinary per-position stop/target/time-exit mechanics are outsi
 Current September 21 baseline from the manifest: 10% stop; +12.5% partial target selling 85%; +15% runner target on the remaining 15%; 30 trading-session maximum hold. Calculate from confirmed entry fill/date and authoritative remaining quantity/partial-sale state. If those are missing, mark ER DATA NEEDED / ER MECHANICS REVIEW. Do not infer from old reports.
 
 The same issuer's separate non-Event-Reaction position remains eligible for normal RWC/underwriting/Portfolio Defense. Issuer news may still surface in Radar without changing the Event Reaction lot's mechanical action.
+
+## Emerging Signal / trajectory requirement
+
+Read `references/emerging-signal-lens.md` on every scheduled run.
+
+During protected broad discovery and Social / Alternative Data coverage, test credible observations for generalizable leading-indicator patterns rather than only discrete headline events. Look for magnitude, velocity, persistence, breadth, independent confirmation, a plausible business bridge, expectations lag and a decisive next test.
+
+When an observation may develop over time, create or reuse a stable Signal Sequence / parent hypothesis in supported storage. Preserve atomic evidence IDs and first-seen dates; update the trajectory instead of resetting the case every run. If strict production schemas do not support sequence fields, retain them in the run manifest or verified fallback rather than inventing unsupported payloads.
+
+At the start of targeted continuation, also check **due Signal Sequences**. Fast-moving signals may be due at the next scheduled run or within roughly 1–2 days; medium-speed operating/channel signals generally several days to a week; slower KPI/financial conversion aligns to the named reporting/catalyst date. These are defaults, not mandatory timers.
+
+Use current P3/P2/P1/P0 routes. “Not yet revenue” is not a reason to discard a credible upstream signal with a plausible financial bridge. Escalate to P1 RWC when cumulative evidence materially strengthens acceleration/deterioration, persistence/breadth, independence, business transmission or the expectations question. RWC then tests causality, representativeness, capture, confounders and consensus.
+
+This is not a new lane, score, quota or strategy.
 
 ## Active Thesis Research
 
@@ -188,6 +203,7 @@ broad_discovery_status COMPLETE|PARTIAL|UNAVAILABLE|NOT_RUN
 broad_discovery_queries_or_feeds with source family, scope, windows, retrieval time
 broad_discovery_completed_families; skipped_families_and_reason
 new_development_event_ids; new_evidence_existing_story_ids
+emerging_signal_sequence_ids; emerging_signal_trajectory_updates; emerging_signal_escalations
 late_detection_event_ids; novelty_unverified_ids
 outside_known_universe_candidate_ids; universe_comparison_status
 unchanged_followup_ids; duplicate_origin_groups
@@ -204,6 +220,6 @@ Under the shared output contract, return one combined Radar report: **New news a
 
 Preserve legacy per-slot stock snapshot IDs for compatibility and the Daily Brief's separate delivery window. Read canonical plus fallback seen-history before exact retries. Scheduled tasks append journal snapshots; the existing Daily Brief alone owns scheduled Decision List refresh. Original quote/event cutoffs remain intact; an earlier report cannot be relabelled current. Older schema snapshots remain dated and do not acquire invented source-class labels through formatting alone.
 
-Check these cases during the existing first-five-brief rollout comparison: fresh unfamiliar issuer surfaced for research without inventing a target; fresh event in a familiar company labelled new; new evidence on old theme not repeated as a new thesis; fallback-only previously detected event not rediscovered; older public event labelled late; unknown history explicitly qualified; unchanged old risk absent from new-news section but retained where needed; genuine urgent risk preempts discovery with a recorded gap; private connector outage still permits public news; quiet completed scan has no forced leads; combined stock queue retains all eligible source classes and exact-security identity; canonical-empty plus legacy/defense remains visible; all-three-checked-empty alone produces NO ACTIVE STOCK MONITORS; partial material source coverage stays PARTIAL; equivalent legacy suppressed by canonical; higher-priority defense overrides a buy review; legacy instructions carry the prefix; REUNDERWRITE_REQUIRED priority survives; generic prose/RWC stage alone never creates an active legacy row; disabled canonical stays disabled; no price-only BUY/SELL; no currency/option confusion; no consumed-trigger re-fire; no duplicate scheduled report.
+Check these cases during the existing first-five-brief rollout comparison: an early leading indicator saved as a sequence and rechecked; a sequence that accelerates/persists is escalated without waiting for reported revenue; a noisy one-off is not escalated solely on attention; a negative leading indicator receives the same treatment; fresh unfamiliar issuer surfaced for research without inventing a target; fresh event in a familiar company labelled new; new evidence on old theme not repeated as a new thesis; fallback-only previously detected event not rediscovered; older public event labelled late; unknown history explicitly qualified; unchanged old risk absent from new-news section but retained where needed; genuine urgent risk preempts discovery with a recorded gap; private connector outage still permits public news; quiet completed scan has no forced leads; combined stock queue retains all eligible source classes and exact-security identity; canonical-empty plus legacy/defense remains visible; all-three-checked-empty alone produces NO ACTIVE STOCK MONITORS; partial material source coverage stays PARTIAL; equivalent legacy suppressed by canonical; higher-priority defense overrides a buy review; legacy instructions carry the prefix; REUNDERWRITE_REQUIRED priority survives; generic prose/RWC stage alone never creates an active legacy row; disabled canonical stays disabled; no price-only BUY/SELL; no currency/option confusion; no consumed-trigger re-fire; no duplicate scheduled report.
 
 Static contract validation, actual corrected scan behavior, verified persistence and delivered notifications are separate tests. Never claim a future run has passed.
