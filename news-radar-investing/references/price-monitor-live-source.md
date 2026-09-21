@@ -21,6 +21,18 @@ Query actual available canonical live monitor/underwriting state each run and en
 
 Never use a fixed ticker/level list, old prompt, analyst target, previous Radar table or remembered underwriting as live membership. Do not retain removed/disabled monitors, miss newly active ones or cache superseded actions/trigger state. Unknown membership is not a checked-empty list. Empty canonical arrays do not end the combined-source check.
 
+## Strategy-aware Event Reaction override
+
+Before building the generic CANONICAL + LEGACY + PORTFOLIO DEFENSE queue, identify exact live lots explicitly tagged to Investor strategy_id `event_reaction` or a current manifest alias such as `post_earnings`. Apply `event-reaction-strategy-mechanics.md`.
+
+These Event Reaction lots are **mechanical strategy positions**. Exclude their ordinary stop, target and time-exit mechanics from the generic underwriting/re-underwrite queue. Do not turn a 10% stop, +12.5% partial target, +15% runner target, 30-session time exit, or ordinary Event Reaction position review into RE-UNDERWRITE NOW / BUY REVIEW / TRIM REVIEW / EXIT REVIEW.
+
+Read the current Investor `config/strategy-manifest.json` for the frozen rules and calculate stop/target prices from the confirmed entry fill. The current September 21, 2026 manifest baseline is: stop 10% below entry; sell 85% at +12.5%; sell remaining 15% at +15%; exit remaining position by 30 trading sessions. If the strategy manifest, confirmed entry/date, remaining quantity, or prior partial-sale state is unavailable, use ER DATA NEEDED / ER MECHANICS REVIEW rather than fundamental underwriting.
+
+Render Event Reaction lots in the separate strategy-mechanics subtable required by the output contract. De-duplicate by exact security + strategy + lot/expression. The same ticker may still appear in the generic queue for a different non-Event-Reaction holding or strategy.
+
+A new company news item may be shown in Radar, but it does not change the Event Reaction mechanical exit unless the strategy contract itself contains such a rule. Operational exceptions such as trading halts, delisting/corporate-action ambiguity, or missing strategy data are mechanics/data reviews, not fundamental re-underwriting.
+
 ## Combined monitor universe
 
 The visible Price Monitor Check is a **combined action queue** built from three distinct source classes:
@@ -177,6 +189,8 @@ Verify security/company, share class, intended venue, currency, ADR/CDR versus o
 `LEGACY review -> refresh/migrate underwriting first through its authorized workflow -> if validated, normal downstream review`.
 
 `PORTFOLIO DEFENSE condition -> sell-discipline review -> downstream proposed decision when supported -> human execution`.
+
+`EVENT REACTION lot -> frozen strategy mechanics from current Investor strategy manifest -> human execution -> authoritative Holdings closeout`; no fundamental underwriting gate solely for the mechanical exit.
 
 A crossing itself changes no thesis, fair value, position size, monitor boundary or holding. Fair value, dividend-inclusive total value and consensus targets are not automatic sell thresholds. A defense row is a review, not a final trim/sell. No orders, shorts, fills, holdings mutation, optional-workflow activation or history migration is authorized here. Closed-position reconciliation still requires an owned confirmed Holdings record under the sell contract.
 
