@@ -66,6 +66,36 @@ Prefer:
 
 A sponsor top-line release without the full dataset normally supports only a preliminary conclusion.
 
+## Pre-pivotal / pre-Phase-3 investment research
+
+RWC may advance a biotech **before** pivotal results when the decision is explicitly whether the evidence justifies taking a small, risk-budgeted speculative position ahead of the readout.
+
+Do not require Phase 3 success as a prerequisite for Full Underwriting. Instead, determine whether the **probability distribution is underwriteable enough** to compare with what the current security appears to imply.
+
+For a pre-pivotal candidate, assess:
+
+1. **Replicability of prior efficacy** — effect size, dose response, durability, population, missingness, multiplicity, subgroup consistency and whether Phase 2 may overstate the true effect.
+2. **Pivotal-design translatability** — Phase 3 endpoint, comparator, population, dose, duration, powering, discontinuation assumptions and how closely they preserve the earlier thesis.
+3. **Regulatory alignment** — what agency feedback is actually disclosed, endpoint/label precedent, CMC or safety requirements, and what remains sponsor interpretation.
+4. **Safety / tolerability runway** — whether longer exposure or larger N creates a qualitatively different risk.
+5. **Class and competitor evidence** — supportive or adverse read-through without assuming all molecules in a class are interchangeable.
+6. **Supporting de-risking catalysts** — maintenance, durability, formulation/oral, subgroup, biomarker, manufacturing, commercial-preparation or other evidence that changes the eventual product profile before pivotal efficacy is known.
+7. **Financing to readout** — cash runway, burn, likely dilution, debt/royalty claims, milestone cash flows and whether financing itself can destroy the pre-readout setup.
+8. **Commercial differentiation** — what could make a clinically successful product commercially better/worse than the obvious comparator.
+9. **Expectations gap** — what pivotal success/failure probability, commercial quality or financing burden the current security appears to discount.
+10. **Failure case** — what residual equity/program/platform value exists if the pivotal trial fails or is ambiguous.
+
+### Pre-pivotal stopping decision
+
+RWC may choose:
+
+- **ADVANCE -> FULL UNDERWRITING — PRE-PIVOTAL SPECULATIVE** when evidence is sufficient to model failure/success scenarios honestly and a plausible probability/expectations gap survives, even though pivotal efficacy remains unresolved.
+- **TARGETED RESEARCH** when one or more named clinical/regulatory/financing facts would materially change the pre-readout decision.
+- **WAIT FOR DATED EVIDENCE** when a near-term catalyst will substantially improve the decision and the opportunity cost of waiting is acceptable.
+- **MONITOR / REJECT** when the setup is too weak, too priced, too financing-sensitive, or not researchable enough.
+
+Advancing pre-pivotal does **not** mean approval is likely or that a normal-sized position is justified. The handoff must explicitly tell Full Underwriting to model binary/continuous failure states and tell Portfolio Capital Allocation that any starter is speculative and loss-budget constrained.
+
 ## Pre-event expectations packet
 
 For scheduled readouts, PDUFAs, advisory committees, or approvals, preserve before the event:
@@ -93,4 +123,4 @@ State confidence separately for:
 - company economic capture;
 - current security mispricing.
 
-Advance to Full Underwriting only when the clinical/regulatory thesis survives and the remaining question is security value, rNPV/SOTP, capital structure, dilution, scenario probability, or time-to-resolution.
+Advance to Full Underwriting when the clinical/regulatory thesis survives and the remaining question is security value, rNPV/SOTP, capital structure, dilution, scenario probability, time-to-resolution, **or whether a pre-pivotal speculative position has positive expected value at an acceptably small loss budget**. Pivotal efficacy need not already be known for the pre-pivotal route.
