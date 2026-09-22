@@ -1,6 +1,6 @@
 ---
 name: investment-firm-output
-version: 8
+version: 9
 description: Publish new news and opportunities, meaningful changes to existing cases, Event Reaction strategy mechanics, and an action-sorted stock queue combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
