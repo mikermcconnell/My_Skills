@@ -21,6 +21,7 @@ Use the latest files from the same current repository revision where practical:
 - `../investment-firm-output/SKILL.md`: sole user-facing layout, news/stock publication and delivery coordination.
 - `references/source-and-routing-rules.md`: source provenance, five gates, priority and freshness rules.
 - `references/emerging-signal-lens.md`: global leading-indicator pattern recognition, Signal Sequences, trajectory escalation and confirmation cadence.
+- `references/newsletter-intake.md`: registered specialist-newsletter issue detection, claim extraction, deduplication and routing.
 - `references/primary-source-feed-map.md`: mandatory broad-search design and source coverage; read on every scheduled run, not just audits.
 - `references/specialized-lanes.md`: all eleven required lane definitions. Coverage statuses belong in the persisted manifest; meaningful findings flow into the combined report.
 - `references/price-monitor-live-source.md`: combined CANONICAL/LEGACY/PORTFOLIO DEFENSE membership, source precedence, exact-security de-duplication, review actions, quote hierarchy/confirmation, consumed/re-arm state and failure handling.
@@ -52,6 +53,14 @@ Existing runs start at **08:00, 11:00 and 15:00 America/Toronto, daily**, includ
 - Mind Model owns approved theses/pillars/forecasts, evidence and proposal history. A pending proposal is not an approved change.
 
 A supported new lead can be shown before full underwriting. **Newsworthy and BUY-ready are different states.** Never demand a complete value-capture or valuation model merely to surface a credible researchable development.
+
+## Registered newsletter feeds
+
+Read `references/newsletter-intake.md`. High-signal newsletters are expert-source inputs inside the existing Radar architecture, not another lane.
+
+Tier-A sources are checked for new issue identity on every scheduled Radar run. For each material issue, separate observable facts/data from expert interpretation/forecast and from investment mapping; deduplicate all wrappers to one issue origin; route important load-bearing claims to RWC rather than underwriting the newsletter itself.
+
+Do not create a long routine newsletter summary. Show only decision-relevant new claims inside `New news and opportunities`, with the source, uncertainty, mechanism and next verification.
 
 ## Global Emerging Signal / Leading Indicator lens
 
