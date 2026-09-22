@@ -88,6 +88,16 @@ Apply `clinical-radar-overlay.md`. Check relevant holdings, accepted underwritin
 
 A cheap relevant source/evidence-due sweep may suffice where no current clinical exposure exists; mark what was actually checked. This does not exempt the protected broad-source pass from considering meaningful new clinical/regulatory developments in unfamiliar public companies. Do not invent medical conclusions or clinical-commercial valuation inside Radar.
 
+### Pre-pivotal opportunity treatment
+
+The Clinical / Medical lane must actively look for opportunities **before** pivotal readouts, not only react to completed Phase 3 results.
+
+Apply the Pre-Pivotal Opportunity Watch in `clinical-radar-overlay.md` to serious late-Phase-2 / pivotal-stage public companies. Preserve the evidence ladder across prior efficacy, pivotal-design translatability, regulatory alignment, enrollment/execution, supporting de-risking catalysts, class read-through, financing/runway and commercial differentiation.
+
+Use the plain states PRE-PIVOTAL — WATCH, EVIDENCE BUILDING, RWC NOW, or POSITIONING REVIEW. A PRE-PIVOTAL — RWC NOW candidate should be visible in `New news and opportunities` when genuinely new evidence advances the sequence. POSITIONING REVIEW requires a current downstream RWC/underwriting handoff; it is not created by Radar alone.
+
+Do not use `wait for Phase 3` as the default when the unresolved pivotal outcome can already be modeled as explicit probability/downside uncertainty. Equally, do not manufacture a speculative opportunity from a weak Phase 2 signal merely because a large catalyst exists.
+
 ## 6. Expert / Industry Sources
 
 Apply `EXPERT_SOURCES.md`. Named industry experts, specialist publications and senior operators remain important; SemiAnalysis/Dylan Patel remain priority discovery sources for AI infrastructure/semiconductors. These are source preferences, not proof of access or independent economic confirmation.
