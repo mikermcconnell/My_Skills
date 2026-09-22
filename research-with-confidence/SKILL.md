@@ -38,6 +38,21 @@ Read only what the task needs:
 - When the question affects an owned security, use MikeInvestor for current exposure and lineage. Treat ownership as decision context, never as evidence that the factual claim is true or false.
 - Distinguish company-thesis deterioration from security valuation, portfolio concentration, and instrument/timing failure. A valid company thesis can coexist with a TRIM, EXIT, or option-roll review.
 
+## Registered newsletter handoffs
+
+When Radar advances a specialist newsletter issue, treat the **newsletter as one expert-source origin**, not as a bundle of independent confirmations.
+
+Use the handoff's atomic claims and test only the load-bearing ones. For each material claim:
+- identify whether it is externally observable fact/data, proprietary model output, derived calculation, forecast, expert interpretation, or investment hypothesis;
+- retrieve independent primary/counterparty/technical evidence when available;
+- test the strongest methodological assumption or missing denominator;
+- separate technical importance from public-equity value capture;
+- compare plausible beneficiaries, losers, and non-beneficiaries rather than defaulting to the source's most obvious ticker;
+- determine whether the claim starts/updates an Emerging Signal sequence;
+- state what would falsify the source's interpretation.
+
+Do not produce a second full newsletter summary. RWC's output should answer whether the article's load-bearing thesis survives and where the investable mispricing, if any, actually sits.
+
 ## Pre-pivotal biotech route
 
 When the user or Radar asks whether a clinical-stage company is investable **before** Phase 3 / pivotal results, read `references/clinical-and-biotech-overlay.md` and explicitly use its pre-pivotal route.
