@@ -16,7 +16,7 @@ The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains
 
 ## Run sequence
 
-1. Read the current skill, active pointer, run contract, source/routing rules, primary-source feed map, `references/emerging-signal-lens.md`, shared output contract and specialist/price/sell/disclosure/AI-efficiency references. All eleven checks remain required; record unchanged lane statuses in the audit, not a mandatory visible dump.
+1. Read the current skill, active pointer, run contract, source/routing rules, primary-source feed map, `references/emerging-signal-lens.md`, `references/newsletter-intake.md`, shared output contract and specialist/price/sell/disclosure/AI-efficiency references. All eleven checks remain required; record unchanged lane statuses in the audit, not a mandatory visible dump.
 2. Recover the actual window since the last verified completed cutoff, including delayed/advanced/partial/failed gaps. Keep intended slot, actual start/cutoff and receipt separate. Do not advance unsearched broad-source windows merely because a portfolio check succeeded.
 3. Make a bounded live-context/seen-history preflight and rapid urgent-risk screen. Read actual holdings, imminent evidence/instrument deadlines and potential P0 risks where available. Missing private state is a limitation, not a reason to abandon public news. Repeated routine connector retries and historic inventory cleanup do not belong before all discovery.
 4. **Complete the protected open-universe pass next**, before routine deep case reconciliation, thesis expansion, all-name quote assembly or downstream underwriting. Apply the Emerging Signal lens to detect trajectory-shaped leading indicators, not only discrete events. Use actual unseeded broad searches across the four source families in `primary-source-feed-map.md`; record queries/feeds, windows, markets, outcome and limitations. Known-ticker searches alone do not count. No required number of leads or new tickers. A P0 emergency can preempt this, with explicit skipped-window recovery.
@@ -31,6 +31,21 @@ The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains
 13. Save research-only records using supported canonical writes with fresh state/idempotency. After a bounded fresh-state retry, use verified authorized fallback instead of spending the run repairing persistence. Never bypass concurrency or put unsupported diagnostic fields in a strict API payload. Keep original lineage and saving limitations.
 14. Append the combined report, compatible stock snapshot and full coverage/discovery/source-class manifest to the existing private Reporting Journal with revision protection and read-back. Radar does not overwrite the Decision List; its existing daily publisher copies the latest completed snapshot with its original cutoff and preserves newer manual snapshots/unresolved cases. Never write private portfolio data or document IDs into public GitHub.
 15. Publish the combined report even on quiet or partial runs, with no forced news. Show supported material discoveries promptly, unchanged case details only where needed, and the combined stock queue every time. If saving failed, disclose within this same output. Use exceptional Action Alerts outside scheduled reports only when waiting materially matters; do not duplicate an unchanged outage or consumed trigger.
+
+## Registered newsletter intake
+
+Read `references/newsletter-intake.md` on every scheduled run. During the existing Expert / Industry Sources check, inspect Tier-A registered source issue indexes for newly published canonical issues.
+
+For a new issue:
+- preserve canonical URL/title/authors/publication time/access state;
+- deduplicate web/email/social wrappers to one issue origin;
+- extract only incremental decision-relevant atomic claims;
+- separate factual/data observations from expert interpretation/forecast and investment mapping;
+- apply normal five gates and Emerging Signal logic;
+- route load-bearing P1/P2 claims to RWC;
+- save issue/claim identity so the same issue is not rediscovered next run.
+
+Do not create a separate newsletter report or let a long article crowd out the rest of Radar.
 
 ## Emerging Signal operating rule
 
