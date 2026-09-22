@@ -84,6 +84,31 @@ unresolved_constraints
 
 Full Underwriting must not infer missing holdings, cash, account constraints, or risk tolerance merely to complete the handoff.
 
+## Pre-pivotal clinical handoff additions
+
+When the security is being considered before a pivotal clinical readout, append:
+
+```text
+pre_pivotal_speculative_starter: ELIGIBLE | NOT ELIGIBLE | UNRESOLVED
+pivotal_trial_and_expected_window
+failure_case_value_and_loss_fraction
+ambiguous_result_value
+base_success_value
+strong_success_value
+break_even_success_probability
+success_probability_required_for_hurdle
+probability_range_confidence
+cash_runway_through_readout
+expected_financing_and_dilution_before_readout
+binary_gap_or_halt_risk
+intermediate_derisking_catalysts
+evidence_required_to_add_before_readout
+evidence_that_cancels_or_reduces_the_starter
+post_readout_reunderwrite_requirement
+```
+
+A pre-pivotal speculative handoff is not a request for a normal target weight. Allocation must start from the portfolio loss if the pivotal thesis fails and apply an event/gap-risk cap. A valid answer can be zero allocation even when expected value is positive.
+
 ## Price-sensitive conclusions
 
 When the thesis is sound but the hurdle is not met, calculate one or more of:
