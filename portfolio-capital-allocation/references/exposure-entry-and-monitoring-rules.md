@@ -93,6 +93,21 @@ Use only when event risk has been explicitly underwritten. State:
 
 Do not use a medium-term thesis to justify an unexamined binary event bet.
 
+### Pre-pivotal clinical speculative starter
+
+Use only when Full Underwriting explicitly marks the case `pre_pivotal_speculative_starter: ELIGIBLE`.
+
+This is a special form of **evidence-staged / catalyst-aware entry**:
+
+- initial exposure is deliberately small and sized from the pivotal-failure loss budget;
+- the position is allowed because the evidence/probability setup is attractive **before** Phase 3 resolution, not because Phase 3 success is assumed;
+- later size requires named de-risking evidence plus a refreshed valuation/risk check;
+- failure, adverse safety/regulatory evidence, financing deterioration, or a materially worse pivotal-design/translatability assessment cancels the next tranche and may require exit/re-underwrite;
+- if the position is intentionally held through the pivotal readout, record the gap/halt assumption and portfolio loss if the failure case occurs;
+- if the position is intended to be reduced before readout, record the timing/evidence trigger for that reduction rather than relying on discretion at the last minute.
+
+Do not convert a speculative starter into a normal target position simply because the stock appreciates before the pivotal event. Evidence earns size; price appreciation alone normally reduces the amount of risk capacity available.
+
 ### Replacement or pair reallocation
 
 When two securities express the same thesis, compare:
@@ -114,6 +129,9 @@ Create an append-only allocation monitor containing:
 
 ```text
 allocation date and price
+pre_pivotal_speculative_status_when_applicable
+pivotal_readout_window_when_applicable
+failure_case_loss_fraction_when_applicable
 initial and target weight
 funding source
 underwriting and challenge versions
