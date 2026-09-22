@@ -74,6 +74,49 @@ A useful qualitative framework is:
 
 Do not convert these labels into fixed universal multipliers unless the user's strategy has validated them.
 
+## Pre-pivotal clinical speculative sizing
+
+When Full Underwriting marks `pre_pivotal_speculative_starter: ELIGIBLE`, size the position as a **speculative loss-budgeted starter**, not as a normal target-weight investment.
+
+The binding question is:
+
+> If the pivotal thesis fails or the security gaps toward the underwritten failure value before an orderly exit is possible, how much of the total portfolio can be lost without impairing the portfolio plan?
+
+Use the underwritten **failure-case loss fraction** as the primary downside input. When failure can plausibly destroy most equity value, use that near-total-loss fraction rather than a mild historical drawdown.
+
+Then apply:
+
+`downside-derived max weight = permitted portfolio loss budget / pivotal-failure loss fraction`
+
+The speculative **initial starter must remain below the final adjusted maximum** and should preserve risk capacity for evidence-earned additions. Do not impose a universal starter fraction; derive it from the user's loss budget, confidence, gap risk, liquidity, existing biotech/clinical cluster exposure, financing risk, and the timing/quality of the next evidence.
+
+### If the user has not supplied a loss budget
+
+Do not choose a position weight for them. For pre-pivotal binary/semibinary cases, show a tighter illustrative sensitivity than the ordinary template, normally **0.10%, 0.25%, and 0.50% portfolio-loss budgets**, explicitly labelled examples rather than recommendations. Also show the ordinary broader sensitivity if useful for comparison.
+
+### Mandatory pre-pivotal caps / haircuts
+
+Reduce or reject the downside-derived maximum for:
+
+- binary/semibinary gap risk or inability to exit on a bad readout;
+- subjective or wide success-probability ranges;
+- Phase 2 effect-size shrinkage / pivotal translatability uncertainty;
+- safety risk that increases with larger N or longer exposure;
+- financing/dilution before the readout;
+- thin liquidity or small float;
+- concentration in one modality, indication, sponsor, payer, regulator, or correlated biotech sleeve;
+- a near catalyst where the intended thesis has become mostly an event bet rather than an investment.
+
+Do not double-count a risk already fully included in the failure value; explain which cap is binding.
+
+### Evidence-earned scaling
+
+A pre-pivotal starter may grow only when named evidence reduces uncertainty **and** the updated security still clears the return/risk gates. Potential add gates include regulatory alignment, enrollment completion, longer-duration safety, durability/maintenance evidence, manufacturing/CMC progress, financing de-risking, independent class validation, or another underwritten proof point.
+
+Do not add merely because the stock rises, the calendar advances, or management repeats confidence.
+
+Before the pivotal readout, define a deliberate policy: hold the starter through the event, reduce before the event, or wait for the result. That choice must be explicit in the underwriting/allocation record; do not drift into a full binary event exposure by inertia.
+
 ## Correlation and cluster cap
 
 Identify the economic cluster, not merely the ticker sector. Examples:
