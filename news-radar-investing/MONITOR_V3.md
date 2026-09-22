@@ -1,6 +1,6 @@
 # News Radar Investing V3 — Scheduled Monitor Instructions
 
-ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 7 or later. Do not layer another output contract over them.
+ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 8 or later. Do not layer another output contract over them.
 
 ## Schedule and outputs
 
@@ -46,6 +46,14 @@ During each protected discovery pass and relevant specialist checks:
 - do not create a score, story quota, ticker quota, new task or automatic trade.
 
 Material sequences appear inside `New news and opportunities` using EARLY / BUILDING / ESCALATE wording when useful.
+
+## Pre-pivotal clinical rule
+
+Within the existing Clinical / Medical lane, apply the Pre-Pivotal Opportunity Watch from `clinical-radar-overlay.md`.
+
+Radar should surface serious late-Phase-2 / pivotal-stage candidates before Phase 3 when cumulative clinical, regulatory, design, execution, supporting-catalyst, financing and differentiation evidence warrants it. Use PRE-PIVOTAL — WATCH / EVIDENCE BUILDING / RWC NOW / POSITIONING REVIEW. Do not require the pivotal result before routing to RWC or Full Underwriting; do not skip RWC simply because the potential upside is large.
+
+When downstream work supports it, POSITIONING REVIEW means Full Underwriting / Portfolio Capital Allocation should assess a deliberately small, loss-budgeted speculative starter. It is not a BUY instruction and not a normal target-weight position.
 
 ## Event Reaction monitor exception
 
