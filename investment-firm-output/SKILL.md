@@ -146,6 +146,16 @@ End with a short coverage line, with details in the existing run manifest: disco
 
 The run must log its actual unseeded broad-search queries/feeds, source families, markets, time windows and completion/skip reasons under the existing manifest. Routine reconciliation cannot substitute for broad discovery. A P0 emergency may preempt it, but then discovery is PARTIAL/NOT_RUN and the missing window carries forward. A missing private portfolio connector does not prevent a public-news scan; mark only the affected ownership/mapping fields unknown.
 
+### Non-canonical underwriting monitoring handoffs
+
+Retain unresolved `UNDERWRITING_MONITOR_HANDOFF` records in the standing reporting view when they contain consequential named evidence or a review date.
+
+Show them as `Research needed`, `Waiting for evidence`, or `Monitoring` according to the actual state. Include the working posture, what evidence is due, next date/backstop, and whether a later canonical baseline has superseded the handoff.
+
+Do **not** present analytical price sensitivities from these working handoffs as live BUY/ADD/SELL triggers. They may be stated as dated analytical sensitivities when useful, explicitly labelled non-live. The stock table continues to use only its authorized monitor sources.
+
+When new evidence arrives, summarize the change and route; when nothing changes, keep the item in the standing view without recycling it into `New news and opportunities`.
+
 ## Shared memory, persistence and delivery truth
 
 Before classifying novelty, consult both the accessible canonical Event Ledger and verified dated fallback research/Reporting Journal. A finding saved only in fallback is already seen for reporting, even if an app write failed. Reuse its evidence/lineage key, retain the app-persistence gap and original detection date, and do not relabel it as a fresh/late discovery every run. This does not promote a fallback into an accepted thesis, monitor or decision. Continue to recheck when genuinely new evidence arrives.
