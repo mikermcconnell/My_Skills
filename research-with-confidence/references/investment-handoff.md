@@ -66,6 +66,32 @@ A thematic lead cannot advance a single stock while items 15–21 are incomplete
 29. **Stopping decision** — Advance, Targeted Research, Wait, Monitor, or Reject.
 30. **Exact Full Underwriting question** — current price, horizon, chosen expression, and the market-implied outcome to test.
 
+### Pre-pivotal clinical fields
+
+When the chosen expression is a clinical-stage security being considered before a pivotal readout, also include:
+
+```text
+pre_pivotal: true
+clinical_stage_and_program
+pivotal_trial_id_and_design
+expected_pivotal_readout_window
+phase2_or_prior_effect_size_and_limitations
+pivotal_translatability
+regulatory_alignment
+safety_and_larger_n_risk
+supporting_derisking_catalysts
+class_competitor_readthrough
+cash_runway_to_readout
+likely_financing_before_readout
+commercial_differentiation_hypothesis
+failure_case_residual_value_question
+market_implied_success_or_quality_question
+speculative_positioning_eligible: YES | NO | UNRESOLVED
+next_pre_pivotal_evidence_and_date
+```
+
+`speculative_positioning_eligible: YES` means only that Full Underwriting should test a deliberately small, loss-budgeted pre-readout position. It is not a BUY recommendation and does not bypass underwriting, challenge, or Portfolio Capital Allocation.
+
 ## Underwriting readiness test
 
 Advance only when:
@@ -76,6 +102,7 @@ Advance only when:
 - the selected security or instrument captures enough of the economics;
 - when the expression gate is mandatory, viable ETF/fund/basket/direct-instrument/options/no-trade alternatives have been compared and the chosen expression wins for a stated reason;
 - the remaining decisive work is valuation, financing/dilution, scenarios, timing, or risk/reward.
+- for a pre-pivotal clinical candidate, unresolved pivotal efficacy is explicitly modeled as scenario uncertainty rather than treated as an automatic handoff blocker when the pre-pivotal overlay's readiness test is satisfied.
 
 Do not advance simply because the world thesis is true, the company is high quality, the stock was named first, the stock is already owned, or an equity is easier to underwrite than the alternatives.
 
