@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-22-pre-pivotal-speculative-pathway
+analytical_revision: 2026-09-22-registered-newsletter-intake
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
@@ -12,6 +12,7 @@ run_contract: news-radar-investing/references/v3-run-contract.md
 source_routing_contract: news-radar-investing/references/source-and-routing-rules.md
 source_feed_contract: news-radar-investing/references/primary-source-feed-map.md
 emerging_signal_contract: news-radar-investing/references/emerging-signal-lens.md
+newsletter_intake_contract: news-radar-investing/references/newsletter-intake.md
 specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
 sell_discipline_contract: news-radar-investing/references/sell-discipline-and-closeout.md
@@ -31,7 +32,7 @@ ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto, inside the Dai
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 9
+output_contract_version: 10
 output_contract_approved_at: 2026-09-21
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 routine_radar_title: Investment Firm — Radar
@@ -49,7 +50,7 @@ markdown_artifact_required: false
 
 ## Single baseline and read order
 
-Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 9.
+Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 10.
 
 The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane are reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required. The combined-monitor patch changes the table's source union and schema, not the news-first sequence or cadence.
 
@@ -80,6 +81,12 @@ Radar looks for acceleration/deterioration patterns that may lead reported funda
 Pattern archetypes include adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage/deleverage, distribution advantage/failure, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
 
 No numeric score, idea quota, twelfth lane or additional automation is introduced.
+
+## Registered newsletter intake
+
+Tier-A specialist newsletters are now deterministic Expert / Industry inputs under `references/newsletter-intake.md`. SemiAnalysis is the initial Tier-A source.
+
+Each scheduled Radar run checks the registered issue index, deduplicates wrappers to the canonical issue, extracts incremental decision-relevant claims, separates facts/data from expert interpretation and investment mapping, and routes important P1/P2 claims to RWC. No new lane or task is created.
 
 ## Pre-pivotal clinical pathway
 
