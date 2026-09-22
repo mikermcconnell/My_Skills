@@ -1,12 +1,12 @@
 ---
 name: investment-firm-output
-version: 7
+version: 8
 description: Publish new news and opportunities, meaningful changes to existing cases, Event Reaction strategy mechanics, and an action-sorted stock queue combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
 # Investment Firm output contract
 
-Approved September 20, 2026; news-first correction, combined-monitor patch, Event Reaction mechanics override, and Emerging Signal lens approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
+Approved September 20, 2026; news-first correction, combined-monitor patch, Event Reaction mechanics override, Emerging Signal lens, and pre-pivotal speculative pathway approved September 21, 2026. Radar remains a news-discovery service, not a stock-status-only report. The stock table supplements news, not replaces it. Preserve all research, underwriting, challenge, allocation, monitoring and execution boundaries.
 
 ## Authority and scope
 
@@ -27,6 +27,19 @@ Immediately state the intended slot, **actual information cutoff**, market-sessi
 Use these three main sections, in order; a genuinely urgent risk can precede them in a short warning:
 
 ### 1. New news and opportunities
+
+#### Pre-pivotal clinical opportunities
+
+When Clinical Radar advances a serious candidate before its pivotal readout, surface it inside **New news and opportunities** with one of these states:
+
+- **PRE-PIVOTAL — WATCH**
+- **PRE-PIVOTAL — EVIDENCE BUILDING**
+- **PRE-PIVOTAL — RWC NOW**
+- **PRE-PIVOTAL — POSITIONING REVIEW**
+
+State what changed in the evidence ladder, the expected pivotal window, the main failure risk, the next de-risking evidence, and the route. `POSITIONING REVIEW` means current downstream work supports evaluating a deliberately small speculative starter; it does not mean buy now, full-size the position, or assume Phase 3 success.
+
+If Full Underwriting / Allocation has completed a pre-pivotal speculative review, the Daily Brief may summarize the resulting speculative-starter decision under `Your decisions`, including the modeled failure loss and the named evidence needed to earn more size.
 
 #### Emerging Signals inside new news
 
