@@ -48,6 +48,16 @@ This means a source item can be material even when it does not yet report revenu
 
 For a newly interesting lead, perform a bounded trajectory check: retrieve at least one appropriate prior comparable observation when accessible, look for independent confirmation/contradiction, identify the next leading metric and the later financial KPI it could feed, and determine whether guidance/consensus/narrative already recognizes the change. Do not let this bounded follow-up consume the whole open-universe scan.
 
+## Registered newsletter issue check
+
+During the Expert / Industry portion of each scheduled pass, read `newsletter-intake.md` and check all **Tier-A** registered sources for new canonical issues since the last verified issue identity.
+
+This is part of the existing source architecture, not a fifth broad-discovery family. A newsletter issue may contribute to any of the four broad source families or to targeted continuation depending on its content.
+
+For each new issue preserve canonical URL, title, author(s), publication time, first detection, access state and independence group. Extract incremental claims and route them normally. One issue can contain multiple claims but remains one origin; social/email/web wrappers do not create independence.
+
+Do not let a long technical newsletter consume the whole scan. Extract and route the load-bearing claims; deeper validation belongs in RWC.
+
 ## General public-equity sources
 
 ### Securities and exchange disclosure
