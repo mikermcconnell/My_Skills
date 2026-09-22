@@ -48,6 +48,26 @@ Read only what the case needs:
 12. **Every completed underwriting has a sizing handoff.** State starter %, target %, max %, current exposure, recommended NAV delta, and sizing confidence. Portfolio Capital Allocation approves or changes the final size.
 13. **Options require an instrument thesis.** Analyze strike, expiry, premium at risk, breakeven, liquidity, volatility, and catalyst timing separately from the company thesis.
 
+## Pre-pivotal speculative underwriting path
+
+For a clinical-stage security advanced by RWC before its pivotal readout, use the biotech sector overlay's **Pre-pivotal speculative underwriting** rules.
+
+The objective is not to predict Phase 3 with false precision. It is to determine whether the current security offers a favorable probability-weighted setup **before** the binary/semibinary catalyst and whether any exposure should be a deliberately small speculative starter.
+
+Required additions for these cases:
+
+- show failure / ambiguous / base-success / strong-success outcomes and residual equity value;
+- show market-implied or break-even pivotal-success probability where possible;
+- show the probability required to meet the applicable return hurdle;
+- model cash runway and likely dilution through the pivotal readout and filing;
+- identify intermediate de-risking catalysts that can earn additional size before the pivotal result;
+- identify evidence that cancels the speculative starter before the readout;
+- set `Pre-pivotal speculative starter: ELIGIBLE | NOT ELIGIBLE | UNRESOLVED`.
+
+An `ELIGIBLE` result may coexist with normal posture `INVESTABLE` or `INVESTABLE, BUT PRICE-SENSITIVE`; do not invent a new canonical posture enum if the persistence schema does not support one. The speculative label is a sizing/risk classification, not a replacement for the security posture.
+
+Full Underwriting still does not choose final account-specific size. Hand the failure loss, gap risk, evidence ladder and speculative classification to Portfolio Capital Allocation.
+
 ## Workflow
 
 ### 1. Define the underwriting question
@@ -270,6 +290,9 @@ Full Underwriting does not choose the exact account or position size. Hand the c
 - **current issuer exposure %**, with denominator and as-of time;
 - **recommended NAV delta %**;
 - **sizing confidence: High | Medium | Low**, with the main uncertainty.
+- **pre-pivotal speculative starter eligibility: ELIGIBLE | NOT ELIGIBLE | UNRESOLVED**, when applicable.
+- **pivotal failure loss / residual value**, when applicable.
+- **next evidence required to earn more size before the pivotal readout**, when applicable.
 
 Portfolio Capital Allocation owns the loss budget, position range, funding source, cluster exposure, and staged entry. It may still choose cash, wait, or reject the allocation even when Full Underwriting says INVESTABLE.
 
@@ -315,6 +338,7 @@ Choose exactly one:
 **Maximum weight:**  
 **Recommended NAV delta:**  
 **Sizing confidence:**  
+**Pre-pivotal speculative starter:** N/A / ELIGIBLE / NOT ELIGIBLE / UNRESOLVED  
 **Portfolio action:** START / ADD / HOLD / TRIM / EXIT / HEDGE / NO_ACTION  
 **Company thesis:** INTACT / IMPROVED / DETERIORATED  
 **Instrument thesis:** N/A / INTACT / IMPROVED / DETERIORATED / TIMING-MISMATCHED  
