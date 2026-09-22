@@ -68,6 +68,16 @@ Current September 21 baseline from the manifest: 10% stop; +12.5% partial target
 
 The same issuer's separate non-Event-Reaction position remains eligible for normal RWC/underwriting/Portfolio Defense. Issuer news may still surface in Radar without changing the Event Reaction lot's mechanical action.
 
+## Registered newsletter intake requirement
+
+Read `references/newsletter-intake.md` every scheduled run.
+
+During Expert / Industry coverage, check Tier-A registered source issue indexes for newly published canonical issues. Preserve issue identity/access state, extract incremental atomic claims, deduplicate wrappers, and route using the normal gates.
+
+New newsletter claims can start/update Emerging Signal sequences or create P1/P2 RWC questions. They are not accepted evidence simply because the source is high-signal. When an issue is material, save the issue identity plus claim IDs and the exact RWC questions so later Radar runs recognize it as already detected.
+
+A previously detected issue with newly available full text may create **NEW EVIDENCE — EXISTING STORY** only when the newly accessible content contains a material previously unseen claim; gaining access alone is not automatically a new investment event.
+
 ## Emerging Signal / trajectory requirement
 
 Read `references/emerging-signal-lens.md` on every scheduled run.
