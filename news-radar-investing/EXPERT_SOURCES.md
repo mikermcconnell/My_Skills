@@ -24,6 +24,18 @@ RWC_survival_history_when_available
 
 Prefer two or three differentiated sources per important thesis over a large influencer list. Remove or demote a source only after checking whether another feed captures the same valuable events with comparable latency.
 
+## Registered newsletter intake
+
+Read `references/newsletter-intake.md` during every scheduled Expert / Industry Sources lane.
+
+Registered Tier-A newsletters are deterministic issue feeds, not ad hoc articles. Check their canonical issue index/homepage/sitemap during the existing 08:00, 11:00 and 15:00 runs. Deduplicate by canonical issue URL + publication timestamp + title so email, web, social promotion and syndicated excerpts remain one origin.
+
+For a new issue, extract only incremental decision-relevant atomic claims. Separate factual/data observations, author analysis/models/forecasts, and investment mapping. Apply normal five gates, Emerging Signal logic and P0/P1/P2/P3 routing. Never convert a newsletter directly into an accepted thesis, fair value, stock action or live monitor.
+
+When the canonical page is partial/paywalled, preserve actual access state. If authorized Gmail contains the subscribed issue, it may be used as a content-access fallback while retaining the same issue identity. Never claim full coverage from a partial page.
+
+SemiAnalysis is the initial Tier-A registered source. Its issue intake should be routine; its claims still require independent verification.
+
 ## SemiAnalysis / Dylan Patel
 
 Treat SemiAnalysis and Dylan Patel as priority discovery sources for:
