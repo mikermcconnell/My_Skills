@@ -82,6 +82,25 @@ Use current P3/P2/P1/P0 routes. “Not yet revenue” is not a reason to discard
 
 This is not a new lane, score, quota or strategy.
 
+## Underwriting monitoring handoffs
+
+During preflight / targeted continuation, read unresolved `UNDERWRITING_MONITOR_HANDOFF` records from supported canonical research stores or the verified Reporting Journal.
+
+These records exist to preserve **named evidence and review dates from working underwriting that was not promoted to an accepted baseline**.
+
+For each unresolved handoff:
+
+- check whether the named evidence/date is due or has newly arrived;
+- preserve the original underwriting date, readiness/challenge state and source;
+- route genuinely new evidence through normal Radar/RWC gates;
+- keep unchanged future items in evidence-due state without presenting them as fresh news every run;
+- if the review backstop arrives with unresolved evidence, route a refresh and retain the original date rather than rolling it forward;
+- if a later canonical baseline supersedes the handoff, stop using the handoff as active research guidance and retain it only as history.
+
+**Do not convert analytical price sensitivities in a non-canonical handoff into the live Stock Monitor queue.** Only accepted/activated canonical, structured eligible legacy, portfolio-defense, or separate authorized strategy mechanics may create active stock-monitor actions under their own contracts.
+
+Unresolved handoffs should still be visible to the Daily Brief / Decision List as `Waiting for evidence`, `Research needed`, or `Monitoring` so their next evidence does not disappear.
+
 ## Active Thesis Research
 
 After urgent triage and the protected discovery pass, cheaply sweep all readable non-retired theses; do not do a mini deep-dive on each three times daily. Test stored baseline, assumptions, hypothesis, strongest opposing case, falsifiers and next-highest-value test. For pillars retain claim/mechanism/metric/baseline/target/date/source/falsifier; for forecasts retain statements/resolution dates/metrics and confirm/warning/break indicators; for watchlist exposures retain mechanism/evidence needs/falsifiers/position status and linked security/underwriting readiness.
