@@ -38,6 +38,16 @@ Read only what the task needs:
 - When the question affects an owned security, use MikeInvestor for current exposure and lineage. Treat ownership as decision context, never as evidence that the factual claim is true or false.
 - Distinguish company-thesis deterioration from security valuation, portfolio concentration, and instrument/timing failure. A valid company thesis can coexist with a TRIM, EXIT, or option-roll review.
 
+## Pre-pivotal biotech route
+
+When the user or Radar asks whether a clinical-stage company is investable **before** Phase 3 / pivotal results, read `references/clinical-and-biotech-overlay.md` and explicitly use its pre-pivotal route.
+
+Do not force `WAIT FOR PHASE 3` merely because pivotal efficacy is unresolved. RWC should determine whether prior efficacy, pivotal-design translatability, regulatory alignment, safety, class read-through, supporting de-risking catalysts, financing-to-readout and commercial differentiation make the probability distribution sufficiently underwriteable to test against current market expectations.
+
+If that survives, the correct outcome may be **ADVANCE -> FULL UNDERWRITING — PRE-PIVOTAL SPECULATIVE**. This means the case is ready for probability-weighted security analysis and loss-budget sizing, not that the clinical outcome is likely or that a normal position is appropriate.
+
+Preserve the explicit failure case, next pivotal/de-risking evidence, expected readout window and financing runway in the handoff.
+
 ## Workflow
 
 ### 1. Define the decision question
