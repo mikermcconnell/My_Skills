@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-21-emerging-signal-lens
+analytical_revision: 2026-09-22-pre-pivotal-speculative-pathway
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
@@ -31,7 +31,7 @@ ai_efficiency_watch_weekly_summary: Friday 15:00 America/Toronto, inside the Dai
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 7
+output_contract_version: 8
 output_contract_approved_at: 2026-09-21
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 routine_radar_title: Investment Firm — Radar
@@ -49,7 +49,7 @@ markdown_artifact_required: false
 
 ## Single baseline and read order
 
-Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 7.
+Every scheduled Radar task reads this pointer, the current skill, monitor/run/source/feed/specialized/price/sell contracts, disclosure/AI-efficiency references and latest shared output skill. The feed map is a required run input, not merely an audit reference. Where practical read from a consistent current commit and record it. Analytical Radar version remains 3; output contract version is 8.
 
 The core skill, run/monitor instructions, source/feed rules, specialized lanes and price lane are reconciled in place. Do not restore obsolete stock-only, always-visible lane-dump or Daily-Brief-only news behavior. All eleven checks, gates, source rules, specialized evidence and execution boundaries remain required. The combined-monitor patch changes the table's source union and schema, not the news-first sequence or cadence.
 
@@ -80,6 +80,16 @@ Radar looks for acceleration/deterioration patterns that may lead reported funda
 Pattern archetypes include adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage/deleverage, distribution advantage/failure, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
 
 No numeric score, idea quota, twelfth lane or additional automation is introduced.
+
+## Pre-pivotal clinical pathway
+
+The Clinical / Medical lane now supports a pre-readout pathway:
+
+`PRE-PIVOTAL WATCH -> EVIDENCE BUILDING -> RWC NOW -> POSITIONING REVIEW -> probability-weighted Full Underwriting -> loss-budgeted speculative starter when justified`.
+
+Phase 3 success is not required before RWC or Full Underwriting when the probability distribution, pivotal translatability, financing and failure case can be modeled honestly. A speculative starter remains deliberately small, evidence-staged and constrained by the pivotal-failure portfolio loss budget. No universal position percentage is embedded in Radar.
+
+Portfolio Capital Allocation may still choose zero. Additional size requires named evidence and a refreshed risk/valuation check.
 
 ## Event Reaction mechanical sleeve
 
