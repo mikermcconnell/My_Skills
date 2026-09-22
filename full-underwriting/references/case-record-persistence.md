@@ -128,6 +128,44 @@ For every material underwriting conclusion:
 
 The Library case record is the source of truth; monitors are synchronized operational copies.
 
+## Working / non-canonical monitoring handoff
+
+Not every useful underwriting result is ready to become the canonical baseline. A Preliminary, UNCHALLENGED, WATCH / WAIT FOR PROOF, price-sensitive sensitivity study, or unresolved speculative-starter analysis can still contain important evidence checks that must not be lost.
+
+When the underwriting produces **named future evidence, review dates, or conditions to revisit** but does not qualify for canonical baseline promotion, persist a durable non-canonical `UNDERWRITING_MONITOR_HANDOFF` in the supported reporting/research transport (normally the Reporting Journal or supported research result store).
+
+Required fields:
+
+```text
+stable_handoff_id
+security / exact instrument when relevant
+underwriting_date_and_cutoff
+working_posture_and_readiness
+challenge_status
+what_was_concluded
+what_was_not_concluded
+named_evidence_to_monitor
+next_evidence_date_or_window
+review_backstop_date
+earlier_reopen_conditions
+analytical_price_sensitivities_if_any
+canonical_baseline_status
+live_monitor_status
+source_record_or_artifact
+```
+
+Rules:
+
+- Mark the handoff explicitly **NON-CANONICAL**. It does not supersede an accepted baseline.
+- Analytical entry/review sensitivities from a working model are **not live price triggers** unless separately accepted and activated through the normal baseline/monitor process.
+- Do not create a trade proposal merely because monitoring is requested.
+- Radar / evidence-due monitoring may track the named facts and dates without treating the working valuation as current policy.
+- If later challenge/re-underwriting promotes the case, migrate the surviving monitoring rules into the new canonical baseline/live monitor and mark the handoff SUPERSEDED by that baseline.
+- If evidence invalidates the case, append the resolution; do not delete the original handoff.
+- If the named evidence remains unresolved at the backstop date, route a refresh rather than silently rolling the date forward.
+
+This handoff is specifically for preserving **what to watch next** when the investment decision itself is not yet accepted.
+
 ## Materiality rule
 
 A new decision log and current-baseline update are required when any of these change materially:
