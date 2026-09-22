@@ -46,6 +46,24 @@ If the underwriting is screen-grade, stale, unchallenged in a high-risk case, or
 9. **Entry rules must be evidence- or price-based.** Do not divide a purchase into arbitrary tranches without a reason.
 10. **Sizing is provisional.** Material price, thesis, financing, catalyst, correlation, or portfolio changes require a refresh.\n11. **Evidence earns additional capital.** For every staged position, define what specific evidence must arrive before the position can move from starter -> target -> maximum. Size does not increase merely because time passed or the stock rose.\n12. **No proof, no scale.** If the required evidence is late, ambiguous, weaker than expected, or contradicted, hold the current weight, reduce it, or return to Full Underwriting rather than automatically completing the target.\n13. **Every staged position needs a deadline.** Each evidence gate must have a date or evidence window and a cancellation/falsifier condition so unresolved theses cannot drift into larger permanent positions.
 
+## Pre-pivotal speculative allocation
+
+When Full Underwriting marks a clinical-stage security `Pre-pivotal speculative starter: ELIGIBLE`, the default allocation posture—if any capital is justified—is **FUND SMALL / STAGED**, not a normal full target.
+
+Use the pivotal-failure residual value and loss fraction, not normal volatility, to set the downside-derived ceiling. Apply event/gap, confidence, liquidity, financing, cluster and concentration caps. The exact starter weight remains portfolio-specific.
+
+If the user has not supplied a maximum acceptable portfolio loss for this speculative position/sleeve, do not choose a weight. Show clearly labelled illustrative loss-budget sensitivities; for pre-pivotal binary/semibinary cases use tighter examples such as 0.10%, 0.25%, and 0.50% portfolio loss.
+
+Require an evidence-earned sizing ladder and an explicit pre-readout policy:
+
+- what evidence permits an add;
+- what evidence freezes/reduces the position;
+- whether the starter is intended to be held through the pivotal readout or reduced beforehand;
+- what total portfolio loss is expected in the pivotal-failure scenario;
+- when the case must be re-underwritten.
+
+A tiny position cannot rescue a failed thesis. `ELIGIBLE` is necessary but not sufficient; Allocation may still choose WAIT or zero.
+
 ## Workflow
 
 ### 1. Define the allocation decision
@@ -85,7 +103,7 @@ Primary sizing relationship:
 
 Example: a 0.50% portfolio loss budget and 40% underwritten Bear loss imply a 1.25% maximum weight before other adjustments.
 
-For a near-total-loss binary security, use the realistic permanent-loss fraction rather than a mild mark-to-market drawdown.
+For a near-total-loss binary security, use the realistic permanent-loss fraction rather than a mild mark-to-market drawdown. For an eligible pre-pivotal clinical starter, also apply the dedicated speculative sizing rules and tighter loss-budget sensitivity when no personal budget is supplied.
 
 If no loss budget is provided, show a sensitivity table at illustrative portfolio-loss budgets such as 0.25%, 0.50%, and 1.00%. Label them as examples, not recommendations.
 
@@ -131,6 +149,7 @@ Choose one:
 - **Price-staged entry** — tranches tied to specified valuation or expected-return thresholds.
 - **Evidence-staged entry** — initial risk budget now, additions only after named proof.
 - **Catalyst-staged entry** — position before or after a dated event based on explicitly underwritten event risk.
+- **Pre-pivotal speculative starter** — deliberately small clinical exposure before a pivotal readout, only when underwriting marks it eligible and the failure-loss budget fits.
 - **Replacement / pair reallocation** — reduce a weaker correlated exposure as the stronger one is funded.
 - **Wait** — current price, evidence, liquidity, or concentration does not justify deployment.
 
@@ -186,6 +205,8 @@ Choose exactly one:
 **Maximum incremental weight:**  
 **Funding source:**  
 **Mandatory allocation review date:**  
+**Pre-pivotal speculative status:** N/A / ELIGIBLE / NOT ELIGIBLE / UNRESOLVED  
+**Pivotal readout window / hold-through policy:**  
 
 **One-sentence conclusion:**
 
