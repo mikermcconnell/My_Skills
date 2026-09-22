@@ -1,6 +1,6 @@
 ---
 name: investment-firm-output
-version: 9
+version: 10
 description: Publish new news and opportunities, meaningful changes to existing cases, Event Reaction strategy mechanics, and an action-sorted stock queue combining canonical, persisted legacy and portfolio-defense monitors in the existing 08:00, 11:00 and 15:00 Toronto Radar reports. Retain one weekday synthesis brief, exceptional urgent alerts and one standing Decision List. This is reporting coordination, not another analysis stage or permission to trade.
 ---
 
@@ -27,6 +27,14 @@ Immediately state the intended slot, **actual information cutoff**, market-sessi
 Use these three main sections, in order; a genuinely urgent risk can precede them in a short warning:
 
 ### 1. New news and opportunities
+
+#### Registered newsletter findings
+
+Material claims from registered specialist newsletters belong inside **New news and opportunities**, not in a separate newsletter digest.
+
+State the publisher/issue, the genuinely incremental claim, whether it is fact/data versus expert model/interpretation, why it may matter, the main verification/capture uncertainty, and the P1/P2/P3 route. Do not reproduce the whole newsletter or present the source's investment mapping as an accepted Investment Firm conclusion.
+
+Newsletter wrappers are one origin. Email/web/social copies of the same issue do not create independent confirmation.
 
 #### Pre-pivotal clinical opportunities
 
