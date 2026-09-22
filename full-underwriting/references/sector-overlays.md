@@ -100,6 +100,53 @@ Separate:
 
 For clinical holds or safety events, distinguish class precedent, route/vector/product-specific causality, actual patient outcomes, regulatory requirements, and the information needed to resolve uncertainty.
 
+### Pre-pivotal speculative underwriting
+
+When RWC advances a clinical-stage security **before** the pivotal readout, do not treat missing Phase 3 results as a reason to abandon underwriting. Treat pivotal uncertainty as the central scenario variable.
+
+Build at least these economically distinct states when material:
+
+1. **Pivotal failure / clinically non-viable** — include residual cash/platform/program value, financing obligations and realistic post-failure dilution or restructuring.
+2. **Ambiguous / technically positive but commercially weak** — marginal effect size, safety/tolerability, label, durability, dosing, manufacturing or differentiation disappoints despite avoiding outright failure.
+3. **Base clinical success** — clinically/regulatorily credible outcome with realistic commercial penetration and financing.
+4. **Strong differentiated success** — better efficacy, safety, convenience, durability, label or commercial profile than the Base case.
+5. **Exceptional / platform read-through** only when evidence supports a distinct upside path; do not manufacture a fifth case for symmetry.
+
+Explicitly reconcile:
+
+- Phase 2 effect-size shrinkage / winner's curse;
+- pivotal design and population differences;
+- larger-N and longer-duration safety risk;
+- regulator alignment versus sponsor interpretation;
+- competitor/class successes and failures;
+- cash runway through readout and filing;
+- expected dilution before/after readout;
+- manufacturing/CMC readiness;
+- what intermediate catalysts de-risk clinical probability versus only improve commercial quality;
+- current enterprise value and market-implied success/quality assumptions.
+
+Use rNPV / pipeline SOTP or another appropriate method, but show the **break-even pivotal-success probability** and the **probability required to clear the return hurdle** whenever the pivotal outcome dominates value.
+
+### Speculative starter eligibility
+
+Full Underwriting may mark a pre-pivotal case:
+
+`Pre-pivotal speculative starter: ELIGIBLE | NOT ELIGIBLE | UNRESOLVED`
+
+`ELIGIBLE` requires all of the following:
+
+- RWC survives with a credible clinical/regulatory mechanism and explicit failure case;
+- current price leaves positive expected value or a defensible return-hurdle case under probability ranges;
+- financing to the key readout is understood well enough to model dilution;
+- pivotal design/translatability and safety risk are explicit;
+- the Bear/failure path is tolerable only at a deliberately small loss budget;
+- a named next evidence ladder exists for adding, holding, trimming or exiting;
+- the conclusion is independently challenged when available before normal capital-allocation advancement.
+
+`ELIGIBLE` does **not** imply a normal target weight. The position is a speculative starter until evidence earns more size. Portfolio Capital Allocation owns the exact weight and may still choose zero.
+
+Do not use a small size to excuse a weak thesis. If the expected value is poor, financing is uncontrolled, or failure residual value is unknowable, use WATCH/PASS rather than hiding uncertainty inside position sizing.
+
 ## SaaS / software
 
 Assess:
