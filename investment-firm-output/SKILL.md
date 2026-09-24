@@ -1,19 +1,31 @@
 ---
 name: investment-firm-output
 version: 13
-revision: 2026-09-24-camillo-source-monitoring
-description: Publish the existing Investment Firm reports with separate Core and Camillo cases, early observation-first signal cards, explicit discovery coverage and unchanged Event Reaction mechanics. Preserve source, delivery, allocation and execution boundaries.
+revision: 2026-09-24-plain-language-orientation
+description: Publish the existing Investment Firm reports with separate Core and Camillo cases, plain-language product introductions, early observation-first signal cards, explicit discovery coverage and unchanged Event Reaction mechanics. Preserve source, delivery, allocation and execution boundaries.
 ---
 
 # Investment Firm output contract — version 13
 
 Read ../investment-strategy-lanes/SKILL.md, ../news-radar-investing/references/camillo-discovery.md and BASELINE_WORKFLOW.md. The baseline preserves complete version-10 reporting/source/delivery rules. Apply the scoped changes below; unrelated safeguards remain. Actual existing automation schedules control cadence; do not change task identity.
 
+## Explain the subject before the signal
+
+For every newly surfaced or unfamiliar product, company, technology or category, start with **What it is** in one or two plain-language sentences BEFORE rankings, growth observations, causal chains or investment implications. Assume the reader has not encountered the name before. Explain what people actually do with it and define the category rather than replacing one unfamiliar term with another. Include the verified maker/operator when useful; distinguish that identity from an unresolved publicly traded beneficiary. A short familiar analogy or concrete use example can help, but must not imply shared ownership, identical economics or features that have not been verified.
+
+Explain the business model briefly when verified and relevant: who pays and for what, or whether advertising is involved. Do not assume all products in a category monetize the same way. When ownership or monetization is unresolved, say so plainly without delaying the early signal. Cite the product/category description to accessible original sources; never invent an explanation to satisfy the template.
+
+Default newcomer card order: **What it is -> What we observed -> Why it may matter / the connection -> The uncertain bet -> Next check**. For example, a short-drama alert must first explain that these are fictional stories delivered in very short episodes for phone viewing, then identify what the named app does. The description must make the subsequent ranking or behaviour observation understandable without a separate user question. Do not put current product details or rank examples into this standing contract as evergreen facts.
+
+Translate internal routing into plain next steps: prefer 'Research next: test repeat use and how the product earns money' over an unexplained 'P2 RWC'. Keep actual priority/stage codes in supported metadata or parenthetically after the explanation when useful. Prefer 'No publicly traded beneficiary identified yet' over the ambiguous 'public mapping unresolved'; a known app developer does not establish a listed investment vehicle.
+
+Do not remove the introduction just to meet the usual card word budget. A newcomer card may use roughly 100–170 words when needed for context, without filler or a new section/quota for the overall report. Later updates should retain a short appositive reminder (name + what it does), not repeat a long primer every run. This applies to both Core and Camillo discovery, Daily Brief summaries and the opening business/product context of requested research or underwriting. It changes presentation only: evidence, routing, valuation, risk, exact-instrument and execution rules remain unchanged.
+
 ## Every Radar report
 
 Keep exactly: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell. Distinguish CORE — Long-term portfolio and CAMILLO — Speculative information edge within each. Both labels stay visible with truthful no-change, no-mapped-case or incomplete-coverage notes. Shared news uses one origin and cross-referenced implications, not duplicate stories.
 
-In New news and opportunities, show research-worthy Camillo EARLY / BUILDING / RWC NOW cards from the same run. Include behaviour-led/capability-led basis, original observation/claim, source/date/access limitation, simple connection, company or mapping unresolved, the speculative consequence, next check/window and falsifier. Normally 60–110 words per card; no forced number or hidden qualifying signals to meet a quota. At most three decisive research checks per handoff.
+In New news and opportunities, show research-worthy Camillo EARLY / BUILDING / RWC NOW cards from the same run. Lead with the plain-language subject introduction above, then include behaviour-led/capability-led basis, original observation/claim, source/date/access limitation, simple connection, company or mapping unresolved, the speculative consequence, next check/window and falsifier. Normally 60–110 words per familiar-subject card; allow the newcomer context budget above. No forced number or hidden qualifying signals to meet a quota. At most three decisive research checks per handoff.
 
 Do not require a named ticker, several independent origins, financial conversion, Core buy level, fresh quote or active monitor before surfacing a credible EARLY lead. Claims remain attributed, sponsorship is not organic demand, and a source not actually read cannot become verified evidence. Metadata-only leads remain SOURCE VERIFICATION rather than confirmed behaviour.
 
@@ -36,11 +48,11 @@ An edge-state label is not BUY/SELL approval. A missing quote blocks price-depen
 
 ## Research, underwriting and synthesis
 
-Investment RWC and Underwriting begin with Strategy / Case / Stage / Horizon. Preserve the original observation, source/claim status, first-seen date, simple chain, unknown mapping, next checks and future assumptions through handoffs. When both strategies are assessed, show separate conclusions; otherwise identify the other as not assessed. Full requested research remains available.
+Investment RWC and Underwriting begin with Strategy / Case / Stage / Horizon and a brief plain-language business/product introduction when the subject is unfamiliar. Preserve the original observation, source/claim status, first-seen date, simple chain, unknown mapping, next checks and future assumptions through handoffs. When both strategies are assessed, show separate conclusions; otherwise identify the other as not assessed. Full requested research remains available.
 
 Daily Brief retains Your decisions / What changed / Research progress / What comes next with strategy labels. Synthesize consequential early-signal progress, rejected connections, due checks and material access gaps; do not repeat the full Radar. Portfolio Defense keeps its strategy-aware evidence/recognition/timing versus Core valuation checks. Standing Decision List retains actual case identity, original snapshot schema/cutoff and unresolved cases.
 
-During the first five completed post-change Radar runs, fold discovery-verification findings into existing calibration/brief work under camillo-discovery.md: actual original-source coverage, independent initial leads, unknown-ticker retention, old-fact new-connection handling, non-AI coverage, source failures and unaltered Core/Event Reaction controls. No new audit newsletter, future test-success claim, invented recall rate or performance claim.
+During the first five completed post-change Radar runs, fold discovery-verification findings into existing calibration/brief work under camillo-discovery.md: actual original-source coverage, independent initial leads, unknown-ticker retention, old-fact new-connection handling, non-AI coverage, source failures and unaltered Core/Event Reaction controls. Also check whether a reader unfamiliar with each new product can understand what it is and why the observation matters before encountering the investment inference. No new audit newsletter, future test-success claim, invented recall rate or performance claim.
 
 ## State and authority
 
