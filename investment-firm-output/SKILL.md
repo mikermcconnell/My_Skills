@@ -1,11 +1,11 @@
 ---
 name: investment-firm-output
-version: 12
-revision: 2026-09-24-camillo-observation-first
+version: 13
+revision: 2026-09-24-camillo-source-monitoring
 description: Publish the existing Investment Firm reports with separate Core and Camillo cases, early observation-first signal cards, explicit discovery coverage and unchanged Event Reaction mechanics. Preserve source, delivery, allocation and execution boundaries.
 ---
 
-# Investment Firm output contract — version 12
+# Investment Firm output contract — version 13
 
 Read ../investment-strategy-lanes/SKILL.md, ../news-radar-investing/references/camillo-discovery.md and BASELINE_WORKFLOW.md. The baseline preserves complete version-10 reporting/source/delivery rules. Apply the scoped changes below; unrelated safeguards remain. Actual existing automation schedules control cadence; do not change task identity.
 
@@ -15,7 +15,7 @@ Keep exactly: New news and opportunities; Changes to existing investment cases; 
 
 In New news and opportunities, show research-worthy Camillo EARLY / BUILDING / RWC NOW cards from the same run. Include behaviour-led/capability-led basis, original observation/claim, source/date/access limitation, simple connection, company or mapping unresolved, the speculative consequence, next check/window and falsifier. Normally 60–110 words per card; no forced number or hidden qualifying signals to meet a quota. At most three decisive research checks per handoff.
 
-Do not require a named ticker, several independent origins, financial conversion, Core buy level, fresh quote or active price monitor before surfacing a credible EARLY lead. Claims remain attributed, sponsorship is not organic demand, and a source not actually read cannot become verified evidence. Metadata-only leads remain SOURCE VERIFICATION rather than confirmed behaviour.
+Do not require a named ticker, several independent origins, financial conversion, Core buy level, fresh quote or active monitor before surfacing a credible EARLY lead. Claims remain attributed, sponsorship is not organic demand, and a source not actually read cannot become verified evidence. Metadata-only leads remain SOURCE VERIFICATION rather than confirmed behaviour.
 
 NEW CONNECTION — EXISTING EVIDENCE is permitted when a new observation/interpretation changes an old fact's consequence. Show the interpretation delta and original dates; do not call an old contract a new announcement. Semantic duplicates remain duplicates. A rejected/deferred raw lead stays in the audit with its reason, not a fabricated investment candidate.
 
@@ -45,3 +45,7 @@ During the first five completed post-change Radar runs, fold discovery-verificat
 ## State and authority
 
 New discovery fields/labels are presentation/manifest metadata, not declarations of backend schema support. Write only accepted fields or authorized dated fallback; do not overwrite another strategy's baseline. Private bindings and actual cases stay outside public GitHub. Preserve source honesty, case history, fresh revisions, consumed/re-arm states, no automatic trades and the distinctions among saved configuration, completed scan, verified persistence and actual delivery. Use current ACTIVE_VERSION for compatible report-version annotations; never relabel historical snapshots with a new schema.
+
+## Source-monitoring addition
+
+Apply ../news-radar-investing/references/camillo-source-monitoring.md and its market-source pack. In Camillo findings distinguish measured rank/index changes from BASELINE_ONLY and provider claims; do not infer downloads or sales from rank. Add a compact retrieved/unchanged/partial/blocked coverage line rather than a full app list. Preserve stable product IDs, source dates, geography/category/device/provider and captured depth through RWC/underwriting. Structured snapshot receipts belong in existing private storage/Reporting Journal, not public GitHub. Saving local JSON is not shared persistent history. The Daily Brief carries only consequential findings or access gaps. No subscriptions or cadence changes.

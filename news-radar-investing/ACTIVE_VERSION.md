@@ -4,12 +4,14 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-24-camillo-observation-first
+analytical_revision: 2026-09-24-camillo-source-monitoring
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily
 skill: news-radar-investing/SKILL.md
 strategy_contract: investment-strategy-lanes/SKILL.md
 camillo_discovery_contract: news-radar-investing/references/camillo-discovery.md
 camillo_source_register: news-radar-investing/references/camillo-source-register.json
+camillo_market_source_pack: news-radar-investing/references/camillo-market-source-pack.json
+camillo_source_monitoring_contract: news-radar-investing/references/camillo-source-monitoring.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
 run_contract: news-radar-investing/references/v3-run-contract.md
 source_routing_contract: news-radar-investing/references/source-and-routing-rules.md
@@ -27,7 +29,7 @@ ai_efficiency_watch_activated_at: 2026-09-18
 ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 12
+output_contract_version: 13
 routine_radar_title: Investment Firm — Radar
 routine_radar_sections: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell
 protected_discovery: bounded urgent risk -> Core broad pass plus Camillo observation pass -> routine continuation
