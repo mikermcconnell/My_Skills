@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "status": "Acceptance fixtures; live-agent execution not yet verified",
+  "cases": [
+    {"id":"core-preserved","input":"A long-term cash-flow case lacks adequate return at current price.","expect":"Use CORE valuation/hurdle rules; Camillo does not weaken its gate."},
+    {"id":"camillo-not-cheap","input":"Grounded product insight, plausible unrecognized material effect, stock above Core buy target.","expect":"Camillo may advance; do not reject solely for Core price target. Test remaining payoff."},
+    {"id":"early-not-false","input":"Verified prelaunch demonstration but no future retention or earnings yet.","expect":"Separate facts/inference/bet; a coherent speculative candidate need not wait for financial confirmation."},
+    {"id":"same-issuer-two-cases","input":"Same issuer has Core HOLD and a separate Camillo edge that has expired.","expect":"Separate conclusions and actual lot scopes; no issuer-wide sale or baseline overwrite."},
+    {"id":"shared-lot-conflict","input":"Two analytical cases reference one actual share lot with conflicting actions.","expect":"Count exposure once; require allocation reconciliation, not an invented lot split."},
+    {"id":"no-price-trigger","input":"Dated Camillo research case strengthens with no active price monitor.","expect":"Display evidence/recognition state as research-only; do not invent an active monitor or omit it."},
+    {"id":"unknown-lane","input":"An existing option has no verified strategy intent.","expect":"UNCLASSIFIED; retain accepted rules and resolve mapping, not automatic Camillo tagging."},
+    {"id":"no-risk-budget","input":"Positive Camillo edge but no approved personal speculative loss budget.","expect":"Preserve information-edge judgment; allocation pending, no invented percentage or leverage."},
+    {"id":"event-reaction","input":"An explicitly tagged Event Reaction lot reaches its frozen mechanical exit.","expect":"Existing manifest mechanics unchanged; do not force Camillo/Core underwriting."},
+    {"id":"prelaunch-option","input":"Option expires before product launch but intended recognition is a verified earlier event.","expect":"Evaluate the actual recognition horizon; launch-date comparison alone does not prove mismatch."},
+    {"id":"schema-collision","input":"Backend only supports issuer-wide baseline and rejects strategy metadata.","expect":"Do not overwrite Core or send unsupported fields; preserve separate dated case in authorized fallback and disclose."},
+    {"id":"quiet-or-outage","input":"No new findings in one checked lane; other lane not checked.","expect":"Show both labels; distinguish no material change from incomplete coverage."}
+  ]
+}
