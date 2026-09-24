@@ -1,98 +1,55 @@
 # News Radar Investing V3 — Scheduled Monitor Instructions
 
-ACTIVE analytical version 3. News-discovery correction and combined-monitor patch approved September 21, 2026. Use `news-radar-investing/SKILL.md`, `references/v3-run-contract.md` and the shared `investment-firm-output/SKILL.md` version 8 or later. Do not layer another output contract over them.
+Revision: September 24, 2026, observation-first Camillo discovery. Read SKILL.md, ACTIVE_VERSION.md, the shared strategy contract, references/camillo-discovery.md and its source register, the inherited run/source/specialist contracts, and investment-firm-output/SKILL.md version 12 or later. The discovery amendment overrides only conflicting Camillo intake/coverage requirements; Core, specialist and execution safeguards remain.
 
-## Schedule and outputs
+## Existing schedule and outputs
 
-Keep existing **08:00, 11:00 and 15:00 America/Toronto daily** runs, including weekends, on their existing tasks. Each returns one **Investment Firm — Radar** report containing:
+Keep 08:00, 11:00 and 15:00 America/Toronto daily slots, including weekends, on the existing tasks. Return ONE Investment Firm — Radar report with the existing sections:
+1. New news and opportunities.
+2. Changes to existing investment cases.
+3. Stock monitor — Buy / Hold / Wait / Sell.
 
-1. **New news and opportunities** — supported material developments, including outside our existing stock list; distinguish new events, new evidence on existing stories, older late detections and uncertain novelty.
-2. **Changes to existing investment cases** — meaningful new evidence/status/decision/deadline changes only; not recycled old case summaries.
-3. **Stock monitor — Buy / Hold / Wait / Sell** — Event Reaction strategy mechanics first, then one action-sorted combined CANONICAL + persisted LEGACY + PORTFOLIO DEFENSE queue for non-Event-Reaction expressions.
+Show CORE and CAMILLO within each; keep Event Reaction mechanics first under Stock monitor when applicable. Urgent risk can lead. No second news/stock newsletter, new task, per-signal automation or altered notification channel. The weekday Daily Brief keeps its actual existing task schedule and owns synthesis, the Decision List and Friday breadth work. Never assume a concurrent Radar run has finished.
 
-Urgent portfolio risk may lead. Material news must not be suppressed until a BUY/SELL decision exists or deferred exclusively to the Daily Brief. The stock table remains required but does not define the news universe. Compact market context and source-coverage notes belong within this same output. Do not produce a second separate stock notification from the run.
+## Required run sequence
 
-The existing weekday 15:00 Daily Brief synthesizes decisions/research, maintains the existing Decision List and incorporates Friday breadth evidence. It does not reprint the whole Radar news report or stock table. Other specialist/portfolio producers retain internal/urgent-only publication; no new task or newsletter.
+1. Recover actual source-family/seen-history cutoffs and pending gaps from canonical and verified fallback. Read minimum live ownership/identity and urgent instrument/evidence deadlines where available. P0 may interrupt; routine old-case cleanup may not monopolize preflight. A private-state outage does not block public discovery.
+2. Complete BOTH protected discovery obligations before routine deep case reconciliation, all-stock quote assembly or persistence repair: existing Core open-universe searches across four broad source families, and the Camillo observation-first batch. The latter searches unseeded behaviour, capability, switching/negative evidence and a rotating non-AI category. Read one actual consumer/practitioner origin and one original product/release/demo where accessible; otherwise mark PARTIAL. Reuse shared sources once. No lead count quota.
+3. For worthwhile Camillo observations, apply the permissive early gate, three-to-five-link connection and bounded old-fact lookup. Single-origin, unmapped-product, prelaunch-capability and above-Core-target leads can surface. They remain research, not completed investment decisions. No financial proof, collector score, ticker dictionary or fixed source-age rule is an initial veto.
+4. Complete due Signal Sequence checks, current source-led thesis tests, evidence/catalysts, portfolio defense and all eleven specialist checks. Follow the inherited targeted priority for owned requiresReunderwrite, triggered/overdue/due and other material cases. Use live Mind Model state when readable, not seeds or memory. Readability and worker status must be truthful.
+5. Read every applicable CANONICAL, structured LEGACY and concrete PORTFOLIO DEFENSE monitor source under the price contract. Retrieve exact-instrument quotes near comparison time. Preserve source dates, active/disabled state, stored inequalities, consumed/re-arm history, legacy migration status and current strategy-case scope. Do not use raw prose or old tables to invent live monitors. Unknown fields are not zero.
+6. Check current market context as needed: overnight/verified premarket or labelled prior close at 08:00; actual regular-session data at 11:00/15:00 where open. Keep prices separate from attribution. A price dislocation prompts source investigation, not proof of behavioural change or mispricing.
+7. Reconcile source and connection novelty separately. Reuse origin/atomic-observation IDs and existing cases; inspect canonical plus verified fallback history. A materially new consequence of old evidence can be NEW CONNECTION — EXISTING EVIDENCE. A rephrased old story is not new. Preserve publication, underlying event, collection, first detection and first surfacing separately; unresolved history is explicit.
+8. Apply existing five gates in strategy-appropriate form and one primary P0/P1/P2/P3 route. Camillo's unknown future conversion, incomplete expectations proof or unknown ticker can create a specific P2 question rather than a failed gate. One strong discontinuity can justify P1 with a stated recognition/materiality rationale. Source verification is not silently upgraded to fact. Underwriting mode and case identity travel downstream.
+9. Stop at Radar's depth boundary. RWC owns truth/causality/representativeness/connection testing; strategy-appropriate underwriting owns security/payoff/current-price risk; challenge and allocation keep their roles. A route does not launch a worker, approve an investment or authorize a trade. Use no more than three decisive RWC questions per case unless a genuine issue requires more.
+10. Save supported research-only observations, connections, source receipts and manifests using existing stores, fresh state and idempotency. After bounded retries, use the existing authorized dated fallback. Unmapped observations must not require a dummy ticker. Unsupported metadata stays in accepted text/manifest, never a conflicting Core-baseline overwrite. A failed save must not hide a supported discovery in the report.
+11. Append the combined report and compatible snapshot to the existing private Reporting Journal with revision protection/read-back. Radar does not overwrite the Decision List or newer snapshots. Keep per-slot issue IDs, actual schema/cutoff, source coverage and delivery status; use the current ACTIVE_VERSION/output contract rather than stale schema numbers in inherited prose. Saving is not delivery.
+12. Publish qualifying EARLY cards and material case changes in this same report, not only at the afternoon brief. Preserve unchanged eligible monitor rows without retelling all old cases. Both lane labels remain visible; accurately distinguish no change in the declared sample from unsearched/inaccessible coverage. Exceptional alerts outside the existing reports still require concrete time-sensitive materiality and normal deduplication.
 
-## Run sequence
+## Required source receipts
 
-1. Read the current skill, active pointer, run contract, source/routing rules, primary-source feed map, `references/emerging-signal-lens.md`, `references/newsletter-intake.md`, shared output contract and specialist/price/sell/disclosure/AI-efficiency references. All eleven checks remain required; record unchanged lane statuses in the audit, not a mandatory visible dump.
-2. Recover the actual window since the last verified completed cutoff, including delayed/advanced/partial/failed gaps. Keep intended slot, actual start/cutoff and receipt separate. Do not advance unsearched broad-source windows merely because a portfolio check succeeded.
-3. Make a bounded live-context/seen-history preflight and rapid urgent-risk screen. Read actual holdings, imminent evidence/instrument deadlines and potential P0 risks where available. Missing private state is a limitation, not a reason to abandon public news. Repeated routine connector retries and historic inventory cleanup do not belong before all discovery.
-4. **Complete the protected open-universe pass next**, before routine deep case reconciliation, thesis expansion, all-name quote assembly or downstream underwriting. Apply the Emerging Signal lens to detect trajectory-shaped leading indicators, not only discrete events. Use actual unseeded broad searches across the four source families in `primary-source-feed-map.md`; record queries/feeds, windows, markets, outcome and limitations. Known-ticker searches alone do not count. No required number of leads or new tickers. A P0 emergency can preempt this, with explicit skipped-window recovery.
-5. Complete remaining portfolio defense, source-led active-thesis tests, due evidence/catalysts and all eleven specialist lanes. Load current Mind Model pillars/forecasts/falsifiers and use the run contract's targeted priority; cheaply sweep each readable active thesis rather than deep-diving all of them. Missing live thesis state is not inferred from GitHub seeds or memory.
-6. Read all three monitor source classes and enumerate their union under `price-monitor-live-source.md`: active CANONICAL monitors, explicitly persisted structured LEGACY recovery records and concrete live PORTFOLIO DEFENSE conditions. Retrieve exact-instrument quotes near the comparison cutoff. Preserve source IDs/dates, active/inactive status, thresholds, consumed/re-arm and migration state. Canonical supersedes equivalent legacy; higher-priority defense may supersede a buy review. De-duplicate one row per exact security and keep applicable lot/strategy. No generic prose baseline, old table or upload ticker list becomes a live legacy row. Missing-level/disabled/mapping-blocked research remains a coverage note and existing case detail, not an invented monitor. Available quotes survive missing trigger state; unknown ownership/cash is not guessed.
-7. Build market context using futures/overnight data at 08:00 and actual regular-session data at 11:00/15:00 when open, otherwise labelled last-session prices. Distinguish observations from attribution; a price move is a search trigger, not proof of company news.
-8. Reconcile material observations against original sources, prior public/accepted baselines, canonical Event Ledger AND verified dated fallback/Reporting Journal. Already-detected fallback-only news is not new again because an app save failed. Preserve event/publication/first-detection dates, stable IDs and independence groups. Uncertain history stays unverified; genuinely new evidence on an old theme can still qualify.
-9. Apply all five gates, one primary route and one underwriting requirement. A plausible economic question can be surfaced before completed valuation; unknown versus failed gates remain distinct. Include enough security/counterparty mapping to route, strongest failure reason, exact next test/date and up to three stored RWC questions. Do not force new beneficiaries or conflate familiarity with novelty.
-10. Enforce the hard depth boundary. Causality/confounders/counterfactuals/capture go to RWC; valuation/capital structure/scenarios/returns/timing to Full Underwriting; discrete payoff/execution to Event-Trade Underwriting; weights/funding to allocation. P0 warnings can precede complete assessment. A route does not start a worker by itself.
-11. Retain existing sell discipline: Radar detects/routes, downstream proposes, user/broker executes, and owned Investor Holdings closedPositionId precedes supported reconciliation. Partial close retains residual exposure; full close retains postmortem requirements. No fabricated fills, approved trades or changed thresholds through this correction.
-12. Retain disclosed owner/trade/filing/range/option-return safeguards, dynamic expert-role resolution and AI-efficiency fixed cohort, backfill cursor, quality/cost/confounder controls. New specialist evidence may appear in this Radar report. The full weekly AI breadth summary stays in Friday's Daily Brief; first eligible boundary remains September 25, 2026.
-13. Save research-only records using supported canonical writes with fresh state/idempotency. After a bounded fresh-state retry, use verified authorized fallback instead of spending the run repairing persistence. Never bypass concurrency or put unsupported diagnostic fields in a strict API payload. Keep original lineage and saving limitations.
-14. Append the combined report, compatible stock snapshot and full coverage/discovery/source-class manifest to the existing private Reporting Journal with revision protection and read-back. Radar does not overwrite the Decision List; its existing daily publisher copies the latest completed snapshot with its original cutoff and preserves newer manual snapshots/unresolved cases. Never write private portfolio data or document IDs into public GitHub.
-15. Publish the combined report even on quiet or partial runs, with no forced news. Show supported material discoveries promptly, unchanged case details only where needed, and the combined stock queue every time. If saving failed, disclose within this same output. Use exceptional Action Alerts outside scheduled reports only when waiting materially matters; do not duplicate an unchanged outage or consumed trigger.
+For each protected check retain family/source ID, actual query or feed URL, unseeded versus targeted classification, retrieval time, requested and inspected publication windows, original-source content scope, pagination/cache limitations, status, observation IDs and recovery needs. Planning a query is NOT running it. A cached page or a description does not prove fresh intraday/transcript coverage. Do not imply exhaustive platform access.
 
-## Registered newsletter intake
+Use references/camillo-source-register.json as the initial plan; reverify access each run. Rotate non-AI categories, recovering missed ones first. Sources inspected for capability need original follow-through; entrepreneur/product-launch posts are not independent adoption evidence. The old Investor social collector is supplementary, not a discovery gate. No new paid APIs, credential search or access-control bypass.
 
-Read `references/newsletter-intake.md` on every scheduled run. During the existing Expert / Industry Sources check, inspect Tier-A registered source issue indexes for newly published canonical issues.
+## Specialist and existing-source safeguards
 
-For a new issue:
-- preserve canonical URL/title/authors/publication time/access state;
-- deduplicate web/email/social wrappers to one issue origin;
-- extract only incremental decision-relevant atomic claims;
-- separate factual/data observations from expert interpretation/forecast and investment mapping;
-- apply normal five gates and Emerging Signal logic;
-- route load-bearing P1/P2 claims to RWC;
-- save issue/claim identity so the same issue is not rediscovered next run.
+Preserve all eleven checks, registered Tier-A newsletter issue intake, canonical issue/origin dedup, atomic claim extraction and separation of facts/data from forecasts/technical interpretation and investment mapping. Newsletter, podcast and influencer wrappers are not independent confirmation. Do not let long source material crowd out discovery.
 
-Do not create a separate newsletter report or let a long article crowd out the rest of Radar.
+Preserve the pre-pivotal clinical route and its medical/design/financing/failure safeguards; 'not yet Phase 3' alone does not reject a serious research case. Preserve disclosure owner/trade/filing/range/option-return distinctions, current-role verification for experts, and AI-efficiency fixed cohort/backfill/cost/quality/confounder controls. First eligible weekly AI boundary remains September 25, 2026; the complete breadth synthesis belongs in Friday's existing brief.
 
-## Emerging Signal operating rule
+## Monitoring and execution boundaries
 
-The Emerging Signal / Leading Indicator lens is global and does not add a twelfth lane.
+Event Reaction/post_earnings exact lots follow the current Investor manifest and existing mechanics, not generic underwriting for ordinary stop/target/runner/time rules. Missing confirmed entry/partial-sale state is ER DATA NEEDED. Same-issuer Core/Camillo cases remain distinct.
 
-During each protected discovery pass and relevant specialist checks:
-- look for unusual acceleration/deceleration in adoption, demand, pricing, capacity, distribution, competition, operating leverage and behavior-to-financial conversion;
-- create/reuse Signal Sequences when cumulative trajectory matters;
-- compare new atomic evidence against the saved baseline/sequence, not just the newest headline;
-- surface credible upstream signals before reported financial conversion when there is a plausible business bridge and testable next evidence;
-- escalate P3/P2 -> P1 when cumulative evidence materially strengthens velocity, persistence, breadth, independence, business transmission or the expectations gap;
-- check due sequence confirmations at their natural cadence;
-- do not create a score, story quota, ticker quota, new task or automatic trade.
+Core keeps valid price/defense review labels, source precedence, 5% proximity and quote-confirmation rules. Canonical supersedes equivalent legacy within the same strategy/case/instrument scope; higher-priority defense can supersede entry review. Every legacy-contributing instruction retains 'Refresh/migrate underwriting first;'. Relevant REUNDERWRITE_REQUIRED precedes an ordinary legacy crossing. No reactivation or consumption from publication.
 
-Material sequences appear inside `New news and opportunities` using EARLY / BUILDING / ESCALATE wording when useful.
+Camillo monitors observation/edge change, recognition, falsifiers, dated checks and instrument timing even without a price level. A dated research-only record is labelled RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR, not fabricated CANONICAL state. A source quote can be absent while a supported non-price evidence update remains useful.
 
-## Pre-pivotal clinical rule
+Aggregate actual exposure once; do not invent a lot split, retag existing holdings, overwrite Core with Camillo or silently convert an expired speculation into a Core holding. Unknown lane mapping retains accepted rules. No risk-budget, portfolio percentage, trade proposal approval, fill, database migration, new investment threshold or execution change.
 
-Within the existing Clinical / Medical lane, apply the Pre-Pivotal Opportunity Watch from `clinical-radar-overlay.md`.
+The all-empty active-monitor conclusion requires readable CANONICAL, LEGACY and DEFENSE classes with no eligible row; it says nothing about unsearched Camillo research. Retain partial/disabled/missing-level coverage accurately. A company improvement can coexist with instrument failure. No issuer-wide sale is inferred from one option review. Broker/user execution and authoritative closeout remain separate.
 
-Radar should surface serious late-Phase-2 / pivotal-stage candidates before Phase 3 when cumulative clinical, regulatory, design, execution, supporting-catalyst, financing and differentiation evidence warrants it. Use PRE-PIVOTAL — WATCH / EVIDENCE BUILDING / RWC NOW / POSITIONING REVIEW. Do not require the pivotal result before routing to RWC or Full Underwriting; do not skip RWC simply because the potential upside is large.
+## Calibration
 
-When downstream work supports it, POSITIONING REVIEW means Full Underwriting / Portfolio Capital Allocation should assess a deliberately small, loss-budgeted speculative starter. It is not a BUY instruction and not a normal target-weight position.
-
-## Event Reaction monitor exception
-
-For current positions explicitly tagged to Investor strategy_id `event_reaction` / alias `post_earnings`, read the current Investor strategy manifest and `references/event-reaction-strategy-mechanics.md`.
-
-Do not send those lots to RWC/Full Underwriting/Event-Trade Underwriting/Portfolio Capital Allocation for ordinary strategy stop/target/time mechanics. Display their confirmed entry, current price, calculated stop, +12.5%/85% partial target, +15% runner target, 30-trading-session time exit and mechanical action. Current rule numbers are examples of the September 21 manifest; the manifest remains authoritative.
-
-A material issuer headline can still appear as news. It does not replace the Event Reaction mechanics. If the same ticker is held under another strategy, keep that other expression in the normal combined queue.
-
-## Combined stock table and readiness
-
-| Action | Stock | Current price | Next trigger | Source | What to do |
-|---|---|---:|---|---|---|
-
-Use the price contract's ordered review actions: RE-UNDERWRITE NOW; EXIT REVIEW NOW; TRIM REVIEW NOW; COMPELLING BUY/ADD REVIEW; BUY/ADD REVIEW NOW; GETTING CLOSE; NO ACTION; UNAVAILABLE. These are review/monitor states, not final trades. Source labels are CANONICAL, LEGACY, PORTFOLIO DEFENSE, CANONICAL + DEFENSE or LEGACY + DEFENSE when materially contributing. Every legacy-contributing instruction begins `Refresh/migrate underwriting first;`; relevant legacy REUNDERWRITE_REQUIRED selects RE-UNDERWRITE NOW. A recovery record stored at stage RWC is not fresh RWC completion.
-
-Check LEGACY and DEFENSE even when canonical arrays are empty. NO ACTIVE STOCK MONITORS requires all three sources readable with no visible row. Missing material source coverage is PARTIAL; preserve reliable rows. Retain disabled/migration blockers in coverage without reactivation. A fair-value estimate is not a sell trigger; one option-exit review is not an issuer-wide sale; missing fields are not a reassuring HOLD or all-clear. Completed reviewed portfolio advice stays separate in the decision narrative. No automatic trading or migration.
-
-## Diagnostics
-
-Extend the existing run manifest with actual protected-discovery source coverage, unique new developments, new evidence on old stories, late detections, outside-known-universe candidates or unknown membership, unchanged follow-ups, fallback-aware duplicate groups and material discovery IDs included in output. These are diagnostics, not quotas, false hit rates or delivery receipts. A private-state outage may coexist with a successful public news scan; an unsearched source cannot be called no update.
-
-For each stock row retain source class, legacy event/result/date and migration/consumed/re-arm fields where applicable, defense trigger type/position scope and canonical-over-legacy suppression reason. Keep exact-security IDs and per-source coverage. Do not hard-code the dated runtime inventory in an uploaded patch.
-
-Maintain original per-slot snapshot IDs for compatibility, with report_format_version 5 and stock_table_schema combined_action_queue_v1. Do not emit another issue for the same slot solely because its title/schema changed. Saved, prepared, delivered and implemented are independent states; never infer delivery from task success or notification settings.
-
-Use the existing first-five-completed-brief validation to inspect coverage, novelty labels, outside-universe searching, same-run news inclusion, unchanged-case suppression, combined-source stock retention/precedence/legacy prefix/defense priority, fallback dedup, actual cutoffs, failed saves and notification delivery. No new validation newsletter. Saved configuration is not proof that the next corrected scan or its notification has succeeded.
+Apply the first-five-post-change-run review in camillo-discovery.md within existing calibration/brief work. Check actual protected search coverage, initial independent discoveries, weak-signal survival, unknown ticker retention, old-fact new-consequence handling, non-AI rotation, source gaps, due evidence, duplicate origins, unchanged strategy boundaries and save/delivery receipts. Diagnose access, search, filter, reasoning and surfacing failures separately. No invented hit rate, guaranteed lead count, extra audit newsletter or claim that unit tests prove a live run.

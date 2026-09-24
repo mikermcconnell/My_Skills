@@ -1,91 +1,31 @@
-# Social Arbitrage Lane — V3
+# Social Arbitrage / Alternative Data — observation-first amendment
 
-Use this lane when the potential edge comes from observable consumer, employee, supplier, developer, community, search, app, product, pricing, inventory, transaction, or cultural behaviour that may reach financial results or analyst estimates with a lag.
+Revision September 24, 2026. Read camillo-discovery.md, camillo-source-register.json and the shared two-strategy contract before the task-relevant emerging-signal/source rules. Social/alternative data is a source family; CAMILLO_SPECULATIVE is an investment strategy. The same observation may also inform Core without changing Core's underwriting gate.
 
-A popular stock post, influencer opinion, management claim, ordinary breaking-news item, or unexplained price move is not social arbitrage by itself.
+## Required discovery
 
-Radar detects and preserves the behavioural observation. Research With Confidence determines authenticity, causality, economic materiality, value capture, and whether an expectations gap survives. Full Underwriting determines whether the security is attractive at the current price.
+Execute the protected behaviour/capability/switching/non-AI batch during every existing Radar run, before routine stock-table or old-case expansion. Search product, consumer, practitioner, supplier, developer, pricing, availability and workflow evidence without a required ticker, financial phrase or investment-personality seed. Use original sources when accessible; claim and authenticity limitations stay explicit.
 
-## Existing evidence sources
+Single-source observations can surface as CAMILLO — EARLY when traceable, consequential enough to investigate and paired with a concrete next check. Capability-led hypotheses can precede adoption/retention. Unknown ticker, no current quote, no financial confirmation and a price above a Core buy level are not suppression reasons. Pure attention, incoherent connections and refuted premises are different.
 
-When available, reuse the Investing repository's existing social-arbitrage evidence rather than creating a parallel scanner:
+## Existing collector reuse, with limits
 
-- `/ai-efficiency/api/social-arb/evidence`
-- `/ai-efficiency/api/social-arb/signals`
-- `src/services/social_signal_extractor.py`
-- `src/services/firecrawl_social_sources.py`
-- the Social Signals page for Chris Camillo and Dumb Money research leads.
+The inherited Investor evidence/signals endpoints and social_signal_extractor/firecrawl_social_sources services remain useful when actual authorized access is available. See camillo-source-audit-2026-09-24.md. A code path is not proof of deployment or working credentials. Their personality/stock searches, known-term filters, source-age limits and numerical scores MUST NOT gate this discovery pass. Capture raw public observations through available authorized tools and use existing supported manifests/fallback when structured stores cannot represent unmapped products or separate connections.
 
-## Radar tests
+Do not create an additional scanner/database or bypass blocked platforms. The helper scripts/camillo_discovery.py is an offline plan/audit utility, not a deployed continuous collector.
 
-1. **Novelty:** when the behaviour began, whether it is accelerating, and whether investors already discuss it widely.
-2. **Velocity and breadth:** change in intensity, independent sources, geography, demographic reach, and persistence.
-3. **Authenticity:** organic behaviour versus promotion, bots, affiliate incentives, investor echo chambers, review manipulation, or one viral outlier.
-4. **Ticker mapping:** the actual public company, segment, geography, product economics, ownership, and whether a supplier or platform captures more value.
-5. **Materiality hypothesis:** units, price, share, revenue exposure, margins, estimate sensitivity, and the likely reporting period.
-6. **Expectation question:** narrative saturation, analyst assumptions, and why the behaviour may not yet be reflected.
-7. **Confirmation and falsification:** the next app rank, traffic, pricing, inventory, channel, search, transaction, guidance, or earnings evidence and expected date.
-8. **Persistence:** whether the behaviour survives long enough to matter rather than appearing only around one promotion or market move.
+## Tests and records
 
-Treat social activity as a lead until the business bridge is independently supported. Do not mistake attention for purchasing, purchasing for revenue, revenue for profit, or a good behavioural signal for an attractive stock.
+Preserve novelty, change relative to baseline, velocity/persistence/breadth when observed, authenticity, company/segment mapping or its absence, plausible materiality/capture, expectations hypothesis, next confirmation and falsifier. These are dimensions to investigate, not a fixed pass count before initial surfacing. A strong discontinuity may deserve P1 from a single high-quality origin.
 
-## Global Emerging Signal lens
+Separate ATTENTION, INTENT, PURCHASE, REPEATED_USE, PAYMENT, SWITCHING, ABANDONMENT, CAPABILITY, DISTRIBUTION and SUPPLY_CONDITION. No automatic inference from attention to purchasing, revenue, retained profit or investment attractiveness. One viral outlier, seasonal promotion or stockout may have another cause.
 
-Apply `emerging-signal-lens.md` to social/alternative-data observations and to comparable non-social leading indicators. This lane is one implementation surface for the global lens; it does **not** own the lens exclusively.
+Retain observation_id, first_seen_at, original source/URL, publication and observation window, collection time, independence group, observed behaviour or attributed claim, geography/cohort when actually known, baseline/comparison method, uncertainty, related product/company/security or mapping question, preliminary chain, strongest competing explanation, next check/date and existing route. Link stable Signal Sequence and strategy-case identity where supported. No new backend field or enum is implied.
 
-Do not ask only whether social activity is real. Also ask whether a sequence of observable facts is changing in **magnitude, velocity, persistence, breadth, independence, business transmission and expectations relevance**.
+For new connections, retain old evidence IDs plus the new observation/interpretation and changed consequence. Do not let source-URL dedup or an expired old trade hide newly significant relationship evidence; do not call old relationships new announcements. Rephrasing the same consequence remains a duplicate.
 
-When an observation may be the start of a trajectory, create or reuse its Signal Sequence / parent hypothesis rather than evaluating each datapoint as an isolated story. Examples include adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage, distribution advantage, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
+## Continuation and boundaries
 
-“Not yet revenue” is a downstream uncertainty, not an automatic rejection, when the observable signal plausibly leads reported financials and has a named confirmation/falsifier. Conversely, a viral observation with no plausible business bridge remains weak evidence.
+Fast signals can be checked next slot or within 1–2 days as relevant; slower source checks align to their next actual evidence window. Preserve due dates and explicit DORMANT/INVALIDATED decisions rather than infinite silent deferral. Weekly review supplements intraday discovery; it is not the only allowed escalation point. Holding period is not a fixed weeks-to-months gate.
 
-## V3 observation record
-
-Persist the smallest useful atomic record:
-
-```text
-observation_id
-first_seen_at
-observation_window
-original_source
-independence_group
-behaviour_observed
-geography_and_cohort
-breadth_and_velocity
-authenticity_flags
-linked_security_or_thesis
-preliminary_mechanism
-main_capture_uncertainty
-next_confirmation_or_falsifier
-next_evidence_date
-route
-signal_sequence_id_when_applicable
-sequence_archetypes
-trajectory_delta
-sequence_status_when_supported
-```
-
-Several independent observations are more valuable than a large raw mention count sharing one origin. Group repeated screenshots, reposts, affiliate content, or coordinated claims under one origin.
-
-## Scheduled cadence
-
-- Append genuinely new atomic observations during scheduled runs.
-- Create/reuse Signal Sequences for observations whose investment relevance depends on a trajectory rather than one datapoint.
-- Re-check fast-moving sequences at the next appropriate scheduled pass and slower sequences at their named evidence date; do not wait only for the weekly review when velocity is high.
-- Escalate from P3/P2 to P1 when cumulative evidence materially strengthens acceleration/deterioration, persistence/breadth, the business bridge or the expectations question.
-- Review cumulative behavioural patterns on the structured weekly slow-burn cadence as an additional check, not the only trajectory review.
-- Check the named confirming or falsifying evidence when due.
-
-Most social-arbitrage leads should route to RWC over a weeks-to-months horizon, not a one-day trade.
-
-## Price-dislocation boundary
-
-When social posts appear only after a large stock move, first treat the case as `PRICE_DISLOCATION_UNEXPLAINED`. Identify the original source and underlying event before treating the discussion as a behavioural lead.
-
-Do not pass Novelty because many accounts repeat the same explanation.
-
-## Hard depth boundary
-
-Radar may identify the observed behaviour, preliminary ticker mapping, plausible materiality, authenticity concerns, and the exact next evidence.
-
-Radar should not complete representative sampling, causal attribution, revenue sensitivity, consensus comparison, valuation, expected-return, or position-size analysis. Route those questions downstream.
+RWC independently tests evidence and inference; Full Underwriting — CAMILLO MODE assesses the speculative security/payoff; Core retains its own underwriting. Representative sampling, causal proof, full revenue sensitivity, complete consensus analysis and sizing are not prerequisites to showing the first research lead. No automatic trades, holdings reclassification or risk-limit changes.

@@ -1,44 +1,47 @@
 ---
 name: investment-firm-output
-version: 11
-revision: 2026-09-24-two-strategy-lanes
-description: Publish the existing Investment Firm reports with visible Core long-term portfolio and Camillo speculative information-edge cases, separate strategy-specific monitoring and unchanged Event Reaction mechanics. Preserve source coverage, delivery coordination and execution boundaries.
+version: 12
+revision: 2026-09-24-camillo-observation-first
+description: Publish the existing Investment Firm reports with separate Core and Camillo cases, early observation-first signal cards, explicit discovery coverage and unchanged Event Reaction mechanics. Preserve source, delivery, allocation and execution boundaries.
 ---
 
-# Investment Firm output contract — version 11
+# Investment Firm output contract — version 12
 
-Read ../investment-strategy-lanes/SKILL.md, then BASELINE_WORKFLOW.md. The baseline preserves the complete version-10 output, source and delivery rules. Apply the following scoped changes; all unrelated rules remain. Actual existing automation schedules take precedence over historical prose about a brief's nominal time. Do not change cadence or task identity.
+Read ../investment-strategy-lanes/SKILL.md, ../news-radar-investing/references/camillo-discovery.md and BASELINE_WORKFLOW.md. The baseline preserves complete version-10 reporting/source/delivery rules. Apply the scoped changes below; unrelated safeguards remain. Actual existing automation schedules control cadence; do not change task identity.
 
 ## Every Radar report
 
-Retain exactly the three main sections:
-1. New news and opportunities.
-2. Changes to existing investment cases.
-3. Stock monitor — Buy / Hold / Wait / Sell.
+Keep exactly: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell. Distinguish CORE — Long-term portfolio and CAMILLO — Speculative information edge within each. Both labels stay visible with truthful no-change, no-mapped-case or incomplete-coverage notes. Shared news uses one origin and cross-referenced implications, not duplicate stories.
 
-Within each, explicitly distinguish **CORE — Long-term portfolio** and **CAMILLO — Speculative information edge**. Both labels remain visible on quiet runs with truthful no-change, no-mapped-case or incomplete-coverage notes. Do not print a second full copy of shared news; cross-reference one origin and state each strategy implication.
+In New news and opportunities, show research-worthy Camillo EARLY / BUILDING / RWC NOW cards from the same run. Include behaviour-led/capability-led basis, original observation/claim, source/date/access limitation, simple connection, company or mapping unresolved, the speculative consequence, next check/window and falsifier. Normally 60–110 words per card; no forced number or hidden qualifying signals to meet a quota. At most three decisive research checks per handoff.
 
-Under Stock monitor retain **Event Reaction — strategy mechanics** first when applicable. Then show:
+Do not require a named ticker, several independent origins, financial conversion, Core buy level, fresh quote or active price monitor before surfacing a credible EARLY lead. Claims remain attributed, sponsorship is not organic demand, and a source not actually read cannot become verified evidence. Metadata-only leads remain SOURCE VERIFICATION rather than confirmed behaviour.
 
-### CORE — Long-term portfolio
+NEW CONNECTION — EXISTING EVIDENCE is permitted when a new observation/interpretation changes an old fact's consequence. Show the interpretation delta and original dates; do not call an old contract a new announcement. Semantic duplicates remain duplicates. A rejected/deferred raw lead stays in the audit with its reason, not a fabricated investment candidate.
 
-Keep the baseline action queue and all valid canonical/legacy/defense safeguards. Add Strategy case / exact instrument where required to disambiguate. Unclassified existing cases retain their accepted rules in a clearly labelled unresolved-mapping subsection, not an invented Core assignment.
+Include one compact discovery note recording actual Camillo coverage and gaps, separate from Core broad-news coverage. A query plan, cached index or registered source is not a completed pass. Missing private state cannot silence supported public observations; publication does not imply persistence, delivery or worker execution.
 
-### CAMILLO — Speculative information edge
+## Monitoring by strategy
+
+Keep Event Reaction — strategy mechanics first when applicable, under its current manifest. Then preserve the Core canonical/legacy/defense queue and a separate Camillo queue:
 
 | Edge state | Stock / case / instrument | Price / as-of | Recognition / falsifier / next review | Stage / next action | Source / record status |
 |---|---|---|---|---|---|
 
-Include readable dated Camillo research cases even without price triggers; explicitly label RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR when that is all the record supports. Show active risk/price monitors with their actual provenance and accepted conditions. No invented price level or CANONICAL source label. State research-case coverage separately from active-monitor coverage.
+Readable dated Camillo research cases remain visible without price triggers and are labelled RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR when appropriate. Do not invent a price level or CANONICAL source. Keep actual active price/risk monitors distinct from research-case coverage. Unknown mapping remains UNCLASSIFIED with accepted rules retained.
 
-A Camillo edge state is not BUY/SELL approval. Preserve supported review versus completed-decision distinctions. No forcing a promising Camillo case to WAIT solely because it is above a Core buy target. Missing quotes block price-dependent decisions, not factual evidence updates.
+Deduplicate actions by strategy case + exact security/instrument/lot. Preserve canonical/legacy/defense precedence within that scope and the required legacy refresh/migration prefix. Aggregate actual exposure once. Do not collapse different Core/Camillo conclusions into one ticker verdict or invent a lot split. Opposing instructions on the same real lot require allocation reconciliation.
 
-Action deduplication is by strategy case + exact security/instrument/lot, not ticker alone. Preserve source precedence inside that scope; aggregate actual exposure without counting a shared lot twice. Opposing instructions for the same real lot require allocation reconciliation.
+An edge-state label is not BUY/SELL approval. A missing quote blocks price-dependent decisions, not a supported evidence update. Completed advice requires current strategy-appropriate downstream work. No forced WAIT because a Camillo case is above a Core entry target; no silent conversion of failed speculation into Core.
 
 ## Research, underwriting and synthesis
 
-Investment RWC and Underwriting begin with Strategy / Case / Stage / Horizon. When both are assessed, show a two-row conclusion summary with separate reasoning and next steps; otherwise identify the other lane as not assessed. Full requested research remains available without duplicating analysis for display.
+Investment RWC and Underwriting begin with Strategy / Case / Stage / Horizon. Preserve the original observation, source/claim status, first-seen date, simple chain, unknown mapping, next checks and future assumptions through handoffs. When both strategies are assessed, show separate conclusions; otherwise identify the other as not assessed. Full requested research remains available.
 
-Daily Brief retains Your decisions / What changed / Research progress / What comes next, with strategy-labelled items. Portfolio Defense distinguishes Core thesis/value reviews from Camillo evidence/recognition/timing reviews while preserving Event Reaction. Standing Decision List refreshes preserve strategy-case identity and original cutoffs; never overwrite historical research or holdings to fit the layout.
+Daily Brief retains Your decisions / What changed / Research progress / What comes next with strategy labels. Synthesize consequential early-signal progress, rejected connections, due checks and material access gaps; do not repeat the full Radar. Portfolio Defense keeps its strategy-aware evidence/recognition/timing versus Core valuation checks. Standing Decision List retains actual case identity, original snapshot schema/cutoff and unresolved cases.
 
-Report annotations and new edge states are not declarations of backend schema support. Persist only accepted fields or authorized fallback. Preserve private reporting bindings outside public GitHub, source honesty, case history, consumed/re-arm state, fresh revisions, no automatic execution and the difference between saved configuration, completed run and actual delivery.
+During the first five completed post-change Radar runs, fold discovery-verification findings into existing calibration/brief work under camillo-discovery.md: actual original-source coverage, independent initial leads, unknown-ticker retention, old-fact new-connection handling, non-AI coverage, source failures and unaltered Core/Event Reaction controls. No new audit newsletter, future test-success claim, invented recall rate or performance claim.
+
+## State and authority
+
+New discovery fields/labels are presentation/manifest metadata, not declarations of backend schema support. Write only accepted fields or authorized dated fallback; do not overwrite another strategy's baseline. Private bindings and actual cases stay outside public GitHub. Preserve source honesty, case history, fresh revisions, consumed/re-arm states, no automatic trades and the distinctions among saved configuration, completed scan, verified persistence and actual delivery. Use current ACTIVE_VERSION for compatible report-version annotations; never relabel historical snapshots with a new schema.
