@@ -1,0 +1,37 @@
+name: Camillo Google Trends connection test
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'news-radar-investing/scripts/camillo_google_trends.py'
+      - 'news-radar-investing/evals/test_camillo_google_trends.py'
+      - '.github/workflows/camillo-trends-probe.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Offline contract tests
+        run: python3 -m unittest discover -s news-radar-investing/evals -p test_camillo_google_trends.py -v
+      - name: Public-source live probe
+        id: probe
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[trends-live-probe]')
+        continue-on-error: true
+        run: python3 news-radar-investing/scripts/camillo_google_trends.py probe --output-dir trends-probe
+      - name: Retain public diagnostic evidence
+        if: always() && steps.probe.outcome != 'skipped'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: camillo-trends-probe
+          path: trends-probe/
+          retention-days: 7
+          if-no-files-found: warn
+      - name: Do not confuse test success with connection success
+        if: steps.probe.outcome == 'failure'
+        run: exit 2
