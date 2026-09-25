@@ -1,11 +1,11 @@
 ---
 name: investment-firm-output
-version: 14
-revision: 2026-09-25-unified-radar-trigger-only-er
-description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine discovery, case changes, research progress, decisions and next checks with separate Core/Camillo lanes. Event Reaction is trigger-alert-only, never a recurring table. Preserve factual, portfolio and execution controls.
+version: 15
+revision: 2026-09-25-owned-add-state-reconciliation
+description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine discovery, case changes, research progress, decisions and next checks with separate Core/Camillo lanes. Reconcile completed purchases so stale entry/add monitors do not keep presenting already-owned positions as fresh ADD reviews. Event Reaction is trigger-alert-only, never a recurring table. Preserve factual, portfolio and execution controls.
 ---
 
-# Investment Firm output contract — version 14
+# Investment Firm output contract — version 15
 
 ## One publisher and scoped authority
 
@@ -51,6 +51,27 @@ Core keeps its accepted business/valuation/return gates. Camillo keeps its infor
 Retain the existing Core CANONICAL + structured LEGACY + PORTFOLIO DEFENSE source rules, eligible unchanged non-ER rows, accepted inequalities, quote confirmation, 5% proximity, consumed/re-arm/disabled state and source precedence. Every legacy-contributing instruction retains 'Refresh/migrate underwriting first;'; relevant REUNDERWRITE_REQUIRED remains a prerequisite. No inferred targets, unsupported source labels or all-clear with unreadable classes.
 
 Keep Camillo research-only cases visible without price triggers, explicitly **RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR** where applicable. Its edge/recognition/falsifier/review clock remains separate from a trading decision. Preserve unknown strategy mapping rather than retagging holdings. Deduplicate by strategy case plus exact instrument/lot, not ticker; count actual exposure once.
+
+
+### Completed-purchase / stale-add reconciliation
+
+The visible stock table must distinguish **a pending add decision** from **an add that already happened**.
+
+Use current live holdings/lots as the ownership truth for reporting. If a confirmed purchase/add occurred after the monitor/legacy entry state that produced a BUY/ADD review, do **not** keep presenting that same historical entry/add condition as a fresh `BUY REVIEW`, `ADD REVIEW`, or `COMPELLING ADD REVIEW` unless a current accepted downstream record explicitly says another tranche remains authorized after that purchase.
+
+When live holdings confirm the position was established or increased but the canonical/legacy trigger has not yet been explicitly consumed/re-armed, render:
+
+**HOLD / RECONCILE ADD STATE**
+
+and state plainly:
+
+`Purchase already completed; hold the existing position and reconcile whether the prior add trigger should be consumed/re-armed before any further purchase.`
+
+This is a **reporting correction only**. It does not consume, re-arm, delete or change a trigger, threshold, holding, strategy tag, underwriting baseline or allocation decision.
+
+If a legacy monitor still says `UNOWNED` but live holdings now confirm ownership, live ownership controls the user-facing wording. Mark the legacy ownership field stale and require refresh/migration before any further add. Do not call the existing owned position a new BUY/ADD review.
+
+If a current accepted underwriting/allocation decision created a **separate additional tranche after the latest purchase**, the normal ADD-review action may still appear for that distinct tranche. Preserve its exact source/date/lot scope.
 
 **Event Reaction: alerts only.** Read ../news-radar-investing/references/event-reaction-strategy-mechanics.md. Omit the recurring ER table, ER HOLD rows, routine target/stop inventories, near-target reminders, unchanged operational diagnostics and 'nothing hit' placeholders entirely. A newly verified stop, partial-profit target, runner target or due mechanical time exit may generate a compact **Event Reaction alert** stating exact lot/security, triggered rule/level, observed price or time with evidence cutoff, the manifest's required action and actual execution status. These are existing strategy triggers, not new thresholds. Do not require fundamental underwriting for a mechanical exit.
 
