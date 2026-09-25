@@ -53,6 +53,19 @@ Retain the existing Core CANONICAL + structured LEGACY + PORTFOLIO DEFENSE sourc
 Keep Camillo research-only cases visible without price triggers, explicitly **RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR** where applicable. Its edge/recognition/falsifier/review clock remains separate from a trading decision. Preserve unknown strategy mapping rather than retagging holdings. Deduplicate by strategy case plus exact instrument/lot, not ticker; count actual exposure once.
 
 
+### Completed purchase reconciliation
+
+The stock table must distinguish a pending add decision from an add that already happened.
+
+Current verified live holdings/lots control user-facing ownership wording. If a confirmed purchase or add occurred after the monitor state that generated a BUY/ADD review, do not keep showing that same historical condition as a fresh BUY REVIEW, ADD REVIEW or COMPELLING ADD REVIEW unless a newer accepted downstream record explicitly authorizes another tranche after the purchase.
+
+When the purchase is confirmed but trigger consumption/re-arm state has not yet been reconciled, render **HOLD / RECONCILE ADD STATE** and say: `Purchase already completed; hold the existing position and reconcile whether the prior add trigger should be consumed/re-armed before any further purchase.`
+
+This is reporting only. It does not consume, re-arm, delete or change a trigger, threshold, holding, strategy tag, underwriting baseline or allocation decision.
+
+If a legacy monitor still says UNOWNED but live holdings now confirm ownership, live ownership controls the visible wording. Mark the legacy ownership field stale and require refresh/migration before any further add. If a newer accepted underwriting/allocation decision explicitly establishes another tranche after the latest purchase, normal ADD-review wording may still be used for that distinct tranche.
+
+
 ### Completed-purchase / stale-add reconciliation
 
 The visible stock table must distinguish **a pending add decision** from **an add that already happened**.
