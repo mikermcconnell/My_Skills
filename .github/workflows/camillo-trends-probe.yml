@@ -1,11 +1,22 @@
 name: Camillo Google Trends connection test
 on:
   workflow_dispatch:
+    inputs:
+      terms_json:
+        description: Public search terms as a JSON list; never private account or portfolio data
+        required: false
+        default: '["PineDrama","Ray-Ban"]'
+      country:
+        description: Two-letter country code
+        required: false
+        default: US
   push:
     branches: [main]
     paths:
       - 'news-radar-investing/scripts/camillo_google_trends.py'
+      - 'news-radar-investing/scripts/camillo_trends_worker.py'
       - 'news-radar-investing/evals/test_camillo_google_trends.py'
+      - 'news-radar-investing/evals/test_camillo_trends_worker.py'
       - '.github/workflows/camillo-trends-probe.yml'
 permissions:
   contents: read
@@ -18,17 +29,20 @@ jobs:
         with:
           persist-credentials: false
       - name: Offline contract tests
-        run: python3 -m unittest discover -s news-radar-investing/evals -p test_camillo_google_trends.py -v
+        run: python3 -m unittest discover -s news-radar-investing/evals -p 'test_camillo*.py' -v
       - name: Public-source live probe
         id: probe
         if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[trends-live-probe]')
         continue-on-error: true
-        run: python3 news-radar-investing/scripts/camillo_google_trends.py probe --output-dir trends-probe
+        env:
+          TERMS_JSON: ${{ inputs.terms_json || '["PineDrama","Ray-Ban"]' }}
+          COUNTRY: ${{ inputs.country || 'US' }}
+        run: python3 news-radar-investing/scripts/camillo_trends_worker.py --terms-json "$TERMS_JSON" --country "$COUNTRY" --output-dir trends-probe
       - name: Retain public diagnostic evidence
         if: always() && steps.probe.outcome != 'skipped'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: camillo-trends-probe
+          name: camillo-trends-probe-${{ github.run_attempt }}
           path: trends-probe/
           retention-days: 7
           if-no-files-found: warn
