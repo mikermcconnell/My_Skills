@@ -1,109 +1,45 @@
-# Event Reaction Strategy Mechanics — Radar / Portfolio Defense Override
+# Event Reaction — mechanical system, trigger alerts only
 
-Approved September 21, 2026. This contract separates the **Event Reaction Drift** strategy from fundamental/security underwriting inside News Radar and Portfolio Defense.
+Strategy separation approved September 21, 2026; reporting revised September 25, 2026. Event Reaction is a separate mechanical system, not Core or Camillo underwriting. **Do not print a recurring Event Reaction table in Radar, synthesis or the standing current view. Surface only a verified actionable trigger, with the limited urgent operational-risk exception below.**
 
-## Source of truth and strategy identity
+## Authoritative rules and identity
 
-The authoritative live strategy definition is the Investor repository `config/strategy-manifest.json`, strategy_id `event_reaction`, including its aliases such as `post_earnings`. Read the current manifest when any live position/decision is tagged to that strategy. Do not freeze this file's numeric examples as permanent rules if the strategy manifest later changes them.
+Read the current Investor repository config/strategy-manifest.json, strategy_id event_reaction and its actual aliases such as post_earnings, plus the applicable frozen live lot/engine state. Do not infer membership from a ticker, instrument, old report or remembered position. Same-issuer non-ER holdings/cases remain separate.
 
-A position qualifies for this override only when current live strategy/position state explicitly links it to Event Reaction / post_earnings. Do not infer strategy membership from the ticker, an old report, a remembered trade, or a generic price/volume pattern.
-
-If the same issuer also has a non-Event-Reaction holding, preserve the two strategy expressions separately. The Event Reaction lot follows this mechanical contract; the other holding may still follow normal underwriting/Portfolio Defense rules.
+The strategy engine / Strategy Desk owns entry qualification, capacity and mechanical event evaluation. Reporting does not change its trading rules, monitoring frequency, notifications, accepted thresholds, executions or lot state. Prefer verified native engine events. A read-only fallback check must use the applicable manifest, exact instrument and sufficient confirmed entry/position/session data; no new mechanics may be invented to fill a report.
 
 ## No-underwriting override
 
-Event Reaction is a **mechanical strategy sleeve**, not a company-underwriting workflow.
+Ordinary mechanical stop, partial-profit, runner and maximum-hold exits have **Underwriting Required? = NO**. Do not route them to RWC, Full Underwriting, Event-Trade Underwriting or Portfolio Capital Allocation solely to honor the frozen strategy. A company valuation, thesis, concentration or opportunity-cost argument cannot replace the lot's frozen exit rule. Company news can still support separate Core/Camillo research without converting this lot.
 
-For an Event Reaction-tagged position:
+An operational ambiguity, corporate action, halt or missing field is mechanics/data work, not fundamental underwriting. Keep ordinary unresolved diagnostics in internal records; do not publish a daily ER DATA NEEDED or HOLD table. Only a concrete newly material operational failure threatening an established protection or timely action may warrant the existing exceptional risk-alert channel. No all-clear is implied by omitting the routine table.
 
-- ordinary strategy entry/hold/stop/target/time-exit monitoring does **not** route to Research With Confidence, Full Underwriting, Event-Trade Underwriting, or Portfolio Capital Allocation;
-- internal `Underwriting Required?` is `NO` when the only question is whether the frozen Event Reaction mechanics have triggered;
-- a price stop, profit target, runner target, or maximum-hold condition must never become `RE-UNDERWRITE NOW`;
-- company valuation, fair value, thesis quality, target price, concentration, or opportunity-cost reviews do not replace the strategy's frozen exit mechanics for that lot;
-- a material company/news development may still appear in Radar's **New news and opportunities** section, but it does not change the Event Reaction lot's mechanical action unless the Event Reaction strategy contract itself contains a rule for that circumstance;
-- if a market halt, delisting, corporate action, data error, or other operational condition prevents the frozen mechanics from being evaluated/executed, use `ER MECHANICS REVIEW` / `DATA NEEDED`, not fundamental underwriting.
+## Existing dated baseline — not a new rule
 
-The strategy engine / Strategy Desk owns Event Reaction entry qualification and capacity. News Radar does not manufacture Event Reaction entries from news.
+As recorded September 21, the manifest baseline was: stop 10% below confirmed entry; partial profit at +12.5% selling 85%; runner target +15% on the remainder; maximum hold 30 trading sessions; after the actual partial fill the remaining lot follows the stop/runner/time rule; conservative stop-first ordering applied to historical/exact-shadow daily bars with both levels touched. Preserve this as dated context, not a live substitute for the applicable engine/manifest rules.
 
-## Current frozen exit baseline
+For that dated baseline only, entry E implies stop E×0.90, partial target E×1.125 and runner E×1.15. Use confirmed fill/date and actual remaining quantity/partial-sale state. Display rounding cannot change an unrounded rule comparison. Do not use calendar days for a trading-session deadline, underlying USD for a CAD or option trigger, an analyst stop, event-day low, stale quotes or inferred execution. If a field is missing, record it internally and resolve it before asserting a trigger. Ambiguous stop/target ordering follows the engine/manifest, not a reporter's favourable assumption.
 
-Read the current Investor strategy manifest each run. As of September 21, 2026, the authoritative Event Reaction exit block is:
+## When an alert is eligible
 
-- stop loss: **10% below the confirmed entry fill**;
-- partial profit trigger: **+12.5% from confirmed entry**;
-- partial sale: **sell 85% of the position** at that trigger;
-- runner target: **+15% from confirmed entry** on the remaining 15%;
-- maximum hold: **30 trading sessions**;
-- after the 85% partial sale, the remaining 15% exits at the +15% runner target, the strategy stop, or the 30-session time exit, whichever valid rule occurs first;
-- historical/exact-shadow daily-bar handling uses conservative stop-first ordering when stop and profit levels are both touched on one daily bar.
+Allowed existing triggered actions are **ER STOP SELL**, **ER PARTIAL TARGET SELL**, **ER RUNNER TARGET SELL** and **ER TIME EXIT**. A valid native event or sufficiently verified read-only evaluation must establish an actual applicable trigger and its occurrence/lot identity. Mere proximity, unrealized P&L, a projected target, approaching time limit, held status, or a changed quote with the same old trigger is not an alert.
 
-Do not substitute the event-day low or an analyst/fundamental stop for the manifest's current frozen rule. The production manifest is authoritative even if older prompt prose differs.
+A previously unseen still-actionable trigger can be surfaced as late detection with its original time. A documented target touch between scans may qualify even if the price has since moved, only when the native event or reliable time/price evidence and current execution state establish that it remains an actionable event under the strategy. Do not require the latest spot price alone or invent an intraday crossing from incomplete bars. A filled/closed event is not an instruction to sell again.
 
-## Price calculations
+Alert text: **Event Reaction alert — [security / exact lot]: [rule hit].** State trigger level or actual due-session condition, observed price/time and source cutoff, manifest-required action/eligible quantity if known, and whether execution is pending or confirmed. Quantity must come from actual state, not a guessed original position. A partial target does not establish that the partial was filled; no runner sale based solely on an earlier recommendation.
 
-Require a verified confirmed entry fill price and entry date for each live Event Reaction lot.
+Keep the alert compact. Do not attach the entire sleeve's entry/stop/target table, quiet holdings, near-target rows or a routine 'No targets hit' heading. Do not duplicate ER rows in the Core/Camillo monitor queue. The same ticker's independently verified non-ER case can remain in that queue.
 
-Using entry fill `E` and the current September 21 baseline only:
+## Deduplication, urgency and closeout
 
-- stop price = `E × 0.90`;
-- partial target price = `E × 1.125`;
-- runner target price = `E × 1.15`;
-- time exit = trading session 30 from the actual entry session.
+Use native event/condition occurrence plus exact strategy/lot/instrument identity, and preserve original detection time and linkage across Radar, Portfolio Defense, the Journal and any readable authoritative alert channel. Do not key a fresh alert solely to each new quote or scheduled slot. A reported unresolved trigger remains one pending item in the standing Decision List, not a new full alert every report. A new runner/stop/time event, material correction or verified worsening execution risk can be surfaced with its linkage; a minor wording or timestamp change cannot.
 
-Round display prices only for readability; retain the unrounded calculation in audit state when supported.
+Publication/delivery state is separate from execution/consumption/re-arm state. Do not mark filled, closed, consumed or re-armed merely because the alert was saved or shown. If delivery is unknown, preserve that uncertainty and use existing bounded delivery reconciliation; avoid flooding unchanged messages. Store new reporting metadata only in supported fields or the authorized Journal, not invented native API keys.
 
-If entry price/date, remaining quantity, prior partial-sale state, or current manifest rules are unavailable, do not infer them. Show `ER DATA NEEDED` and the smallest missing field.
+The unified Radar checks/reconciles events at 08:00, 11:00 and 15:00 Toronto. Existing independent mechanical-system/broker alerts remain untouched; these scans are not continuous tick monitoring. An already verified urgent hit may use an existing Action Alert rather than waiting for the next report when execution risk warrants it. No new polling task or notification channel is created by this contract.
 
-## Mechanical action vocabulary
-
-Use these Event Reaction-specific actions instead of generic underwriting-review labels:
-
-1. **ER STOP SELL** — stop condition has triggered; sell the remaining Event Reaction lot under the frozen strategy rule.
-2. **ER PARTIAL TARGET SELL** — +12.5% target reached and the baseline partial has not already been executed; sell 85% of the current eligible Event Reaction position under the frozen rule.
-3. **ER RUNNER TARGET SELL** — after the partial sale, +15% runner target reached; sell the remaining runner.
-4. **ER TIME EXIT** — 30 trading sessions reached; sell the remaining position.
-5. **ER HOLD** — no mechanical exit condition currently triggered; continue to the next stop/target/time condition.
-6. **ER MECHANICS REVIEW** — operational/corporate-action ambiguity prevents reliable application of the frozen rules.
-7. **ER DATA NEEDED** — required live strategy/entry/quantity/rule data are unavailable.
-
-These are strategy instructions for the user's decision/broker workflow, not claims that ChatGPT executed an order. Holdings closeout still requires the authoritative broker/Investor Holdings record.
-
-## Radar display
-
-Inside section 3, **Stock monitor — Buy / Hold / Wait / Sell**, render Event Reaction positions in a distinct subsection before the generic underwriting/defense queue:
-
-### Event Reaction — strategy mechanics
-
-| Action | Stock / lot | Entry | Current | Stop loss | Target sells | Time exit | What to do |
-|---|---|---:|---:|---:|---|---|---|
-
-For `Target sells`, show the current manifest rule, e.g. `+12.5%: sell 85%; +15%: sell remaining 15%`, and calculate corresponding prices from the confirmed entry when available.
-
-Do not show Event Reaction stop/target/time-exit rows again in the generic CANONICAL / LEGACY / PORTFOLIO DEFENSE action queue. De-duplicate by exact security + strategy + lot/expression so a separate long-term or other-strategy holding in the same issuer can still appear in the normal queue.
-
-## Monitoring, alerts and closeout
-
-Radar checks Event Reaction mechanics at the normal 08:00, 11:00 and 15:00 Toronto runs using the freshest reliable exact-instrument quote. A mechanical exit that has triggered belongs prominently in that scheduled report; use an exceptional Action Alert only if waiting until the next scheduled Radar output would create material execution risk.
-
-For an Event Reaction close:
-
-- no RWC / Full Underwriting / allocation gate is required solely to honor the frozen strategy exit;
-- user/broker executes the trade;
-- Investor Holdings records the confirmed sale;
-- supported closeout/postmortem uses actual fill/quantity/date and the Event Reaction strategy lineage;
-- partial profit remains `PARTIALLY_CLOSED`; the remaining runner stays under the same stop/runner/time-exit mechanics;
-- do not mark a strategy position closed from a recommendation, proposed order, or target touch alone.
+The user/broker executes; Investor Holdings records actual fills; partial close remains partially closed and its real remainder keeps the mechanical rules. Supported closeout/postmortem preserves fill, quantity, date and strategy lineage. Reporting does not alter strategy evaluation or place orders.
 
 ## Regression checks
 
-Verify during rollout:
-
-- Event Reaction-tagged positions never receive `RE-UNDERWRITE NOW` merely because stop/target/time rules are near or hit;
-- the current manifest, not stale prompts, supplies the mechanics;
-- the correct confirmed entry fill/date drives calculated stop/target/time levels;
-- an already executed 85% partial is not repeated;
-- the remaining runner is 15% only when authoritative state confirms the partial;
-- 30 means trading sessions, not calendar days;
-- same-ticker non-Event-Reaction holdings remain independently eligible for normal underwriting/defense monitoring;
-- news about an Event Reaction issuer can still surface without changing the mechanical strategy action;
-- no automatic order, fabricated fill, or strategy-rule mutation occurs.
+No-trigger, ER HOLD, near-target and ordinary data-needed cases produce no recurring ER section. Each verified new trigger can surface once; an old unfilled event does not re-fire merely because another slot runs. Executed partials are not repeated; new runner events remain independently eligible. Exact lots and same-issuer Core/Camillo expressions stay separate. Trading-session rules, actual manifests/quotes and broker-confirmed state remain authoritative. No automatic trade, new underwriting gate, inferred fill or changed strategy threshold.

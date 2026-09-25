@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "approved_date": "2026-09-25",
+  "scope": "Reporting policy, not an Investor API schema or trading rule",
+  "publisher_title": "Investment Firm — Radar",
+  "routine_publisher_count": 1,
+  "timezone": "America/Toronto",
+  "slots": ["08:00", "11:00", "15:00"],
+  "days": "daily_including_weekends",
+  "daily_synthesis_slot": "15:00",
+  "weekly_synthesis": {"weekday": "FR", "slot": "15:00"},
+  "separate_daily_brief": false,
+  "standing_view_owner": "unified_radar",
+  "event_reaction": {
+    "mode": "trigger_alerts_only",
+    "routine_table": false,
+    "quiet_placeholder": false,
+    "proximity_alerts": false,
+    "eligible_actions": ["ER STOP SELL", "ER PARTIAL TARGET SELL", "ER RUNNER TARGET SELL", "ER TIME EXIT"],
+    "unchanged_trigger_realert": false,
+    "publication_changes_execution_state": false
+  },
+  "unchanged": ["Core underwriting gates", "Camillo speculative information-edge gates", "Event Reaction strategy manifest", "source collection controls", "portfolio risk budgets", "user/broker execution", "internal specialist schedules"]
+}
