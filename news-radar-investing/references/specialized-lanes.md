@@ -82,6 +82,21 @@ Apply `slow-burn-and-catalyst-lanes.md`. Check current catalyst dates, frozen ex
 
 Apply `social-arbitrage-lane.md`. Look for original consumer, employee, supplier, developer, community, search/app/product/pricing/inventory/transaction/hiring/traffic/engagement/signup/usage/cultural evidence that could precede financial reporting. Preserve authenticity, representativeness, denominators and incentive/bot risks. Social signals can surface a lead; they do not confirm company economics. Do not restrict the core broad-discovery pass to familiar social narratives.
 
+### McConnell / Simcoe municipal ground-truth experiment
+
+As a bounded experimental overlay inside **Social Arbitrage / Alternative Data**—not a twelfth specialist lane—scan newly published public municipal material from **Barrie and the Simcoe region** when accessible: council/committee agendas and minutes, planning staff reports, zoning and official-plan changes, development applications, capital/infrastructure/servicing plans, procurement/tender material, and relevant permit or land-use notices.
+
+Do not summarize local politics or every agenda item. Look for unusual **physical or economic activity, constraints or approvals** that could matter before they become an obvious market narrative: major development, industrial/data-centre, retail/logistics, housing, infrastructure/transit/utility projects; policy changes that unlock or constrain land use; power/water/road servicing constraints; unusual procurement/spending; and meaningful approvals, delays or reversals.
+
+When a finding is material, keep the assessment short:
+- **What changed**
+- **Why it matters economically**
+- **Who may benefit or be hurt**
+- **Public-company / sector mapping**, or say mapping is unresolved
+- **What to watch next**
+
+Preserve municipality, document/source, publication/meeting date, project/property identity and whether the item is **proposed, recommended, approved or completed**. One municipal document can justify an EARLY research lead, but ownership, supplier, exclusivity and economic-capture links must be verified before an investable inference. Do not imply exhaustive municipal coverage. Route the result to Core, Camillo or both according to the actual source of expected return, and keep political advocacy out of the assessment.
+
 ## 5. Clinical / Medical
 
 Apply `clinical-radar-overlay.md`. Check relevant holdings, accepted underwritings, watchlist programs and competitor read-throughs for registry/protocol/enrollment/endpoint/safety/readout/regulatory/reimbursement/manufacturing/CMC/partnership changes and overdue evidence. Preserve sponsor versus independent/regulatory origin.
