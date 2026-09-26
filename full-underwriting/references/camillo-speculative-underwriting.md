@@ -1,6 +1,6 @@
 # Camillo speculative underwriting mode
 
-Revision: September 26, 2026 — market-recognition / expectations-gap underwriting. Read ../../investment-strategy-lanes/SKILL.md. This is the Camillo mode of Full Underwriting, not the Event Reaction mechanical strategy and not a looser version of Core valuation.
+Revision: September 26, 2026 — market-recognition / expectations-gap underwriting with next-quarter expectations. Read ../../investment-strategy-lanes/SKILL.md. This is the Camillo mode of Full Underwriting, not the Event Reaction mechanical strategy and not a looser version of Core valuation.
 
 ## Decision question
 
@@ -40,18 +40,29 @@ Recognition state is descriptive evidence, not a numeric score and not a standal
    
    Absence of analyst or media discussion is weak evidence by itself; use a bounded, dated expectations search and disclose coverage. A stock move is evidence of repricing, not proof of what caused it.
 
-3. **Materiality and value capture.** Test whether the change is large enough to matter to the company/security if the thesis works. Use the simplest defensible scale check: users, units, spend, capacity, market share, margin, recurring revenue, capex, supplier economics or another relevant bridge. Identify who actually captures the value and the strongest competing beneficiary or offset. Do not invent supplier share, exclusivity, take rate, ownership or conversion.
+3. **Next-quarter analyst expectations.** Research the current analyst/consensus setup for the issuer's **next reported quarter** when credible data are accessible. Record the expected reporting date/window and the few metrics that matter most to this case—typically revenue, EPS/earnings, operating income or margin, management guidance, and relevant segment/KPI expectations. Separate company guidance, published consensus, individual analyst estimates and our own derived view; include source dates and do not invent unavailable consensus.
 
-4. **Recognition path and clock.** Identify what could force broader investor recognition: a KPI, app/usage persistence, disclosed revenue, contract, backlog, guidance change, estimate revision, earnings call, launch, regulatory filing, customer disclosure, municipal/permit milestone or other observable evidence. State:
+   Use this as a short-term expectations baseline:
+   - What is the market expecting next quarter?
+   - Does the Camillo change plausibly affect that quarter, the forward guide, a segment KPI, or neither yet?
+   - What result would make investors notice the thesis sooner?
+   - What result would make the market dismiss it or push recognition further out?
+   - Is there a meaningful expectations gap **for the next quarter**, or is the real edge later?
+
+   Do not force a beat/miss prediction. If the thesis cannot reasonably affect the next quarter, say **NEXT QUARTER: TOO EARLY / LOW READ-THROUGH** and identify the first quarter or KPI window where it should become measurable. A quarter that matches consensus does not automatically falsify a thesis whose recognition clock is later.
+
+4. **Materiality and value capture.** Test whether the change is large enough to matter to the company/security if the thesis works. Use the simplest defensible scale check: users, units, spend, capacity, market share, margin, recurring revenue, capex, supplier economics or another relevant bridge. Identify who actually captures the value and the strongest competing beneficiary or offset. Do not invent supplier share, exclusivity, take rate, ownership or conversion.
+
+5. **Recognition path and clock.** Identify what could force broader investor recognition: a KPI, app/usage persistence, disclosed revenue, contract, backlog, guidance change, estimate revision, earnings call, launch, regulatory filing, customer disclosure, municipal/permit milestone or other observable evidence. State:
    - likely recognition window;
    - next dated checkpoint;
    - what would accelerate recognition;
    - what would delay it;
    - when the information edge expires even if the long-term company thesis remains plausible.
 
-5. **Failure, delay/no recognition and successful recognition.** Explain each outcome, the evidence that would support it, indicative security payoff when defensible and its timing. Add a breakout case only if genuinely distinct. Use probability ranges or break-even odds only when they improve the decision and can be defended. Unknown payoff inputs remain unknown.
+6. **Failure, delay/no recognition and successful recognition.** Explain each outcome, the evidence that would support it, indicative security payoff when defensible and its timing. Add a breakout case only if genuinely distinct. Use probability ranges or break-even odds only when they improve the decision and can be defended. Unknown payoff inputs remain unknown.
 
-6. **Remaining recognition payoff at the current price.** Price matters here as **remaining payoff**, not as a mandatory Core cheapness test. Compare:
+7. **Remaining recognition payoff at the current price.** Price matters here as **remaining payoff**, not as a mandatory Core cheapness test. Compare:
    - current price;
    - failure/delay downside;
    - a plausible **recognition scenario** if the market begins incorporating the thesis;
@@ -59,9 +70,9 @@ Recognition state is descriptive evidence, not a numeric score and not a standal
 
    A `recognition value` is a scenario tool, not intrinsic fair value. Label its basis: estimate revision, multiple change, sum-of-parts recognition, comparable reaction, expected earnings contribution, or another explicit method. Do not mechanically add speculative value to a Core fair value or double-count economics already embedded in consensus.
 
-7. **Instrument and clock.** Record exact security/listing/currency, current quote and timestamp, intended horizon, recognition window, review date and falsification/loss policy. For options assess strike, expiry, premium at risk, liquidity, volatility, breakeven and whether expiry spans the *recognition* event. An option can intentionally expire before a later product launch when the thesis expects earlier recognition. A correct company thesis cannot rescue a mismatched or overpriced instrument.
+8. **Instrument and clock.** Record exact security/listing/currency, current quote and timestamp, intended horizon, recognition window, review date and falsification/loss policy. For options assess strike, expiry, premium at risk, liquidity, volatility, breakeven and whether expiry spans the *recognition* event. An option can intentionally expire before a later product launch when the thesis expects earlier recognition. A correct company thesis cannot rescue a mismatched or overpriced instrument.
 
-8. **Challenge and allocation.** Independently challenge:
+9. **Challenge and allocation.** Independently challenge:
    - whether the change is actually material;
    - the weakest causal connection;
    - the claimed expectations gap;
@@ -112,6 +123,7 @@ Then show, near the top:
 - **What changed**
 - **Why it is economically meaningful**
 - **Market recognition state**
+- **Next-quarter expectations / read-through**
 - **What we think is still missing**
 - **What would force recognition**
 - **Remaining recognition payoff**
@@ -119,6 +131,6 @@ Then show, near the top:
 
 Then provide the four decision outputs and one next action. Include known/inferred/bet separation, materiality/capture, expectations evidence, failure/delay/recognition scenarios, strongest challenge, review/expiry dates, exact instrument and allocation constraints. No compulsory Core-style valuation chapter.
 
-Handoff: case revision; change significance; edge state; recognition state; specific expectations-gap hypothesis; evidence supporting/contradicting it; next recognition checkpoint; falsifier; evidence-expiry/review deadline; intended hold-through or reduce-before policy if relevant; instrument expiry; required evidence for adding; remaining recognition payoff; accepted price/risk conditions if any; and aggregate issuer/cluster exposure where verified.
+Handoff: case revision; change significance; edge state; recognition state; next-quarter consensus snapshot and expected reporting window; specific expectations-gap hypothesis; evidence supporting/contradicting it; next recognition checkpoint; falsifier; evidence-expiry/review deadline; intended hold-through or reduce-before policy if relevant; instrument expiry; required evidence for adding; remaining recognition payoff; accepted price/risk conditions if any; and aggregate issuer/cluster exposure where verified.
 
 Recognized information, a fading edge, missed timing or inadequate remaining payoff triggers review of the Camillo case even while the company's long-term thesis remains intact.
