@@ -1,7 +1,7 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-25-unified-radar-trigger-only-er
+revision: 2026-09-26-simcoe-municipal-ground-truth
 description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, decisions and synthesis. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
 ---
 
@@ -27,7 +27,7 @@ After bounded P0 triage, complete BOTH the existing Core open-universe pass and 
 
 Apply the early-signal gate and bounded old-fact lookup in camillo-discovery.md. A single traceable source, unknown ticker, capability without retention, lack of financial confirmation and an above-Core-target price need not suppress an EARLY lead. Unsupported claims remain attributed/source-verification leads. Preserve original facts, inference and the uncertain bet. Separate source novelty from new implications of existing evidence; semantic duplicates remain duplicates. Use existing P0/P1/P2/P3 routes and actual workflow stages, not invented new API enums.
 
-Core retains its valuation/return gates. Camillo retains speculative information-edge, instrument/payoff and portfolio-permission judgments. All eleven specialist checks, due thesis/pillar/forecast tests, clinical/disclosure/AI-efficiency safeguards, source honesty, quote rules and risk budgets remain. Missing private state does not silence accessible public discoveries. No automatic research worker, holding relabel, capital approval or trade.
+Core retains its valuation/return gates. Camillo retains speculative information-edge, instrument/payoff and portfolio-permission judgments. All eleven specialist checks, due thesis/pillar/forecast tests, clinical/disclosure/AI-efficiency safeguards, source honesty, quote rules and risk budgets remain. Within Social Arbitrage / Alternative Data, also apply the bounded **McConnell / Simcoe municipal ground-truth experiment** in specialized-lanes.md when new Barrie/Simcoe municipal publication windows are available; it is an experimental source overlay, not a twelfth lane, and must not crowd out broader discovery. Missing private state does not silence accessible public discoveries. No automatic research worker, holding relabel, capital approval or trade.
 
 ## Source collection and memory
 
