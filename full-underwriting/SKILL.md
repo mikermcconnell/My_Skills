@@ -1,7 +1,7 @@
 ---
 name: full-underwriting
-revision: 2026-09-24-two-strategy-lanes
-description: Underwrite a public security using its explicit strategy. Core mode assesses durable business economics, valuation and return hurdles; Camillo mode assesses a higher-risk public-information edge, speculative recognition payoff, timing, failure and instrument risk without requiring conventional cheapness. Preserve challenge, capital-allocation and execution boundaries.
+revision: 2026-09-26-camillo-market-recognition
+description: Underwrite a public security using its explicit strategy. Core mode assesses durable business economics, valuation and return hurdles; Camillo mode centers on whether a meaningful change is under-recognized, what could force recognition, and how much recognition payoff remains at today's price. Preserve challenge, capital-allocation and execution boundaries.
 ---
 
 # Full Underwriting — strategy-aware decision router
@@ -14,9 +14,9 @@ Read and apply BASELINE_WORKFLOW.md in full and its relevant references. This pr
 
 ## CAMILLO — Speculative information edge
 
-Read references/camillo-speculative-underwriting.md and ../camillo-social-arbitrage/SKILL.md. Use that mode's requirements and compact output instead of forcing the Core valuation/readiness/posture definitions onto the speculative case. Retain universal source, security, current-price, material financing/dilution, instrument, failure, challenge and allocation controls. Use relevant baseline/reference sections as support, not a requirement to complete a full Core valuation before a speculative judgment.
+Read references/camillo-speculative-underwriting.md and ../camillo-social-arbitrage/SKILL.md. Use that mode's requirements and compact output instead of forcing the Core valuation/readiness/posture definitions onto the speculative case. The Camillo decision engine is **change significance -> economic bridge -> market recognition / expectations gap -> recognition path -> remaining recognition payoff -> failure / instrument risk**. Retain universal source, security, current-price, material financing/dilution, instrument, failure, challenge and allocation controls. Use relevant baseline/reference sections as support, not a requirement to complete a full Core valuation before a speculative judgment.
 
-No low multiple, DCF discount, analyst-target discount, legacy Core buy threshold or reported financial confirmation is mandatory for a positive Camillo edge judgment. Price and remaining payoff still matter. Separate information edge, security/instrument suitability and portfolio permission. No invented portfolio percentage or risk budget.
+No low multiple, DCF discount, analyst-target discount, legacy Core buy threshold or reported financial confirmation is mandatory for a positive Camillo edge judgment. Price still matters as **remaining recognition payoff** and downside, not as a Core cheapness veto. Never claim something is definitively 'priced in'; infer a dated recognition state from evidence and identify the specific consequence that may still be under-recognized. Separate change significance, information edge, security/instrument suitability and portfolio permission. No invented portfolio percentage or risk budget.
 
 A same-issuer Core HOLD and Camillo EXIT REVIEW can coexist for different verified cases/expressions. Do not overwrite the Core baseline, double-count lots or infer a live strategy conversion. Unknown strategy mapping retains existing accepted rules pending classification.
 
