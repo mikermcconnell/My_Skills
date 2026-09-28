@@ -4,20 +4,21 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-28-macro-cross-asset-lens
+analytical_revision: 2026-09-28-capital-allocation-integration
 routine_publisher: Investment Firm — Radar
 routine_task_count: 1
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily including weekends
 separate_daily_brief: false
 daily_synthesis: integrated into 15:00 Radar
-weekly_synthesis: integrated into Friday 15:00 Radar
+weekly_synthesis: integrated into Friday 15:00 Radar; includes lightweight Portfolio Capital Map review
 standing_view_owner: unified Radar, newest verified completed snapshot only
 event_reaction_display: confirmed-trigger alerts only; no routine table or quiet placeholder
 skill: news-radar-investing/SKILL.md
 strategy_contract: investment-strategy-lanes/SKILL.md
+capital_allocation_contract: portfolio-capital-allocation/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 17
+output_contract_version: 18
 publication_policy: news-radar-investing/references/radar-publication-policy.json
 camillo_discovery_contract: news-radar-investing/references/camillo-discovery.md
 camillo_source_register: news-radar-investing/references/camillo-source-register.json
@@ -50,17 +51,18 @@ price_monitor_proximity_band: 5_percent for eligible non-ER monitor rows only
 macro_cross_asset_display: material regime changes only; no routine dashboard; existing P0/P1/P2/P3 routes
 price_monitor_rows: strategy_case + exact_security + applicable_lot; no ticker-only collapse
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
-report_format_version: 9
+report_format_version: 10
 presentation_filter: omit ER inventory; stock table is exception-only (buy/add, sell/trim/exit, within-5%-near); use separate verified ER trigger alert cards
 strategy_annotations: compatible presentation/manifest metadata only; no new backend enums implied
 routine_radar_publication: one integrated report per slot; visible stock monitor only shows crossed buy/add, crossed sell/trim/exit, or within-5%-near rows
+capital_allocation_integration: event-driven final sizing gate; Friday 15:00 runs supported Portfolio Capital Map and surfaces material exceptions only
 standing_view: existing Decision List; preserve unresolved actions, manual notes and original cutoffs
 markdown_artifact_required: false
 ```
 
 ## Authority
 
-Read current SKILL.md and required references from one consistent revision where practical. Output version 17 and MONITOR_V3 own consolidated publication, integrated synthesis, sole standing-view ownership, exception-only stock-monitor presentation and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
+Read current SKILL.md and required references from one consistent revision where practical. Output version 18, MONITOR_V3 and the Portfolio Capital Allocation contract own consolidated publication, integrated sizing review, sole standing-view ownership, exception-only stock-monitor presentation and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
 
 Do not declare that a reporting-version change introduces backend schema support. The retained stock_table_schema value is a compatibility identifier only; the current display excludes routine ER rows. Preserve older reports' actual schema/cutoff and retain detailed audit data privately. Use only accepted write fields; do not relabel historical snapshots as version 9.
 
@@ -70,7 +72,7 @@ One routine task covers all three local-time slots, including weekends. The sepa
 
 Maintain one per-slot report identity plus existing stock-monitor:YYYY-MM-DD:HHMM:America_Toronto linkage. Reconcile same-slot work and source versions before fetching/publishing again. Append to the existing private Journal, then refresh the Decision List with fresh revision protection/read-back and only the newest verified completed snapshot. Preserve unresolved decisions, user notes, trigger history and original cutoffs. A late/duplicate completion cannot overwrite newer state. Do not create a second brief:YYYY-MM-DD report for the same run.
 
-At 15:00 include concise daily decision synthesis and next evidence inside the same report; Friday includes existing AI-efficiency breadth and calibration. Nonurgent late findings move to the next slot. Scheduled start is not guaranteed delivery; 15:00 is not market close. Saved, delivered and executed are separate states.
+At 15:00 include concise daily decision synthesis and next evidence inside the same report; Friday includes existing AI-efficiency breadth/calibration plus the lightweight Portfolio Capital Map review. The map uses supported stored allocation state and current holdings; it does not invent missing targets or re-underwrite every holding. Nonurgent late findings move to the next slot. Scheduled start is not guaranteed delivery; 15:00 is not market close. Saved, delivered and executed are separate states.
 
 ## Event Reaction reporting only
 
