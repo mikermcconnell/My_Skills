@@ -1,7 +1,7 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-21-emerging-signal-lens
+revision: 2026-09-28-macro-cross-asset-lens
 description: Run the high-recall public-equity news front end: protect urgent portfolio risks, search beyond existing holdings and themes, distinguish new developments from new evidence and late detections, test active theses, check all eleven specialized lanes and the combined canonical/legacy/portfolio-defense monitor queue, and route precise research questions. Publish new news, meaningful case changes and the stock table together. Do not use Radar to manufacture valuation, final buy/sell decisions, position sizing or trade execution.
 ---
 
@@ -21,6 +21,7 @@ Use the latest files from the same current repository revision where practical:
 - `../investment-firm-output/SKILL.md`: sole user-facing layout, news/stock publication and delivery coordination.
 - `references/source-and-routing-rules.md`: source provenance, five gates, priority and freshness rules.
 - `references/emerging-signal-lens.md`: global leading-indicator pattern recognition, Signal Sequences, trajectory escalation and confirmation cadence.
+- `references/macro-cross-asset-lens.md`: bounded rates/real-yield/credit/FX/commodity regime detection and portfolio-transmission mapping; Core overlay, not a new lane.
 - `references/newsletter-intake.md`: registered specialist-newsletter issue detection, claim extraction, deduplication and routing.
 - `references/primary-source-feed-map.md`: mandatory broad-search design and source coverage; read on every scheduled run, not just audits.
 - `references/specialized-lanes.md`: all eleven required lane definitions. Coverage statuses belong in the persisted manifest; meaningful findings flow into the combined report.
@@ -71,6 +72,18 @@ Apply `references/emerging-signal-lens.md` during protected broad discovery and 
 Use the pattern library across sectors: adoption acceleration, demand inflection, pricing power/weakness, capacity/bottleneck shifts, operating leverage/deleverage, distribution advantage/failure, competitive displacement, behavior-to-financial conversion, narrative/evidence divergence and promise-to-measurement.
 
 When the edge depends on a developing trajectory, preserve a Signal Sequence / parent hypothesis and compare each new observation with the prior trajectory. Do not wait for reported revenue or profit before surfacing a credible upstream signal; route missing conversion/expectations proof to P2 or P1 RWC as appropriate. Do not create a numeric score, quota, new lane, or new automation.
+
+## Macro / Cross-Asset Regime lens
+
+Read `references/macro-cross-asset-lens.md` on every scheduled run. This is a Core overlay inside protected discovery, not a twelfth lane, score, task or strategy.
+
+At each slot perform a bounded check of U.S. 2Y/10Y/30Y yields, real yields and breakevens when comparable data are accessible, curve shape, policy-path repricing, broad credit spreads, USD, oil and risk/liquidity conditions. Add Government of Canada rates, CAD and Bank of Canada expectations when material to Canadian exposures.
+
+Surface only material changes: an unusual discontinuity, meaningful regime boundary, persistent/cross-asset move, official expectations reset or plausible portfolio-wide transmission. Do not print routine levels just because they are elevated.
+
+When long rates move materially, distinguish real-yield, inflation-expectation, curve/term-premium and credit-spread contributions when evidence permits. Then map the change to specific business assumptions such as WACC, project hurdle rates, debt/refinancing costs, rate-base funding, consumer borrowing costs, credit quality or commodity-linked margins.
+
+Reuse stable Macro Signal Sequences across runs and preserve first-seen dates. Route under existing P0/P1/P2/P3 rules. Macro evidence alone does not alter fair value, thresholds, holdings, strategy, sizing or trade authority.
 
 ## Event Reaction strategy override
 
