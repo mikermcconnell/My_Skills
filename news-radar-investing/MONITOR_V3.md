@@ -1,6 +1,6 @@
 # Investment Firm — Radar: unified scheduled run
 
-Revision September 28, 2026 — macro/cross-asset overlay active. **One task, three daily slots: 08:00, 11:00, 15:00 America/Toronto.** This replaces separate News Checks, Midday Checks and Daily Brief publication. Read SKILL.md, ACTIVE_VERSION.md, the strategy contract, current source contracts and investment-firm-output/SKILL.md version 16 or later. That output contract owns consolidated publication, Decision List updates and trigger-only Event Reaction display, superseding contrary inherited publisher/table wording. Detailed source, analytical, quote and execution safeguards remain.
+Revision September 28, 2026 — macro/cross-asset overlay active. **One task, three daily slots: 08:00, 11:00, 15:00 America/Toronto.** This replaces separate News Checks, Midday Checks and Daily Brief publication. Read SKILL.md, ACTIVE_VERSION.md, the strategy contract, current source contracts and investment-firm-output/SKILL.md version 17 or later. That output contract owns consolidated publication, Decision List updates and trigger-only Event Reaction display, superseding contrary inherited publisher/table wording. Detailed source, analytical, quote and execution safeguards remain.
 
 ## Run once, publish once
 
