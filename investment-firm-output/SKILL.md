@@ -1,11 +1,11 @@
 ---
 name: investment-firm-output
-version: 15
-revision: 2026-09-25-owned-add-state-reconciliation
-description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine discovery, case changes, research progress, decisions and next checks with separate Core/Camillo lanes. Reconcile completed purchases so stale entry/add monitors do not keep presenting already-owned positions as fresh ADD reviews. Event Reaction is trigger-alert-only, never a recurring table. Preserve factual, portfolio and execution controls.
+version: 16
+revision: 2026-09-28-exception-only-stock-monitor
+description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine discovery, case changes, research progress, decisions and next checks with separate Core/Camillo lanes. The visible stock monitor is exception-only: show only crossed buy/add, crossed sell/trim/exit, or within-5%-of-trigger rows. Event Reaction is trigger-alert-only, never a recurring table. Preserve factual, portfolio and execution controls.
 ---
 
-# Investment Firm output contract — version 15
+# Investment Firm output contract — version 16
 
 ## One publisher and scoped authority
 
@@ -30,7 +30,7 @@ Title: **Investment Firm — Radar — YYYY-MM-DD — HH:MM Toronto**. State the
 Retain three main sections:
 1. **New news and opportunities.** New Core and Camillo observations, including unfamiliar products, source limitations and tentative investment connections.
 2. **Changes to existing investment cases.** Material thesis/decision changes, actual research progress, resolved/rejected connections, consequential blockers and next evidence/checks. Put synthesis here, not in a second report.
-3. **Stock monitor — Buy / Hold / Wait / Sell.** Core and Camillo monitoring and supported decisions; exclude routine Event Reaction lots from the table. A new confirmed mechanical trigger may appear as a short alert callout, not a full sleeve inventory.
+3. **Stock monitor — Buy / Hold / Wait / Sell.** Exception-only visible queue: include only a valid crossed BUY/ADD condition, a valid crossed SELL/TRIM/EXIT condition, or GETTING CLOSE within 5% of the next valid buy/add/sell/trim/exit price trigger. Exclude ordinary HOLD/WAIT/NO ACTION, research-only, disabled, stale-add reconciliation, re-underwrite-only, unavailable-data and routine Event Reaction rows. A new confirmed Event Reaction mechanical trigger may appear as a short alert callout, not a full sleeve inventory.
 
 Preserve explicit **CORE — Long-term portfolio** and **CAMILLO — Speculative information edge** labels within each, with truthful compact no-change/not-assessed coverage. Shared evidence appears once, with different strategy implications cross-referenced. A short action summary may lead when a verified decision or trigger needs attention; do not duplicate the same story and table into multiple newsletters.
 
@@ -48,43 +48,26 @@ Core keeps its accepted business/valuation/return gates. Camillo keeps its infor
 
 ## Monitor queues and Event Reaction alerts
 
-Retain the existing Core CANONICAL + structured LEGACY + PORTFOLIO DEFENSE source rules, eligible unchanged non-ER rows, accepted inequalities, quote confirmation, 5% proximity, consumed/re-arm/disabled state and source precedence. Every legacy-contributing instruction retains 'Refresh/migrate underwriting first;'; relevant REUNDERWRITE_REQUIRED remains a prerequisite. No inferred targets, unsupported source labels or all-clear with unreadable classes.
+Retain the existing Core CANONICAL + structured LEGACY + PORTFOLIO DEFENSE source rules, accepted inequalities, quote confirmation, 5% proximity, consumed/re-arm/disabled state and source precedence, but make the visible queue exception-only. A row is visible only when (a) a valid BUY/ADD threshold is crossed, (b) a valid SELL/TRIM/EXIT threshold or sell-discipline condition is crossed, or (c) price is within 5% of the next valid buy/add/sell/trim/exit price trigger. Ordinary HOLD/WAIT/NO ACTION, research-only, disabled, stale-add reconciliation, re-underwrite-only and unavailable-data rows stay in internal/Decision-List state or `Changes to existing investment cases`, not the stock table. Every legacy-contributing visible instruction retains 'Refresh/migrate underwriting first;'. No inferred targets, unsupported source labels or false all-clear with unreadable classes.
 
-Keep Camillo research-only cases visible without price triggers, explicitly **RESEARCH CASE — NOT AN ACTIVE TRADE MONITOR** where applicable. Its edge/recognition/falsifier/review clock remains separate from a trading decision. Preserve unknown strategy mapping rather than retagging holdings. Deduplicate by strategy case plus exact instrument/lot, not ticker; count actual exposure once.
+Keep Camillo research-only cases visible in `New news and opportunities` or `Changes to existing investment cases`, not in the stock-monitor table unless they later acquire a valid buy/sell/near monitor condition. Their edge/recognition/falsifier/review clock remains separate from a trading decision. Preserve unknown strategy mapping rather than retagging holdings. Deduplicate by strategy case plus exact instrument/lot, not ticker; count actual exposure once.
 
 
 ### Completed purchase reconciliation
 
-The stock table must distinguish a pending add decision from an add that already happened.
+Current verified live holdings/lots control user-facing ownership wording. If a confirmed purchase or add already occurred after the monitor state that generated a BUY/ADD review, do not show that stale add condition as a fresh stock-monitor row unless a newer accepted record explicitly authorizes another tranche. Keep the unresolved trigger-consume/re-arm reconciliation in internal state / Decision List or, when materially relevant, in `Changes to existing investment cases`. Reporting does not itself consume, re-arm, delete or change a trigger, threshold, holding, strategy tag, underwriting baseline or allocation decision.
 
-Current verified live holdings/lots control user-facing ownership wording. If a confirmed purchase or add occurred after the monitor state that generated a BUY/ADD review, do not keep showing that same historical condition as a fresh BUY REVIEW, ADD REVIEW or COMPELLING ADD REVIEW unless a newer accepted downstream record explicitly authorizes another tranche after the purchase.
+### Exception-only stock monitor
 
-When the purchase is confirmed but trigger consumption/re-arm state has not yet been reconciled, render **HOLD / RECONCILE ADD STATE** and say: `Purchase already completed; hold the existing position and reconcile whether the prior add trigger should be consumed/re-armed before any further purchase.`
+The visible stock table is intentionally sparse. Surface only:
 
-This is reporting only. It does not consume, re-arm, delete or change a trigger, threshold, holding, strategy tag, underwriting baseline or allocation decision.
+- **BUY / ADD:** a valid active BUY/ADD or COMPELLING BUY/ADD condition is crossed and has not already been satisfied by a completed purchase/add.
+- **SELL / TRIM / EXIT:** a valid active sell-side condition is crossed, including TRIM REVIEW NOW, EXIT REVIEW NOW, or an equivalent concrete Portfolio Defense sell-discipline trigger.
+- **NEAR:** no condition is crossed, but the current price is within **5%** of the next valid active buy/add/sell/trim/exit **price** trigger.
 
-If a legacy monitor still says UNOWNED but live holdings now confirm ownership, live ownership controls the visible wording. Mark the legacy ownership field stale and require refresh/migration before any further add. If a newer accepted underwriting/allocation decision explicitly establishes another tranche after the latest purchase, normal ADD-review wording may still be used for that distinct tranche.
+Do **not** show ordinary HOLD, WAIT, NO ACTION, RESEARCH CASE, P0/P1/P2 research status, HOLD / RECONCILE ADD STATE, disabled monitors, re-underwrite-only rows, missing-quote/unavailable rows, or names merely because they are owned or monitored. Put material non-price risks, re-underwrites, data gaps and research progress in `Changes to existing investment cases` instead.
 
-
-### Completed-purchase / stale-add reconciliation
-
-The visible stock table must distinguish **a pending add decision** from **an add that already happened**.
-
-Use current live holdings/lots as the ownership truth for reporting. If a confirmed purchase/add occurred after the monitor/legacy entry state that produced a BUY/ADD review, do **not** keep presenting that same historical entry/add condition as a fresh `BUY REVIEW`, `ADD REVIEW`, or `COMPELLING ADD REVIEW` unless a current accepted downstream record explicitly says another tranche remains authorized after that purchase.
-
-When live holdings confirm the position was established or increased but the canonical/legacy trigger has not yet been explicitly consumed/re-armed, render:
-
-**HOLD / RECONCILE ADD STATE**
-
-and state plainly:
-
-`Purchase already completed; hold the existing position and reconcile whether the prior add trigger should be consumed/re-armed before any further purchase.`
-
-This is a **reporting correction only**. It does not consume, re-arm, delete or change a trigger, threshold, holding, strategy tag, underwriting baseline or allocation decision.
-
-If a legacy monitor still says `UNOWNED` but live holdings now confirm ownership, live ownership controls the user-facing wording. Mark the legacy ownership field stale and require refresh/migration before any further add. Do not call the existing owned position a new BUY/ADD review.
-
-If a current accepted underwriting/allocation decision created a **separate additional tranche after the latest purchase**, the normal ADD-review action may still appear for that distinct tranche. Preserve its exact source/date/lot scope.
+If no row qualifies, keep the required third section and state: **No qualifying buy/sell/near stock-monitor rows at this cutoff.** This is not an all-clear; it only means no visible monitor condition met the publication gate.
 
 **Event Reaction: alerts only.** Read ../news-radar-investing/references/event-reaction-strategy-mechanics.md. Omit the recurring ER table, ER HOLD rows, routine target/stop inventories, near-target reminders, unchanged operational diagnostics and 'nothing hit' placeholders entirely. A newly verified stop, partial-profit target, runner target or due mechanical time exit may generate a compact **Event Reaction alert** stating exact lot/security, triggered rule/level, observed price or time with evidence cutoff, the manifest's required action and actual execution status. These are existing strategy triggers, not new thresholds. Do not require fundamental underwriting for a mechanical exit.
 
