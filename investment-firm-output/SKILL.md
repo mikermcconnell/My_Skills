@@ -1,8 +1,8 @@
 ---
 name: investment-firm-output
-version: 17
-revision: 2026-09-28-macro-cross-asset-lens
-description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine Core/Camillo discovery, macro/cross-asset regime changes, case changes, research progress, decisions and next checks. The visible stock monitor is exception-only. Event Reaction is trigger-alert-only. Preserve factual, portfolio and execution controls.
+version: 18
+revision: 2026-09-28-capital-allocation-integration
+description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine Core/Camillo discovery, macro/cross-asset regime changes, case changes, capital-allocation decisions, research progress and next checks. The visible stock monitor is exception-only. Friday 15:00 includes a lightweight portfolio Capital Map review. Event Reaction is trigger-alert-only. Preserve factual, portfolio and execution controls.
 ---
 
 # Investment Firm output contract — version 17
@@ -35,6 +35,28 @@ Retain three main sections:
 Preserve explicit **CORE — Long-term portfolio** and **CAMILLO — Speculative information edge** labels within each, with truthful compact no-change/not-assessed coverage. Shared evidence appears once, with different strategy implications cross-referenced. A short action summary may lead when a verified decision or trigger needs attention; do not duplicate the same story and table into multiple newsletters.
 
 Every slot includes useful decisions, genuine research progress and the next check when material. At **15:00**, add a brief day-to-date synthesis of what actually changed in the decision set and what comes next; do not replay all morning headlines. Friday 15:00 also absorbs the existing AI Efficiency Watch weekly breadth and calibration, with its fixed-cohort/backfill/cost/quality safeguards unchanged. Late nonurgent findings enter the next regular slot, not a new 15:20 report. An urgent condition retains the existing exceptional-alert path.
+
+## Capital Allocation presentation and weekly Capital Map
+
+Read ../portfolio-capital-allocation/SKILL.md whenever a case reaches or reopens the allocation gate. Capital Allocation is an analytical/portfolio gate inside the existing Investment Firm process, **not a new publisher or report section**.
+
+Surface a material completed allocation decision in **Changes to existing investment cases** using a compact structure such as:
+
+**[TICKER] — CAPITAL ALLOCATION — ADD / HOLD / TRIM / EXIT**  
+`Current __% -> Next __% -> Target __% -> Maximum __%`  
+Why the weight changed or stayed unchanged; the binding loss/evidence/cluster constraint; and the next sizing trigger.
+
+A crossed BUY/ADD or SELL/TRIM monitor condition opens the relevant review; it is not itself trade authorization. If underwriting is current and the change is purely price/payoff or portfolio fit, Capital Allocation can run directly. If the security thesis plausibly changed, route through RWC / Full Underwriting first.
+
+At **Friday 15:00 Toronto**, run a lightweight portfolio-wide **Capital Map** using the latest supported holdings and stored underwriting/allocation state. Evaluate every owned position where the necessary state exists:
+
+`Current | Next | Target | Maximum | Evidence stage | Bear/failure portfolio hit | Major causal cluster | Next sizing trigger`
+
+This is not a weekly re-underwriting of every holding. Do not invent missing targets, loss budgets or thesis states. Mark unsupported names as **ALLOCATION BASELINE MISSING** and route only those that matter for follow-up.
+
+Persist the full supported working map in the existing authorized Journal / Decision List path when available. In the user-facing Friday Radar, surface only material exceptions and decisions: above Maximum, materially below an actionable Next/Target, allocation baseline missing where it affects a live decision, evidence deadline due, or a binding cluster/opportunity-cost issue. If no material exception exists, one concise sentence is enough.
+
+Do not create another scheduled newsletter, task, alert stream or portfolio-rebalancing engine. No allocation result executes a trade, changes a holding, or implies that a human decision/proposal was accepted.
 
 ## Macro / Cross-Asset presentation
 
