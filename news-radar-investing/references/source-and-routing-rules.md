@@ -1,6 +1,6 @@
 # Source and Routing Rules — V3
 
-Reconciled September 21, 2026. The run contract owns protected discovery and cadence; the feed map owns source coverage; `investment-firm-output/SKILL.md` owns the combined news/case-change/stock-table presentation. These rules do not require completed investment underwriting before surfacing a credible lead.
+Reconciled September 28, 2026. The run contract owns protected discovery and cadence; the feed map owns source coverage; `investment-firm-output/SKILL.md` owns the combined news/case-change/stock-table presentation. These rules do not require completed investment underwriting before surfacing a credible lead.
 
 ## Source origin versus claim status
 
@@ -57,6 +57,20 @@ For these cases:
 
 When several observations belong to one parent trajectory, preserve one Signal Sequence and atomic evidence lineage. New evidence changes the trajectory; it is not a new thesis by default.
 
+## Macro / Cross-Asset treatment
+
+Apply `macro-cross-asset-lens.md` when rates, real yields, breakevens, curve shape, policy expectations, credit spreads, FX, commodities or volatility materially change the investment environment.
+
+For macro observations:
+- **Novelty** is the regime change or materially new cross-asset configuration, not merely a new article about the same high yield level.
+- **Materiality** requires a plausible transmission into discount rate, financing cost, demand, margin, liquidity, credit or permanent-loss risk.
+- **Capture** means identifying affected public-company/portfolio assumptions; a market-wide move need not map to one beneficiary.
+- **Expectation** asks whether consensus/company guidance/security pricing may lag the changed macro regime; Radar does not prove the repricing is incomplete.
+- **Researchability** names the next macro confirmation plus the company-level metric that would validate/reject transmission.
+
+Do not route a company to P1 solely because its stock is rate-sensitive. P1 requires a material macro discontinuity plus a load-bearing business/security assumption that may now be wrong or incomplete. P2 is appropriate when the macro move is meaningful but company transmission remains to be tested.
+
+Do not duplicate one macro origin into many separate event IDs merely because several holdings are exposed. Preserve one macro sequence and linked case impacts.
 ## Route and priority
 
 Assess PASS/FAIL/UNKNOWN separately. A clear failure of Novelty/Materiality/Capture normally rejects or deduplicates; a credible observation with a resolvable unknown is not equivalent to failure. P1 needs a plausible positive novelty/materiality/economic-exposure case. A remaining targeted uncertainty can be P2/P3 without false certainty. Do not lower gates to meet a story quota.
