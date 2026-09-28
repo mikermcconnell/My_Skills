@@ -50,10 +50,13 @@ class PublicationTests(unittest.TestCase):
             x = p.slot_context(datetime(2026, 9, 25, h, tzinfo=TZ))
             self.assertEqual(x['daily_synthesis'], h == 15)
             self.assertEqual(x['weekly_synthesis'], h == 15)
+            self.assertEqual(x['capital_map_due'], h == 15)
             self.assertEqual(x['routine_reports'], 1)
 
-    def test_weekly_synthesis_not_saturday(self):
-        self.assertFalse(p.slot_context(datetime(2026, 9, 26, 15, tzinfo=TZ))['weekly_synthesis'])
+    def test_weekly_synthesis_and_capital_map_not_saturday(self):
+        x = p.slot_context(datetime(2026, 9, 26, 15, tzinfo=TZ))
+        self.assertFalse(x['weekly_synthesis'])
+        self.assertFalse(x['capital_map_due'])
 
     def test_no_events_no_er_section_input(self):
         self.assertEqual(p.new_er_alerts([], set()), [])
@@ -106,6 +109,15 @@ class PublicationTests(unittest.TestCase):
         er = json.loads((ROOT / 'references/radar-publication-policy.json').read_text())['event_reaction']
         self.assertFalse(er['routine_table']); self.assertFalse(er['quiet_placeholder'])
         self.assertFalse(er['proximity_alerts']); self.assertFalse(er['publication_changes_execution_state'])
+
+    def test_capital_allocation_is_integrated_not_new_publisher(self):
+        ca = json.loads((ROOT / 'references/radar-publication-policy.json').read_text())['capital_allocation']
+        self.assertEqual(ca['mode'], 'integrated_gate')
+        self.assertFalse(ca['new_publisher'])
+        self.assertEqual(ca['friday_capital_map'], {'weekday': 'FR', 'slot': '15:00'})
+        self.assertEqual(ca['visible_map_mode'], 'material_exceptions_only')
+        self.assertFalse(ca['price_trigger_authorizes_trade'])
+        self.assertFalse(ca['publication_changes_holdings'])
 
 
 if __name__ == '__main__': unittest.main()
