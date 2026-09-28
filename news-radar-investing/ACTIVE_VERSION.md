@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-25-unified-radar-trigger-only-er
+analytical_revision: 2026-09-28-exception-only-stock-monitor
 routine_publisher: Investment Firm — Radar
 routine_task_count: 1
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily including weekends
@@ -17,7 +17,7 @@ skill: news-radar-investing/SKILL.md
 strategy_contract: investment-strategy-lanes/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 14
+output_contract_version: 16
 publication_policy: news-radar-investing/references/radar-publication-policy.json
 camillo_discovery_contract: news-radar-investing/references/camillo-discovery.md
 camillo_source_register: news-radar-investing/references/camillo-source-register.json
@@ -49,16 +49,16 @@ price_monitor_proximity_band: 5_percent for eligible non-ER monitor rows only
 price_monitor_rows: strategy_case + exact_security + applicable_lot; no ticker-only collapse
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 report_format_version: 9
-presentation_filter: omit ER inventory; use separate verified trigger alert cards
+presentation_filter: omit ER inventory; stock table is exception-only (buy/add, sell/trim/exit, within-5%-near); use separate verified ER trigger alert cards
 strategy_annotations: compatible presentation/manifest metadata only; no new backend enums implied
-routine_radar_publication: one integrated report per slot, including unchanged eligible non-ER monitor rows
+routine_radar_publication: one integrated report per slot; visible stock monitor only shows crossed buy/add, crossed sell/trim/exit, or within-5%-near rows
 standing_view: existing Decision List; preserve unresolved actions, manual notes and original cutoffs
 markdown_artifact_required: false
 ```
 
 ## Authority
 
-Read current SKILL.md and required references from one consistent revision where practical. Output version 14 and MONITOR_V3 own consolidated publication, integrated synthesis, sole standing-view ownership and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
+Read current SKILL.md and required references from one consistent revision where practical. Output version 16 and MONITOR_V3 own consolidated publication, integrated synthesis, sole standing-view ownership, exception-only stock-monitor presentation and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
 
 Do not declare that a reporting-version change introduces backend schema support. The retained stock_table_schema value is a compatibility identifier only; the current display excludes routine ER rows. Preserve older reports' actual schema/cutoff and retain detailed audit data privately. Use only accepted write fields; do not relabel historical snapshots as version 9.
 
