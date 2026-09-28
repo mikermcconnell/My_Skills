@@ -1,6 +1,6 @@
 # Primary-Source Feed Map — V3
 
-Reconciled September 21, 2026. Read on every scheduled Radar pass, not only coverage audits. This is a source architecture, not a claim that every feed is connected or complete. Record actual sources, windows, markets and limitations.
+Reconciled September 28, 2026. Read on every scheduled Radar pass, not only coverage audits. This is a source architecture, not a claim that every feed is connected or complete. Record actual sources, windows, markets and limitations.
 
 ## Core principle
 
@@ -35,6 +35,29 @@ Follow newly encountered leads far enough to distinguish new fact from recycled 
 For newly encountered companies, compare prior public guidance/filings/announcements even when no accepted internal underwriting exists. If novelty or mapping cannot be established, label it and route a precise evidence question when worthwhile. Missing private baseline is not automatic grounds to ignore public news; equally, unknown is not a Novelty PASS.
 
 The protected pass covers genuinely fresh information since the last verified relevant cutoff plus labelled overlap/recovery for indexing gaps. Public availability time, underlying event time and first detection differ. Do not relabel old late discoveries as breaking news or let old recovery work dominate every fresh-window pass.
+
+## Macro / Cross-Asset overlay on broad discovery
+
+Apply `macro-cross-asset-lens.md` inside the existing protected Core broad-discovery pass. It is **not a fifth broad-source family** and not a twelfth specialist lane.
+
+Each 08:00 / 11:00 / 15:00 run should attempt a bounded current-state check for:
+- U.S. Treasury 2Y, 10Y and 30Y nominal yields;
+- comparable 5Y/10Y real yields and inflation breakevens when accessible;
+- curve shape, including at least 2s10s;
+- market-implied Fed path when a reliable source is accessible;
+- broad IG/HY credit-spread condition;
+- USD;
+- WTI/Brent when material;
+- broad equity/rates volatility or another reliable liquidity/stress measure;
+- Government of Canada 2Y/10Y, CAD/USD and BoC-path evidence when Canadian transmission matters.
+
+Use primary/closest-to-market sources where possible and preserve each series' own timestamp. Do not splice stale observations into a falsely synchronous dashboard.
+
+This check should search for **regime changes**, not narrate every tick. Follow up when the move is unusually large/fast, crosses a meaningful recent or multi-year range boundary, persists, gains cross-asset confirmation, materially changes policy expectations, or plausibly transmits into portfolio financing/demand/margins/liquidity.
+
+For material yield moves, seek decomposition into real yields versus inflation expectations before assigning a mechanism. A move in Treasuries with stable credit spreads is different from Treasuries plus widening credit spreads. Likewise, oil rising on supply disruption is different from oil rising on stronger demand.
+
+Macro findings can update an Emerging Signal sequence and route a specific affected case to P2/P1/P0. Macro itself does not authorize a valuation or portfolio change.
 
 ## Emerging-signal overlay on broad discovery
 
@@ -116,7 +139,7 @@ A material unexplained move prompts checks of poorly indexed filings/official re
 
 Use the existing V3 manifest, not another reporting system. Retain run ID/version, actual window/cutoff and intended slot/status; holdings/underwritings/monitors/kill dates checked; theses/watchlists/catalysts/evidence due checked; primary and expert/social sources actually searched; source/feed/state gaps; persistence; and next slot.
 
-Add protected-discovery diagnostics defined in `v3-run-contract.md`: per-family completion and query/feed evidence; emerging-signal candidate/sequence IDs and trajectory changes; new-development IDs; new-evidence-on-old-story IDs; late detections and original dates/latency; outside-known-universe candidates or membership unknown; unchanged follow-ups; duplicates; material discoveries included in the combined output and omissions with reasons. Count distinct underlying observations, not stories, wrappers or retry attempts. Outside-universe membership overlaps freshness; do not add it again to event totals. Included in output is not proof of delivered notification. No yield quota.
+Add protected-discovery diagnostics defined in `v3-run-contract.md`, including macro/cross-asset coverage, snapshots/sequence IDs and material transmission mappings: per-family completion and query/feed evidence; emerging-signal candidate/sequence IDs and trajectory changes; new-development IDs; new-evidence-on-old-story IDs; late detections and original dates/latency; outside-known-universe candidates or membership unknown; unchanged follow-ups; duplicates; material discoveries included in the combined output and omissions with reasons. Count distinct underlying observations, not stories, wrappers or retry attempts. Outside-universe membership overlaps freshness; do not add it again to event totals. Included in output is not proof of delivered notification. No yield quota.
 
 Read verified fallback as well as canonical seen-history. Failed canonical saving does not make the same previously saved discovery new next time. Keep app-persistence gaps separate from novelty and investment authority. Use partial/unknown instead of zero when coverage is missing.
 
