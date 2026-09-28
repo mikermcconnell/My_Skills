@@ -1,7 +1,7 @@
 ---
 name: investment-strategy-lanes
-version: 1
-revision: 2026-09-25-unified-reporting
+version: 2
+revision: 2026-09-28-capital-allocation-integration
 description: Preserve the distinction between Core long-term portfolio construction and Camillo higher-risk speculative public-information asymmetry across Radar, RWC, Underwriting, challenge, allocation and monitoring. This is a shared strategy contract, not another analysis stage or execution permission.
 ---
 
@@ -64,9 +64,15 @@ Advance surviving Camillo research visibly as **ADVANCE -> FULL UNDERWRITING —
 
 Core uses full-underwriting/BASELINE_WORKFLOW.md and existing valuation/hurdle rules. Camillo uses full-underwriting/references/camillo-speculative-underwriting.md. Both retain exact-security identity, current-price checks for decisions, material financing/claims, failure analysis, instrument suitability, dates, challenge and allocation boundaries.
 
-Show separately: **information-edge judgment**, **security/instrument judgment**, **portfolio permission**. A compelling edge can coexist with an unsuitable option or unavailable budget. Missing personal cash/limits do not invalidate the information thesis, but prevent an executable recommendation without those inputs.
+Full Underwriting owns the **security-level** conclusion: thesis status, valuation or strategy-appropriate recognition payoff, Bear/failure downside, return/payoff hurdle, time-to-resolution, kill criteria, evidence gaps and whether the security is ready to advance. It does **not** approve account-specific position size. When ready, hand those inputs to ../portfolio-capital-allocation/SKILL.md.
 
-The challenger must challenge the assigned strategy rather than reimpose Core cheapness. Allocation evaluates Camillo using failure/delay/recognition payoff, instrument risk and an explicit speculative loss budget, not an accidentally imported mandatory Core DCF or fixed annualized hurdle. Actually approved strategy-specific hurdles still apply. Never invent a budget, default portfolio percentage, leverage permission or contract count from 'higher risk'. Aggregate speculative losses, correlated Core exposure, issuer concentration, liquidity and funding. Adds require named evidence and a fresh payoff/risk review, not price appreciation alone.
+Portfolio Capital Allocation owns the **portfolio-level** decision: START / ADD / HOLD / TRIM / EXIT / NO ACTION, funding source, loss budget, causal/thematic concentration, opportunity cost and the four-weight state **Current -> Next -> Target -> Maximum**. Evidence must earn additional size; price alone may reopen a review within the current evidence-stage cap but cannot promote the position to a higher evidence stage.
+
+Show separately: **information-edge judgment**, **security/instrument judgment**, **portfolio permission**. A compelling edge can coexist with an unsuitable option or unavailable budget. Missing personal cash/limits do not invalidate the information thesis, but prevent precise account sizing without those inputs.
+
+The challenger must challenge the assigned strategy rather than reimpose Core cheapness. Allocation evaluates Camillo using failure/delay/recognition payoff, instrument risk and an explicit speculative loss budget, not an accidentally imported mandatory Core DCF or fixed annualized hurdle. Actually approved strategy-specific hurdles still apply. Never invent a budget, default portfolio percentage, leverage permission or contract count from 'higher risk'. Aggregate speculative losses, correlated Core exposure, issuer concentration, liquidity and funding.
+
+Capital Allocation is event-driven, not another research lane or publisher. Reopen it after decision-ready underwriting, a valid price/payoff trigger with current underwriting, material Portfolio Defense concentration/opportunity-cost findings, material holdings drift, or a due allocation review. If the underlying security thesis changed, refresh RWC / Full Underwriting before sizing. Adds require named evidence and a fresh payoff/risk review, not enthusiasm, time passage or price appreciation alone.
 
 ## Visible output
 
