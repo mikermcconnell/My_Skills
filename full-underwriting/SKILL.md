@@ -1,6 +1,6 @@
 ---
 name: full-underwriting
-revision: 2026-09-26-next-quarter-expectations
+revision: 2026-09-28-capital-allocation-handoff
 description: Underwrite a public security using its explicit strategy. Core mode assesses durable business economics, valuation and return hurdles; Camillo mode centers on whether a meaningful change is under-recognized, what could force recognition, and how much recognition payoff remains at today's price. Preserve challenge, capital-allocation and execution boundaries.
 ---
 
@@ -21,6 +21,27 @@ Then ask:
 - Is the next quarter likely to reveal the thesis, or is the evidence horizon later?
 
 This is an expectations benchmark, **not an earnings prediction requirement**. Do not manufacture a beat/miss call when the edge is unrelated to the next quarter. A one-quarter surprise does not automatically validate or invalidate a multi-quarter thesis. Preserve the distinction between near-term expectations, long-term intrinsic value and Camillo recognition payoff.
+
+## Capital-allocation handoff
+
+When the security is decision-ready and the next action is to advance toward portfolio sizing, read and hand off to ../portfolio-capital-allocation/SKILL.md after the required challenge step.
+
+Full Underwriting must provide the allocation stage with the decision-relevant security inputs:
+- strategy / case / exact security or instrument;
+- current price, timestamp, currency and listing;
+- company-thesis status and security readiness;
+- expected return or Camillo recognition payoff;
+- required hurdle where applicable;
+- Bear / failure downside and material gap risks;
+- time-to-resolution / recognition window;
+- unresolved load-bearing evidence;
+- kill / falsifier and review dates;
+- relevant add-review / valuation boundaries;
+- challenge status when available.
+
+Do **not** approve account-specific Current / Next / Target / Maximum weights inside Full Underwriting. Those belong to Portfolio Capital Allocation, which must read live portfolio state, loss budget, correlated exposure, funding source and opportunity cost.
+
+A valid price boundary with otherwise current underwriting can reopen Capital Allocation without forcing a redundant full re-underwrite. If the price move or new evidence plausibly changes the security thesis, refresh underwriting first.
 
 ## CORE — Long-term portfolio
 
