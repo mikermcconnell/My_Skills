@@ -1,6 +1,6 @@
 # News Radar Investing V3 Run Contract
 
-Reconciled September 21, 2026, including the combined-monitor patch. Radar is the high-recall detection, memory, risk-priority, thesis-testing, market-context and routing layer. `investment-firm-output/SKILL.md` owns the combined visible report; `source-and-routing-rules.md` owns gate/provenance detail; `primary-source-feed-map.md` owns broad-source coverage; `emerging-signal-lens.md` owns cross-sector leading-indicator pattern recognition and trajectory memory; `specialized-lanes.md` owns eleven-lane membership; `price-monitor-live-source.md` owns combined monitor sources, precedence, review actions and quote/trigger controls. Do not maintain another competing presentation template here.
+Reconciled September 28, 2026, including the macro/cross-asset regime overlay and exception-only visible stock monitor. Radar is the high-recall detection, memory, risk-priority, thesis-testing, market-context and routing layer. `investment-firm-output/SKILL.md` owns the combined visible report; `source-and-routing-rules.md` owns gate/provenance detail; `primary-source-feed-map.md` owns broad-source coverage; `emerging-signal-lens.md` owns cross-sector leading-indicator pattern recognition and trajectory memory; `specialized-lanes.md` owns eleven-lane membership; `price-monitor-live-source.md` owns combined monitor sources, precedence, review actions and quote/trigger controls. Do not maintain another competing presentation template here.
 
 ## Cadence and independent windows
 
@@ -13,7 +13,7 @@ Detection, successful persistence, actual research progress and delivered-report
 ## Required execution order
 
 1. **Bounded preflight and urgent-risk triage.** Load/attempt minimum live ownership/identity, last cutoff, urgent cases/deadlines and seen-event memory. Identify possible material permanent-loss or imminent instrument risk. P0 can interrupt every later step and must be surfaced promptly. Routine history cleanup is not an emergency.
-2. **Protected broad discovery.** Before routine deep case reconciliation, full quote-table assembly or thesis expansion, complete the feed-map's unseeded cross-market/source-family search and apply the Emerging Signal / Leading Indicator lens. Searching only existing tickers, named counterparties, old event IDs or the active thesis list does not satisfy this step. Preserve public-news scanning even when private connectors fail.
+2. **Protected broad discovery.** Before routine deep case reconciliation, full quote-table assembly or thesis expansion, complete the feed-map's unseeded cross-market/source-family search, the bounded **Macro / Cross-Asset Regime** screen under `macro-cross-asset-lens.md`, and the Emerging Signal / Leading Indicator lens. Searching only existing tickers, named counterparties, old event IDs or the active thesis list does not satisfy this step. Preserve public-news scanning even when private connectors fail.
 3. **Targeted continuation.** Finish portfolio defense, exact-instrument sell checks, cheap active-thesis sweeps, evidence-due/catalysts, all eleven specialist lanes and the combined canonical/legacy/defense monitor check. Deep targeted work follows risk/evidence priority without retroactively erasing missing broad coverage.
 4. **Classify and route.** Compare original sources and prior evidence, deduplicate against canonical AND verified fallback memory, apply five gates, map sufficient public-security exposure, assign one route and underwriting requirement, and stop at the depth boundary.
 5. **Record and publish.** Save supported research-only state and manifests, with bounded retry/fallback. Return one combined news/case-change/stock-table report under the output contract, even when parts are unavailable. Verify saves separately from delivery.
@@ -181,6 +181,24 @@ Map direct holding/security, linked thesis/pillar/forecast/underwriting, DIRECT/
 
 Every surfaced event/thesis delta receives one internal underwriting requirement: NO; CONDITIONAL — AFTER RWC; YES — RE-UNDERWRITE EXISTING; YES — NEW FULL UNDERWRITING; or YES — EVENT-TRADE UNDERWRITING. Preserve rationale and the actual live readiness/review inputs. Translate these into plain next steps in chat. Transmission-map membership alone does not make a security decision-ready.
 
+## Macro / Cross-Asset acceptance
+
+The protected Core pass includes one bounded macro/cross-asset regime check under `macro-cross-asset-lens.md`. Record actual accessible observations for nominal yields, real yields/breakevens where available, curve, policy expectations, credit, USD, oil and risk/liquidity; add Canadian rates/CAD/BoC when material.
+
+A successful macro check does **not** require every series to be available. Record RETRIEVED / PARTIAL / UNAVAILABLE by component and do not infer missing values.
+
+Surface a macro finding only when the evidence shows a material discontinuity, regime boundary, persistence/breadth, policy expectations reset or plausible portfolio transmission. Routine unchanged levels remain in the manifest, not the visible report.
+
+When a macro signal is material:
+- preserve the exact observed move, baseline and timestamps;
+- distinguish observed data from explanatory attribution;
+- decompose nominal yields into real-yield versus inflation/breakeven components when supported;
+- identify the business transmission mechanism and affected case(s);
+- preserve the strongest counter-hypothesis;
+- set the next confirmation/falsifier and route under existing P0/P1/P2/P3;
+- reuse or update a stable Macro Signal Sequence rather than creating a new story each slot.
+
+A market-wide move does not become duplicate company news for every holding. Only materially affected cases belong in `Changes to existing investment cases`.
 ## Hard depth and execution boundary
 
 Stop normal Radar work after exact delta/baseline, original source/claim status/independence, timestamps/market context, plausible mechanism/materiality, affected exposures, gates, strongest failure reason, primary route, underwriting requirement and up to three decisive RWC questions plus next evidence/date. Visible output normally uses one primary question, at most two independent ones. Do not ask RWC to prove the initial hypothesis; ask whether it survives verification.
@@ -219,6 +237,11 @@ disabled_or_migration_blocked_monitor_gaps
 active_theses_loaded; theses_researched; review_queue/forecasts_due_checked
 thesis_state_unavailable; known_catalysts_checked; evidence_due_checked
 market_tape_checked/as_of/sources
+macro_cross_asset_status; macro_snapshot_ids; macro_sequence_ids
+macro_us_2y_10y_30y_checked; macro_real_yield_breakeven_checked
+macro_curve_checked; macro_policy_path_checked; macro_credit_checked
+macro_usd_oil_volatility_checked; macro_canada_overlay_checked
+macro_material_transmission_case_ids; macro_source_gaps
 specialized_lanes_checked and per-lane status
 primary_feeds_searched_successfully
 expert_social_and_alternative_lanes_checked
