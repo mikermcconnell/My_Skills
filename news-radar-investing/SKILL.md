@@ -1,8 +1,8 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-26-simcoe-municipal-ground-truth
-description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, decisions and synthesis. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
+revision: 2026-09-28-exception-only-stock-monitor
+description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, decisions and synthesis. The visible stock monitor is exception-only: crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
 ---
 
 # News Radar Investing V3 — one integrated run
@@ -10,7 +10,7 @@ description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto dai
 ## Mandatory read order and authority
 
 1. ../investment-strategy-lanes/SKILL.md — Core/Camillo analytical identity and separate gates.
-2. ../investment-firm-output/SKILL.md version 14 or later, MONITOR_V3.md and ACTIVE_VERSION.md — current consolidated publisher, reporting and standing-view ownership. The September 25 reporting change supersedes contrary inherited separate-Daily-Brief, routine Event Reaction table and Radar-cannot-update-Decision-List instructions. Do not recreate old tasks.
+2. ../investment-firm-output/SKILL.md version 16 or later, MONITOR_V3.md and ACTIVE_VERSION.md — current consolidated publisher, reporting and standing-view ownership. The September 25 reporting change supersedes contrary inherited separate-Daily-Brief, routine Event Reaction table and Radar-cannot-update-Decision-List instructions. Do not recreate old tasks.
 3. references/camillo-discovery.md, references/camillo-source-register.json, references/camillo-source-monitoring.md and references/camillo-market-source-pack.json — observation-first collection and comparable history. For Google retrieval also read references/google-trends-connection.md, which owns the tested bounded live-worker path and input-scope limits.
 4. BASELINE_WORKFLOW.md and its complete task-relevant references, including references/v3-run-contract.md, source-and-routing-rules.md, primary-source-feed-map.md, emerging-signal-lens.md, newsletter-intake.md, specialized-lanes.md, price-monitor-live-source.md, event-reaction-strategy-mechanics.md, sell-discipline-and-closeout.md, EXPERT_SOURCES.md and clinical/disclosure/AI-efficiency references. Inherited analytic/source/risk controls remain; current output and MONITOR_V3 own the scoped publication change.
 5. ../camillo-social-arbitrage/SKILL.md for deeper Camillo investigation.
@@ -41,6 +41,6 @@ For Google use scripts/camillo_trends_worker.py and scripts/camillo_google_trend
 
 Event Reaction remains a separate mechanical system governed by its current explicit lot tags/manifest. Read references/event-reaction-strategy-mechanics.md. **No recurring ER table, ER HOLD rows, near-target warnings or quiet placeholders.** Surface only a newly verified actionable stop/partial-target/runner-target/time-exit event as a compact alert, deduplicated by exact condition occurrence and lot. Routine operational diagnostics stay internal; genuine urgent protection failures retain the existing exceptional risk path. Reported is not filled/closed/consumed/re-armed. Do not rewrite the engine, thresholds or broker alerts.
 
-Keep Core and Camillo visible within the three existing report sections. Camillo research-only cases remain visible without price triggers and are not invented active monitors. Same-issuer non-ER cases remain independently eligible. Explain unfamiliar products before reporting metrics, use plain next actions and preserve full requested research outside routine summaries.
+Keep Core and Camillo visible within the three existing report sections. Camillo research-only cases remain visible in news/case-change narrative without becoming stock-monitor rows. The visible stock monitor is exception-only: publish only a crossed BUY/ADD, crossed SELL/TRIM/EXIT, or GETTING CLOSE within 5% of the next valid buy/add/sell/trim/exit price trigger. Suppress ordinary HOLD/WAIT/NO ACTION, stale-add reconciliation, research-only, disabled, re-underwrite-only and unavailable-data rows from the table; retain material non-price issues in case changes and internal/Decision-List state. If no row qualifies, state that no buy/sell/near rows qualified at the cutoff. Same-issuer non-ER cases remain independently eligible. Explain unfamiliar products before reporting metrics, use plain next actions and preserve full requested research outside routine summaries.
 
 Optional scripts/radar_publication.py and references/radar-publication-policy.json encode presentation-only fixtures. Run evals/test_unified_radar_reporting.py when possible; synthetic tests are not a verified scheduled report, live engine test or proof of delivery. Existing calibration continues inside the integrated 15:00 output, with no extra audit task.
