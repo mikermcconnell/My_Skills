@@ -1,7 +1,7 @@
 ---
 name: camillo-social-arbitrage
-version: 4
-revision: 2026-09-24-observation-first-discovery
+version: 5
+revision: 2026-09-28-capital-allocation-handoff
 description: Find and investigate higher-risk speculative public-information connections before market recognition. Begin with behaviour or new capabilities, allow testable early uncertainty and unresolved ticker mapping, and preserve price/payoff, timing and risk gates without conventional cheapness as the go/no-go.
 ---
 
@@ -38,6 +38,8 @@ Revisit old partner/ownership/distribution facts when new observations change th
 
 Default: Strategy / Case / Stage / Horizon; three-sentence idea; A -> B -> C; what may be missed; known/inferred/bet; three decisive checks; why now/next review/falsifier; information-edge judgment / instrument judgment / portfolio permission; one next action.
 
-Radar surfaces and routes, RWC verifies and tests the inference, Full Underwriting — CAMILLO MODE evaluates the security/payoff, and challenge/allocation keep their responsibilities. Read ../full-underwriting/references/camillo-speculative-underwriting.md downstream. No low multiple, DCF discount, Core buy price or reported earnings confirmation is mandatory for the information-edge judgment. Remaining payoff, timing and downside still matter to an investment.
+Radar surfaces and routes, RWC verifies and tests the inference, Full Underwriting — CAMILLO MODE evaluates the security/payoff, the Challenger tests the speculative case on its own terms, and ../portfolio-capital-allocation/SKILL.md owns final portfolio sizing. Read ../full-underwriting/references/camillo-speculative-underwriting.md downstream. No low multiple, DCF discount, Core buy price or reported earnings confirmation is mandatory for the information-edge judgment. Remaining payoff, timing and downside still matter to an investment.
+
+Camillo sizing can begin with a deliberately small speculative starter before financial confirmation when the information edge, causal connection and downside are coherent, but additional size must be evidence-earned. Recognition catching up, timing failure or a weakening edge can trigger a Capital Allocation scale-down review even when the broader company remains attractive. A Camillo position may graduate into Core only through fresh Core underwriting and allocation.
 
 Missing allocation data cannot suppress research but prevents invented sizing. Public information only; no automatic leverage, trades, holding relabel or failed-speculation-to-Core conversion. Learn from dated failures, timing and instrument errors as well as wins. Passing helper tests is not proof of live detection or investment performance.
