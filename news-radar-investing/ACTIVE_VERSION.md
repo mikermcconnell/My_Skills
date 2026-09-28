@@ -17,7 +17,7 @@ skill: news-radar-investing/SKILL.md
 strategy_contract: investment-strategy-lanes/SKILL.md
 monitor_contract: news-radar-investing/MONITOR_V3.md
 output_contract: investment-firm-output/SKILL.md
-output_contract_version: 16
+output_contract_version: 17
 publication_policy: news-radar-investing/references/radar-publication-policy.json
 camillo_discovery_contract: news-radar-investing/references/camillo-discovery.md
 camillo_source_register: news-radar-investing/references/camillo-source-register.json
@@ -60,7 +60,7 @@ markdown_artifact_required: false
 
 ## Authority
 
-Read current SKILL.md and required references from one consistent revision where practical. Output version 16 and MONITOR_V3 own consolidated publication, integrated synthesis, sole standing-view ownership, exception-only stock-monitor presentation and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
+Read current SKILL.md and required references from one consistent revision where practical. Output version 17 and MONITOR_V3 own consolidated publication, integrated synthesis, sole standing-view ownership, exception-only stock-monitor presentation and ER alert-only presentation. They supersede older separate-brief/publisher and mandatory ER-table instructions in inherited source/strategy/baseline prose. Historical BASELINE_WORKFLOW.md files remain preserved; unrelated source, analytical, clinical, execution and security safeguards still apply.
 
 Do not declare that a reporting-version change introduces backend schema support. The retained stock_table_schema value is a compatibility identifier only; the current display excludes routine ER rows. Preserve older reports' actual schema/cutoff and retain detailed audit data privately. Use only accepted write fields; do not relabel historical snapshots as version 9.
 
