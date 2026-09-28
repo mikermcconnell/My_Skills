@@ -1,11 +1,11 @@
 ---
 name: investment-firm-output
-version: 16
-revision: 2026-09-28-exception-only-stock-monitor
-description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine discovery, case changes, research progress, decisions and next checks with separate Core/Camillo lanes. The visible stock monitor is exception-only: show only crossed buy/add, crossed sell/trim/exit, or within-5%-of-trigger rows. Event Reaction is trigger-alert-only, never a recurring table. Preserve factual, portfolio and execution controls.
+version: 17
+revision: 2026-09-28-macro-cross-asset-lens
+description: Publish one integrated Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily. Combine Core/Camillo discovery, macro/cross-asset regime changes, case changes, research progress, decisions and next checks. The visible stock monitor is exception-only. Event Reaction is trigger-alert-only. Preserve factual, portfolio and execution controls.
 ---
 
-# Investment Firm output contract — version 16
+# Investment Firm output contract — version 17
 
 ## One publisher and scoped authority
 
@@ -36,6 +36,29 @@ Preserve explicit **CORE — Long-term portfolio** and **CAMILLO — Speculative
 
 Every slot includes useful decisions, genuine research progress and the next check when material. At **15:00**, add a brief day-to-date synthesis of what actually changed in the decision set and what comes next; do not replay all morning headlines. Friday 15:00 also absorbs the existing AI Efficiency Watch weekly breadth and calibration, with its fixed-cohort/backfill/cost/quality safeguards unchanged. Late nonurgent findings enter the next regular slot, not a new 15:20 report. An urgent condition retains the existing exceptional-alert path.
 
+## Macro / Cross-Asset presentation
+
+Read `../news-radar-investing/references/macro-cross-asset-lens.md`. Macro is a **Core overlay**, not another report section, lane or strategy.
+
+When a material regime change is detected, surface one concise card inside **New news and opportunities** using a label such as:
+
+`MACRO — EMERGING SIGNAL — EARLY | Long rates / cost of capital`
+
+or BUILDING / ESCALATE under the existing Emerging Signal rules.
+
+Explain:
+- what actually moved, with cutoff and comparison baseline;
+- whether the move is primarily real yields, inflation expectations, curve, credit, FX, commodities or a combination when evidence supports the decomposition;
+- the simple economic transmission chain;
+- which current cases/sectors are plausibly exposed;
+- the strongest counter-hypothesis;
+- the next confirmation/falsifier and existing route.
+
+Do **not** print a recurring macro dashboard or repeat unchanged high yields every slot. A meaningful yield spike, new multi-year high, rapid real-yield move, material credit widening, policy-path repricing or coherent cross-asset stress should surface even when there is no single-company headline.
+
+If the macro signal materially changes the question for an existing case, summarize that company-specific transmission in **Changes to existing investment cases**. Do not duplicate one macro origin as separate new news for every holding.
+
+Macro observations never create stock-monitor rows by themselves and do not automatically change fair values, thresholds, positions or risk budgets.
 ## Core and Camillo content
 
 Surface research-worthy Camillo EARLY / BUILDING / RWC NOW observations in the run that finds them, using behaviour-led or capability-led framing. One traceable source, unknown ticker, missing retention/earnings/quote/active monitor or an above-Core-target price is not an automatic veto. Facts, company claims, sponsorship and forward speculation remain distinct; unsupported metadata-only material stays a source-verification lead. Keep at most three decisive follow-up checks unless a genuine issue warrants more. No required signal count or numerical stock score.
@@ -87,4 +110,4 @@ Internal Disclosure/Portfolio Defense producers append findings to the same Jour
 
 Use ../news-radar-investing/references/radar-publication-policy.json as a reporting-policy fixture, not a backend schema. The optional scripts/radar_publication.py helper filters independently verified event inputs and checks slot identity; it neither evaluates trading rules nor proves source truth. Synthetic tests are not a completed live scan or notification test.
 
-Preserve the existing first-five-run discovery calibration within 15:00 synthesis. Add checks for one report per slot, no separate brief, no routine ER table, new-trigger dedup, retained same-issuer non-ER cases and safe Decision List ownership/cutoffs. Do not reset earlier calibration history or invent performance/coverage results. No new audit task, subscription, holdings migration, risk-budget change, proposal approval or trade execution.
+Preserve the existing first-five-run discovery calibration within 15:00 synthesis. Include whether material macro regime changes were surfaced promptly, whether real-yield/inflation/credit decomposition was evidence-based, and whether portfolio transmission was mapped without turning macro noise into issuer news. Add checks for one report per slot, no separate brief, no routine ER table, new-trigger dedup, retained same-issuer non-ER cases and safe Decision List ownership/cutoffs. Do not reset earlier calibration history or invent performance/coverage results. No new audit task, subscription, holdings migration, risk-budget change, proposal approval or trade execution.
