@@ -1,6 +1,6 @@
 # Specialized Radar Lanes — V3
 
-Reconciled September 21, 2026. These eleven lanes remain mandatory checks on every **08:00, 11:00 and 15:00 America/Toronto** scheduled run. They supplement urgent defense, protected open-universe discovery, active-thesis tests and market context; they do not replace broad discovery or restrict it to these names.
+Reconciled September 28, 2026. These eleven lanes remain mandatory checks on every **08:00, 11:00 and 15:00 America/Toronto** scheduled run. They supplement urgent defense, protected open-universe discovery, active-thesis tests and market context; they do not replace broad discovery or restrict it to these names.
 
 `investment-firm-output/SKILL.md` owns the combined visible report: **New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell**. Do not emit another mandatory lane-status section or defer every narrative discovery to the Daily Brief. Material new findings surface in the same run; full specialist detail remains in research records.
 
@@ -24,6 +24,11 @@ The stable lane membership is:
 
 The `Stock monitor — Buy / Hold / Wait / Sell` section is always present, but the table is exception-only: show only crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. If none qualify, state that no buy/sell/near rows qualified. The other ten lanes need not print unchanged status lines. The existing feed-map discovery pass is a core workflow, not a newly created twelfth lane. Urgent P0 can interrupt; routine familiar-company searches do not displace protected discovery.
 
+## Macro / Cross-Asset overlay — not a twelfth lane
+
+`macro-cross-asset-lens.md` runs inside Core protected discovery and can inform any specialist lane, but the stable lane count remains eleven. Do not add a Macro lane status row or separate macro newsletter.
+
+When macro transmission materially affects a specialist case—such as long rates changing utility financing, credit spreads affecting leveraged infrastructure, oil changing tanker demand/insurance economics, or curve/funding conditions affecting financials—link the existing macro sequence to that case and surface only the changed question. Do not duplicate the macro origin as fresh company news.
 ## Cross-lane Emerging Signal overlay
 
 `emerging-signal-lens.md` applies across all eleven lanes when the evidence is trajectory-shaped. A clinical uptake sequence, supplier bottleneck, demand inflection, developer migration, operating-leverage trend or competitive displacement can become an Emerging Signal even when it originates outside Social Arbitrage.
