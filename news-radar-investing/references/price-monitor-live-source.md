@@ -1,6 +1,6 @@
 # Price Monitor Live-Source Contract — News Radar V3
 
-Reconciled September 21, 2026; combined-monitor patch applied the same day. This file owns the combined monitor universe, source precedence, exact-security de-duplication, visible review actions, quote verification and consumed/re-arm controls. The latest `investment-firm-output/SKILL.md` owns the surrounding news-first report and publication. The price lane supplements news discovery; it is not the boundary of Radar's news universe.
+Reconciled September 28, 2026; visible stock-monitor publication is exception-only (buy/add, sell/trim/exit, or within-5%-near). This file owns the combined monitor universe, source precedence, exact-security de-duplication, visible review actions, quote verification and consumed/re-arm controls. The latest `investment-firm-output/SKILL.md` owns the surrounding news-first report and publication. The price lane supplements news discovery; it is not the boundary of Radar's news universe.
 
 ## Place within the scheduled run
 
@@ -13,13 +13,27 @@ Visible table:
 | Action | Stock | Current price | Next trigger | Source | What to do |
 |---|---|---:|---|---|---|
 
-This is one action-sorted review queue, including unchanged eligible monitors. The `Action` column uses the controlled review vocabulary below, not automatic BUY/SELL commands. `What to do` explains the practical next step. A separately supported completed downstream recommendation may be summarized in the case/decision narrative, but must not convert a legacy recovery record or defense review trigger into a finished investment verdict. No automatic trading.
+Internally evaluate the complete eligible monitor universe every run, but publish an **exception-only** stock table. A row is visible only when a valid active BUY/ADD condition is crossed, a valid active SELL/TRIM/EXIT condition is crossed, or the current price is within 5% of the next valid buy/add/sell/trim/exit price trigger. Ordinary HOLD/WAIT/NO ACTION, stale-add reconciliation, research-only, disabled, re-underwrite-only and unavailable-data rows are not visible stock-monitor rows. They remain in audit/Decision-List state or, when material, in `Changes to existing investment cases`. The `Action` column is review language, not automatic trading.
 
 ## Dynamic source of truth
 
 Query actual available canonical live monitor/underwriting state each run and enumerate currently active price-bearing records, including non-owned candidates. Preserve monitor ID/status, current thresholds/ranges, stored downstream actions, ownership linkage, kill/review state, consumed triggers and re-arm logic. Changes flow into the next run from that source; no skill edit should be needed per ticker.
 
 Never use a fixed ticker/level list, old prompt, analyst target, previous Radar table or remembered underwriting as live membership. Do not retain removed/disabled monitors, miss newly active ones or cache superseded actions/trigger state. Unknown membership is not a checked-empty list. Empty canonical arrays do not end the combined-source check.
+
+### Visible publication gate
+
+Full monitor evaluation and visible publication are separate.
+
+A security enters the visible stock table only if one of these is true:
+
+1. **BUY / ADD crossed** — an active valid BUY_REVIEW / ADD_REVIEW / COMPELLING BUY_REVIEW / COMPELLING ADD_REVIEW condition is crossed and has not already been satisfied by a completed purchase/add.
+2. **SELL / TRIM / EXIT crossed** — an active valid TRIM_REVIEW / EXIT_REVIEW or equivalent concrete Portfolio Defense sell-discipline condition is crossed.
+3. **NEAR** — no qualifying condition is crossed, but price is within **5%** of the next valid active buy/add/sell/trim/exit **price** trigger.
+
+Do not publish a row solely because it is owned, monitored, under research, awaiting re-underwrite, disabled, missing data, or sitting normally between thresholds. A material re-underwrite, P0 risk or data failure belongs in `Changes to existing investment cases` or the urgent channel, not in the stock table unless it separately meets the buy/sell/near gate.
+
+If no security qualifies, publish the third section with exactly the meaning: **No qualifying buy/sell/near stock-monitor rows at this cutoff.** This is not `NO ACTIVE STOCK MONITORS` and not an all-clear.
 
 ## Strategy-aware Event Reaction override
 
@@ -153,6 +167,16 @@ The prefix also applies to LEGACY + DEFENSE. A combined source label means both 
 
 Use ADD for verified owned, BUY for verified unowned and BUY/ADD review where ownership is unknown. COMPELLING BUY/ADD REVIEW and BUY/ADD REVIEW NOW are the corresponding unknown-ownership forms. Within equal priority sort meaningful severity/proximity then ticker. A non-price defense trigger maps to the review named by the sell-discipline workflow; do not invent numeric price levels for it.
 
+A completed purchase/add that post-dates the monitor state suppresses that historical BUY/ADD condition from the visible table unless a newer accepted record explicitly authorizes another tranche. Keep unresolved trigger consume/re-arm reconciliation outside the visible table.
+
+### Publication filtering after classification
+
+The internal classifier may still resolve RE-UNDERWRITE NOW, NO ACTION, UNAVAILABLE, disabled state and stale-add reconciliation for audit purposes. The publication layer then suppresses every row that is not BUY/ADD crossed, SELL/TRIM/EXIT crossed, or GETTING CLOSE to a buy/add/sell/trim/exit price trigger.
+
+- `RE-UNDERWRITE NOW` without a separate crossed buy/sell condition is **not** a visible stock-monitor row; report it in case changes.
+- `NO ACTION`, ordinary HOLD/WAIT, disabled monitors and data-only `UNAVAILABLE` are **not** visible rows.
+- Research candidates without active price/sell conditions are **not** visible rows.
+- A missing source class or quote is disclosed in the compact coverage note if it could hide a qualifying action; do not create an `UNAVAILABLE` stock row just to show the gap.
 ### Selecting the one visible trigger per security
 
 - Evaluate CANONICAL, LEGACY, and PORTFOLIO DEFENSE candidates together, then show the highest-urgency valid row.
@@ -168,11 +192,11 @@ Use ADD for verified owned, BUY for verified unowned and BUY/ADD review where ow
 
 If CANONICAL state contains no active price-bearing monitors, continue checking the persisted LEGACY monitor overlay and PORTFOLIO DEFENSE queue.
 
-Show `NO ACTIVE STOCK MONITORS` only when all three source classes are readable and none contains a visible row.
+Show `NO ACTIVE STOCK MONITORS` only when all three source classes are readable and none contains any active eligible monitor at all. When active monitors exist but none meets the exception-only publication gate, say `No qualifying buy/sell/near stock-monitor rows at this cutoff.`
 
-If canonical state is empty but legacy rows exist, render them with `Source = LEGACY`; do not describe them as canonical active monitors.
+If canonical state is empty but legacy monitors exist, evaluate them normally; render only those legacy rows that meet the buy/sell/near publication gate, with `Source = LEGACY` and the required refresh/migrate prefix.
 
-If one source class is unavailable, preserve rows from readable source classes and label the table `PARTIAL` only when the missing class could materially change membership/action. State the missing class and its impact; when that impact is unknown, do not assert complete coverage. An unavailable quote or trigger field affects only the dependent row/decision. No readable universe means UNAVAILABLE, not an invented list or no-active result.
+If one source class is unavailable, preserve any qualifying rows from readable source classes and disclose `PARTIAL` coverage when the missing class could hide a buy/sell/near condition. State the missing class and impact in the compact coverage note. Do not publish ordinary `UNAVAILABLE` table rows solely for missing data. No readable universe means coverage unavailable, not an invented all-clear.
 
 Report disabled/mapping-blocked records and missing-level/unstructured research separately in a compact coverage note where relevant. An all-three-empty queue does not establish that no research exists or no other portfolio risk exists. Retain unresolved research in its established view without manufacturing source-labelled rows.
 
@@ -207,6 +231,6 @@ Also preserve:
 - exact-security de-duplication key and all materially contributing record IDs;
 - disabled/migration-blocked conditions and reasons excluded from active queue membership.
 
-Snapshots are audit history, not tomorrow's source of truth when live sources are readable. Retain compatible per-slot issue IDs with `report_format_version: 5` and `stock_table_schema: combined_action_queue_v1`; keep unsupported enrichment in the manifest/fallback rather than invalid API payloads. Publication neither consumes/re-arms a trigger nor proves delivery. Radar appends to the existing journal; the Daily Brief maintains the standing view using original cutoffs, without duplicating the full table in chat.
+Snapshots are audit history, not tomorrow's source of truth when live sources are readable. Persist the full evaluated monitor universe and suppression reasons internally, while the user-facing table contains only buy/sell/near qualifying rows. Retain compatible per-slot issue IDs and schema history honestly; unsupported enrichment stays in the manifest/fallback rather than invalid API payloads. Publication neither consumes/re-arms a trigger nor proves delivery. The unified Radar owns the standing view under the current output contract.
 
 Regression cases: canonical empty + valid legacy still shows LEGACY; all three checked-empty alone allows NO ACTIVE STOCK MONITORS; missing material class produces PARTIAL; equivalent canonical/legacy uses canonical once; distinct legacy requires explicit absence and migration-pending state; higher-priority defense overrides a buy review without a sale; consumed legacy without satisfied explicit re-arm does not re-fire; relevant legacy REUNDERWRITE_REQUIRED outranks its price hit; disabled canonical is not revived via equivalent legacy; generic prose or stage RWC alone does not qualify as LEGACY; missing quote preserves valid non-price reviews but cannot activate a price comparison; exact currencies/contracts/lot scopes survive de-duplication. Verify the subroutine did not silently displace protected news discovery. Keep failures in the existing audit, not a new reporting service.
