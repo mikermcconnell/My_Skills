@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-28-exception-only-stock-monitor
+analytical_revision: 2026-09-28-macro-cross-asset-lens
 routine_publisher: Investment Firm — Radar
 routine_task_count: 1
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily including weekends
@@ -28,6 +28,7 @@ run_contract: news-radar-investing/references/v3-run-contract.md
 source_routing_contract: news-radar-investing/references/source-and-routing-rules.md
 source_feed_contract: news-radar-investing/references/primary-source-feed-map.md
 emerging_signal_contract: news-radar-investing/references/emerging-signal-lens.md
+macro_cross_asset_contract: news-radar-investing/references/macro-cross-asset-lens.md
 newsletter_intake_contract: news-radar-investing/references/newsletter-intake.md
 specialized_lanes_contract: news-radar-investing/references/specialized-lanes.md
 price_monitor_contract: news-radar-investing/references/price-monitor-live-source.md
@@ -41,11 +42,12 @@ ai_efficiency_watch_first_weekly_summary: 2026-09-25 15:00 America/Toronto
 mandatory_specialized_lane_checks: 11
 routine_radar_title: Investment Firm — Radar
 routine_radar_sections: New news and opportunities; Changes to existing investment cases; Stock monitor — Buy / Hold / Wait / Sell
-protected_discovery: bounded urgent risk -> Core broad pass plus Camillo observation pass -> routine continuation
+protected_discovery: bounded urgent risk -> Core broad pass + bounded macro/cross-asset regime overlay + Camillo observation pass -> routine continuation
 news_universe: not limited to holdings, tickers, known brands, AI or investing personalities
 novelty_memory: source/observation identity AND connection identity; canonical plus verified dated fallback
 price_monitor_source_classes: CANONICAL; LEGACY; PORTFOLIO DEFENSE
 price_monitor_proximity_band: 5_percent for eligible non-ER monitor rows only
+macro_cross_asset_display: material regime changes only; no routine dashboard; existing P0/P1/P2/P3 routes
 price_monitor_rows: strategy_case + exact_security + applicable_lot; no ticker-only collapse
 stock_table_schema: combined_action_queue_v2_with_event_reaction_mechanics
 report_format_version: 9
