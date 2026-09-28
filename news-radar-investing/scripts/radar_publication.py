@@ -31,6 +31,7 @@ def slot_context(scheduled_for: datetime) -> dict:
         'slot': local.strftime('%H:%M'),
         'daily_synthesis': local.hour == 15,
         'weekly_synthesis': local.hour == 15 and local.weekday() == 4,
+        'capital_map_due': local.hour == 15 and local.weekday() == 4,
         'routine_reports': 1,
     }
 
