@@ -22,7 +22,7 @@ The stable lane membership is:
 10. Nancy Pelosi — Congressional Disclosures / Stock & Options
 11. AI Efficiency Watch — Claims / Operating Gains / Financial Capture
 
-The price table is always visible under the shared contract; the other ten lanes need not print unchanged status lines. The existing feed-map discovery pass is a core workflow, not a newly created twelfth lane. Urgent P0 can interrupt; routine familiar-company searches do not displace protected discovery.
+The `Stock monitor — Buy / Hold / Wait / Sell` section is always present, but the table is exception-only: show only crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. If none qualify, state that no buy/sell/near rows qualified. The other ten lanes need not print unchanged status lines. The existing feed-map discovery pass is a core workflow, not a newly created twelfth lane. Urgent P0 can interrupt; routine familiar-company searches do not displace protected discovery.
 
 ## Cross-lane Emerging Signal overlay
 
@@ -32,14 +32,14 @@ Do not create a twelfth lane or duplicate the same atomic evidence across lanes.
 
 ## 1. Price Monitor Check
 
-This is a permanent visible lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for the combined table, source precedence, review actions, quote confirmation and failure handling.
+This is a permanent checked lane and must run on every scheduled Radar pass. `references/price-monitor-live-source.md` is authoritative for the full internal monitor evaluation and the exception-only visible table, source precedence, review actions, quote confirmation and failure handling.
 
 Before rendering it, load or attempt to load:
 1. every active price-bearing CANONICAL monitor from MikeInvestor;
 2. every readable persisted LEGACY Investment Firm monitor record defined by the live-source contract;
 3. every sufficiently concrete PORTFOLIO DEFENSE sell/re-underwrite trigger for owned positions.
 
-Do not limit the table to current holdings. Do not maintain a static Radar ticker list.
+Do not limit the internal monitor evaluation to current holdings. Do not maintain a static Radar ticker list. After full evaluation, suppress rows that are not a crossed BUY/ADD, crossed SELL/TRIM/EXIT, or within-5%-near condition.
 
 The visible table is:
 
@@ -47,9 +47,9 @@ The visible table is:
 |---|---|---:|---|---|---|
 
 Rules:
-- Show one row per security, resolving the exact listing or option contract rather than merging incompatible instruments into one issuer-wide decision.
+- Show one row per qualifying security, resolving the exact listing or option contract rather than merging incompatible instruments into one issuer-wide decision.
 - De-duplicate using the source-precedence rules in `price-monitor-live-source.md`; duplicate source records are not additional securities.
-- Sort by urgency: RE-UNDERWRITE NOW, EXIT REVIEW NOW, TRIM REVIEW NOW, COMPELLING BUY/ADD REVIEW, BUY/ADD REVIEW NOW, GETTING CLOSE, NO ACTION, UNAVAILABLE.
+- Visible rows are limited to COMPELLING BUY/ADD REVIEW, BUY/ADD REVIEW NOW, EXIT/TRIM sell-side review, or GETTING CLOSE within 5% of the next valid buy/add/sell/trim/exit price trigger. RE-UNDERWRITE-only, HOLD/WAIT/NO ACTION, disabled, stale-add reconciliation, research-only and UNAVAILABLE rows are kept outside the visible table.
 - Use ownership-sensitive wording: ADD for owned, BUY for confirmed unowned, BUY/ADD if ownership is unresolved.
 - For Source = LEGACY, never imply canonical approval. What to do must start with `Refresh/migrate underwriting first;`. Apply the same prefix to LEGACY + DEFENSE.
 - For Source = PORTFOLIO DEFENSE, apply `sell-discipline-and-closeout.md`; Radar routes review only and never declares or executes a sale.
@@ -59,7 +59,7 @@ Rules:
 - Decision-relevant LEGACY migrationStatus REUNDERWRITE_REQUIRED selects RE-UNDERWRITE NOW ahead of its separate crossed price level.
 - Preserve consumed thresholds until their explicit persisted re-arm condition is met. Missing history is not an invented reset.
 - Structured legacy recovery state, including records stored at stage RWC with verdict LEGACY_MONITOR_ACTIVE and economicBridge.legacyMonitor, is not a completed RWC/underwriting conclusion.
-- Check all three source classes even when canonical state is empty. NO ACTIVE STOCK MONITORS requires all three readable and no eligible row. Preserve readable classes and label PARTIAL when missing coverage could materially change membership/action.
+- Check all three source classes even when canonical state is empty. If active monitors exist but none meets the visible gate, say `No qualifying buy/sell/near stock-monitor rows at this cutoff.` Preserve PARTIAL coverage when a missing class could hide a qualifying action.
 - Generic prose baselines and old tables are not eligible LEGACY records. Retain relevant missing-level/disabled/mapping-blocked research in a compact coverage note and existing Decision List, not fabricated source-labelled rows.
 
 At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:00 use actual same-day regular-session pricing where open, otherwise labelled last-session data. Preserve quote/source dates and smallest unavailable fields. Check exact listing/share class/CDR/option, lot/strategy and inequality; never compare a USD underlying with a CAD or option-premium threshold. Fair value is not an automatic sell price. No price crossing, legacy visibility or defense review changes thesis, valuation, posture, position size or trade authority.
@@ -68,7 +68,7 @@ At 08:00 use verified premarket quotes or labelled previous close; at 11:00/15:0
 
 Within the Price Monitor Check, identify exact live lots tagged to Investor strategy_id `event_reaction` / alias `post_earnings` and apply `event-reaction-strategy-mechanics.md` before the generic combined queue.
 
-These lots use the current strategy manifest's mechanical stop/partial-target/runner-target/time-exit rules and are shown in the separate Event Reaction mechanics subtable. Do not label ordinary Event Reaction mechanics RE-UNDERWRITE NOW, BUY/ADD REVIEW, TRIM REVIEW, or EXIT REVIEW. Same-issuer non-Event-Reaction positions remain separately eligible for the generic queue.
+These lots use the current strategy manifest's mechanical stop/partial-target/runner-target/time-exit rules. Routine Event Reaction inventory is not shown. Surface only a newly verified actionable ER STOP SELL, ER PARTIAL TARGET SELL, ER RUNNER TARGET SELL or ER TIME EXIT as a compact alert under the current output contract. Same-issuer non-Event-Reaction positions remain independently eligible for the generic monitor evaluation.
 
 ## 2. Slow-Burn Fundamentals
 
