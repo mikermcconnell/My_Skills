@@ -1,8 +1,8 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-28-macro-cross-asset-lens
-description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, decisions and synthesis. The visible stock monitor is exception-only: crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
+revision: 2026-09-28-capital-allocation-integration
+description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, capital-allocation decisions and synthesis. The visible stock monitor is exception-only: crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. Friday 15:00 includes a lightweight Capital Map review. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
 ---
 
 # News Radar Investing V3 — one integrated run
@@ -10,7 +10,7 @@ description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto dai
 ## Mandatory read order and authority
 
 1. ../investment-strategy-lanes/SKILL.md — Core/Camillo analytical identity and separate gates.
-2. ../investment-firm-output/SKILL.md version 17 or later, MONITOR_V3.md and ACTIVE_VERSION.md — current consolidated publisher, reporting and standing-view ownership. The September 25 reporting change supersedes contrary inherited separate-Daily-Brief, routine Event Reaction table and Radar-cannot-update-Decision-List instructions. Do not recreate old tasks.
+2. ../investment-firm-output/SKILL.md version 18 or later, MONITOR_V3.md and ACTIVE_VERSION.md — current consolidated publisher, reporting and standing-view ownership. The September 25 reporting change supersedes contrary inherited separate-Daily-Brief, routine Event Reaction table and Radar-cannot-update-Decision-List instructions. Do not recreate old tasks.
 3. references/camillo-discovery.md, references/camillo-source-register.json, references/camillo-source-monitoring.md and references/camillo-market-source-pack.json — observation-first collection and comparable history. For Google retrieval also read references/google-trends-connection.md, which owns the tested bounded live-worker path and input-scope limits.
 4. BASELINE_WORKFLOW.md and its complete task-relevant references, including references/v3-run-contract.md, source-and-routing-rules.md, primary-source-feed-map.md, emerging-signal-lens.md, **macro-cross-asset-lens.md**, newsletter-intake.md, specialized-lanes.md, price-monitor-live-source.md, event-reaction-strategy-mechanics.md, sell-discipline-and-closeout.md, EXPERT_SOURCES.md and clinical/disclosure/AI-efficiency references. Inherited analytic/source/risk controls remain; current output and MONITOR_V3 own the scoped publication change.
 5. ../camillo-social-arbitrage/SKILL.md for deeper Camillo investigation.
@@ -28,6 +28,21 @@ After bounded P0 triage, complete BOTH the existing Core open-universe pass and 
 Apply the early-signal gate and bounded old-fact lookup in camillo-discovery.md. A single traceable source, unknown ticker, capability without retention, lack of financial confirmation and an above-Core-target price need not suppress an EARLY lead. Unsupported claims remain attributed/source-verification leads. Preserve original facts, inference and the uncertain bet. Separate source novelty from new implications of existing evidence; semantic duplicates remain duplicates. Use existing P0/P1/P2/P3 routes and actual workflow stages, not invented new API enums.
 
 Core retains its valuation/return gates. Camillo retains speculative information-edge, instrument/payoff and portfolio-permission judgments. All eleven specialist checks, due thesis/pillar/forecast tests, clinical/disclosure/AI-efficiency safeguards, source honesty, quote rules and risk budgets remain. Within Social Arbitrage / Alternative Data, also apply the bounded **McConnell / Simcoe municipal ground-truth experiment** in specialized-lanes.md when new Barrie/Simcoe municipal publication windows are available; it is an experimental source overlay, not a twelfth lane, and must not crowd out broader discovery. Missing private state does not silence accessible public discoveries. No automatic research worker, holding relabel, capital approval or trade.
+
+## Capital Allocation integration
+
+Read ../portfolio-capital-allocation/SKILL.md for any case that reaches or reopens portfolio sizing. Radar remains the detector/router; Capital Allocation owns the portfolio-size decision.
+
+Reopen Capital Allocation when:
+- Full Underwriting advances a decision-ready case;
+- a valid active BUY/ADD or SELL/TRIM boundary is crossed and the underwriting remains current;
+- Portfolio Defense identifies a concentration, opportunity-cost or instrument-risk issue with the underlying security thesis unchanged;
+- a completed holdings change materially alters weight or cluster exposure;
+- an allocation review/evidence deadline is due.
+
+If the security thesis plausibly changed, route through RWC / Full Underwriting first. A price touch alone does not earn a higher evidence stage or authorize a trade.
+
+At Friday 15:00, perform the lightweight Portfolio Capital Map specified by the output and Capital Allocation contracts. Use current supported holdings plus stored allocation state; do not reconstruct missing targets from memory. The full working map belongs in authorized internal/standing state where supported, while the visible Radar surfaces only material sizing exceptions/decisions.
 
 ## Macro / Cross-Asset Regime lens
 
