@@ -1,6 +1,6 @@
 # Emerging Signal / Leading Indicator Lens — News Radar V3
 
-Approved September 21, 2026. This is a **global research lens**, not a twelfth specialist lane, separate task, scoring model, or investment strategy.
+Approved September 28, 2026. This is a **global research lens**, not a twelfth specialist lane, separate task, scoring model, or investment strategy.
 
 Its purpose is to catch opportunities and risks that rhyme across companies and sectors:
 
@@ -48,6 +48,23 @@ Do **not** create a numeric score or fixed pass count. The purpose is discipline
 
 "Not yet revenue" is not a rejection when the signal is credibly upstream of revenue and has a plausible business bridge. Equally, attention/downloads/traffic alone are not proof of durable economics.
 
+## Macro / cross-asset sequences
+
+Apply `macro-cross-asset-lens.md` as a specialized use of this same sequence framework. Macro is not a new lane or route.
+
+Relevant trajectory shapes include:
+- long nominal yields rising because **real yields** are rising;
+- long nominal yields rising because **inflation breakevens** are rising;
+- curve steepening/inversion changing materially;
+- stable Treasury yields but widening IG/HY credit spreads;
+- Treasury yields plus credit spreads rising together;
+- persistent USD tightening or easing;
+- oil/commodity shocks transmitting into inflation or demand;
+- Canadian rates/CAD diverging from the U.S. where portfolio exposure makes that relevant.
+
+When these patterns become material, preserve the macro parent hypothesis, exact source/timestamps, driver decomposition, affected business assumptions and next falsifier. Do not duplicate one macro move into separate new-event counts for every mapped holding.
+
+Macro-specific business bridges can include cost of capital, project hurdle rates, refinancing, rate-base funding, mortgage/consumer credit, deposit/funding economics, FX translation, commodity input costs and liquidity. RWC must test whether the bridge is economically material for the specific company.
 ## Signal Sequences — trajectory memory
 
 The main unit of learning is often a **sequence**, not one headline.
@@ -113,7 +130,7 @@ These are defaults, not mandatory timers. Avoid creating one automation per sign
 
 ## Search behavior
 
-The broad discovery pass should include **trajectory-seeking queries**, not just event-seeking queries. For a newly interesting lead, seek a prior baseline, independent confirmation or contradiction, evidence of acceleration/deceleration, counterparties/substitutes/non-beneficiaries, the next leading metric and later financial KPI, and whether analysts/company guidance/market narrative already recognizes the change.
+The broad discovery pass should include **trajectory-seeking queries**, not just event-seeking queries. For macro/cross-asset conditions, this includes comparing the current rates/real-yield/breakeven/credit/FX/commodity configuration with the prior verified regime rather than merely noting the latest level. For a newly interesting lead, seek a prior baseline, independent confirmation or contradiction, evidence of acceleration/deceleration, counterparties/substitutes/non-beneficiaries, the next leading metric and later financial KPI, and whether analysts/company guidance/market narrative already recognizes the change.
 
 Do not spend the entire run researching one sequence. Radar stays high-recall and bounded.
 
