@@ -1,7 +1,7 @@
 ---
 name: research-with-confidence
-revision: 2026-09-24-camillo-observation-first
-description: Independently test Core business/value research or Camillo early public-information connections. Preserve raw observations, source uncertainty and strategy identity while verifying the decisive facts and forward inference. Do not replace underwriting, allocation or execution.
+revision: 2026-09-30-evidence-watch-follow-through
+description: Independently test Core business/value research or Camillo early public-information connections. Preserve raw observations, source uncertainty and strategy identity while verifying the decisive facts and forward inference. Automatically register applicable evidence follow-ups within the authorized Investment Firm workflow. Do not replace underwriting, allocation or execution.
 ---
 
 # Research With Confidence — strategy-aware
@@ -23,3 +23,19 @@ Return a source-verification result when the starting evidence cannot be establi
 Use ADVANCE -> FULL UNDERWRITING — CAMILLO MODE visibly when warranted, with compatible native routing fields and strategy annotation. Missing conventional cheapness, a Core target crossing or reported financial proof is not an automatic Camillo stop. Remaining payoff and instrument approval belong downstream. Preserve separate confidence in facts, connection, expectations gap and recognition timing.
 
 Retain factual independence, counterfactuals, owned-instrument defense and all no-trade/no-final-sizing boundaries from the baseline. No new API enums, issuer-wide Core baseline overwrite, holdings retagging or unsupported claim of a running worker.
+
+## Automatic evidence-watch follow-through
+
+In the authorized Investment Firm research workflow, automatically create or update applicable evidence watches when finishing RWC; do not stop at a monitoring recommendation or ask again for routine watch creation. Read ../investment-firm-output/SKILL.md for the existing Radar owner/publication contract. A watch supplements the research conclusion: it is not a buy/sell trigger and does not force the primary RWC verdict to MONITOR.
+
+Create a watch only for a specific unresolved fact or dated catalyst whose resolution could change the research route, thesis, economic materiality, public-equity capture, timing or owned-position defense. Require observable sources, a useful review horizon, and explicit escalation and closure conditions. Keep no more than three decisive conditions per case. Vague themes, rejected connections, one-off research tasks and leads without a justified future evidence check remain in the research queue; never invent a ticker or monitor to fill a template.
+
+Before writing, refresh canonical investor/security context and supported schemas. Reuse existing strategy/case/event and exact instrument/lot lineage; deduplicate by watch identity, source version and condition occurrence, not ticker alone. If a pasted lead has no event ID, first seek its existing lineage; if absent, transparently register an imported lead with a stable ID. Preserve original dates, expectations, uncertainty, falsifiers and prior results. Use revision protection and append-only results; after an uncertain write, read before retrying. On a context conflict, refresh and reassess; if conflicts persist, retain the pending definition and report the blocker, never omit required guards to force a save.
+
+Persist each definition in the supported evidence-follow-up path, using existing event routing and supported metadata rather than new API enums. Where no dedicated watch API exists, use a research result's supported economicBridge.evidenceWatch object and a readable nextQuestion; use a supported MONITOR destination for a new watch event, without overwriting another active stage's routing. Record: watch identity and ACTIVE state; strategy/case/event scope; existing Radar owner; source URLs and dated baseline; decisive conditions; next check/cadence; bounded review or expiry date; escalation route; closure/retirement rule; dedup history and quiet-on-unchanged policy. If timing is unknown, choose and label a bounded administrative review date; missing observable sources or escalation/closure criteria blocks watch creation. Administrative review dates must not be presented as disclosed catalyst dates.
+
+Reuse the existing Radar due-evidence pass and approved urgent-risk channel. Do not create another scan, schedule, publisher or alert stream. Notify only on decision-changing evidence, a material failure, expiry requiring review or required user action; repeated/unchanged/nonactionable evidence stays quiet. A failed source retrieval is not resolution. On new evidence, append the updated assessment, route material changes appropriately and retire resolved, rejected or superseded watches; review expired watches explicitly rather than silently extending them.
+
+Read back saved state. Distinguish a registered definition from verified scheduled pickup/execution. If persistence or the existing consumer is unavailable/unverified, report the precise boundary and remaining action; never claim a running monitor from a saved record alone. Summarize watches created, reused, skipped or blocked briefly.
+
+Keep all no-trade/no-final-sizing boundaries. Do not change holdings, strategy tags, portfolio limits, price thresholds or accepted underwriting. Clinical watches can support pre-pivotal speculative underwriting; unresolved Phase 3 efficacy is not an automatic requirement to wait.
