@@ -146,3 +146,7 @@ Read verified fallback as well as canonical seen-history. Failed canonical savin
 Existing Radar Calibration Audit should evaluate unique-origin capture, latency/on-time versus late detection, novelty precision, outside-universe coverage, RWC survival/underwriting yield, missed-event contribution, evidence-due resolution, outages and research cost. Extend the existing first-five-brief rollout review to inspect actual broad-query coverage and whether material new findings reached the report. No separate audit newsletter or new task.
 
 Do not discard a noisy high-recall source until an alternative catches the same valuable events in time. Do not claim news was missed based only on repetitive output; compare a defined actual event sample with the detection ledger, fallback records and publication receipts.
+
+## October 5 source-reliability integration
+
+Read source-reliability.md and source-reliability-register.json on each pass. Use their explicit source health, primary-document fallback, four-sector index rotation, full consumer captures, after-hours receipt recovery and fixed-sample Friday audit within this existing architecture. Source registration is not verified access.

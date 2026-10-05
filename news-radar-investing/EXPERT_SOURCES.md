@@ -140,3 +140,7 @@ A P1 expert-source handoff should distinguish:
 - what observation could falsify the expert's or executive's interpretation.
 
 Expert monitoring supplements primary-source, clinical, macro, regulatory, commodity, social-arbitrage, and company-specific scanning. It does not replace them.
+
+## Sector balance
+
+Read references/source-reliability-register.json for explicit power/energy, shipping/logistics, fintech/payments and consumer/retail source pairs. Their bounded index checks complement SemiAnalysis and lab sources; inspect relevant originals, source incentives and gaps before mapping public-company economics.

@@ -46,3 +46,7 @@ Scheduled start is not a guaranteed delivery minute. Use verified premarket/prio
 references/radar-publication-policy.json and scripts/radar_publication.py are reporting-only fixtures/helpers, not new backend schemas or an Event Reaction engine. Run evals/test_unified_radar_reporting.py when possible and distinguish synthetic checks from actual scheduled output.
 
 During existing first-five-run calibration, check one publisher/one report per slot, 15:00 synthesis, Friday breadth plus Capital Map triage, no ER inventory/quiet placeholders, one alert per new verified occurrence, preserved separate non-ER issuer cases, correct allocation-routing boundaries, Decision List revision/cutoff safety, actual source health and no loss of Core/Camillo discovery. Do not claim runtime or delivery success from a changed prompt or passing test.
+
+## Source reliability and after-hours recovery
+
+Apply references/source-reliability.md and source-reliability-register.json. Preserve verified source receipts/full snapshots, last-success/access gaps, four-sector index coverage and fixed-sample Friday calibration. Consume the existing internal Portfolio Checks 16:15/19:15 weekday after-hours receipts at 08:00; recover missing windows without claiming targeted intake completes broad discovery. Keep this task's three routine publication slots unchanged.

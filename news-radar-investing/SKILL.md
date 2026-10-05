@@ -1,7 +1,7 @@
 ---
 name: news-radar-investing
 version: 3
-revision: 2026-09-28-capital-allocation-integration
+revision: 2026-10-05-source-reliability
 description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto daily, integrating Core news, Camillo observation-first discovery, research progress, capital-allocation decisions and synthesis. The visible stock monitor is exception-only: crossed buy/add, crossed sell/trim/exit, or within-5%-near rows. Friday 15:00 includes a lightweight Capital Map review. Event Reaction is trigger-alert-only. Preserve all specialist, data-source, analytical and execution controls.
 ---
 
@@ -14,6 +14,7 @@ description: Run one Investment Firm Radar at 08:00, 11:00 and 15:00 Toronto dai
 3. references/camillo-discovery.md, references/camillo-source-register.json, references/camillo-source-monitoring.md and references/camillo-market-source-pack.json — observation-first collection and comparable history. For Google retrieval also read references/google-trends-connection.md, which owns the tested bounded live-worker path and input-scope limits.
 4. BASELINE_WORKFLOW.md and its complete task-relevant references, including references/v3-run-contract.md, source-and-routing-rules.md, primary-source-feed-map.md, emerging-signal-lens.md, **macro-cross-asset-lens.md**, newsletter-intake.md, specialized-lanes.md, price-monitor-live-source.md, event-reaction-strategy-mechanics.md, sell-discipline-and-closeout.md, EXPERT_SOURCES.md and clinical/disclosure/AI-efficiency references. Inherited analytic/source/risk controls remain; current output and MONITOR_V3 own the scoped publication change.
 5. ../camillo-social-arbitrage/SKILL.md for deeper Camillo investigation.
+6. references/source-reliability.md and source-reliability-register.json — source health, sector pairs, full chart capture, after-hours intake and the existing Friday missed-event calibration.
 
 ## Single publisher
 
@@ -67,3 +68,7 @@ Event Reaction remains a separate mechanical system governed by its current expl
 Keep Core and Camillo visible within the three existing report sections. Camillo research-only cases remain visible in news/case-change narrative without becoming stock-monitor rows. The visible stock monitor is exception-only: publish only a crossed BUY/ADD, crossed SELL/TRIM/EXIT, or GETTING CLOSE within 5% of the next valid buy/add/sell/trim/exit price trigger. Suppress ordinary HOLD/WAIT/NO ACTION, stale-add reconciliation, research-only, disabled, re-underwrite-only and unavailable-data rows from the table; retain material non-price issues in case changes and internal/Decision-List state. If no row qualifies, state that no buy/sell/near rows qualified at the cutoff. Same-issuer non-ER cases remain independently eligible. Explain unfamiliar products before reporting metrics, use plain next actions and preserve full requested research outside routine summaries.
 
 Optional scripts/radar_publication.py and references/radar-publication-policy.json encode presentation-only fixtures. Run evals/test_unified_radar_reporting.py when possible; synthetic tests are not a verified scheduled report, live engine test or proof of delivery. Existing calibration continues inside the integrated 15:00 output, with no extra audit task.
+
+## Source reliability overlay
+
+Apply references/source-reliability.md and its public register. Preserve full scoped source snapshots, last-success/overdue/access records and sector-index rotation. The existing internal Portfolio Checks task performs bounded after-hours intake at 16:15 and 19:15 Toronto weekdays; 08:00 Radar consumes verified receipts and recovers gaps. Friday 15:00 includes the fixed-sample missed-event audit inside existing calibration. No new routine publisher, source subscription or trade authority. A changed contract/test is not verified live collection.

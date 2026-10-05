@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "approved_date": "2026-10-05",
+  "contract": "source-reliability.md",
+  "paid_access_authorized": false,
+  "runtime_store": "Existing private Reporting Journal/supported source store only. This public registry contains no holdings or operational history.",
+  "machine_sources": [
+    {
+      "id": "apple_us_free",
+      "url": "https://rss.marketingtools.apple.com/api/v2/us/apps/top-free/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 6,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "apple_us_paid",
+      "url": "https://rss.marketingtools.apple.com/api/v2/us/apps/top-paid/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 26,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "apple_ca_free",
+      "url": "https://rss.marketingtools.apple.com/api/v2/ca/apps/top-free/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 6,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "apple_ca_paid",
+      "url": "https://rss.marketingtools.apple.com/api/v2/ca/apps/top-paid/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 26,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "apple_gb_free",
+      "url": "https://rss.marketingtools.apple.com/api/v2/gb/apps/top-free/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 6,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "apple_gb_paid",
+      "url": "https://rss.marketingtools.apple.com/api/v2/gb/apps/top-paid/100/apps.json",
+      "kind": "APPLE_FULL_JSON",
+      "check_max_age_hours": 26,
+      "data_max_age_hours": 48,
+      "requested_depth": 100,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "fed_all",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "kind": "RSS_CURRENT_FEED",
+      "check_max_age_hours": 6,
+      "data_max_age_hours": null,
+      "access_at_registration": "OFFICIAL_FEED_INDEX_READABLE; XML_LOCAL_TIMEOUT; PUBLIC_RUNNER_TEST_PENDING"
+    },
+    {
+      "id": "sec_latest",
+      "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&count=100&output=atom",
+      "kind": "ATOM_CURRENT_FILINGS",
+      "check_max_age_hours": 6,
+      "data_max_age_hours": null,
+      "access_at_registration": "WEB_BODY_UNAVAILABLE; SCRIPTED_DECLARED_CONTACT_REQUIRED",
+      "required_runtime_configuration": "RADAR_SEC_CONTACT; never print or place contact in public workflow inputs"
+    }
+  ],
+  "sector_pairs": [
+    {
+      "sector": "power_energy",
+      "primary": {
+        "id": "EIA_TIE",
+        "url": "https://www.eia.gov/todayinenergy/",
+        "type": "OFFICIAL_STATISTICS_AND_ANALYSIS",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "Observation periods may lag publication; some charts cite third-party datasets; forecasts are not realized demand."
+      },
+      "independent": {
+        "id": "UTILITY_DIVE",
+        "url": "https://www.utilitydive.com/",
+        "type": "INDUSTRY_JOURNALISM",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "Follow reported orders, permits and policy to original issuer/regulator; sponsor content is separate."
+      },
+      "official_decisions": {
+        "id": "FERC_NEWS",
+        "url": "https://www.ferc.gov/news-events/news/news-releases-headlines",
+        "type": "OFFICIAL_REGULATOR",
+        "access": "INDEX_READABLE_2026-10-05"
+      }
+    },
+    {
+      "sector": "shipping_logistics",
+      "primary": {
+        "id": "BALTIC_PUBLIC",
+        "url": "https://www.balticexchange.com/en/news-and-events/market-information.html",
+        "type": "EXCHANGE_MARKET_INFORMATION",
+        "access": "PUBLIC_INDEX_READABLE_2026-10-05; FULL_NUMERIC_DATA_UNVERIFIED",
+        "limits": "Do not assume paid rate history, tanker fixtures, AIS or broad vessel coverage."
+      },
+      "independent": {
+        "id": "FREIGHTWAVES",
+        "url": "https://www.freightwaves.com/",
+        "type": "INDUSTRY_JOURNALISM",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "American Shipper/logistics coverage does not establish tanker rates; SONAR data not subscribed; commercial incentives disclosed."
+      }
+    },
+    {
+      "sector": "fintech_payments",
+      "primary": {
+        "id": "PAYMENTS_CANADA",
+        "url": "https://www.payments.ca/insights/news-research",
+        "type": "PAYMENT_SYSTEM_OPERATOR_RESEARCH",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "Canadian geography and measurement periods; provider/industry interests; survey methodology must be read."
+      },
+      "independent": {
+        "id": "FINEXTRA",
+        "url": "https://www.finextra.com/",
+        "type": "INDUSTRY_JOURNALISM",
+        "access": "INDEX_READABLE_2026-10-05; /news URL FAILED, homepage verified",
+        "limits": "News, contributed blogs, partner content and issuer releases have different independence; preserve original publication."
+      },
+      "official_decisions": {
+        "id": "FTC_PRESS",
+        "url": "https://www.ftc.gov/news-events/news/press-releases",
+        "type": "OFFICIAL_REGULATOR",
+        "access": "INDEX_READABLE_2026-10-05"
+      }
+    },
+    {
+      "sector": "consumer_retail",
+      "primary": {
+        "id": "NRF_RESEARCH",
+        "url": "https://nrf.com/research-insights",
+        "type": "INDUSTRY_ASSOCIATION_RESEARCH",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "Industry advocacy; survey versus transaction data; method, denominator and sponsor matter."
+      },
+      "independent": {
+        "id": "RETAIL_DIVE",
+        "url": "https://www.retaildive.com/",
+        "type": "INDUSTRY_JOURNALISM",
+        "access": "INDEX_READABLE_2026-10-05",
+        "limits": "Follow retailer/brand facts to originals; sponsored material does not establish organic demand."
+      }
+    }
+  ],
+  "sector_index_cadence": "Four independent sector index checks at 08:00; incremental 11:00/15:00 only if new publication or due case. Reuse evidence. Relevant primary counterpart check follows material leads.",
+  "benchmark": {
+    "selection_rule_version": "first-four-unique-origins-per-stratum-v1",
+    "freeze_before": "2026-10-05T15:00:00-04:00",
+    "first_window_start": "2026-10-05T15:00:00-04:00",
+    "first_window_end": "2026-10-09T14:00:00-04:00",
+    "first_audit_at": "2026-10-09T15:00:00-04:00",
+    "target_events": 20,
+    "events_per_stratum": 4,
+    "strata": [
+      {
+        "family": "issuer_filings",
+        "indexes": [
+          "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&count=100&output=atom",
+          "https://www.sedarplus.ca/"
+        ]
+      },
+      {
+        "family": "official_decisions",
+        "indexes": [
+          "https://www.fda.gov/news-events/press-announcements",
+          "https://www.ftc.gov/news-events/news/press-releases",
+          "https://www.ferc.gov/news-events/news/news-releases-headlines"
+        ]
+      },
+      {
+        "family": "non_ai_industry",
+        "indexes": [
+          "https://www.eia.gov/todayinenergy/",
+          "https://www.freightwaves.com/",
+          "https://www.payments.ca/insights/news-research"
+        ]
+      },
+      {
+        "family": "product_consumer",
+        "indexes": [
+          "https://www.retaildive.com/",
+          "https://nrf.com/research-insights",
+          "https://news.ycombinator.com/shownew"
+        ]
+      },
+      {
+        "family": "macro_policy",
+        "indexes": [
+          "https://www.federalreserve.gov/newsevents/pressreleases.htm",
+          "https://www.bankofcanada.ca/press/"
+        ]
+      }
+    ],
+    "limits": "Fixed accessible-index sample; source outages and missing histories are unscorable. No global coverage, population adoption or returns claim."
+  }
+}

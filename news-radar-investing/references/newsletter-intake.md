@@ -174,3 +174,6 @@ First issue registered under this contract:
 - Canonical URL: `https://newsletter.semianalysis.com/p/computation-and-data-movement-for`
 
 Treat this as the first live regression case for issue identity, claim extraction, RWC routing, and fallback-aware deduplication. Do not hard-code its claims as permanent architecture truth; later evidence may support, refine, or reject them.
+## October 5 source-reliability integration
+
+Registered non-newsletter sector indexes are governed by source-reliability-register.json: power/energy, shipping/logistics, fintech/payments and consumer/retail. They supplement the existing Expert / Industry lane using their bounded index cadence; do not imply new Tier-A newsletter subscriptions or full-body access. SemiAnalysis issue identity and independent claim verification remain unchanged.

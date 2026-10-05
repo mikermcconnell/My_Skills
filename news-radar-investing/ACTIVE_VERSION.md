@@ -4,7 +4,7 @@
 active_version: 3
 status: ACTIVE
 activated_at: 2026-08-27
-analytical_revision: 2026-09-28-capital-allocation-integration
+analytical_revision: 2026-10-05-source-reliability
 routine_publisher: Investment Firm — Radar
 routine_task_count: 1
 scan_cadence: 08:00, 11:00, 15:00 America/Toronto, daily including weekends
@@ -28,6 +28,10 @@ google_trends_connection: news-radar-investing/references/google-trends-connecti
 run_contract: news-radar-investing/references/v3-run-contract.md
 source_routing_contract: news-radar-investing/references/source-and-routing-rules.md
 source_feed_contract: news-radar-investing/references/primary-source-feed-map.md
+source_reliability_contract: news-radar-investing/references/source-reliability.md
+source_reliability_register: news-radar-investing/references/source-reliability-register.json
+internal_after_hours_intake: existing Portfolio Checks, 16:15 and 19:15 Toronto weekdays
+capture_audit: existing Friday 15:00 calibration; first live window Oct 5 15:00 to Oct 9 14:00
 emerging_signal_contract: news-radar-investing/references/emerging-signal-lens.md
 macro_cross_asset_contract: news-radar-investing/references/macro-cross-asset-lens.md
 newsletter_intake_contract: news-radar-investing/references/newsletter-intake.md
